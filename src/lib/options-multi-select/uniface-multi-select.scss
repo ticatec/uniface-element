@@ -1,0 +1,58 @@
+.multiple {
+
+  height: 38px;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+
+  .uniface-common-editor {
+    height: 38px;
+  }
+
+  .option-field {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 4px;
+  }
+
+  &.disabled {
+    color: var(--uniface-disabled-color, #7f7f7f);
+
+    .uniface-common-editor {
+      &:focus-within {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+
+  .option-item {
+    position: relative;
+    display: block;
+    padding: 2px 4px;
+    flex: 0 0 auto;
+
+    i {
+      position: absolute;
+      background-color: #ffffff;
+      color: #9d9d9d;
+      left: -3px;
+      top: -3px;
+      font-size: 12px;
+      text-align: center;
+      height: 15px;
+      width: 15px;
+      border-radius: 8px;
+      display: none;
+      cursor: pointer;
+    }
+
+    &:hover {
+      i {
+        display: block;
+      }
+    }
+  }
+}

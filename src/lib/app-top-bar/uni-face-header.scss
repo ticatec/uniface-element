@@ -1,0 +1,51 @@
+.uniface-header {
+  background-color: var(--uniface-primary-color, #42A5F5);
+  color: var(--uniface-primary-text-color, #ffffff);
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  justify-items: center;
+  padding: 0.5em 0.5em;
+  .bar-home, .bar-right {
+    flex: 0 0 auto;
+    align-self: center;
+  }
+
+  .bar-home {
+    display: flex;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 22px;
+
+    &:hover {
+      border-color: #ffffff;
+    }
+
+    &:active {
+      top: 1px;
+
+    }
+  }
+
+  .title {
+    flex: 1 1 auto;
+    overflow: hidden;
+    align-self: center;
+
+    span {
+      padding: 0 4px;
+      font-size: 24px;
+    }
+  }
+
+}

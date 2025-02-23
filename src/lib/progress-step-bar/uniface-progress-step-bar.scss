@@ -1,0 +1,165 @@
+.uniface-progress-step-container {
+  position: relative;
+  width: 100%;
+  padding: 12px 8px;
+  box-sizing: border-box;
+  background-color: var(--uniface-progress-step-bar-bg, #ffffff);
+
+  .container-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    background-color: inherit;
+    z-index: 2;
+  }
+
+  .progress-step-block {
+    flex: 1 1;
+    min-width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    color: var(--uniface-progress-step-pending-color, #B3BCCA);
+    margin-left: 8px;
+    background-color: inherit;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    background: linear-gradient(to bottom, transparent 12px,
+            var(--uniface-progress-step-pending-color, #B3BCCA) 12px,
+            var(--uniface-progress-step-pending-color, #B3BCCA) 14px,
+            transparent 14px,
+    );
+
+
+    .step-indicator {
+      flex: 0 0 auto;
+      padding-right: 12px;
+      margin-left: 12px;
+      background-color: var(--uniface-progress-step-bar-bg, #ffffff);
+
+      span {
+        display: inline-block;
+        text-align: center;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        border-radius: 50%;
+        border: 1px solid var(--uniface-progress-step-pending-color, #B3BCCA);
+        font-size: 1.1em;
+      }
+    }
+
+    &.completed {
+      background: linear-gradient(to bottom, transparent 12px,
+              var(--uniface-progress-step-completed-icon-color, #0061FF) 12px,
+              var(--uniface-progress-step-completed-icon-color, #0061FF) 14px,
+              transparent 14px,
+      );
+
+      .step-indicator {
+        span {
+          border: 1px solid var(--uniface-progress-step-completed-icon-color, #0061FF);
+        }
+      }
+    }
+
+    .step-text {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .step-topic {
+      width: 100%;
+      display: inline-block;
+      background-color: transparent;
+      line-height: 24px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      span {
+        background-color: var(--uniface-progress-step-bar-bg, #ffffff);
+        padding-right: 6px;
+      }
+    }
+
+    &.processing {
+      .step-topic {
+        color: var(--uniface-progress-step-processing-color, #0061FF);
+      }
+
+      .step-indicator {
+        span {
+          background-color: var(--uniface-progress-step-processing-color, #0061FF);
+          color: var(--uniface-progress-step-bar-bg, #ffffff);
+        }
+      }
+    }
+
+    &.completed {
+      .step-topic {
+        color: var(--uniface-progress-step-completed-color, #374151);
+      }
+
+      .step-indicator {
+        span {
+          background-color: var(--uniface-progress-step-completed-icon-bg, #0061FF1A);
+          color: var(--uniface-progress-step-completed-icon-color, #0061FF);
+        }
+      }
+    }
+
+    &:last-child {
+      background: unset;
+    }
+  }
+
+  &:first-child {
+    .progress-step-block {
+      .step-indicator {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &.vertical {
+    height: 100%;
+
+    .container-panel {
+      flex-direction: column;
+      height: 100%;
+    }
+
+
+    .progress-step-block {
+      margin-left: 0;
+      background: linear-gradient(to right, transparent 12px, var(--uniface-progress-step-pending-color, #B3BCCA) 14px,
+              var(--uniface-progress-step-pending-color, #B3BCCA) 14px, transparent 13px);
+
+      &.completed {
+        background: linear-gradient(to right, transparent 12px, var(--uniface-progress-step-completed-icon-color, #0061FF) 14px,
+                var(--uniface-progress-step-completed-icon-color, #0061FF) 14px, transparent 13px);
+      }
+
+      .step-indicator {
+        background-color: transparent;
+
+        & > div {
+          background: var(--uniface-progress-step-bar-bg, #ffffff);
+          padding: 4px 0;
+        }
+      }
+
+      &:last-child {
+        background: unset;
+        .step-indicator {
+          background: unset;
+        }
+      }
+    }
+  }
+}

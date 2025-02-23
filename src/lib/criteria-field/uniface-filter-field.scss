@@ -1,0 +1,93 @@
+.uniface-filter-field {
+
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  padding: 0 4px;
+  width: 100px;
+  vertical-align: top;
+
+  &.x15 {
+    width: 150px;
+  }
+
+  &.x20 {
+    width: 200px;
+  }
+
+  &.x25 {
+    width: 250px;
+  }
+
+  &.x30 {
+    width: 300px;
+  }
+
+  &.x35 {
+    width: 350px;
+  }
+
+  &.x40 {
+    width: 400px;
+  }
+  
+
+  .field-label {
+    color: var(--uniface-primary-label-color, #333333);
+    font-size: 0.9em;
+    font-weight: 500;
+    box-sizing: border-box;
+  }
+
+  &.vertical {
+    &>div {
+      width: 100%;
+      position: relative;
+      text-align: left;
+    }
+
+    .field-label {
+      width: 100%;
+      padding: 0 4px 4px 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .field {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-items: center;
+      width: 100%;
+      &>div {
+        width: 100%;
+      }
+    }
+  }
+
+  &.horizontal {
+    &>div {
+      display: grid;
+      width: 100%;
+      position: relative;
+      grid-template-columns: auto auto;
+      align-items: center;
+      box-sizing: border-box;
+
+      .field-label {
+        text-align: right;
+        width: 80px;
+        padding-right: 4px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .field {
+        position: relative;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+}

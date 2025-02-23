@@ -1,0 +1,1 @@
+export type OnRowCountChanged = (rows: number) => void;

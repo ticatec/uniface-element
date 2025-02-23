@@ -1,0 +1,1 @@
+export type ShowHint = (src: Element, text: any, x: number, y: number) => void;

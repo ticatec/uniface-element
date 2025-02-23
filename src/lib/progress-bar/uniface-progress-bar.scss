@@ -1,0 +1,53 @@
+.uniface-progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .progress-bar {
+    background: var(--uniface-progress-bar-bg, #E2E8F0);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: width 0.5s ease;
+  }
+
+  .progress-fill {
+    background: var(--uniface-progress-bar-color, #22BDFF);
+    height: 100%;
+    transition: width 0.5s ease;
+  }
+
+  .progress-text {
+    font-size: 1.0em;
+    color: var(--uniface-progress-bar-text-color, #374151);
+  }
+
+  &.successful {
+    .progress-fill {
+      background-color: var(--uniface-progress-bar-success-color, #2DC071);
+    }
+
+    .progress-text {
+      color: var(--uniface-progress-bar-success-color, #2DC071);
+    }
+  }
+
+  &.failure {
+    .progress-fill {
+      background-color: var(--uniface-progress-bar-failure-color, #FF685B);
+    }
+
+    .progress-text {
+      color: var(--uniface-progress-bar-failure-color, #FF685B);
+    }
+  }
+
+  &.canceled {
+    .progress-fill {
+      background-color: var(--uniface-progress-bar-canceled-color, #FFC53D);
+    }
+
+    .progress-text {
+      color: var(--uniface-progress-bar-canceled-color, #FFC53D);
+    }
+  }
+}

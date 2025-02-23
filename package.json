@@ -1,0 +1,334 @@
+{
+  "name": "@ticatec/uniface-web",
+  "version": "0.1.2",
+  "description": "uniface web components",
+  "scripts": {
+    "dev": "vite dev",
+    "build:css": "sass ./src/lib/ticatec-uniface-web.scss:./src/lib/ticatec-uniface-web.css --no-source-map",
+    "build": "npm run build:css && svelte-kit sync && svelte-package",
+    "package": "svelte-kit sync && svelte-package && publint",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "publish:public": "npm run build && npm publish --access public"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./ticatec-uniface-web.css": {
+      "default": "./dist/ticatec-uniface-web.css"
+    },
+    "./app-layout": {
+      "types": "./dist/app-layout/index.d.ts",
+      "import": "./dist/app-layout/index.js"
+    },
+    "./app-layout/SidebarLayout": {
+      "types": "./dist/app-layout/SidebarLayout.svelte.d.ts",
+      "import": "./dist/app-layout/SidebarLayout.svelte"
+    },
+    "./app-layout/HeaderLayout": {
+      "types": "./dist/app-layout/HeaderLayout.svelte.d.ts",
+      "import": "./dist/app-layout/HeaderLayout.svelte"
+    },
+    "./app-layout/ClassicLayout": {
+      "types": "./dist/app-layout/ClassicLayout.svelte.d.ts",
+      "import": "./dist/app-layout/ClassicLayout.svelte"
+    },
+    "./accordion": {
+      "types": "./dist/accordion/index.d.ts",
+      "import": "./dist/accordion/index.js"
+    },
+    "./accordion/AccordionItem": {
+      "types": "./dist/accordion/AccordionItem.d.ts"
+    },
+    "./app-top-bar": {
+      "types": "./dist/app-top-bar/index.d.ts",
+      "import": "./dist/app-top-bar/index.js"
+    },
+    "./attachment-files": {
+      "types": "./dist/attachment-files/index.d.ts",
+      "import": "./dist/attachment-files/index.js"
+    },
+    "./box": {
+      "types": "./dist/box/index.d.ts",
+      "svelte": "./dist/box/Box.svelte",
+      "import": "./dist/box/index.js"
+    },
+    "./button": {
+      "types": "./dist/button/index.d.ts",
+      "import": "./dist/button/index.js"
+    },
+    "./button/Button": {
+      "types": "./dist/button/Button.svelte.d.ts",
+      "import": "./dist/button/Button.svelte"
+    },
+    "./button/IconButton": {
+      "types": "./dist/button/IconButton.svelte.d.ts",
+      "import": "./dist/button/IconButton.svelte"
+    },
+    "./button/TextButton": {
+      "types": "./dist/button/TextButton.svelte.d.ts",
+      "import": "./dist/button/TextButton.svelte"
+    },
+    "./button/ButtonBar": {
+      "types": "./dist/button/ButtonBar.svelte.d.ts",
+      "import": "./dist/button/ButtonBar.svelte"
+    },
+    "./calendar": {
+      "types": "./dist/calendar/index.d.ts",
+      "import": "./dist/calendar/index.js"
+    },
+    "./card": {
+      "types": "./dist/card/index.d.ts",
+      "import": "./dist/card/index.js"
+    },
+    "./card/CardAction": {
+      "types": "./dist/card/index.d.ts"
+    },
+    "./cascade-options-select": {
+      "types": "./dist/cascade-options-select/index.d.ts",
+      "import": "./dist/cascade-options-select/index.js"
+    },
+    "./checkbox": {
+      "types": "./dist/checkbox/index.d.ts",
+      "import": "./dist/checkbox/index.js"
+    },
+    "./common/FullscreenOverlay": {
+      "types": "./dist/common/FullscreenOverlay.svelte.d.ts",
+      "import": "./dist/common/FullscreenOverlay.svelte"
+    },
+    "./common-words-text-editor": {
+      "types": "./dist/common-words-text-editor/index.d.ts",
+      "import": "./dist/common-words-text-editor/index.js"
+    },
+    "./context-menu": {
+      "types": "./dist/context-menu/index.d.ts",
+      "import": "./dist/context-menu/index.js"
+    },
+    "./date-picker": {
+      "types": "./dist/date-picker/index.d.ts",
+      "import": "./dist/date-picker/index.js"
+    },
+    "./data-table": {
+      "types": "./dist/data-table/index.d.ts",
+      "import": "./dist/data-table/index.js"
+    },
+    "./criteria-field": {
+      "types": "./dist/criteria-field/index.d.ts",
+      "import": "./dist/criteria-field/index.js"
+    },
+    "./date-range": {
+      "types": "./dist/date-range/index.d.ts",
+      "import": "./dist/date-range/index.js"
+    },
+    "./dialog": {
+      "types": "./dist/dialog/index.d.ts",
+      "import": "./dist/dialog/index.js"
+    },
+    "./dialog/DialogBoard": {
+      "types": "./dist/dialog/DialogBoard.svelte.d.ts",
+      "import": "./dist/dialog/DialogBoard.svelte"
+    },
+    "./drawer": {
+      "types": "./dist/drawer/index.d.ts",
+      "import": "./dist/drawer/index.js"
+    },
+    "./form-field": {
+      "types": "./dist/form-field/index.d.ts",
+      "import": "./dist/form-field/index.js"
+    },
+    "./flex-form": {
+      "types": "./dist/form-panel/flex-form/index.d.ts",
+      "import": "./dist/form-panel/flex-form/index.js"
+    },
+    "./flex-row-form": {
+      "types": "./dist/form-panel/flex-row-form/index.d.ts",
+      "import": "./dist/form-panel/flex-row-form/index.js"
+    },
+    "./grid-form": {
+      "types": "./dist/form-panel/grid-form/index.d.ts",
+      "import": "./dist/form-panel/grid-form/index.js"
+    },
+    "./group-box/group-check-box": {
+      "types": "./dist/group-box/group-check-box/index.d.ts",
+      "import": "./dist/group-box/group-check-box/index.js"
+    },
+    "./group-box/group-radio-box": {
+      "types": "./dist/group-box/group-radio-box/index.d.ts",
+      "import": "./dist/group-box/group-radio-box/index.js"
+    },
+    "./icon": {
+      "types": "./dist/icon/index.d.ts",
+      "import": "./dist/icon/index.js"
+    },
+    "./image-files": {
+      "types": "./dist/image-files/index.d.ts",
+      "import": "./dist/image-files/index.js"
+    },
+    "./indicator": {
+      "types": "./dist/indicator/index.d.ts",
+      "import": "./dist/indicator/index.js"
+    },
+    "./indicator/IndicatorBoard": {
+      "types": "./dist/indicator/IndicatorBoard.svelte.d.ts",
+      "import": "./dist/indicator/IndicatorBoard.svelte"
+    },
+    "./input-options-select": {
+      "types": "./dist/input-options-select/index.d.ts",
+      "import": "./dist/input-options-select/index.js"
+    },
+    "./list-box": {
+      "types": "./dist/list-box/index.d.ts",
+      "import": "./dist/list-box/index.js"
+    },
+    "./lookup-editor": {
+      "types": "./dist/lookup-editor/index.d.ts",
+      "import": "./dist/lookup-editor/index.js"
+    },
+    "./message-box": {
+      "types": "./dist/message-box/index.d.ts",
+      "import": "./dist/message-box/index.js"
+    },
+    "./memo-editor": {
+      "types": "./dist/memo-editor/index.d.ts",
+      "import": "./dist/memo-editor/index.js"
+    },
+    "./navigator": {
+      "types": "./dist/navigator/index.d.ts",
+      "import": "./dist/navigator/index.js"
+    },
+    "./navigator/NavItemStatus": {
+      "types": "./dist/navigator/NavItemStatus.d.ts",
+      "import": "./dist/navigator/NavItemStatus.js"
+    },
+    "./number-editor": {
+      "types": "./dist/number-editor/index.d.ts",
+      "import": "./dist/number-editor/index.js"
+    },
+    "./number-range": {
+      "types": "./dist/number-range/index.d.ts",
+      "import": "./dist/number-range/index.js"
+    },
+    "./options-select": {
+      "types": "./dist/options-select/index.d.ts",
+      "import": "./dist/options-select/index.js"
+    },
+    "./options-multi-select": {
+      "types": "./dist/options-multi-select/index.d.ts",
+      "import": "./dist/options-multi-select/index.js"
+    },
+    "./page": {
+      "types": "./dist/page/index.d.ts",
+      "import": "./dist/page/index.js"
+    },
+    "./pagination": {
+      "types": "./dist/pagination/index.d.ts",
+      "import": "./dist/pagination/index.js"
+    },
+    "./pagination-panel": {
+      "types": "./dist/pagination-panel/index.d.ts",
+      "import": "./dist/pagination-panel/index.js"
+    },
+    "./progress-bar": {
+      "types": "./dist/progress-bar/index.d.ts",
+      "import": "./dist/progress-bar/index.js"
+    },
+    "./progress-step-bar": {
+      "types": "./dist/progress-step-bar/index.d.ts",
+      "import": "./dist/progress-step-bar/index.js"
+    },
+    "./radio-button": {
+      "types": "./dist/radio-button/index.d.ts",
+      "import": "./dist/radio-button/index.js"
+    },
+    "./search-box": {
+      "types": "./dist/search-box/index.d.ts",
+      "import": "./dist/search-box/index.js"
+    },
+    "./separator": {
+      "types": "./dist/separator/index.d.ts",
+      "import": "./dist/separator/index.js"
+    },
+    "./split": {
+      "types": "./dist/split/index.d.ts",
+      "import": "./dist/split/index.js"
+    },
+    "./switch": {
+      "types": "./dist/switch/index.d.ts",
+      "import": "./dist/switch/index.js"
+    },
+    "./tabs": {
+      "types": "./dist/tabs/index.d.ts",
+      "import": "./dist/tabs/index.js"
+    },
+    "./tag": {
+      "types": "./dist/tag/index.d.ts",
+      "import": "./dist/tag/index.js"
+    },
+    "./text-editor": {
+      "types": "./dist/text-editor/index.d.ts",
+      "import": "./dist/text-editor/index.js"
+    },
+    "./toast": {
+      "types": "./dist/toast/index.d.ts",
+      "import": "./dist/toast/index.js"
+    },
+    "./toast/ToastBoard": {
+      "types": "./dist/toast/ToastBoard.svelte.d.ts",
+      "import": "./dist/toast/ToastBoard.svelte"
+    },
+    "./tree-view": {
+      "types": "./dist/tree-view/index.d.ts",
+      "import": "./dist/tree-view/index.js"
+    },
+    "./time-editor": {
+      "types": "./dist/time-editor/index.d.ts",
+      "import": "./dist/time-editor/index.js"
+    },
+    "./unit-number-editor": {
+      "types": "./dist/unit-number-editor/index.d.ts",
+      "import": "./dist/unit-number-editor/index.js"
+    },
+    "./utils": {
+      "types": "./dist/common/utils.d.ts",
+      "import": "./dist/common/utils.js"
+    }
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^4.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/package": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "publint": "^0.3.2",
+    "sass": "^1.57.1",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "svelte-preprocess": "^6.0.3",
+    "tslib": "^2.3.1",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.11"
+  },
+  "author": "Henry Feng",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@ticatec/uniface-icons": "^0.2.0",
+    "dayjs": "^1.11.10",
+    "svelte-portal": "^2.2.1"
+  }
+}

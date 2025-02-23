@@ -1,0 +1,276 @@
+:root {
+  --uniface-primary-color: #0061FF;
+  --uniface-secondary-color: #22BDFF;
+  --uniface-third-color: #2DC071;
+  --uniface-forth-color: #FAD85D;
+
+  --uniface-h1-text-color: #07123C;
+  --uniface-h2-text-color: #374151;
+  --uniface-h3-text-color: #6B7280;
+  --uniface-h4-text-color: #B3BCCA;
+
+  --uniface-hint-color: #0061FF;
+  --uniface-dangerous-color: #FF685B;
+  --uniface-warning-color: #FFC53D;
+  --uniface-successful-color: #2DC071;
+
+  --uniface-primary-background-color: #FFFFFF;
+  --uniface-secondary-border-color: #E2E8F0;
+
+
+  --uniface-text-h1-size: 38px;
+  --uniface-text-h1-line-height: 46px;
+  --uniface-text-h2-size: 30px;
+  --uniface-text-h2-line-height: 40px;
+  --uniface-text-h3-size: 24px;
+  --uniface-text-h3-line-height: 32px;
+  --uniface-text-h4-size: 20px;
+  --uniface-text-h4-line-height: 26px;
+  --uniface-text-h5-size: 16px;
+  --uniface-text-h5-line-height: 22px;
+
+  --uniface-primary-text-color: #ffffff;
+
+
+  --uniface-primary-hover-color: #298DEF;
+
+  --uniface-active-editor-border-color: #42A5F5;
+  --uniface-invalid-editor-border-color: #ff3e00;
+
+  /*定义全局变量*/
+
+
+  /*定义全局按钮的颜色*/
+  --uniface-plain-background-color: #f0f0f0;
+  --uniface-plain-border-color: #f0f0f0;
+  --uniface-plain-color: #333333;
+  --uniface-plain-disabled-background-color: #f0f0f070;
+  --uniface-plain-disabled-border-color: #f0f0f070;
+  --uniface-plain-disabled-color: #33333370;
+  --uniface-plain-hover-background-color: #ecf5ff;
+  --uniface-plain-hover-border-color: #b3d8ff;
+  --uniface-plain-hover-color: #42A5F5;
+
+  --uniface-text-button-color: #42A5F5;
+  --uniface-text-button-hover-color: #1e648d;
+
+  --uniface-active-border-color: #42A5F5;
+  --uniface-hover-item-background: #f7f7f7;
+  --uniface-hover-item-color: #42A5F5;
+
+
+  --uniface-inside-border-color: #f0f0f0;
+
+  --uniface-dropdown-color: #e1e1e1;
+  --uniface-secondary-dropdown-color: #b7b7b7;
+
+  --uniface-navigator-menu-hover-background-color: #90CAF9;
+  --uniface-navigator-menu-hover-color: #333333;
+
+  --uniface-navigator-menu-active-background-color: #81D4FA;
+  --uniface-navigator-menu-active-color: #333333;
+
+  //全局颜色定义
+  --uniface-application-bg: #ffffff;
+  --uniface-page-margin-bg: #F8FAFC;
+  --uniface-primary-hover-text-color: #298DFF;
+  --uniface-primary-active-text-weight: 600;
+  --uniface-active-label-text-color: #0061FF;
+  --uniface-primary-border-color: #E2E8F0;
+  --uniface-mask-overlay-bg: #f0f0f0f0;
+  --uniface-default-page-content-bg: #ffffff;
+  --uniface-default-text-color: #374151;
+  --uniface-default-text-hover-color: #298DFF;
+  --uniface-default-active-text-color: #0061FF;
+  --uniface-default-hover-bg: #42A5F51A;
+  --uniface-default-active-border-color: #0061FF80;
+
+  //calendar
+  --uniface-calendar-today-border-color: #298DFF30;
+
+  //按钮颜色定义
+  --uniface-button-plain-text-color: #374151;
+  --uniface-button-plain-disabled-color: #B3BCCA;
+
+  --uniface-text-button-plain-hover-color: #374151B0;
+
+  --uniface-button-primary-background-color: #42A5F5;
+  --uniface-button-primary-border-color: #42A5F5;
+  --uniface-button-primary-text-color: #ffffff;
+  --uniface-button-primary-hover-color: #64B5F6;
+  --uniface-button-primary-active-color: #42A5F5;
+  --uniface-text-button-primary-hover-color: #42A5F5B0;
+
+  --uniface-button-secondary-background-color: #FF685B;
+  --uniface-button-secondary-border-color: #FF685B;
+  --uniface-button-secondary-text-color: #ffffff;
+  --uniface-button-secondary-hover-color: #FF7875;
+  --uniface-button-secondary-active-color: #FF4D4F;
+  --uniface-text-button-secondary-hover-color: #FF685BB0;
+
+
+  --uniface-button-third-background-color: #2DC071;
+  --uniface-button-third-border-color: #2DC071;
+  --uniface-button-third-text-color: #ffffff;
+  --uniface-button-third-hover-color: #2DD057;
+  --uniface-button-third-active-color: #2DC071;
+  --uniface-text-button-third-hover-color: #2DC071B0;
+
+  --uniface-button-forth-background-color: #FAD85D;
+  --uniface-button-forth-border-color: #FAD85D;
+  --uniface-button-forth-text-color: #374151;
+  --uniface-button-forth-hover-color: #FAE877;
+  --uniface-button-forth-active-color: #FAD85D;
+  --uniface-text-button-forth-hover-color: #FAD85DB0;
+
+  --uniface-disabled-button-color: #F1F5F9;
+  --uniface-disabled-button-border-color: #E2E8F0;
+  --uniface-disabled-button-text-color: #B3BCCA;
+
+
+
+  //输入框内的清除按钮
+
+  --uniface-editor-clean-icon-bg: #B3BCCA;
+  --uniface-editor-clean-icon-color: #ffffff;
+
+
+  //编辑器组件
+  --uniface-editor-text-color: #374151;
+  --uniface-editor-line-height: 16px;
+  --uniface-editor-padding: 0 4px;
+  --uniface-editor-border-color: #E2E8F0;
+  --uniface-editor-outlined-disabled-backgournd-color: #F1F5F9;
+  --uniface-editor-outlined-disabled-text-color: #B3BCCA;
+  --uniface-editor-outlined-radius: 4px;
+  --uniface-editor-outlined-active-border-color: #298DFF;
+  --uniface-editor-filled-backgournd-color: #F8FAFC;
+  --uniface-editor-action-icon-color: #ffffff;
+  --uniface-editor-action-icon-hover-color: #374151;
+  --uniface-editor-action-icon-background-color: #B3BCCA;
+  --uniface-editor-indicator-color: #B3BCCA;
+  --uniface-editor-inline-action-icon-color: #37415170;
+  --uniface-editor-inline-action-icon-hover-color: #374151;
+  --uniface-editor-inline-action-icon-hover-bg: #42A5F51A;
+
+  //多行编辑器
+  --uniface-memo-padding: 6px 8px;
+
+
+  //tab组件的样式预定义
+
+  --uniface-dialog-border-color: #0000000D;
+  --uniface-dialog-action-button-hover-background-color: #E2E8F0;
+  --uniface-dialog-action-button-color: #6B7280;
+
+  //messagebox与定义
+  --uniface-dialog-topic-text-color: #07123C;
+
+  //toast
+  --uniface-toast-text-color: #ffffff;
+  --uniface-toast-error-background-color: #FF685B;
+  --uniface-toast-info-background-color: #0061FF;
+  --uniface-toast-successful-background-color: #2DC071;
+
+  //progress bar
+  --uniface-progress-bar-color: #22BDFF;
+  --uniface-progress-bar-text-color: #374151;
+  --uniface-progress-bar-success-color: #2DC071;
+  --uniface-progress-bar-failure-color: #FF685B;
+  --uniface-progress-bar-canceled-color: #FFC53D;
+  --uniface-progress-bar-bg: #E2E8F0;
+
+  //progress step bar
+  --uniface-progress-step-bar-bg: #FFFFFF;
+  --uniface-progress-step-processing-color: #0061FF;
+  --uniface-progress-step-pending-color: #B3BCCA;
+  --uniface-progress-step-completed-color: #374151;
+  --uniface-progress-step-completed-icon-bg: #0061FF1A;
+  --uniface-progress-step-completed-icon-color: #0061FF;
+
+  --uniface-tabs-header-background-color: #FFFFFF;
+  --uniface-tab-active-text-color: #0061FF;
+  --uniface-tab-active-background-color: #FFFFFF;
+  --uniface-tab-inactive-text-color: #374151;
+  --uniface-tab-inactive-background-color: #FFFFFF;
+  --uniface-tab-border-color: #E2E8F0;
+  --uniface-tab-bg: #F8FAFC;
+  --uniface-tab-action-background: #FFFFFF;
+  --uniface-tab-hover-text-color: #298DFF;
+  --uniface-tab-header-radius: 4px;
+
+  --uniface-navigator-background-color: #F8FAFC;
+  --uniface-navigator-vertical-padding: 16px;
+  --uniface-navigator-completed-text-color: #374151;
+  --uniface-navigator-not-start-text-color: #6B7280;
+  --uniface-navigator-warning-dot-color: #C62828;
+
+  //可以拖动的分界线
+  --uniface-dividing-line-bg: #E2E8F0;
+
+  //卡片
+  --uniface-card-primary-text-color: #374151;
+  --uniface-card-border-color: #E2E8F0;
+  --uniface-card-hover-border-color: #E2E8F0;
+  --uniface-card-divid-border-color: #42A5F570;//卡片内部分割线
+  --uniface-card-header-height: 54px;
+  --uniface-card-header-padding: 0 24px;
+  --uniface-card-icon-color: #374151;
+  --uniface-card-icon-hover-color: #37415170;
+  --uniface-card-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  //Accordion
+  --uniface-accordion-header-line-height: 24px;
+  --uniface-accordion-compact-header-line-height: 16px;
+  --uniface-accordion-header-padding: 8px 12px;
+  --uniface-accordion-compact-header-padding: 4px 6px;
+  --uniface-accordion-title-bg: #F8FAFC;
+  --uniface-accordion-title-hober-bg: #F8FAFCB0;
+  --uniface-accordion-header-border-color: #CBD5E1;
+
+  //分割符
+  --uniface-separator-color: #E2E8F0;
+  --uniface-separator-margin: 2px;
+
+  //page
+  --uniface-page-border-radius: 12px;
+  --uniface-page-header-comment-color: #6B7280;
+  --uniface-page-box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  --uniface-page-margin-color: #F8FAFD;
+  --uniface-page-margin-size: 12px;
+
+  //List
+  --uniface-listbox-separator-color: #F0F0F0;
+  --uniface-list-box-hover-bg: #FFFFE1;
+  --uniface-list-box-selected-bg: #b1c8f6;
+
+  --uniface-data-table-header-hight: 48px;
+  --uniface-data-table-separator-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  --uniface-data-table-spearator-color: #f0f0f0;
+  --uniface-data-table-header-separator-color: #CBD5E1;
+  --uniface-data-table-alter-row-bg: #f7f7f7;
+  --uniface-data-table-header-bg: #F8FAFC;
+  --uniface-data-table-shadow-gap: 2px;
+
+  --uniface-data-table-inline-row-panel-border: 1px solid #F8FAFC;
+  --uniface-data-table-inline-row-panel-bg: #F1F5F9;
+  --uniface-scroll-color: #e1e1e180;
+  --uniface-data-table-inline-border-color: #e1e1e180;
+
+  //Trewview
+  --uniface-treeview-icon-color: #8AA7FF;
+  --uniface-treeview-icon-hover-color: #0057FE;
+  --uniface-treeview-item-bg: #EEF4FF;
+  --uniface-treeview-item-selected-color: #0061FF;
+
+  //弹出提示
+  --uniface-popup-hint-bg: #FFFFE1;
+  --uniface-popup-hint-color: #374151;
+
+  --uniface-context-menu-bg: #ffffff;
+  --uniface-context-menu-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+
+
+
+}

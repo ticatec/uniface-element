@@ -1,0 +1,27 @@
+.uniface-context-menu {
+  position: absolute;
+  color: var(--uniface-default-text-color, #374151);
+  background-color: var(--uniface-context-menu-bg, #ffffff);
+  border: 1px solid var(--uniface-primary-border-color, #E2E8F0);
+  box-shadow: var(--uniface-context-menu-box-shadow);
+  z-index: 1000;
+  padding: 6px 8px;
+  min-width: 150px;
+  min-height: 100px;
+
+  &.visible {
+    display: block;
+  }
+
+  .menu-item {
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--uniface-default-hover-bg, #42A5F51A);
+      border-radius: 8px;
+    }
+  }
+}
+
+

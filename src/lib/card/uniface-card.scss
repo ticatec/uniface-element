@@ -1,0 +1,94 @@
+.uniface-card {
+
+  display: block;
+
+  > div {
+    display: block;
+    width: 240px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    position: relative;
+    background-color: var(--uniface-card-bg, #ffffff);
+    flex-direction: row;
+    border: 1px solid var(--uniface-card-border-color, #E2E8F0);
+
+    &:hover {
+      border-color: var(--uniface-card-divid-border-color, #42A5F570);
+    }
+
+    .card-header {
+      height: var(--uniface-card-header-height, 54px);
+      border-bottom: 1px solid var(--uniface-card-inside-border-color, #E2E8F0);
+      box-sizing: border-box;
+
+      &.simple {
+        line-height: var(--uniface-card-header-height, 54px);
+        padding: var(--uniface-card-header-padding, 0 24px);
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--uniface-card-primary-text-color, #374151);
+        white-space: nowrap;
+      }
+    }
+
+    .card-action-bar {
+      display: flex;
+      height: 40px;
+      padding: 4px 6px;
+      box-sizing: border-box;
+      text-align: center;
+      border-top: 1px solid var(--uniface-card-inside-border-color, #E2E8F0);
+
+      &.simple {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+
+        .action-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: 1;
+          position: relative;
+          padding: 10px;
+
+          &:not(:first-child)::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: 60%;
+            width: 1px;
+            background: var(--uniface-card-inside-border-color, #E2E8F0);
+          }
+
+          i {
+            cursor: pointer;
+            color: var(--uniface-card-primary-text-color, #374151);
+
+            &:hover {
+              color: var(--uniface-card-icon-hover-color, #37415170);
+            }
+
+            &:active {
+              position: relative;
+              top: 1px;
+            }
+          }
+        }
+
+      }
+    }
+
+    .card-content {
+      overflow: hidden;
+    }
+  }
+
+  &.shadowBox {
+    >div {
+      box-shadow: var(--uniface-card-shadow, rgba(0, 0, 0, 0.16) 0px 1px 4px);
+    }
+  }
+}

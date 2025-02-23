@@ -1,0 +1,38 @@
+.uniface-indicator-board {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #ffffff20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 500;
+
+  &>div {
+    margin: 0 auto;
+    min-width: 300px;
+    line-height: 32px;
+    padding: 16px 24px;
+    box-sizing: border-box;
+    border: 1px solid #d9d9d9;
+    background-color: var(--uniface-background-color, #ffffff);
+    color: #7f7f7f;
+    border-radius: 8px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    display: flex;
+    flex-direction: column;
+
+    .card-content {
+      flex: 1 1 auto;;
+      overflow: auto;
+      width: 100%;
+    }
+
+    .card-action-bar {
+      flex: 0 0 auto;
+      
+    }
+  }
+}

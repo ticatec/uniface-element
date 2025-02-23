@@ -1,0 +1,166 @@
+.uniface-tab-panel {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+
+  &>div  {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .tab-content {
+    border: 1px solid var(--uniface-tab-border-color, #E2E8F0);
+    background-color: var(--uniface-tab-bg, #F8FAFC);
+  }
+}
+
+.uniface-tabs-wrap {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  flex: 0 0  auto;
+  align-items: center;
+  user-select: none;
+
+
+  .scroll-right, .scroll-left {
+    width: 24px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--uniface-primary-hover-text-color, #298DFF);
+    }
+
+    &:active {
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  .tabs-panel {
+    flex: 1 1 auto;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    bottom: -1px;
+
+    .uniface-tab {
+      display: inline-block;
+      padding: 8px 20px 4px 20px;
+      margin-left: 4px;
+      border-left: 1px solid var(--uniface-tab-border-color, #E2E8F0);
+      border-right: 1px solid var(--uniface-tab-border-color, #E2E8F0);
+      border-top: 1px solid var(--uniface-tab-border-color, #E2E8F0);
+      border-bottom: 1px solid var(--uniface-tab-border-color, #E2E8F0);
+      cursor: pointer;
+      position: relative;
+      border-top-left-radius: var(--uniface-tab-header-radius, 0);
+      border-top-right-radius: var(--uniface-tab-header-radius, 0);
+      background-color: var(--uniface-tab-inactive-background-color, #FFFFFF);
+
+      .tab-refresh {
+        position: absolute;
+        display: none;
+        left: 3px;
+        top: 3px;
+        font-size: 12px;
+        width: 12px;
+        height: 12px;
+
+        &:active {
+          top: 4px
+        }
+      }
+
+      .tab-action {
+        position: absolute;
+        display: none;
+        right: 2px;
+        top: 2px;
+        font-size: 12px;
+        line-height: 12px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+
+        &:active {
+          top: 3px;
+        }
+      }
+
+      &:hover {
+        color: var(--uniface-tab-hover-text-color, #298DFF);
+        .tab-action {
+          display: block;
+          cursor: pointer;
+        }
+      }
+
+      &.active {
+        color: var(--uniface-tab-active-text-color, #0061FF);
+        background-color: var(--uniface-tab-bg, #F8FAFC);
+        border-bottom: 1px solid var(--uniface-tab-bg, #333333);
+        font-weight: 600;
+        cursor: default;
+        .tab-action {
+          background-color: var(--uniface-tab-action-background, #ffffff);
+        }
+        .tab-refresh {
+          display: block;
+        }
+
+        &:hover {
+          color: var(--uniface-tab-active-text-color, #0061FF);
+
+          .tab-action {
+            display: block;
+          }
+        }
+      }
+    }
+
+  }
+
+  &.simple {
+    .tabs-panel {
+      bottom: 0;
+
+      .uniface-tab {
+        margin-left: 4px;
+        border-bottom: 2px solid transparent;
+        background-color: transparent;
+
+        padding: 8px 8px 4px 8px;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+
+        .tab-action {
+          display: none;
+        }
+        &.active {
+          color: var(--uniface-tab-active-text-color, #0061FF);
+          border-bottom: 2px solid var(--uniface-tab-active-text-color, #0061FF);
+          font-weight: 600;
+          cursor: default;
+
+          .tab-refresh {
+            display: none;
+          }
+
+          &:hover {
+            color: var(--uniface-tab-active-text-color, #0061FF);
+
+            .tab-action {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

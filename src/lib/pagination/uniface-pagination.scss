@@ -1,0 +1,105 @@
+.uniface-pagination-panel {
+
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  position: relative;
+  user-select: none;
+
+  &.align-left {
+    text-align: left;
+  }
+
+  &.align-right {
+    text-align: right;
+  }
+
+  .uniface-page-gap, .uniface-page-no {
+    position: relative;
+    display: inline-block;
+    margin: 0 8px;
+    overflow: hidden;
+    width: 2em;
+    height: 2em;
+
+    span {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+      line-height: 2em;
+    }
+  }
+
+  .uniface-page-no {
+    border-radius: 4px;
+    color: var(--uniface-default-text-color, #374151);
+    border: 1px solid var(--uniface-primary-border-color, #E2E8F0);
+    cursor: pointer;
+    
+    &:hover {
+      border-color: var(--uniface-default-text-hover-color, #298DFF80);
+    }
+
+    &:active {
+      top: 1px;
+      color: var(--uniface-default-active-text-color, #0061FF);
+    }
+
+    &.selected {
+      color: var(--uniface-default-active-text-color, #0061FF);
+      border-color: var(--uniface-default-active-border-color, #0061FF80);
+      cursor: default;
+
+      &:active {
+        top: 0;
+        color: var(--uni-facepagination-selected-color, #ffffff);
+        background-color: var(--uniface-button-primary-border-color, #42A5F5);
+      }
+    }
+  }
+
+  &.plain {
+    .uniface-page-no {
+
+      background-color: inherit;
+      border: none;
+
+      span {
+        color: #7f7f7f;
+      }
+
+      &:hover span {
+        background-color: inherit;
+        color: var(--uniface-button-primary-border-color, #42A5F5);
+      }
+
+      &:active span {
+        color: var(--uniface-button-primary-border-color, #42A5F5);
+      }
+
+      &.selected span {
+        font-weight: 600;
+        color: var(--uni-facepagination-selected-background-color, #333333);
+      }
+    }
+  }
+
+  &.circle {
+    .uniface-page-no {
+      border-radius: 50%;
+    }
+  }
+
+  &.big {
+    .uniface-page-gap, .uniface-page-no {
+      width: 3em;
+      height: 3em;
+
+      span {
+        line-height: 3em;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.uniface-box {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid var(--uniface-plain-border-color, #f0f0f0);
+}

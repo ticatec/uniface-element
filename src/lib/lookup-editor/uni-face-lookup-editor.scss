@@ -1,0 +1,70 @@
+.uniface-lookup-editor {
+  display: inline-block;
+  height: 38px;
+  position: relative;
+  width: 100%;
+
+  &>div {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+  }
+
+  input {
+    cursor: default;
+  }
+  .option-field {
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .option-action {
+    display: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--uniface-dropdown-color, #e1e1e1);
+    align-self: center;
+    margin-right: 4px;
+    cursor: pointer;
+
+    &:active {
+      color: var(--uniface-active-dropdown-color, #9d9d9d);
+    }
+  }
+
+  &:hover {
+    .option-action {
+      display: block;
+    }
+  }
+
+  .option-dropdown {
+    box-sizing: border-box;
+    font-size: 22px;
+    line-height: 22px;
+    color: var(--uniface-dropdown-color, #e1e1e1);
+    align-self: center;
+    cursor: pointer;
+
+    &:active {
+      color: var(--uniface-active-dropdown-color, #9d9d9d);
+    }
+  }
+
+  .filled {
+    .option-dropdown {
+      color: var(--uniface-secondary-dropdown-color, #b9b9b9);
+    }
+  }
+
+  &.compact {
+    height: 30px;
+    .option-dropdown {
+        padding: 0;
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+    }
+  }
+}

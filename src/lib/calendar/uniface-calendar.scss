@@ -1,0 +1,246 @@
+.uniface-calendar {
+  display: inline-block;
+  padding: 0;
+  box-sizing: border-box;
+  color: #444444;
+
+  &>div {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .uniface-title-bar {
+    width: 100%;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.25em;
+    padding: 0.3em 0;
+    font-weight: 600;
+    align-items: center;
+    border-bottom: 1px solid var(--uniface-primary-border-color, #f0f0f0);
+    user-select: none;
+
+    .title-text {
+      cursor: pointer;
+      display: inline-block;
+      min-width: 20px;
+    }
+
+    .action-icon {
+      width: 1.5em;
+      height: 1.5em;
+      margin: 0 8px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      text-align: center;
+
+      &:hover {
+        border-color: var(--uniface-inside-border-color, #f0f0f0);
+      }
+
+    }
+
+    i {
+      color: var(--uniface-inactive-icon-color, #e1e1e1);
+      font-size: 1.2em;
+      cursor: pointer;
+
+      &:active {
+        color: var(--uniface-active-icon-color, #333333);
+      }
+
+    }
+  }
+
+  .uniface-month-pickup-panel, .uniface-year-pickup-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #ffffff40;
+    user-select: none;
+
+    &>div {
+      width: 100%;
+      position: relative;
+      top: 30px;
+      padding: 10px;
+      box-sizing: border-box;
+
+
+      &>div {
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background-color: #ffffff;
+        border: 1px solid var(--uniface-primary-border-color, #f7f7f7);
+        overflow: auto;
+      }
+    }
+  }
+
+  .uniface-month-pickup-panel {
+    .month-block {
+      margin: 8px 4px;
+      padding: 2px 1px;
+      text-align: center;
+      box-sizing: border-box;
+      line-height: 1.5em;
+      color: var(--uniface-default-text-color, #374151);
+      cursor: pointer;
+      border-radius: 6px;
+      border: 1px solid transparent;
+
+      &:hover {
+        background-color: var(--uniface-default-hover-bg, #42A5F51A);
+      }
+
+      &.selected {
+        color: var(--uniface-default-active-text-color, #0061FF);
+        border-color: var(--uniface-default-active-text-color, #0061FF80);
+        &:hover {
+          background-color: unset;
+        }
+      }
+    }
+  }
+
+  .uniface-year-pickup-panel {
+    .year-block {
+      margin: 8px 4px;
+      padding: 2px 1px;
+      text-align: center;
+      box-sizing: border-box;
+      line-height: 1.5em;
+      color: var(--uniface-default-text-color, #374151);
+      cursor: pointer;
+      border-radius: 6px;
+      border: 1px solid transparent;
+
+      &:hover {
+        background-color: var(--uniface-default-hover-bg, #42A5F51A);
+      }
+
+      &.selected {
+        color: var(--uniface-default-active-text-color, #0061FF);
+        border-color: var(--uniface-default-active-text-color, #0061FF80);
+        &:hover {
+          background-color: unset;
+        }
+      }
+
+      &.disabled {
+        color: var(--uniface-disabled-color, #9d9d9d);
+        cursor: not-allowed;
+        &:hover {
+          font-weight: unset;
+        }
+      }
+    }
+
+  }
+
+  .monthly-calendar {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    overflow: hidden;
+
+    .cell {
+      width: 100%;
+      position: relative;
+      text-align: center;
+      box-sizing: border-box;
+      line-height: 1.9em;
+
+      &.today {
+        &>span:first-child {
+          background-color: var(--uniface-calendar-today-border-color, #42A5F570);
+        }
+      }
+
+      &>span:first-child {
+        user-select: none;
+        position: relative;
+        line-height: 1.5em;
+        display: inline-block;
+        padding: 0.125em;
+        width: 1.75em;
+        height: 1.75em;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        margin: 2px 0;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--uniface-default-hover-bg, #42A5F51A);
+        }
+      }
+
+      &.week-title {
+        font-weight: 600;
+
+        &>span {
+          width: 100%;
+          height: auto;
+          padding: 0;
+          border-radius: unset;
+          border: none;
+          margin: 0;
+          cursor: default;
+        }
+
+      }
+
+
+
+      &.disabled {
+        color: var(--uniface-disabled-color, #d9d9d9);
+
+        &>span:first-child {
+          cursor: not-allowed;
+          &:hover {
+            border-color: transparent;
+          }
+        }
+      }
+
+      &.selected {
+        &>span:first-child {
+          color: var(--uniface-default-active-text-color, #0061FF);
+          border-color: var(--uniface-default-active-text-color, #0061FF80);
+          &:hover {
+            background-color: unset;
+          }
+        }
+      }
+    }
+  }
+
+  &.border {
+    border: 1px solid var(--uniface-primary-border-color, #f0f0f0);
+
+    .cell {
+      border-bottom: 1px solid #f7f7f7;
+      border-right: 1px solid #f7f7f7;
+
+      &.title {
+        font-weight: 600;
+        border-bottom: 1px solid #d9d9d9;
+      }
+
+      &.lastRow {
+        border-bottom: unset;
+      }
+    }
+  }
+
+  .weekend {
+    color: #ff3e00;
+  }
+}

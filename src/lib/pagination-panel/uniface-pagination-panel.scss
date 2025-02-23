@@ -1,0 +1,37 @@
+.uniface-pagination-panel {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+
+  .page-options {
+    flex: 0 0 auto;
+  }
+
+  .pagination {
+    flex: 1 1 auto;
+  }
+
+  .pagination-info {
+    flex: 0 0 auto;
+    min-width: 150px;
+    text-align: right;
+  }
+
+  &.left {
+    .pagination {
+      flex: 0 0 auto;
+    }
+  }
+
+  &.right {
+    justify-content: right;
+
+    .pagination {
+      flex: 0 0 auto;
+    }
+  }
+
+}

@@ -1,0 +1,23 @@
+.uniface-icon {
+  display: block;
+  cursor: default;
+  box-sizing: border-box;
+  text-align: center;
+
+  i {
+
+  }
+
+  &.clickable {
+    cursor: pointer;
+
+    &:hover {
+
+    }
+
+    &:active {
+      position: relative;
+      top: 1px;
+    }
+  }
+}

@@ -1,0 +1,221 @@
+.uniface-display-field {
+  &.images-field {
+    & > div {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      box-sizing: border-box;
+      margin: 4px 0;
+
+      img {
+        flex: 0 0 auto;
+        width: 40px;
+        height: 40px;
+      }
+
+      .img-file-name {
+        margin-left: 8px;
+        flex: 1 1 auto;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.uniface-images-field {
+
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+  .uniface-common-editor {
+    padding: 4px 8px;
+    height: auto;
+  }
+
+  &:focus {
+    border-bottom-color: var(--uniface-active-border-color, #ff3e00);
+  }
+
+  &.dragging {
+
+  }
+
+  .files-field {
+    flex: 1 1 auto;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    overflow-x: auto;
+    min-height: 80px;
+
+    .file-icon {
+
+      position: relative;
+
+      img {
+        width: 64px;
+        height: 64px;
+        border-radius: 8px;
+      }
+
+      .img-overlay {
+        position: absolute;
+        display: none;
+        border-radius: 8px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #07123C80;
+        color: white;
+        transition: opacity 0.3s ease;
+        overflow: hidden;
+
+        & > div {
+          text-align: center;
+        }
+      }
+
+      &:hover {
+        .img-overlay {
+          display: block;
+        }
+      }
+
+      .action-icon {
+        position: absolute;
+        display: none;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+
+        i {
+          &:hover {
+
+          }
+
+          &:active {
+            position: relative;
+            top: 1px;
+          }
+        }
+
+
+      }
+
+      &:hover {
+        .action-icon {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .image-thumbnail {
+    position: relative;
+    object-fit: cover;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    width: 60px;
+    height: 90px;
+    margin-right: 6px;
+
+    .img-remover {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      right: 0;
+      border-radius: 50%;
+      background-color: #e1e1e1;
+      font-size: 12px;
+      line-height: 12px;
+      padding: 2px;
+
+      &:active {
+        top: 1px;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .image-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      background-repeat: no-repeat;
+      background-size: 32px 32px;
+      background-position: center;
+    }
+
+    & > i {
+      cursor: pointer;
+
+      &:active {
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+}
+
+.uniface-image-preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #07123C80;
+  z-index: 1000;
+
+
+  & > div {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #07123C80;
+
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: none;
+  }
+
+  .image-container {
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+
+
+    img {
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover {
+    .toolbar {
+      display: flex;
+    }
+  }
+}

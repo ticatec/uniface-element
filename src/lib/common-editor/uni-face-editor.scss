@@ -1,0 +1,232 @@
+/*输入框中的清除按钮*/
+.uniface-editor-clean-icon {
+  visibility: hidden;
+  text-align: center;
+  color: var(--uniface-editor-clean-icon-color, #ffffff);
+  margin-right: 4px;
+
+  i {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 10px;
+    line-height: 15px;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    background-color: var(--uniface-editor-clean-icon-bg, #B3BCCA);
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+.uniface-common-editor {
+
+  border-bottom: 1px solid var(--uniface-editor-border-color, #298DFF);
+  padding: var(--uniface-editor-padding, 0 4px);
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  height: 38px;
+  line-height: var(--uniface-editor-line-height, 16px);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  .uniface-editor-clean-icon {
+    display: none;
+    visibility: visible;
+  }
+
+  .editor-embed-icon {
+    padding-left: 4px;
+    padding-right: 4px;
+
+    img {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .editor-action-icon {
+    display: block;
+    flex: 0 0 auto;
+    margin: 0 4px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 8px;
+    color: var(--uniface-editor-inline-action-icon-color, #37415170);
+
+    i {
+      position: relative;
+      display: inline-block;
+      border: 1px solid transparent;
+      width: 12px;
+      height: 12px;
+      font-size: 12px;
+
+      &:active {
+        top: 1px;
+      }
+    }
+
+
+    &:hover {
+      color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
+      background-color: var(--uniface-editor-inline-action-icon-hover-bg, #42A5F570);
+    }
+  }
+
+  input[type='text'], input[type='password'], input[type='number'] {
+    width: 100%;
+  }
+
+  input {
+    background-color: transparent;
+    border: 0 solid;
+    box-sizing: border-box;
+    font-size: 1em;
+    height: 36px;
+    padding: 0 4px;
+    color: var(--uniface-editor-text-color, #374151);
+
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      color: var(--uniface-editor-outlined-disabled-text-color, #B3BCCA);
+    }
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &.compact {
+    height: 30px;
+
+    input {
+      height: 28px;
+    }
+  }
+
+  &:focus-within {
+    outline: none;
+    border-bottom: 1px solid var(--uniface-editor-outlined-active-border-color, #298DFF);
+
+    .editor-action-icon {
+      display: block;
+    }
+
+    .uniface-editor-clean-icon {
+      display: block;
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+
+  &:hover {
+    .uniface-editor-clean-icon {
+      display: block;
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+
+  &.outlined {
+    border: 1px solid var(--uniface-editor-border-color, #E2E8F0);
+    border-radius: var(--uniface-editor-outlined-radius, 4px);
+
+    &:focus-within {
+      border-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
+    }
+
+    &:has(input:disabled) {
+      background-color: var(--uniface-editor-outlined-disabled-backgournd-color, #F1F5F9);
+    }
+  }
+
+  &.filled {
+    border-top-right-radius: var(--uniface-editor-outlined-radius, 4px);
+    border-top-left-radius: var(--uniface-editor-outlined-radius, 4px);
+    background-color: var(--uniface-editor-filled-backgournd-color, #F8FAFC);
+  }
+
+  &.plain {
+    border: none;
+
+    &:focus-within {
+      border-bottom-color: transparent;
+    }
+  }
+
+  .editor-prefix, .editor-suffix {
+    color: #6B7280;
+    font-size: 1em;
+    line-height: normal;
+    box-sizing: border-box;
+  }
+
+  .editor-prefix {
+    margin-left: 4px;
+  }
+
+  .editor-suffix {
+    margin-left: 4px;
+  }
+
+  .password-icon {
+    color: var(--uniface-editor-action-icon-color, #ffffff);
+  }
+
+  .password-icon:hover {
+    color: var(--uniface-editor-text-color, #374151);
+    cursor: pointer;
+  }
+
+  input:hover + .password-icon {
+    color: var(--uniface-editor-text-color, #374151);
+  }
+
+  input:disabled + .password-icon {
+    color: #d9d9d9;
+  }
+
+  input:read-only + .password-icon {
+    color: #d9d9d9;
+  }
+
+  .editor-embed-icon-button {
+
+    display: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      position: relative;
+      top: 1px;
+    }
+  }
+}

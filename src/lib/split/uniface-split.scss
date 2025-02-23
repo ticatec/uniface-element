@@ -1,0 +1,21 @@
+.uniface-divider {
+
+  background-color: var(--uniface-dividing-line-bg, #B3BCCA);
+  flex: 0 0 auto;
+  transition: all 0.3s ease-in-out;
+
+  &.horizontal {
+    width: 100%;
+    cursor: row-resize;
+  }
+
+  &.vertical {
+    height: 100%;
+    cursor: col-resize;
+  }
+
+  &.fixed {
+    cursor: default;
+  }
+
+}

@@ -1,0 +1,113 @@
+.uniface-file-upload-panel {
+  width: 820px;
+  padding: 24px 0;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  min-height: 144px;
+
+  .file-upload-contents {
+    width: 100%;
+    height: 100%;
+    border: 1px dotted transparent;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.highlight {
+    background-color: #b3d8ff;
+  }
+}
+
+.uniface-attachment-display {
+  & > div {
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.uniface-attachment-field {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+
+  .uniface-common-editor {
+    height: 120px;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+  }
+
+  .files-field {
+    flex: 1 1 auto;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    overflow-x: auto;
+
+    .file-icon {
+
+      position: relative;
+
+      img {
+        width: 64px;
+        height: 64px;
+      }
+
+      .action-icon {
+        position: absolute;
+        display: none;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: pointer;
+
+        i {
+          &:hover {
+
+          }
+
+          &:active {
+            position: relative;
+            top: 1px;
+          }
+        }
+
+
+      }
+
+      &:hover {
+        .action-icon {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .action-dropdown {
+    box-sizing: border-box;
+    margin-top: 4px;
+    margin-right: 4px;
+    line-height: 22px;
+    margin-left: 8px;
+    color: var(--uniface-dropdown-color, #e1e1e1);
+    align-self: flex-start;
+    cursor: pointer;
+  }
+
+  .filled {
+    .action-dropdown {
+      color: var(--uniface-secondary-dropdown-color, #b9b9b9);
+    }
+  }
+}

@@ -1,0 +1,298 @@
+.uniface-common-button {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid var(--uniface-plain-border-color, #f0f0f0);;
+  background-color: var(--uniface-plain-background-color, #f0f0f0);;
+  color: var(--uniface-plain-color, #333333);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: var(--uniface-plain-hover-background-color, #ecf5ff);
+    border-color: var(--uniface-plain-hover-border-color, #b3d8ff);
+    color: var(--uniface-plain-hover-color, #42A5F5);
+  }
+
+  &.primary {
+    background-color: var(--uniface-button-primary-background-color, #42A5F5);
+    border-color: var(--uniface-button-primary-border-color, #42A5F5);
+    color: var(--uniface-button-primary-text-color, #ffffff);
+
+    &:hover {
+      background-color: var(--uniface-button-primary-hover-color, #64B5F6);
+    }
+
+    &:active {
+      background-color: var(--uniface-button-primary-active-color, #FF4D4F);
+    }
+  }
+
+  &.secondary {
+    background-color: var(--uniface-button-secondary-background-color, #FF685B);
+    border-color: var(--uniface-button-secondary-border-color, #FF7875);
+    color: var(--uniface-button-secondary-text-color, #ffffff);
+
+    &:hover {
+      background-color: var(--uniface-button-secondary-hover-color, #FF685B)
+    }
+
+    &:active {
+      background-color: var(--uniface-button-secondary-active-color, #FF4D4F);
+    }
+  }
+
+  &.third {
+    background-color: var(--uniface-button-third-background-color, #2DC071);
+    border-color: var(--uniface-button-third-border-color, #2DC071);
+    color: var(--uniface-button-third-text-color, #ffffff);
+
+    &:hover {
+      background-color: var(--uniface-button-third-hover-color, #2DB08B)
+    }
+
+    &:active {
+      background-color: var(--uniface-button-third-active-color, #2DC071);
+    }
+  }
+
+  &.forth {
+    background-color: var(--uniface-button-forth-background-color, #FAD85D);
+    border-color: var(--uniface-button-forth-border-color, #FAD85D);
+    color: var(--uniface-button-forth-text-color, #374151);
+
+    &:hover {
+      background-color: var(--uniface-button-forth-hover-color, #FAE877)
+    }
+
+    &:active {
+      background-color: var(--uniface-button-forth-active-color, #FAD85D);
+    }
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+
+
+  &.disabled {
+    cursor: not-allowed;
+    background-color: var(--uniface-disabled-button-color, #F1F5F9);
+    border-color: var(--uniface-disabled-button-border-color, #E2E8F0);
+    color: var(--uniface-disabled-button-text-color, #B3BCCA);
+
+    &:active {
+      top: 0
+    }
+
+    &.primary, &.secondary, &.third, &.forth {
+
+      background-color: var(--uniface-disabled-button-color, #F1F5F9);
+      border-color: var(--uniface-disabled-button-border-color, #E2E8F0);
+      color: var(--uniface-disabled-button-text-color, #B3BCCA);
+
+      &:hover {
+        background-color: var(--uniface-disabled-button-color, #F1F5F9);
+        color: var(--uniface-disabled-button-text-color, #B3BCCA);
+      }
+    }
+  }
+}
+
+.uniface-button {
+  padding: 6px 16px;
+  border-radius: 4px;
+
+  & > span {
+    padding: 0 4px;
+  }
+
+  &.big {
+    padding: 10px 20px;
+  }
+
+  &.mini {
+    padding: 4px 10px;
+  }
+
+  &.plain {
+    border-radius: 0;
+  }
+
+  &.round {
+    border-radius: 18px;
+
+    &.big {
+      border-radius: 24px;
+    }
+
+    &.mini {
+      border-radius: 12px;
+    }
+  }
+
+
+}
+
+.uniface-icon-button {
+  width: 32px;
+  height: 32px;
+  padding: 2px;
+  border-radius: 50%;
+
+  i {
+    line-height: 28px;
+    font-size: 16px;
+  }
+
+  &.big {
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+
+    i {
+      line-height: 40px;
+      font-size: 24px;
+    }
+  }
+
+  &.mini {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+
+    i {
+      line-height: 20px;
+      font-size: 12px;
+    }
+  }
+}
+
+.uniface-text-button {
+  display: inline-block;
+  font-size: 1em;
+  padding: 3px 6px;
+  cursor: pointer;
+  text-align: center;
+  background-color: transparent;
+  color: var(--uniface-button-plain-text-color, #374151);
+  user-select: none;
+
+  &.big {
+    font-size: 1.2em;
+    padding: 4px 8px;
+  }
+
+  &.mini {
+    font-size: 0.9em;
+    padding: 2px 4px;
+  }
+
+  &:hover {
+    color: var(--uniface-text-button-plain-hover-color, #374151B0);
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+
+  &.primary {
+    color: var(--uniface-button-primary-background-color, #42A5F5);
+
+    &:hover {
+      color: var(--uniface-text-button-primary-hover-color, #42A5F570);
+    }
+
+    &:active {
+      color: var(--uniface-button-primary-background-color, #42A5F5);
+    }
+  }
+
+  &.secondary {
+
+    color: var(--uniface-button-secondary-background-color, #D32F2F);
+
+    &:hover {
+      color: var(--uniface-text-button-secondary-hover-color, #D32F2F70);
+    }
+
+    &:active {
+      color: var(--uniface-button-secondary-background-color, #D32F2F);
+    }
+  }
+
+
+  &.third {
+    color: var(--uniface-button-third-background-color, #2DC071);
+
+    &:hover {
+      color: var(--uniface-text-button-third-hover-color, #2DC071B0)
+    }
+
+    &:active {
+      color: var(--uniface-button-third-background-color, #2DC071);
+    }
+  }
+
+  &.forth {
+    color: var(--uniface-button-forth-background-color, #FAD85D);
+
+    &:hover {
+      color: var(--uniface-text-button-forth-hover-color, #FAD85DB0);
+    }
+
+    &:active {
+      color: var(--uniface-button-forth-background-color, #FAD85D);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--uniface-disabled-button-text-color, #B3BCCA);
+
+    &:hover {
+      color: var(--uniface-disabled-button-text-color, #B3BCCA);
+    }
+
+    &:active {
+      top: 0;
+      color: var(--uniface-disabled-button-text-color, #B3BCCA);
+    }
+  }
+}
+
+.uniface-button-bar {
+  position: relative;
+
+  &.left {
+    &::before {
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: var(--uniface-card-inside-border-color, #E2E8F0);
+    }
+  }
+
+  &.right {
+    &::after {
+      content: "";
+      position: absolute;
+      right: -4px;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: var(--uniface-card-inside-border-color, #E2E8F0);
+    }
+  }
+}

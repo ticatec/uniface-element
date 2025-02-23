@@ -1,0 +1,1 @@
+export type MouseClickHandler = (event: MouseEvent) => void;

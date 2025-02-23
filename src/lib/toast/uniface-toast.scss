@@ -1,0 +1,33 @@
+.uniface-toast-board {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #ffffff20;
+  display: block;
+  text-align: center;
+  z-index: 120;
+  color: var(--uniface-toast-text-color, #ffffff);
+
+  .error {
+    background-color: var(--uniface-toast-error-background-color, #FF685B);
+  }
+
+  .info {
+    background-color: var(--uniface-toast-info-background-color, #0061FF);
+  }
+
+  .success {
+    background-color: var(--uniface-toast-successful-background-color, #2DC071);
+  }
+
+  &>div {
+    display: inline-block;
+    min-width: 300px;
+    padding: 0 60px;
+    line-height: 42px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 15px;
+    //margin-bottom: 12px;
+  }
+}

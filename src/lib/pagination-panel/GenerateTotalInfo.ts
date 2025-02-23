@@ -1,0 +1,1 @@
+export type GenerateTotalInfo = (total: number, pageCount: number, pageNo: number, rows: number) => string;

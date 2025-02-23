@@ -1,0 +1,87 @@
+.uniface-memo-editor {
+
+  background-color: transparent;
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  font-size: 1em;
+  line-height: 1.5em;
+  color: var(--uniface-default-text-color, #374151);
+  padding: var(--uniface-memo-padding, 6px 8px);
+
+  &:focus {
+    outline: none;
+  }
+
+  &.plain {
+    border: none;
+  }
+
+  &.outlined {
+    border: 1px solid var(--uniface-editor-border-color, #E2E8F0);
+    border-radius: var(--uniface-field-round, 4px);
+
+    &:focus {
+      border-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
+    }
+  }
+
+  &:disabled {
+    color: var(--uniface-editor-outlined-disabled-text-color, #B3BCCA);
+    background-color: var(--uniface-editor-outlined-disabled-backgournd-color, #F1F5F9);
+  }
+
+  &.filled {
+    border-top-right-radius: var(--uniface-field-round, 4px);
+    border-top-left-radius: var(--uniface-field-round, 4px);
+    border-bottom: 1px solid var(--uniface-editor-border-color, #E2E8F0);
+    background-color: var(--uniface-editor-filled-backgournd-color, #F8FAFC);
+    &:focus {
+      border-bottom-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
+    }
+  }
+}
+
+.uniface-memo-indicator {
+  padding: 4px 6px;
+  box-sizing: border-box;
+  text-align: right;
+  font-size: 0.9em;
+  color: var(--uniface-editor-indicator-color, #B3BCCA);
+  user-select: none;
+}
+
+.uniface-memo-editor-wrapper {
+
+  .action-button-wrapper {
+    display: none;
+
+    .uniface-editor-clean-icon {
+      position: absolute;
+      top: 6px;
+      padding: 0;
+      right: 0;
+      visibility: visible;
+      margin-right: 6px;
+
+
+
+      &:active {
+        position: absolute;
+        top: 7px;
+      }
+    }
+
+  }
+
+  &:focus-within {
+    .action-button-wrapper {
+      display: block;
+    }
+  }
+
+  &:hover {
+    .action-button-wrapper {
+      display: block;
+    }
+  }
+}

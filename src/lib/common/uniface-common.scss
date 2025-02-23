@@ -1,0 +1,38 @@
+.uniface-popover-wrapper {
+  position: absolute;
+  display: block;
+  z-index: 100;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out;
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+}
+
+.uniface-popover {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  & > div {
+    position: absolute;
+    display: block;
+
+    .contents {
+      background: var(--uniface-app-background-color, #ffffff);
+      box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+      padding-top: 0;
+      opacity: 1;
+      transform: scale(1);
+      display: block;
+
+      .contents-inner {
+        overflow: auto;
+      }
+    }
+  }
+}

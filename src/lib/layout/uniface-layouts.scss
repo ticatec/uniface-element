@@ -1,0 +1,40 @@
+
+.flex-block {
+
+  position: relative;
+
+  &.flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+    overflow: auto;
+
+    .flex-block {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+      overflow: auto;
+
+      &.auto_fit {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+
+      &.grow {
+        flex-grow: 1;
+      }
+
+      &.shrink {
+        flex-shrink: 1;
+      }
+    }
+
+    &.horizontal {
+      flex-direction: row;
+    }
+  }
+
+}

@@ -1,0 +1,82 @@
+@use "./uni-face-root.scss";
+@use "./common/uniface-common.scss";
+@use "./checkbox/uin-face-checkbox.scss";
+@use "./memo-editor/uni-face-memo-editor.scss";
+@use "./common-editor/uni-face-editor.scss";
+@use "./switch/uniface-switch-box.scss";
+@use "./form-field/uniface-form-field.scss";
+@use "./layout/uniface-layouts.scss";
+@use "./options-select/uni-face-option-select.scss";
+@use "./group-box/uniface-group-box";
+@use "./radio-button/uni-face-radio-button.scss";
+@use "./dialog/uniface-dialog.scss";
+@use "./button/uni-face-button.scss";
+@use "./indicator/uniface-indicator.scss";
+@use "./toast/uniface-toast.scss";
+@use "./message-box/uniface-message-box.scss";
+@use "./card/uniface-card.scss";
+@use "./tabs/uniface-tabs.scss";
+@use "./criteria-field/uniface-filter-field.scss";
+@use "./options-multi-select/uniface-multi-select.scss";
+@use "./tree-view/uniface-tree-view.scss";
+@use "./drawer/uniface-drawer.scss";
+@use "./pagination/uniface-pagination.scss";
+@use "./app-top-bar/uni-face-header.scss";
+@use "./lookup-editor/uni-face-lookup-editor.scss";
+@use "./calendar/uniface-calendar.scss";
+@use "./date-picker/uniface-date-time.scss";
+@use "./pagination-panel/uniface-pagination-panel.scss";
+@use "./nav-menu/uni-face-navigator-menu.scss";
+@use "./common-range-editor/uniface-ranger-editor.scss";
+@use "./list-box/uni-face-listbox.scss";
+@use "./transfer-field/uni-face-transfer-field.scss";
+@use "./form-panel/uniface-form-layout.scss";
+@use "./image-files/uni-face-image-files-field.scss";
+@use "./cascade-options-select/uni-face-cascade-option-select";
+@use "./box/uniface-box.scss";
+@use "./navigator/uniface-navigator";
+@use "./progress-bar/uniface-progress-bar";
+@use "./progress-step-bar/uniface-progress-step-bar";
+@use "./attachment-files/uniface-attachment-field";
+@use "./split/uniface-split";
+@use "./icon/uniface-icon";
+@use "./tag/uniface-tag";
+@use "./accordion/uniface-accordion";
+@use "./separator/uniface-separator";
+@use "./page/uniface-page";
+@use "./data-table/uniface-datatable";
+@use "./popup-hint/uniface-popup-hint";
+@use "./context-menu/uniace-context-menu";
+@use "./property-editor/uniface-property-editor-table";
+
+.uniface-mask, .uniface-mask-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  & > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  z-index: 100;
+}
+
+.uniface-mask {
+  background-color: #ffffff01;
+}
+
+.uniface-mask-overlay {
+  background-color: #ffffff70;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out;
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

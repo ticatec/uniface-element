@@ -1,0 +1,63 @@
+.uniface-property-editor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .table-header {
+    background-color: var(--uniface-property-table-header-color, #e1e1e1);
+    height: 28px;
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 auto;
+    align-items: center;
+    text-align: center;
+
+    .header_label {
+      width: 150px;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      border-right: 1px solid #cccccc;
+    }
+
+    .header_value {
+      width: 150px;
+      flex: 0 0 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-sizing: border-box;
+    }
+  }
+
+  .table-content {
+    flex: 1 1 auto;
+    overflow: hidden;
+    align-items: center;
+
+    & > div {
+      display: grid;
+      grid-template-columns: 150px 1fr; /* 定义两列，第一列 1fr，第二列 2fr，你可以根据需要调整比例 */
+    }
+
+    .property_label {
+      grid-column: 1 / 2;
+      height: 38px;
+      text-align: left;
+      align-self: center;
+      padding: 0 8px;
+      align-content: center;
+      box-sizing: border-box;
+      border-right: 1px solid #cccccc;
+      border-bottom: 1px solid #cccccc;
+    }
+
+    .property_control {
+      grid-column: 2 / 3;
+      height: 38px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #cccccc;
+    }
+  }
+}

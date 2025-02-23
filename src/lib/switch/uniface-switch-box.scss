@@ -1,0 +1,124 @@
+.switch-box {
+
+  input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+  }
+
+  &*, &::after, &::before {
+    box-sizing: border-box;
+  }
+
+  .switch {
+    font-size: 15px;
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+
+    .text {
+      position: absolute;
+      line-height: 30px;
+      right: 10px;
+      color: #333333;
+      user-select: none;
+    }
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      border: 1px solid #adb5bd;
+      transition: .4s;
+      border-radius: 30px;
+
+      &:before {
+        position: absolute;
+        content: "";
+        height: 22px;
+        width: 22px;
+        border-radius: 11px;
+        left: 5px;
+        bottom: 3px;
+        background-color: #adb5bd;
+        transition: .4s;
+      }
+    }
+  }
+
+  input:checked ~.text {
+    color: #fff;
+    left: 10px;
+    right: unset;
+  }
+
+  .disabled .text {
+    color: #333;
+  }
+
+  input:checked + .slider {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #007bff;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(65px);
+    background-color: #fff;
+  }
+
+  .readonly {
+    .slider {
+      cursor: default;
+    }
+  }
+
+  .disabled {
+    .slider {
+      background-color: #E1E1E1;
+      cursor: default;
+    }
+
+    input:checked + .slider {
+      background-color: #E1E1E1;
+      border: 1px solid #E1E1E1;
+    }
+  }
+}
+
+
+
+/* The switch - the box around the slider */
+
+/* Hide default HTML checkbox */
+
+
+/* The slider
+
+
+.switch-box input:checked + .slider {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.switch-box input:focus + .slider {
+  box-shadow: 0 0 1px #007bff;
+}
+
+.switch-box input:checked + .slider:before {
+  transform: translateX(2.4em);
+  background-color: #fff;
+}*/
