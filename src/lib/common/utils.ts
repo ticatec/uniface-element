@@ -93,7 +93,7 @@ const formatNumber = (n: number | null, precision: number | null | undefined): s
  * @param {string} accept - 允许的文件类型，如 "image/*" 或 ".doc,.docx,.pdf"
  * @returns {File[]} - 过滤后的符合规则的文件
  */
-const filterFiles = (files:Array<File>, accept: string)=> {
+const filterFiles = (files: Array<File>, accept: string) => {
     if (isEmpty(accept) || accept === "*/*" || !accept) return Array.from(files); // 允许所有文件
 
     const allowedExtensions = accept.split(",").map(ext => ext.trim().toLowerCase());
@@ -126,4 +126,25 @@ const getNestedObject = (obj: any, keys: string[]) => {
     }
     return current;
 }
-export default {isEmpty, getNumberValue, getStringValue, sleep, getNumberRegex, isValidNumber, formatNumber, filterFiles, getNestedObject}
+
+/**
+ * 获取嵌套定义key的值
+ * @param data
+ * @param key
+ */
+const getNestedValue = (data: any, key: string): any => {
+    let keys = key.split('.');
+    let attr: string | undefined = keys.pop();
+    if (attr == null) {
+        return null;
+    } else {
+        let obj: any = keys.length > 0 ? getNestedObject(data, keys) : data;
+        return obj[attr];
+    }
+}
+
+
+export default {
+    isEmpty, getNumberValue, getStringValue, sleep, getNumberRegex, isValidNumber, formatNumber, filterFiles, getNestedObject,
+    getNestedValue
+}

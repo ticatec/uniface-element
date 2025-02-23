@@ -1,7 +1,7 @@
 <script lang="ts">
 
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
-    import type {UniDate} from "$lib/calendar/dateUtils";
+    import type {UniDate} from "$lib/base-calendar/dateUtils";
     import {DateFormats} from "$lib/common/DateFormats";
     import dateUtils from "$lib/common/date-utils";
 

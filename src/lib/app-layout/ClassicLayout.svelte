@@ -2,15 +2,19 @@
 
     import Split from "$lib/split";
 
+    export let headerHeight: string = "48px";
+    export let sidebarWidth: string = '300px';
+    export let statusHeight: string = "22px";
+
+    export let rightBarWidth: string = '240px';
+
     export let sidebarResize: boolean = false;
-    export let sidebarMaxWidth: string = '';
-    export let sidebarMinWidth: string = '';
+    export let sidebarMaxWidth: string | null = null;
+    export let sidebarMinWidth: string | null = null;
 
     export let rightBarResize: boolean = false;
-    export let rightBarMaxWidth: string = '';
-    export let rightBarMinWidth: string = '';
-
-
+    export let rightBarMaxWidth: string | null = null;
+    export let rightBarMinWidth: string | null = null;
 
     let sidebar: any;
 
@@ -41,11 +45,11 @@
 </script>
 
 <div style="width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; position: relative">
-    <div style="height: 100%; flex: 0 0 auto; position: relative">
+    <div style="height: 100%; flex: 0 0 auto; position: relative; height: {headerHeight}">
         <slot name="header"></slot>
     </div>
     <div style="height: 100%; flex: 1 1 auto; overflow: hidden; display: flex; flex-direction: row; position: relative">
-        <div bind:this={sidebar} style="width: 100%; flex: 0 0 auto; overflow: auto; {minWidth} {maxWidth}">
+        <div bind:this={sidebar} style="width: 100%; flex: 0 0 auto; overflow: auto; width: {sidebarWidth}; {minWidth} {maxWidth}">
             <slot name="sidebar"></slot>
         </div>
         {#if sidebarResize}
@@ -58,13 +62,13 @@
             {#if sidebarResize}
                 <Split direction="vertical" bindingPanel={rightBar}/>
             {/if}
-            <div bind:this={rightBar} style="width: 100%; flex: 0 0 auto; overflow: auto; {rightMinWidth} {rightMaxWidth}">
+            <div bind:this={rightBar} style="width: 100%; flex: 0 0 auto; overflow: auto; width: {rightBarWidth}; {rightMinWidth} {rightMaxWidth}">
                 <slot name="right-sidebar"></slot>
             </div>
         {/if}
     </div>
     {#if $$slots['bottom']}
-        <div style="height: 100%; flex: 0 0 auto;">
+        <div style="height: 100%; flex: 0 0 auto; position:relative; height: {statusHeight}">
             <slot name="bottom"></slot>
         </div>
     {/if}

@@ -3,8 +3,8 @@
     import {onMount} from "svelte";
     import dayjs from "dayjs";
     import {DisplayMode} from "../common/DisplayMode";
-    import dateUtils, {type UniDate} from "../calendar/dateUtils";
-    import Calendar, {DateContext} from "../calendar";
+    import dateUtils, {type UniDate} from "../base-calendar/dateUtils";
+    import Calendar, {DateContext} from "../base-calendar";
     import TimePanel from "./TimePanel.svelte";
     import {TextButton} from "../button";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";

@@ -23,7 +23,7 @@
 @use "./pagination/uniface-pagination.scss";
 @use "./app-top-bar/uni-face-header.scss";
 @use "./lookup-editor/uni-face-lookup-editor.scss";
-@use "./calendar/uniface-calendar.scss";
+@use "base-calendar/uniface-calendar.scss";
 @use "./date-picker/uniface-date-time.scss";
 @use "./pagination-panel/uniface-pagination-panel.scss";
 @use "./nav-menu/uni-face-navigator-menu.scss";

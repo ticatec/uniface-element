@@ -4,9 +4,9 @@
     import {DisplayMode} from "../common/DisplayMode";
     import Popover from "../common/Popover.svelte";
     import dayjs from "dayjs";
-    import Calendar from "../calendar";
+    import Calendar from "../base-calendar";
     import type {OnChangeHandler} from "../common/OnChangeHandler";
-    import type {UniDate} from "$lib/calendar/dateUtils";
+    import type {UniDate} from "$lib/base-calendar/dateUtils";
     import CommonPicker from "$lib/common/CommonPicker.svelte";
 
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';

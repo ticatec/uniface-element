@@ -1,10 +1,10 @@
 <script lang="ts">
     import CommonRangeEditor from "../common-range-editor";
-    import {dateUtils} from "../calendar";
-    import Calendar from "../calendar";
+    import {dateUtils} from "../base-calendar";
+    import Calendar from "../base-calendar";
     import Popover from "../common/Popover.svelte";
     import Icon from "$lib/icon";
-    import type {UniDate} from "$lib/calendar/dateUtils";
+    import type {UniDate} from "$lib/base-calendar/dateUtils";
 
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let compact: boolean = false;

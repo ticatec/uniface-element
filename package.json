@@ -86,10 +86,6 @@
       "types": "./dist/button/ButtonBar.svelte.d.ts",
       "import": "./dist/button/ButtonBar.svelte"
     },
-    "./calendar": {
-      "types": "./dist/calendar/index.d.ts",
-      "import": "./dist/calendar/index.js"
-    },
     "./card": {
       "types": "./dist/card/index.d.ts",
       "import": "./dist/card/index.js"

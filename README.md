@@ -1,5 +1,4 @@
 # Uniface Web UI Components
 
-## 表单组件
+## Global Components
 
-**button**

@@ -4,7 +4,7 @@
     import DateContext from "./DateContext";
     import dayjs from "dayjs";
     import {onMount} from "svelte";
-    import type {CalendarDay} from "$lib/calendar/CalendarDay";
+    import type {CalendarDay} from "$lib/base-calendar/CalendarDay";
     import type {OnSelectHandler} from "$lib/common/OnSelectHandler";
 
     const dateCtx: DateContext = DateContext.getInstance();

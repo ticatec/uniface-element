@@ -3,8 +3,8 @@
     import ScrollBar from "./ScrollBar.svelte";
     import dayjs from "dayjs";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
-    import type {UniDate} from "$lib/calendar/dateUtils";
-    import {dateUtils} from "$lib/calendar";
+    import type {UniDate} from "$lib/base-calendar/dateUtils";
+    import {dateUtils} from "uniface-web/src/lib/base-calendar";
 
     export let value: UniDate;
     export let style: string = '';
