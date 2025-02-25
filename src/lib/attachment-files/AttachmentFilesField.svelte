@@ -17,17 +17,13 @@
     export let style: string = '';
     export let displayMode: DisplayMode = DisplayMode.Edit;
     export let removeFileConfirm: RemoveConfirm = null as unknown as RemoveConfirm;
-    export let cancelLabel: string = 'Cancel';
-    export let retryLabel: string = "Retry";
-    export let removeLabel: string = "Remove";
-    export let pickupButtonLabel: string = "Pickup files"
     export let uploadFile: FileUpload;
 
     export let text: string | null = null;
 
     let showUpload: boolean = false;
 
-    onMount(()=>{
+    onMount(() => {
 
     })
 
@@ -37,7 +33,7 @@
     const appendNewFile = (file: UploadFile) => {
         files = [...files, {
             name: file.file.name,
-            uri: file.url??'',
+            uri: file.url ?? '',
             type: getFileType(file.file.name)
         }]
     }
@@ -45,7 +41,7 @@
     const removeFile = async (file: AttachmentFile) => {
         let confirmed = removeFileConfirm == null ? true : await removeFileConfirm(file);
         if (confirmed) {
-            let pos = files.findIndex(item=>item==file);
+            let pos = files.findIndex(item => item == file);
             if (pos > -1) {
                 files.splice(pos, 1);
                 files = [...files];
@@ -53,13 +49,13 @@
         }
     }
 
-    $: text = '<div>' + files.map(item=>(item.name)).join("</div><div>") + '</div>'
+    $: text = '<div>' + files.map(item => (item.name)).join("</div><div>") + '</div>'
 
 </script>
 
-{#if displayMode===DisplayMode.View}
+{#if displayMode === DisplayMode.View}
     <div class="uniface-attachment-display uniface-display-field">
-        {@html text??''}
+        {@html text ?? ''}
     </div>
 {:else }
     <div class="uniface-attachment-field" {style}>
@@ -77,6 +73,5 @@
         </div>
     </div>
 
-    <FileUploadPanel bind:visible={showUpload} maxFiles={10} onFileUploaded={appendNewFile} buttonLabel={pickupButtonLabel}
-                     {uploadFile} {cancelLabel} {removeLabel} {retryLabel}/>
+    <FileUploadPanel bind:visible={showUpload} maxFiles={10} onFileUploaded={appendNewFile} {uploadFile}/>
 {/if}

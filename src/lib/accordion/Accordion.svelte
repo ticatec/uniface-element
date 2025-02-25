@@ -1,34 +1,43 @@
 <script lang="ts">
-    import type {MouseClickHandler} from "$lib/common/MouseClickHandler";
 
-    export let title: string = "";
-    export let isOpen = false;
-    export let onClick: MouseClickHandler = null as unknown as MouseClickHandler;
-    export let header: any = null;
+    import type AccordionItem from "$lib/accordion/AccordionItem";
+    import Accordion from "$lib/accordion/AccordionItemView.svelte";
+
+    export let style: string = '';
+    export {className as class};
+    export let compact: boolean = false;
+    export let accordions: Array<AccordionItem> = [];
+    export let exclusive: boolean = false;
+    export let activeItem: AccordionItem = null as unknown as AccordionItem;
+
+    let className: string = '';
+
+    let openSet: Set<AccordionItem> = new Set();
+
+    const handleAccordionClick = (accordion: AccordionItem) => (event: MouseEvent) => {
+        if (exclusive) {
+            if (activeItem != accordion) {
+                activeItem = accordion;
+                openSet.clear();
+                openSet.add(accordion);
+            }
+        } else {
+            if (openSet.has(accordion)) {
+                openSet.delete(accordion);
+            } else {
+                openSet.add(accordion);
+            }
+        }
+        accordions = [...accordions];
+    }
+
 
 </script>
 
-<style>
-
-
-</style>
-
-<div class="accordion">
-    <div class="header" aria-hidden="true" on:click={onClick}>
-        {#if header}
-            <svelte:component this={header} {title} {isOpen}/>
-        {:else}
-            <div style="flex: 0 0 auto; padding-right: 8px">
-                <i class="{isOpen ? 'uniface-icon-chevron-down' : 'uniface-icon-chevron-right'}"></i>
-            </div>
-            <div style="flex: 1 1 auto; overflow: hidden; white-space: nowrap; text-overflow: ellipsis">
-                <span>{title}</span>
-            </div>
-        {/if}
-    </div>
-    {#if isOpen}
-        <div class="content">
-            <slot></slot>
-        </div>
-    {/if}
+<div class="uniface-accordion-panel {className}" {style} class:compact>
+    {#each accordions as accordion}
+        <Accordion title={accordion.title} isOpen={openSet.has(accordion)} onClick={handleAccordionClick(accordion)}>
+            <svelte:component this={accordion.component} {...accordion.params}/>
+        </Accordion>
+    {/each}
 </div>

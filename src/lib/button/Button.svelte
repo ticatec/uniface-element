@@ -1,6 +1,8 @@
 <script lang="ts">
 
-    export let type: 'default' | 'primary' | 'secondary' | 'third' | 'forth' = 'default'; // 默认按钮类型
+    import type {ButtonType} from "$lib/button/ButtonType";
+
+    export let type: ButtonType = 'default'; // 默认按钮类型
     export let label: string = '';
     export let variant: 'plain' | 'round' | '' = '';
     export let disabled: boolean = false;

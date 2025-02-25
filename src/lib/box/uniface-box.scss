@@ -10,7 +10,7 @@
     width: 100%;
     background-color: var(--uniface-box-header-bg, #F8FAFC);
     flex: 0 0 auto;
-    height: 24px;
+    min-height: 24px;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -20,6 +20,7 @@
   .box-content {
     flex: 1 1 auto;
     position: relative;
+    overflow: hidden;
   }
 
   &.round {

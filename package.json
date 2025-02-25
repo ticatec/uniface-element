@@ -1,6 +1,6 @@
 {
   "name": "@ticatec/uniface-web",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "description": "uniface web components",
   "scripts": {
     "dev": "vite dev",
@@ -13,6 +13,7 @@
   },
   "files": [
     "dist",
+    "!dist/**/*.scss",
     "!dist/**/*.test.*",
     "!dist/**/*.spec.*"
   ],
@@ -26,6 +27,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./I18nContext": {
+      "types": "./dist/i18nContext.d.ts",
+      "import": "./dist/i18nContext.js"
     },
     "./ticatec-uniface-web.css": {
       "default": "./dist/ticatec-uniface-web.css"
@@ -46,254 +51,244 @@
       "types": "./dist/app-layout/ClassicLayout.svelte.d.ts",
       "import": "./dist/app-layout/ClassicLayout.svelte"
     },
-    "./accordion": {
+    "./Accordion": {
       "types": "./dist/accordion/index.d.ts",
       "import": "./dist/accordion/index.js"
     },
-    "./accordion/AccordionItem": {
-      "types": "./dist/accordion/AccordionItem.d.ts"
+    "./ActionBar": {
+      "types": "./dist/action-bar/index.d.ts",
+      "import": "./dist/action-bar/index.js"
     },
-    "./app-top-bar": {
+    "./AppTopBar": {
       "types": "./dist/app-top-bar/index.d.ts",
       "import": "./dist/app-top-bar/index.js"
     },
-    "./attachment-files": {
+    "./AttachmentFiles": {
       "types": "./dist/attachment-files/index.d.ts",
       "import": "./dist/attachment-files/index.js"
     },
-    "./box": {
+    "./Box": {
       "types": "./dist/box/index.d.ts",
       "svelte": "./dist/box/Box.svelte",
       "import": "./dist/box/index.js"
     },
-    "./button": {
+    "./Button": {
       "types": "./dist/button/index.d.ts",
       "import": "./dist/button/index.js"
     },
-    "./button/Button": {
-      "types": "./dist/button/Button.svelte.d.ts",
-      "import": "./dist/button/Button.svelte"
-    },
-    "./button/IconButton": {
+    "./IconButton": {
       "types": "./dist/button/IconButton.svelte.d.ts",
       "import": "./dist/button/IconButton.svelte"
     },
-    "./button/TextButton": {
+    "./TextButton": {
       "types": "./dist/button/TextButton.svelte.d.ts",
       "import": "./dist/button/TextButton.svelte"
     },
-    "./button/ButtonBar": {
-      "types": "./dist/button/ButtonBar.svelte.d.ts",
-      "import": "./dist/button/ButtonBar.svelte"
-    },
-    "./card": {
+    "./Card": {
       "types": "./dist/card/index.d.ts",
       "import": "./dist/card/index.js"
     },
-    "./card/CardAction": {
-      "types": "./dist/card/index.d.ts"
-    },
-    "./cascade-options-select": {
+    "./CascadeOptionsSelect": {
       "types": "./dist/cascade-options-select/index.d.ts",
       "import": "./dist/cascade-options-select/index.js"
     },
-    "./checkbox": {
+    "./Checkbox": {
       "types": "./dist/checkbox/index.d.ts",
       "import": "./dist/checkbox/index.js"
     },
-    "./common/FullscreenOverlay": {
+    "./FullscreenOverlay": {
       "types": "./dist/common/FullscreenOverlay.svelte.d.ts",
       "import": "./dist/common/FullscreenOverlay.svelte"
     },
-    "./common-words-text-editor": {
-      "types": "./dist/common-words-text-editor/index.d.ts",
-      "import": "./dist/common-words-text-editor/index.js"
+    "./PromptsTextEditor": {
+      "types": "./dist/prompts-text-editor/index.d.ts",
+      "import": "./dist/prompts-text-editor/index.js"
     },
-    "./context-menu": {
+    "./ContextMenu": {
       "types": "./dist/context-menu/index.d.ts",
       "import": "./dist/context-menu/index.js"
     },
-    "./date-picker": {
+    "./DatePicker": {
       "types": "./dist/date-picker/index.d.ts",
       "import": "./dist/date-picker/index.js"
     },
-    "./data-table": {
+    "./DataTable": {
       "types": "./dist/data-table/index.d.ts",
       "import": "./dist/data-table/index.js"
     },
-    "./criteria-field": {
+    "./CriteriaField": {
       "types": "./dist/criteria-field/index.d.ts",
       "import": "./dist/criteria-field/index.js"
     },
-    "./date-range": {
+    "./DateRange": {
       "types": "./dist/date-range/index.d.ts",
       "import": "./dist/date-range/index.js"
     },
-    "./dialog": {
+    "./Dialog": {
       "types": "./dist/dialog/index.d.ts",
       "import": "./dist/dialog/index.js"
     },
-    "./dialog/DialogBoard": {
+    "./DialogBoard": {
       "types": "./dist/dialog/DialogBoard.svelte.d.ts",
       "import": "./dist/dialog/DialogBoard.svelte"
     },
-    "./drawer": {
+    "./Drawer": {
       "types": "./dist/drawer/index.d.ts",
       "import": "./dist/drawer/index.js"
     },
-    "./form-field": {
+    "./FormField": {
       "types": "./dist/form-field/index.d.ts",
       "import": "./dist/form-field/index.js"
     },
-    "./flex-form": {
+    "./FlexForm": {
       "types": "./dist/form-panel/flex-form/index.d.ts",
       "import": "./dist/form-panel/flex-form/index.js"
     },
-    "./flex-row-form": {
+    "./FlexRowForm": {
       "types": "./dist/form-panel/flex-row-form/index.d.ts",
       "import": "./dist/form-panel/flex-row-form/index.js"
     },
-    "./grid-form": {
+    "./GridForm": {
       "types": "./dist/form-panel/grid-form/index.d.ts",
       "import": "./dist/form-panel/grid-form/index.js"
     },
-    "./group-box/group-check-box": {
+    "./GroupCheckBox": {
       "types": "./dist/group-box/group-check-box/index.d.ts",
       "import": "./dist/group-box/group-check-box/index.js"
     },
-    "./group-box/group-radio-box": {
+    "./GroupRadioBox": {
       "types": "./dist/group-box/group-radio-box/index.d.ts",
       "import": "./dist/group-box/group-radio-box/index.js"
     },
-    "./icon": {
+    "./Icon": {
       "types": "./dist/icon/index.d.ts",
       "import": "./dist/icon/index.js"
     },
-    "./image-files": {
+    "./ImageFiles": {
       "types": "./dist/image-files/index.d.ts",
       "import": "./dist/image-files/index.js"
     },
-    "./indicator": {
+    "./Indicator": {
       "types": "./dist/indicator/index.d.ts",
       "import": "./dist/indicator/index.js"
     },
-    "./indicator/IndicatorBoard": {
+    "./IndicatorBoard": {
       "types": "./dist/indicator/IndicatorBoard.svelte.d.ts",
       "import": "./dist/indicator/IndicatorBoard.svelte"
     },
-    "./input-options-select": {
+    "./InputOptionsSelect": {
       "types": "./dist/input-options-select/index.d.ts",
       "import": "./dist/input-options-select/index.js"
     },
-    "./list-box": {
+    "./ListBox": {
       "types": "./dist/list-box/index.d.ts",
       "import": "./dist/list-box/index.js"
     },
-    "./lookup-editor": {
+    "./LookupEditor": {
       "types": "./dist/lookup-editor/index.d.ts",
       "import": "./dist/lookup-editor/index.js"
     },
-    "./message-box": {
+    "./MessageBox": {
       "types": "./dist/message-box/index.d.ts",
       "import": "./dist/message-box/index.js"
     },
-    "./memo-editor": {
+    "./MessageBoxBoard": {
+      "types": "./dist/message-box/index.d.ts",
+      "import": "./dist/message-box/index.js"
+    },
+    "./MemoEditor": {
       "types": "./dist/memo-editor/index.d.ts",
       "import": "./dist/memo-editor/index.js"
     },
-    "./navigator": {
+    "./Navigator": {
       "types": "./dist/navigator/index.d.ts",
       "import": "./dist/navigator/index.js"
     },
-    "./navigator/NavItemStatus": {
-      "types": "./dist/navigator/NavItemStatus.d.ts",
-      "import": "./dist/navigator/NavItemStatus.js"
-    },
-    "./number-editor": {
+    "./NumberEditor": {
       "types": "./dist/number-editor/index.d.ts",
       "import": "./dist/number-editor/index.js"
     },
-    "./number-range": {
+    "./NumberRange": {
       "types": "./dist/number-range/index.d.ts",
       "import": "./dist/number-range/index.js"
     },
-    "./options-select": {
+    "./OptionsSelect": {
       "types": "./dist/options-select/index.d.ts",
       "import": "./dist/options-select/index.js"
     },
-    "./options-multi-select": {
+    "./OptionsMultiSelect": {
       "types": "./dist/options-multi-select/index.d.ts",
       "import": "./dist/options-multi-select/index.js"
     },
-    "./page": {
+    "./Page": {
       "types": "./dist/page/index.d.ts",
       "import": "./dist/page/index.js"
     },
-    "./pagination": {
+    "./Pagination": {
       "types": "./dist/pagination/index.d.ts",
       "import": "./dist/pagination/index.js"
     },
-    "./pagination-panel": {
+    "./PaginationPanel": {
       "types": "./dist/pagination-panel/index.d.ts",
       "import": "./dist/pagination-panel/index.js"
     },
-    "./progress-bar": {
+    "./ProgressBar": {
       "types": "./dist/progress-bar/index.d.ts",
       "import": "./dist/progress-bar/index.js"
     },
-    "./progress-step-bar": {
+    "./ProgressStepBar": {
       "types": "./dist/progress-step-bar/index.d.ts",
       "import": "./dist/progress-step-bar/index.js"
     },
-    "./radio-button": {
+    "./RadioButton": {
       "types": "./dist/radio-button/index.d.ts",
       "import": "./dist/radio-button/index.js"
     },
-    "./search-box": {
+    "./SearchBox": {
       "types": "./dist/search-box/index.d.ts",
       "import": "./dist/search-box/index.js"
     },
-    "./separator": {
+    "./Separator": {
       "types": "./dist/separator/index.d.ts",
       "import": "./dist/separator/index.js"
     },
-    "./split": {
+    "./Split": {
       "types": "./dist/split/index.d.ts",
       "import": "./dist/split/index.js"
     },
-    "./switch": {
+    "./Switch": {
       "types": "./dist/switch/index.d.ts",
       "import": "./dist/switch/index.js"
     },
-    "./tabs": {
+    "./Tabs": {
       "types": "./dist/tabs/index.d.ts",
       "import": "./dist/tabs/index.js"
     },
-    "./tag": {
+    "./Tag": {
       "types": "./dist/tag/index.d.ts",
       "import": "./dist/tag/index.js"
     },
-    "./text-editor": {
+    "./TextEditor": {
       "types": "./dist/text-editor/index.d.ts",
       "import": "./dist/text-editor/index.js"
     },
-    "./toast": {
+    "./Toast": {
       "types": "./dist/toast/index.d.ts",
       "import": "./dist/toast/index.js"
     },
-    "./toast/ToastBoard": {
+    "./ToastBoard": {
       "types": "./dist/toast/ToastBoard.svelte.d.ts",
       "import": "./dist/toast/ToastBoard.svelte"
     },
-    "./tree-view": {
+    "./TreeView": {
       "types": "./dist/tree-view/index.d.ts",
       "import": "./dist/tree-view/index.js"
     },
-    "./time-editor": {
+    "./TimeEditor": {
       "types": "./dist/time-editor/index.d.ts",
       "import": "./dist/time-editor/index.js"
     },
-    "./unit-number-editor": {
+    "./UnitNumberEditor": {
       "types": "./dist/unit-number-editor/index.d.ts",
       "import": "./dist/unit-number-editor/index.js"
     },
@@ -317,14 +312,14 @@
     "svelte-preprocess": "^6.0.3",
     "tslib": "^2.3.1",
     "typescript": "^5.7.3",
-    "vite": "^5.4.11"
+    "vite": "^5.4.11",
+    "@ticatec/uniface-icons": "^0.2.0",
+    "dayjs": "^1.11.10",
+    "svelte-portal": "^2.2.1"
   },
   "author": "Henry Feng",
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@ticatec/uniface-icons": "^0.2.0",
-    "dayjs": "^1.11.10",
-    "svelte-portal": "^2.2.1"
   }
 }

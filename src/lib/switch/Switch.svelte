@@ -7,7 +7,7 @@
 
     export let value: boolean;
 
-    const toggleSwitch = (e) => {
+    const toggleSwitch = (e: MouseEvent) => {
         if (readonly || disabled) {
             //value = !value;
             e.stopPropagation();

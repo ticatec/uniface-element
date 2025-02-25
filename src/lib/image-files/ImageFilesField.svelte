@@ -17,10 +17,6 @@
     export let style: string = '';
     export let displayMode: DisplayMode = DisplayMode.Edit;
     export let removeFileConfirm: RemoveConfirm = null as unknown as RemoveConfirm;
-    export let cancelLabel: string = 'Cancel';
-    export let retryLabel: string = "Retry";
-    export let removeLabel: string = "Remove";
-    export let pickupButtonLabel: string = "Pickup files"
     export let uploadFile: FileUpload;
     export let maxFiles: number = 1;
 
@@ -67,7 +63,7 @@
         {#each files as file}
             <div>
                 <img width="40" height="40" src={file.thumbnail??file.uri}/>
-                <div class="img-file-name" >
+                <div class="img-file-name">
                     <span>{file.name}</span>
                 </div>
             </div>
@@ -89,7 +85,8 @@
             {/if}
         </div>
     </div>
-    <FileUploadPanel bind:visible={showUpload} accept="image/*" maxFiles={4} onFileUploaded={appendNewFile} buttonLabel={pickupButtonLabel}
-                     {uploadFile} {cancelLabel} {removeLabel} {retryLabel}/>
+    {#if showUpload}
+        <FileUploadPanel bind:visible={showUpload} accept="image/*" {maxFiles} onFileUploaded={appendNewFile} {uploadFile}/>
+    {/if}
     <ImagePreview bind:visible={showPreview} src={previewImgSrc}/>
 {/if}

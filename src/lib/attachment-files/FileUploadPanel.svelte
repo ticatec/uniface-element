@@ -8,19 +8,18 @@
     import type {FileUpload} from "$lib/attachment-files/FileUpload";
     import utils from "$lib/common/utils";
     import ModalPopover from "$lib/common/ModalPopover.svelte";
+    import i18n from "$lib/i18nContext";
 
-    export let buttonLabel: string = "Pickup files";
     export let accept: string = "*/*";
     export let maxSize: number = 1024 * 1024 * 10;
     export let maxFiles: number = 1;
     export let onFileUploaded: (file: UploadFile) => void;
-    export let cancelLabel: string;
-    export let retryLabel: string;
-    export let removeLabel: string;
     export let uploadFile: FileUpload;
 
     export let canClose: boolean = false;
     export let visible: boolean = false;
+
+    let btnPickup: string = i18n.getText('uniface.upload.btnPickup', "Pickup files");
 
     let files: Array<UploadFile> = [];
     let dropZone: any;
@@ -119,12 +118,12 @@
                 <input bind:this={fileInput} type="file" {accept} multiple={maxFiles > 1} on:change={handleFilePickup}/>
             </div>
             <div style="margin-bottom: 8px; flex: 0 0 auto; text-align: center">
-                <Button type="primary" disabled={files.length >= maxFiles} icon="uniface-icon-upload" label={buttonLabel}
+                <Button type="primary" disabled={files.length >= maxFiles} icon="uniface-icon-upload" label={btnPickup}
                         onClick={showFileDialog}></Button>
             </div>
             <div style="flex: 1 1 auto; overflow: auto; padding: 0 24px">
                 {#each files as file}
-                    <FileUploadBar {file} {cancelLabel} {retryLabel} {removeLabel} removeFile={removeFile}/>
+                    <FileUploadBar {file} removeFile={removeFile}/>
                 {/each}
             </div>
         </div>

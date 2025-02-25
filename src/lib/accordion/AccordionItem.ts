@@ -15,9 +15,4 @@ export default interface AccordionItem {
      */
     params?: any;
 
-    /**
-     *
-     */
-    isOpen?: boolean;
-
 }

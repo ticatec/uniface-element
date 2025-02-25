@@ -4,10 +4,8 @@
     import CommonEditor from "../common-editor/CommonEditor.svelte";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import Popover from "$lib/common/Popover.svelte";
-    import type UnitOption from "$lib/unit-number-editor/UnitOption";
     import prefixFilter from "$lib/utils/prefixFilter";
     import utils from "$lib/common/utils.js";
-
 
     export let disabled: boolean = false;
     export let readonly: boolean = false;
@@ -21,7 +19,7 @@
     export let displayMode: DisplayMode = DisplayMode.Edit;
     export let removable: boolean = true;
     export let onChange: OnChangeHandler<number | null> = null as unknown as OnChangeHandler<number | null>;
-    export let hints: Array<string>;
+    export let words: Array<string>;
     export let menu$height: number = 0;
     export let placeholder: string = '';
 
@@ -85,9 +83,9 @@
     {#if showPopup}
         <Popover target={divPanel} autoFit align="right" on:close={()=>{showPopup=false}}>
             <div class="options-popover" style={mh}>
-                {#each hints as hint}
-                    <div style="padding-left: 12px; padding-right: 12px" on:click={handleHintClick(hint)} aria-hidden="true">
-                        <span>{hint}</span>
+                {#each words as word}
+                    <div style="padding-left: 12px; padding-right: 12px" on:click={handleHintClick(word)} aria-hidden="true">
+                        <span>{word}</span>
                     </div>
                 {/each}
             </div>

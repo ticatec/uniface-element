@@ -34,7 +34,6 @@
     let busy: boolean = false;
 
     const selectOption = (level: number) => async (item: any) => {
-        console.log("当前选中：", level, item);
         let newArr = nodes.slice(0, level+1)
         if (level == 0) {
             selectedItems = [item];

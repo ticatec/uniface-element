@@ -2,14 +2,6 @@
 
   position: relative;
   box-sizing: border-box;
-  height: 100%;
-  background-color: inherit;
-  margin: 0 var(--uniface-separator-margin, 2px);
-
-  .separator-line {
-    position: relative;
-    top: 20%;
-    height: 60%;
-    background-color: var(--uniface-separator-color, #E2E8F0);
-  }
+  width: 1px;
+  background-color: var(--uniface-separator-color, #E2E8F0);
 }

@@ -1,6 +1,7 @@
 <script lang="ts">
 
     import Split from "$lib/split";
+
     export let sidebarResize: boolean = false;
     export let headerHeight: string = "48px";
     export let sidebarWidth: string = '300px';
@@ -22,7 +23,8 @@
 </script>
 
 <div style="width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: row">
-    <div bind:this={sidebar} style="height: 100%; flex: 0 0 auto; overflow: auto; width: {sidebarWidth}; {maxWidth} {minWidth}">
+    <div bind:this={sidebar}
+         style="height: 100%; flex: 0 0 auto; overflow: auto; border-right: 1px solid var(--uniface-plain-border-color, #f0f0f0); width: {sidebarWidth}; {maxWidth} {minWidth}">
         <slot name="sidebar"></slot>
     </div>
     {#if sidebarResize}

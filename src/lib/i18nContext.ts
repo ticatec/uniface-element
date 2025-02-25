@@ -1,21 +1,8 @@
 import utils from "./common/utils";
 
-export default class I18nContext {
+class I18nContext {
 
     private resource: any = {};
-
-    private static instance: I18nContext;
-
-    static getInstance() {
-        if (I18nContext.instance == null) {
-            I18nContext.instance = new I18nContext();
-        }
-        return I18nContext.instance;
-    }
-
-    private constructor() {
-
-    }
 
     /**
      * 设置语言包
@@ -44,3 +31,7 @@ export default class I18nContext {
     }
 
 }
+
+const i18n = new I18nContext();
+
+export default i18n;

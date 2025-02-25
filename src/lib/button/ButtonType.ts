@@ -1,0 +1,1 @@
+export type ButtonType = 'default' | 'primary' | 'secondary' | 'third' | 'forth';

@@ -4,6 +4,11 @@ export enum MetaEditorType {
      * 文字类型
      */
     Text = 'Text',
+
+    /**
+     * 带常用词的文字输入
+     */
+    CommonText = "CommonText",
     /**
      * 数字类型
      */

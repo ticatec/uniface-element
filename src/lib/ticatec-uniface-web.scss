@@ -48,6 +48,7 @@
 @use "./popup-hint/uniface-popup-hint";
 @use "./context-menu/uniace-context-menu";
 @use "./property-editor/uniface-property-editor-table";
+@use "./action-bar/uni-face-action-bar";
 
 .uniface-mask, .uniface-mask-overlay {
   position: absolute;
