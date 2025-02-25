@@ -1,7 +1,28 @@
 .uniface-box {
-  display: block;
+  display: flex;
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
+  flex-direction: column;
   border: 1px solid var(--uniface-plain-border-color, #f0f0f0);
+
+  .box-title {
+    width: 100%;
+    background-color: var(--uniface-box-header-bg, #F8FAFC);
+    flex: 0 0 auto;
+    height: 24px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .box-content {
+    flex: 1 1 auto;
+    position: relative;
+  }
+
+  &.round {
+    border-radius: var(--uniface-box-border-radius, 8px);
+  }
 }
