@@ -4,12 +4,14 @@
     import OptionsSelect from "$lib/options-select";
     import FormField from "$lib/form-field";
     import DatePicker from "$lib/date-picker";
+    import {DateTimePicker} from "$lib/date-picker";
     import OptionMultiSelect from "$lib/options-multi-select";
     import regions from "./regions";
     import CascadeOptionSelect from "$lib/cascade-options-select";
     import utils from "$lib/common/utils";
     import InputOptionSelect from "$lib/input-options-select";
     import LookupEditor from "$lib/lookup-editor";
+    import DateRange from "$lib/date-range";
 
     let airlines = [
         {code: "C", text: "南方航空"},
@@ -53,10 +55,17 @@
 
     $: console.log("性别", gender);
     $: console.log('选中日期：', date);
+
+    let from: Date, to: Date;
+
+
+    $: console.log('选中区间：', from, to);
+
 </script>
 <div style="padding: 12px; width: 100%; box-sizing: border-box; gap: 16px; display: flex; flex-direction: row; flex-wrap: wrap">
     <DatePicker style="width: 400px;" variant="filled" bind:value={date}/>
     <DatePicker style="width: 400px;" variant="outlined" bind:value={date}/>
+    <DateTimePicker style="width: 400px;" variant="outlined" bind:value={date}/>
 
     <OptionsSelect style="width: 400px;"
                    variant="outlined" bind:value={gender} options={genderList}></OptionsSelect>
@@ -81,5 +90,5 @@
                          bind:nodes={zones} onSelect={handleSelectRegion}/>
     <InputOptionSelect style="width: 400px;" variant="outlined" bind:value={text1} options={filterOptions} onInput={handleTextChange} onChange={(v)=>{console.log("选择", v)}}/>
     <LookupEditor style="width: 400px;" variant="outlined" bind:value={text1} text={text1} onAction={()=>{console.log('打开窗口')}} onChange={(v)=>{console.log("选择", v)}}/>
-
+    <DateRange bind:fromValue={from} bind:toValue={to} variant="outlined" style="width: 300px"/>
 </div>

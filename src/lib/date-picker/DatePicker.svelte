@@ -65,7 +65,6 @@
         }
     }
 
-    let editorElement;
     let showPopup: boolean = false;
 
     const cleanData = () => {

@@ -1,5 +1,34 @@
 /*输入框中的清除按钮*/
 
+.uniface-editor-clean-icon {
+  flex: 0 0 auto;
+  display: none;
+  text-align: center;
+  color: var(--uniface-editor-clean-icon-color, #ffffff);
+
+  i {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 10px;
+    line-height: 15px;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    background-color: var(--uniface-editor-clean-icon-bg, #B3BCCA);
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+
+  &:hover {
+    color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
+    background-color: var(--uniface-editor-inline-action-icon-hover-bg, #42A5F570);
+  }
+}
+
 .uniface-common-editor {
 
   border-bottom: 1px solid var(--uniface-editor-border-color, #298DFF);
@@ -15,34 +44,7 @@
   align-items: center;
   gap: 8px;
 
-  .uniface-editor-clean-icon {
-    flex: 0 0 auto;
-    display: none;
-    text-align: center;
-    color: var(--uniface-editor-clean-icon-color, #ffffff);
 
-    i {
-      display: inline-block;
-      box-sizing: border-box;
-      text-align: center;
-      font-size: 10px;
-      line-height: 15px;
-      border-radius: 50%;
-      width: 14px;
-      height: 14px;
-      background-color: var(--uniface-editor-clean-icon-bg, #B3BCCA);
-    }
-
-    &:active {
-      position: relative;
-      top: 1px;
-    }
-
-    &:hover {
-      color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
-      background-color: var(--uniface-editor-inline-action-icon-hover-bg, #42A5F570);
-    }
-  }
 
   .editor-embed-icon {
     padding-left: 4px;

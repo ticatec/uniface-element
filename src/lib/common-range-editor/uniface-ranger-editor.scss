@@ -7,19 +7,8 @@
   .uniface-range-editor {
     display: flex;
     flex-direction: row;
+    gap: 8px;
     align-items: center;
-
-    &:hover, &:focus-within {
-      .uniface-editor-clean-icon {
-        visibility: visible;
-      }
-
-      .hidden {
-        visibility: hidden;
-      }
-
-    }
-
 
     .divider {
       position: relative;
@@ -38,17 +27,6 @@
       }
     }
 
-    .editor-embed-icon {
-      color: var(--uniface-disabled-color);
-      font-size: 22px;
-      padding: 0 4px;
-      cursor: pointer;
-
-      &:active {
-        color: var(--uniface-app-text-color);
-      }
-    }
-
     input {
       cursor: default;
       flex: 1 1 auto;
@@ -62,6 +40,32 @@
       &:focus {
         outline: none;
       }
+
+    }
+
+    .action-icon {
+      display: block;
+      visibility: hidden;
+    }
+
+    .uniface-editor-clean-icon {
+      display: block;
+      visibility: hidden;
+    }
+
+    &:hover, &:focus-within {
+      .action-icon {
+        visibility: visible;
+      }
+
+      .uniface-editor-clean-icon {
+        visibility: visible;
+
+        &.hidden {
+        visibility: hidden;
+      }
+      }
+
 
     }
 

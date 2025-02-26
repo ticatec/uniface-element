@@ -13,13 +13,15 @@
 
 </script>
 <div class="uniface-range-wrapper {className}" tabindex="-1" class:compact {style} on:blur>
-    <div class="uniface-range-editor {variant}">
+    <div class="uniface-range-editor uniface-common-picker {variant}">
         <slot name="from"/>
         <div class="divider"></div>
         <slot name="to"/>
-        <Icon name="uniface-icon-x" clickable class="uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}" onClick={clean}/>
+        <div class="uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}">
+            <i class="uniface-icon-x clickable" aria-hidden="true" on:click={clean}></i>
+        </div>
         {#if $$slots['trailing-icon']}
-            <div class="editor-embed-icon">
+            <div class="action-icon">
                 <slot name="trailing-icon"/>
             </div>
         {/if}
