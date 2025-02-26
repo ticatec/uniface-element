@@ -168,10 +168,6 @@
       "types": "./dist/image-files/index.d.ts",
       "import": "./dist/image-files/index.js"
     },
-    "./Indicator": {
-      "types": "./dist/indicator/index.d.ts",
-      "import": "./dist/indicator/index.js"
-    },
     "./IndicatorBoard": {
       "types": "./dist/indicator/IndicatorBoard.svelte.d.ts",
       "import": "./dist/indicator/IndicatorBoard.svelte"

@@ -12,6 +12,8 @@
     import InputOptionSelect from "$lib/input-options-select";
     import LookupEditor from "$lib/lookup-editor";
     import DateRange from "$lib/date-range";
+    import UnitNumberEditor from "$lib/unit-number-editor";
+    import type {UnitOption} from "$lib";
 
     let airlines = [
         {code: "C", text: "南方航空"},
@@ -57,6 +59,13 @@
     $: console.log('选中日期：', date);
 
     let from: Date, to: Date;
+    let dragUnit = 'mL';
+    let cap: number;
+
+    let units: Array<UnitOption> = [
+        {code: "L", text: "升", ratio: 1, precision: 3},
+        {code: "mL", text: "毫升", ratio: 1000, precision: 0}
+    ]
 
 
     $: console.log('选中区间：', from, to);
@@ -91,4 +100,6 @@
     <InputOptionSelect style="width: 400px;" variant="outlined" bind:value={text1} options={filterOptions} onInput={handleTextChange} onChange={(v)=>{console.log("选择", v)}}/>
     <LookupEditor style="width: 400px;" variant="outlined" bind:value={text1} text={text1} onAction={()=>{console.log('打开窗口')}} onChange={(v)=>{console.log("选择", v)}}/>
     <DateRange bind:fromValue={from} bind:toValue={to} variant="outlined" style="width: 300px"/>
+    <UnitNumberEditor style="width: 400px" variant="outlined" bind:unitCode={dragUnit} readonly={false}  bind:value={cap} units={units} onChange={(v)=>{console.log(v)}}/>
+
 </div>
