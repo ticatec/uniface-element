@@ -89,7 +89,6 @@
     }
 
     const handleCloseClick = (e: MouseEvent) => {
-        console.log('关闭')
         if (resolve != null) {
             resolve(ModuleResult.MR_CANCEL);
             resolve = null;

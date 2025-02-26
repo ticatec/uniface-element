@@ -83,17 +83,13 @@
 
 
     const handleCompositionStart = (event: CompositionEvent) => {
-        //event.target.composing = true;
         currentText = editor.value;
         composing = true;
-        console.log('composition start');
     };
 
     const handleCompositionEnd = (event: CompositionEvent) => {
-        //event.target.composing = false;
         composing = false;
         editor.value = currentText;
-        console.log('composition end');
     };
 
 

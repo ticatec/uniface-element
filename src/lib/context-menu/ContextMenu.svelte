@@ -42,7 +42,6 @@
 
         menuPosition = {x, y};
         menuVisible = true;
-        console.log('在指定位置显示弹出菜单', menuPosition, menuVisible);
     }
 
 

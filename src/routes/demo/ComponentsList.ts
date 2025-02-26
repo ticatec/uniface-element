@@ -20,6 +20,7 @@ import OptionsSelectorDemo from "./options-selector/OptionsSelectorDemo.svelte";
 import ActionBarDemo from "./action-bar/ActionBarDemo.svelte";
 import DateTimePickerDemo from "./date-picker/DateTimePickerDemo.svelte";
 import PickerDemo from "./pickup/PickerDemo.svelte";
+import MenuDemo from "./menu/MenuDemo.svelte";
 
 
 const list: Array<any> = [
@@ -74,6 +75,10 @@ const list: Array<any> = [
     {
         name: "Navigator",
         component: NavigatorDemo
+    },
+    {
+        name: "Navigator Menu",
+        component: MenuDemo
     },
     {
         name: "Options Selector",

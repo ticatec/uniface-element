@@ -1,12 +1,15 @@
 <script lang="ts">
-    import {createEventDispatcher} from "svelte";
+
     import {slide} from "svelte/transition";
     import type MenuItem from "./MenuItem";
+    import type {OnMenuClick} from "./MenuItem";
 
-    export let item:MenuItem;
+    export let item: MenuItem;
     export let expand: boolean = false;
 
-    let dispatch = createEventDispatcher();
+    export let onMenuItemClick: OnMenuClick;
+
+
     let expandable: boolean;
 
     $: {
@@ -17,12 +20,12 @@
     const handleMenuItemClick = () => {
         if (respond) {
             respond = false;
-            setTimeout(()=>respond=true, 200);
+            setTimeout(() => respond = true, 200);
             if (expandable) {
                 item.expand = !item.expand;
                 expand = !expand;
             } else {
-                dispatch('menuClick', item);
+                onMenuItemClick?.(item);
             }
         }
 
@@ -31,11 +34,13 @@
 </script>
 <li class:expandable class:fold={!expand}>
     <span on:click={handleMenuItemClick}>{item.text}</span>
-    {#if expand}
-        <ul transition:slide={{duration: 200}}>
-            {#each item.children as item}
-                <svelte:self {item} on:menuClick/>
-            {/each}
-        </ul>
+    {#if item.children}
+        {#if expand}
+            <ul transition:slide={{duration: 200}}>
+                {#each item.children as el}
+                    <svelte:self item={el} {onMenuItemClick}/>
+                {/each}
+            </ul>
+        {/if}
     {/if}
 </li>

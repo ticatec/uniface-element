@@ -36,7 +36,6 @@
                     visible = !canClose;
                 } else if (files.length > 0 && checkAutoClose == null) {
                     checkAutoClose = setTimeout(()=> {
-                        console.log('文件上传完毕，自动关闭', canClose, busy);
                         visible = !canClose || busy;
                         files = [];
                         checkAutoClose = null;

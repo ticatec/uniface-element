@@ -63,7 +63,6 @@
 
     onMount(() => {
         const overflowY = window.getComputedStyle(document.body).overflowY;
-        console.log("overflow-y", overflowY);
         document.body.style.overflowY = 'hidden';
         setTimeout(() => {
             updatePosition();

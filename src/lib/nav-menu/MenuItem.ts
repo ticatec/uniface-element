@@ -20,3 +20,5 @@ export default interface MenuItem {
      */
     expand?: boolean;
 }
+
+export type OnMenuClick = (item: MenuItem) => void;

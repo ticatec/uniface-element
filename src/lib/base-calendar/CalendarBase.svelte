@@ -82,7 +82,6 @@
     $: {
         minDate = dateUtils.toDayjs(min);
         maxDate = dateUtils.toDayjs(max);
-        console.log(minDate, maxDate)
     }
 
 </script>

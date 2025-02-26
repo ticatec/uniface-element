@@ -27,7 +27,6 @@
     });
 
     const remove = (dialog:any) => () => {
-        console.log('关闭窗口')
         let pos = dialogs.indexOf(dialog);
         if (pos > -1) {
             dialogs.splice(pos, 1);

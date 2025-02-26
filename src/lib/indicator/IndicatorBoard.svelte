@@ -29,7 +29,6 @@
     });
 
     onDestroy(() => {
-        console.debug("卸除", board)
         board && board.remove();
     });
 

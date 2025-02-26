@@ -20,7 +20,6 @@
         style += colSpan > 1 ? `grid-column-end: span ${colSpan};` : '';
         style += row != null ? `grid-row-start: span ${row};` : '';
         style += col != null ? `grid-column-start: span ${col};` : '';
-        console.log(style)
     }
 
 

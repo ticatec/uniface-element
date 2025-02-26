@@ -12,7 +12,6 @@ import type TreeNode from "./TreeNode";
 
 const convertArrayToTree = (data: Array<any>, keyField: string, textField: string, parentField: string,
                             parentCode: string | null = null, parent: TreeNode | null = null) : Array<TreeNode> => {
-    console.log('构造数节点：')
     let nodes:Array<TreeNode> = [];
     for (let i = 0; i < data.length; i++) {
         let pCode = data[i][parentField];
@@ -21,7 +20,6 @@ const convertArrayToTree = (data: Array<any>, keyField: string, textField: strin
             let node:TreeNode = {value:code, text: data[i][textField], data:data[i], parent}
             let children = convertArrayToTree(data, keyField, textField, parentField, code, node);
             if (children.length > 0) {
-                console.log("当前节点：", node, children);
                 node.children = children;
             }
             nodes.push(node);

@@ -14,7 +14,6 @@
     let busy: boolean = false;
 
     const selectOption = (level: number) => (item: any) => {
-        console.log(level, item);
         if (level == 0) {
             selectedItems = [item];
             nodes = [nodes[0]];
