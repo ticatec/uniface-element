@@ -25,7 +25,7 @@
     }
 
 </script>
-<div class="uniface-text-button {size} {type}" {style} class:disabled aria-hidden="true" on:click={handleClick}>
+<div class="uniface-button text-button {size} {type}" {style} class:disabled aria-hidden="true" on:click={handleClick}>
     <slot>
         {#if label != null && label.length > 0}
             <span>{label}</span>

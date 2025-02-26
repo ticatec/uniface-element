@@ -24,7 +24,7 @@
 
 </script>
 
-<div {style} class="uniface-icon-button uniface-common-button {size} {type}" aria-hidden="true" class:disabled on:click={handleClick}>
+<div {style} class="uniface-button icon-button {size} {type}" aria-hidden="true" class:disabled on:click={handleClick}>
     <slot>
         <i class={icon}></i>
     </slot>

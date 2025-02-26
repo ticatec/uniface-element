@@ -27,7 +27,7 @@
 
 </script>
 
-<div {style} class="uniface-button uniface-common-button {variant} {size} {type}" aria-hidden="true" class:disabled
+<div {style} class="uniface-button common-button {variant} {size} {type}" aria-hidden="true" class:disabled
      on:click={handleClick}>
     {#if icon != null}
         <i style="margin-right: 6px" class={icon}></i>
