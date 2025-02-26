@@ -34,7 +34,7 @@
 
     const generateText = (v: string): string => {
         let item = (options || []).find(el => el[keyField] == value);
-        return item == null ? (emptyText ?? '' ): item[textField];
+        return item == null ? (emptyText ?? '') : item[textField];
     }
 
     const openPopup = () => {
@@ -68,7 +68,7 @@
 
 </script>
 
-<CommonPicker {displayMode} {variant} {style} className="uniface-option-select" {compact} dropDownIcon="uniface-icon-chevron-down"
+<CommonPicker {displayMode} {variant} {style} {compact} dropDownIcon="uniface-icon-chevron-down"
               bind:showPopup canClean={!mandatory && value!=null} autoFit clean={cleanData} {textValue} {readonly} {disabled}>
 
     <input style="width: 100%" bind:this={editor} on:click={openPopup} {placeholder}

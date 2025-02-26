@@ -3,6 +3,7 @@
 
     import {DisplayMode} from "../common/DisplayMode";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
+    import CommonPicker from "$lib/common/CommonPicker.svelte";
 
     type OnActionHandler = () => void;
 
@@ -25,7 +26,7 @@
         oldValue = value;
     }
 
-    const cleanHandler = () => {
+    const clean = () => {
         value = null;
         text = '';
         onChange?.(value)
@@ -37,25 +38,8 @@
 
 </script>
 
-<div class="uniface-lookup-editor" class:compact {style}>
-    <div class="uniface-common-editor {variant}" >
-        <div class="option-field">
-            {#if displayMode==DisplayMode.View}
-                <input style="width: 100%" class="display-only" readonly value={text??''}/>
-            {:else if readonly}
-                <input style="width: 100%" readonly value={text??''}/>
-            {:else}
-                <input style="width: 100%" {placeholder} class="text-editor" readonly value={text??''} {disabled}
-                       on:keydown on:focus/>
-            {/if}
-        </div>
-        {#if !disabled && !readonly && displayMode === DisplayMode.Edit}
-            {#if !mandatory && value != null}
-                <i tabindex="-1" class="option-action uniface-icon-x-circle" on:click={cleanHandler}/>
-            {/if}
-            <i tabindex="-1" class="option-dropdown uniface-icon-more-horizontal" on:click={handleActionIconClick}/>
-        {/if}
-    </div>
-
-
-</div>
+<CommonPicker {displayMode} {variant} {style} {compact} className="multiple" dropDownIcon="uniface-icon-more-horizontal"
+               canClean={!mandatory && value!=null} autoFit {clean} textValue={text} {readonly} {disabled} iconClickHandler={handleActionIconClick}>
+    <input style="width: 100%" {placeholder} class="text-editor" readonly value={text??''} {disabled}
+           on:keydown on:focus on:click={handleActionIconClick}/>
+</CommonPicker>

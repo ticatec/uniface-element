@@ -12,8 +12,6 @@
   --uniface-dangerous-color: #FF685B;
   --uniface-warning-color: #FFC53D;
   --uniface-successful-color: #2DC071;
-  --uniface-primary-background-color: #FFFFFF;
-  --uniface-secondary-border-color: #E2E8F0;
   --uniface-text-h1-size: 38px;
   --uniface-text-h1-line-height: 46px;
   --uniface-text-h2-size: 30px;
@@ -24,7 +22,6 @@
   --uniface-text-h4-line-height: 26px;
   --uniface-text-h5-size: 16px;
   --uniface-text-h5-line-height: 22px;
-  --uniface-primary-text-color: #ffffff;
   --uniface-primary-hover-color: #298DEF;
   --uniface-active-editor-border-color: #42A5F5;
   --uniface-invalid-editor-border-color: #ff3e00;
@@ -39,6 +36,45 @@
   --uniface-plain-hover-background-color: #ecf5ff;
   --uniface-plain-hover-border-color: #b3d8ff;
   --uniface-plain-hover-color: #42A5F5;
+  /*按钮类别*/
+  --uniface-button-common-bg: #f0f0f0;
+  --uniface-button-common-border-color: #f0f0f0;
+  --uniface-button-common-color: #374151;
+  --uniface-button-common-reverse-color: #ffffff;
+  --uniface-button-plain-disabled-color: #B3BCCA;
+  --uniface-text-button-plain-hover-color: #374151B0;
+  --uniface-button-plain-background-color: #f0f0f0;
+  --uniface-button-plain-border-color: #f0f0f0;
+  --uniface-button-plain-text-color: #374151;
+  --uniface-button-plain-hover-color: #f0f0f0B0;
+  --uniface-button-plainy-active-color: #f0f0f0;
+  --uniface-button-primary-background-color: #42A5F5;
+  --uniface-button-primary-border-color: #42B5DB;
+  --uniface-button-primary-text-color: #ffffff;
+  --uniface-button-primary-hover-color: #42A5F5B0;
+  --uniface-button-primary-active-color: #42A5F5;
+  --uniface-text-button-primary-hover-color: #42A5F5B0;
+  --uniface-button-secondary-background-color: #FF685B;
+  --uniface-button-secondary-border-color: #FF7875;
+  --uniface-button-secondary-text-color: #ffffff;
+  --uniface-button-secondary-hover-color: #FF685BB0;
+  --uniface-button-secondary-active-color: #FF4D4F;
+  --uniface-text-button-secondary-hover-color: #D32F2FB0;
+  --uniface-button-third-background-color: #2DC071;
+  --uniface-button-third-border-color: #2DD08B;
+  --uniface-button-third-text-color: #ffffff;
+  --uniface-button-third-hover-color: #2DD057B0;
+  --uniface-button-third-active-color: #2DC071;
+  --uniface-text-button-third-hover-color: #2DC071B0;
+  --uniface-button-forth-background-color: #FAD85D;
+  --uniface-button-forth-border-color: #FAE877;
+  --uniface-button-forth-text-color: #374151;
+  --uniface-button-forth-hover-color: #FAD85DB0;
+  --uniface-button-forth-active-color: #FAD85D;
+  --uniface-text-button-forth-hover-color: #FAD85DB0;
+  --uniface-disabled-button-color: #F1F5F9;
+  --uniface-disabled-button-border-color: #E2E8F0;
+  --uniface-disabled-button-text-color: #B3BCCA;
   --uniface-text-button-color: #42A5F5;
   --uniface-text-button-hover-color: #1e648d;
   --uniface-active-border-color: #42A5F5;
@@ -65,36 +101,6 @@
   --uniface-default-hover-bg: #42A5F51A;
   --uniface-default-active-border-color: #0061FF80;
   --uniface-calendar-today-border-color: #298DFF30;
-  --uniface-button-plain-text-color: #374151;
-  --uniface-button-plain-disabled-color: #B3BCCA;
-  --uniface-text-button-plain-hover-color: #374151B0;
-  --uniface-button-primary-background-color: #42A5F5;
-  --uniface-button-primary-border-color: #42A5F5;
-  --uniface-button-primary-text-color: #ffffff;
-  --uniface-button-primary-hover-color: #64B5F6;
-  --uniface-button-primary-active-color: #42A5F5;
-  --uniface-text-button-primary-hover-color: #42A5F5B0;
-  --uniface-button-secondary-background-color: #FF685B;
-  --uniface-button-secondary-border-color: #FF685B;
-  --uniface-button-secondary-text-color: #ffffff;
-  --uniface-button-secondary-hover-color: #FF7875;
-  --uniface-button-secondary-active-color: #FF4D4F;
-  --uniface-text-button-secondary-hover-color: #FF685BB0;
-  --uniface-button-third-background-color: #2DC071;
-  --uniface-button-third-border-color: #2DC071;
-  --uniface-button-third-text-color: #ffffff;
-  --uniface-button-third-hover-color: #2DD057;
-  --uniface-button-third-active-color: #2DC071;
-  --uniface-text-button-third-hover-color: #2DC071B0;
-  --uniface-button-forth-background-color: #FAD85D;
-  --uniface-button-forth-border-color: #FAD85D;
-  --uniface-button-forth-text-color: #374151;
-  --uniface-button-forth-hover-color: #FAE877;
-  --uniface-button-forth-active-color: #FAD85D;
-  --uniface-text-button-forth-hover-color: #FAD85DB0;
-  --uniface-disabled-button-color: #F1F5F9;
-  --uniface-disabled-button-border-color: #E2E8F0;
-  --uniface-disabled-button-text-color: #B3BCCA;
   --uniface-editor-clean-icon-bg: #B3BCCA;
   --uniface-editor-clean-icon-color: #ffffff;
   --uniface-editor-text-color: #374151;
@@ -195,6 +201,31 @@
   --uniface-popup-hint-color: #374151;
   --uniface-context-menu-bg: #ffffff;
   --uniface-context-menu-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.uniface-common-picker .editor-dropdown {
+  visibility: hidden;
+  margin-left: 8px;
+}
+.uniface-common-picker .action-icon {
+  display: none;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: var(--uniface-editor-text-color, #374151);
+  align-self: center;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.uniface-common-picker .action-icon:active {
+  color: var(--uniface-active-dropdown-color, #9d9d9d);
+}
+.uniface-common-picker:hover .action-icon, .uniface-common-picker:focus-within .action-icon, .uniface-common-picker:focus .action-icon {
+  display: block;
+  visibility: visible;
+}
+.uniface-common-picker:hover .uniface-editor-clean-icon, .uniface-common-picker:focus-within .uniface-editor-clean-icon, .uniface-common-picker:focus .uniface-editor-clean-icon {
+  display: block;
+  visibility: visible;
 }
 
 .uniface-popover-wrapper {
@@ -443,28 +474,6 @@
 }
 
 /*输入框中的清除按钮*/
-.uniface-editor-clean-icon {
-  visibility: hidden;
-  text-align: center;
-  color: var(--uniface-editor-clean-icon-color, #ffffff);
-  margin-right: 4px;
-}
-.uniface-editor-clean-icon i {
-  display: inline-block;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 10px;
-  line-height: 15px;
-  border-radius: 50%;
-  width: 14px;
-  height: 14px;
-  background-color: var(--uniface-editor-clean-icon-bg, #B3BCCA);
-}
-.uniface-editor-clean-icon:active {
-  position: relative;
-  top: 1px;
-}
-
 .uniface-common-editor {
   border-bottom: 1px solid var(--uniface-editor-border-color, #298DFF);
   padding: var(--uniface-editor-padding, 0 4px);
@@ -477,10 +486,32 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
+  gap: 8px;
 }
 .uniface-common-editor .uniface-editor-clean-icon {
+  flex: 0 0 auto;
   display: none;
-  visibility: visible;
+  text-align: center;
+  color: var(--uniface-editor-clean-icon-color, #ffffff);
+}
+.uniface-common-editor .uniface-editor-clean-icon i {
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 10px;
+  line-height: 15px;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  background-color: var(--uniface-editor-clean-icon-bg, #B3BCCA);
+}
+.uniface-common-editor .uniface-editor-clean-icon:active {
+  position: relative;
+  top: 1px;
+}
+.uniface-common-editor .uniface-editor-clean-icon:hover {
+  color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
+  background-color: var(--uniface-editor-inline-action-icon-hover-bg, rgba(66, 165, 245, 0.4392156863));
 }
 .uniface-common-editor .editor-embed-icon {
   padding-left: 4px;
@@ -489,35 +520,6 @@
 .uniface-common-editor .editor-embed-icon img {
   width: 28px;
   height: 28px;
-}
-.uniface-common-editor .editor-action-icon {
-  display: block;
-  flex: 0 0 auto;
-  margin: 0 4px;
-  box-sizing: border-box;
-  text-align: center;
-  width: 22px;
-  height: 22px;
-  line-height: 22px;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-left: 8px;
-  color: var(--uniface-editor-inline-action-icon-color, rgba(55, 65, 81, 0.4392156863));
-}
-.uniface-common-editor .editor-action-icon i {
-  position: relative;
-  display: inline-block;
-  border: 1px solid transparent;
-  width: 12px;
-  height: 12px;
-  font-size: 12px;
-}
-.uniface-common-editor .editor-action-icon i:active {
-  top: 1px;
-}
-.uniface-common-editor .editor-action-icon:hover {
-  color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
-  background-color: var(--uniface-editor-inline-action-icon-hover-bg, rgba(66, 165, 245, 0.4392156863));
 }
 .uniface-common-editor input[type=text], .uniface-common-editor input[type=password], .uniface-common-editor input[type=number] {
   width: 100%;
@@ -554,14 +556,14 @@
   outline: none;
   border-bottom: 1px solid var(--uniface-editor-outlined-active-border-color, #298DFF);
 }
-.uniface-common-editor:focus-within .editor-action-icon {
-  display: block;
-}
 .uniface-common-editor:focus-within .uniface-editor-clean-icon {
   display: block;
 }
 .uniface-common-editor:focus-within .uniface-editor-clean-icon.hidden {
   display: none;
+}
+.uniface-common-editor:focus-within .editor-action-icon {
+  visibility: visible;
 }
 .uniface-common-editor:hover .uniface-editor-clean-icon {
   display: block;
@@ -617,16 +619,6 @@
 }
 .uniface-common-editor input:read-only + .password-icon {
   color: #d9d9d9;
-}
-.uniface-common-editor .editor-embed-icon-button {
-  display: none;
-}
-.uniface-common-editor .editor-embed-icon-button:hover {
-  cursor: pointer;
-}
-.uniface-common-editor .editor-embed-icon-button:active {
-  position: relative;
-  top: 1px;
 }
 
 .switch-box input[type=checkbox] {
@@ -1124,14 +1116,12 @@
   border-top: 1px solid var(--uniface-dialog-divider-color, #F0F0F0);
 }
 
-.uniface-common-button {
+/*通用按钮设置*/
+.uniface-button {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
   text-align: center;
-  border: 1px solid var(--uniface-plain-border-color, #f0f0f0);
-  background-color: var(--uniface-plain-background-color, #f0f0f0);
-  color: var(--uniface-plain-color, #333333);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1139,137 +1129,136 @@
   font-size: 12px;
   letter-spacing: 1px;
   transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  /*普通按钮*/
 }
-.uniface-common-button:hover {
-  background-color: var(--uniface-plain-hover-background-color, #ecf5ff);
-  border-color: var(--uniface-plain-hover-border-color, #b3d8ff);
-  color: var(--uniface-plain-hover-color, #42A5F5);
+.uniface-button.common-button.default, .uniface-button.icon-button.default {
+  background-color: var(--uniface-button-plain-background-color, #f0f0f0);
+  border-color: var(--uniface-button-plain-border-color, #f0f0f0);
+  color: var(--uniface-button-plain-text-color, #374151);
 }
-.uniface-common-button.primary {
+.uniface-button.common-button.default:hover, .uniface-button.icon-button.default:hover {
+  background-color: var(--uniface-button-plain-hover-color, rgba(240, 240, 240, 0.6901960784));
+}
+.uniface-button.common-button.default:active, .uniface-button.icon-button.default:active {
+  background-color: var(--uniface-button-primary-active-color, #f0f0f0);
+}
+.uniface-button.common-button.primary, .uniface-button.icon-button.primary {
   background-color: var(--uniface-button-primary-background-color, #42A5F5);
-  border-color: var(--uniface-button-primary-border-color, #42A5F5);
+  border-color: var(--uniface-button-primary-border-color, #42B5DB);
   color: var(--uniface-button-primary-text-color, #ffffff);
 }
-.uniface-common-button.primary:hover {
-  background-color: var(--uniface-button-primary-hover-color, #64B5F6);
+.uniface-button.common-button.primary:hover, .uniface-button.icon-button.primary:hover {
+  background-color: var(--uniface-text-button-primary-hover-color, rgba(66, 165, 245, 0.6901960784));
 }
-.uniface-common-button.primary:active {
-  background-color: var(--uniface-button-primary-active-color, #FF4D4F);
+.uniface-button.common-button.primary:active, .uniface-button.icon-button.primary:active {
+  background-color: var(--uniface-button-primary-active-color, #42A5F5);
 }
-.uniface-common-button.secondary {
+.uniface-button.common-button.secondary, .uniface-button.icon-button.secondary {
   background-color: var(--uniface-button-secondary-background-color, #FF685B);
   border-color: var(--uniface-button-secondary-border-color, #FF7875);
   color: var(--uniface-button-secondary-text-color, #ffffff);
 }
-.uniface-common-button.secondary:hover {
-  background-color: var(--uniface-button-secondary-hover-color, #FF685B);
+.uniface-button.common-button.secondary:hover, .uniface-button.icon-button.secondary:hover {
+  background-color: var(--uniface-button-secondary-hover-color, rgba(255, 104, 91, 0.6901960784));
 }
-.uniface-common-button.secondary:active {
-  background-color: var(--uniface-button-secondary-active-color, #FF4D4F);
+.uniface-button.common-button.secondary:active, .uniface-button.icon-button.secondary:active {
+  background-color: var(--uniface-button-secondary-active-color, #FF685B);
 }
-.uniface-common-button.third {
+.uniface-button.common-button.third, .uniface-button.icon-button.third {
   background-color: var(--uniface-button-third-background-color, #2DC071);
-  border-color: var(--uniface-button-third-border-color, #2DC071);
+  border-color: var(--uniface-button-third-border-color, #2DD08B);
   color: var(--uniface-button-third-text-color, #ffffff);
 }
-.uniface-common-button.third:hover {
-  background-color: var(--uniface-button-third-hover-color, #2DB08B);
+.uniface-button.common-button.third:hover, .uniface-button.icon-button.third:hover {
+  background-color: var(--uniface-button-third-hover-color, rgba(45, 176, 139, 0.6901960784));
 }
-.uniface-common-button.third:active {
+.uniface-button.common-button.third:active, .uniface-button.icon-button.third:active {
   background-color: var(--uniface-button-third-active-color, #2DC071);
 }
-.uniface-common-button.forth {
+.uniface-button.common-button.forth, .uniface-button.icon-button.forth {
   background-color: var(--uniface-button-forth-background-color, #FAD85D);
-  border-color: var(--uniface-button-forth-border-color, #FAD85D);
+  border-color: var(--uniface-button-forth-border-color, #FAE877);
   color: var(--uniface-button-forth-text-color, #374151);
 }
-.uniface-common-button.forth:hover {
-  background-color: var(--uniface-button-forth-hover-color, #FAE877);
+.uniface-button.common-button.forth:hover, .uniface-button.icon-button.forth:hover {
+  background-color: var(--uniface-button-forth-hover-color, rgba(250, 216, 93, 0.6901960784));
 }
-.uniface-common-button.forth:active {
+.uniface-button.common-button.forth:active, .uniface-button.icon-button.forth:active {
   background-color: var(--uniface-button-forth-active-color, #FAD85D);
 }
-.uniface-common-button:active {
+.uniface-button.common-button:active, .uniface-button.icon-button:active {
   position: relative;
   top: 1px;
 }
-.uniface-common-button.disabled {
+.uniface-button.common-button.disabled, .uniface-button.icon-button.disabled {
   cursor: not-allowed;
   background-color: var(--uniface-disabled-button-color, #F1F5F9);
   border-color: var(--uniface-disabled-button-border-color, #E2E8F0);
   color: var(--uniface-disabled-button-text-color, #B3BCCA);
 }
-.uniface-common-button.disabled:active {
+.uniface-button.common-button.disabled:active, .uniface-button.icon-button.disabled:active {
   top: 0;
 }
-.uniface-common-button.disabled.primary, .uniface-common-button.disabled.secondary, .uniface-common-button.disabled.third, .uniface-common-button.disabled.forth {
-  background-color: var(--uniface-disabled-button-color, #F1F5F9);
-  border-color: var(--uniface-disabled-button-border-color, #E2E8F0);
-  color: var(--uniface-disabled-button-text-color, #B3BCCA);
-}
-.uniface-common-button.disabled.primary:hover, .uniface-common-button.disabled.secondary:hover, .uniface-common-button.disabled.third:hover, .uniface-common-button.disabled.forth:hover {
+.uniface-button.common-button.disabled:hover, .uniface-button.icon-button.disabled:hover {
   background-color: var(--uniface-disabled-button-color, #F1F5F9);
   color: var(--uniface-disabled-button-text-color, #B3BCCA);
 }
-
-.uniface-button {
+.uniface-button.common-button {
   padding: 6px 16px;
   border-radius: 4px;
 }
-.uniface-button > span {
+.uniface-button.common-button > span {
   padding: 0 4px;
 }
-.uniface-button.big {
+.uniface-button.common-button.big {
   padding: 10px 20px;
+  font-size: 1.1em;
 }
-.uniface-button.mini {
+.uniface-button.common-button.mini {
   padding: 4px 10px;
+  font-size: 0.9em;
 }
-.uniface-button.plain {
+.uniface-button.common-button.plain {
   border-radius: 0;
 }
-.uniface-button.round {
+.uniface-button.common-button.round {
   border-radius: 18px;
 }
-.uniface-button.round.big {
+.uniface-button.common-button.round.big {
   border-radius: 24px;
 }
-.uniface-button.round.mini {
+.uniface-button.common-button.round.mini {
   border-radius: 12px;
 }
-
-.uniface-icon-button {
+.uniface-button.icon-button {
   width: 32px;
   height: 32px;
   padding: 2px;
   border-radius: 50%;
 }
-.uniface-icon-button i {
+.uniface-button.icon-button i {
   line-height: 28px;
   font-size: 16px;
 }
-.uniface-icon-button.big {
+.uniface-button.icon-button.big {
   width: 48px;
   height: 48px;
   padding: 4px;
 }
-.uniface-icon-button.big i {
+.uniface-button.icon-button.big i {
   line-height: 40px;
   font-size: 24px;
 }
-.uniface-icon-button.mini {
+.uniface-button.icon-button.mini {
   width: 24px;
   height: 24px;
   padding: 2px;
 }
-.uniface-icon-button.mini i {
+.uniface-button.icon-button.mini i {
   line-height: 20px;
   font-size: 12px;
 }
-
-.uniface-text-button {
-  display: inline-block;
-  font-size: 1em;
+.uniface-button.text-button {
   padding: 3px 6px;
   cursor: pointer;
   text-align: center;
@@ -1277,89 +1266,67 @@
   color: var(--uniface-button-plain-text-color, #374151);
   user-select: none;
 }
-.uniface-text-button.big {
+.uniface-button.text-button.big {
   font-size: 1.2em;
   padding: 4px 8px;
 }
-.uniface-text-button.mini {
+.uniface-button.text-button.mini {
   font-size: 0.9em;
   padding: 2px 4px;
 }
-.uniface-text-button:hover {
+.uniface-button.text-button:hover {
   color: var(--uniface-text-button-plain-hover-color, rgba(55, 65, 81, 0.6901960784));
 }
-.uniface-text-button:active {
+.uniface-button.text-button:active {
   position: relative;
   top: 1px;
 }
-.uniface-text-button.primary {
+.uniface-button.text-button.primary {
   color: var(--uniface-button-primary-background-color, #42A5F5);
 }
-.uniface-text-button.primary:hover {
+.uniface-button.text-button.primary:hover {
   color: var(--uniface-text-button-primary-hover-color, rgba(66, 165, 245, 0.4392156863));
 }
-.uniface-text-button.primary:active {
+.uniface-button.text-button.primary:active {
   color: var(--uniface-button-primary-background-color, #42A5F5);
 }
-.uniface-text-button.secondary {
+.uniface-button.text-button.secondary {
   color: var(--uniface-button-secondary-background-color, #D32F2F);
 }
-.uniface-text-button.secondary:hover {
+.uniface-button.text-button.secondary:hover {
   color: var(--uniface-text-button-secondary-hover-color, rgba(211, 47, 47, 0.4392156863));
 }
-.uniface-text-button.secondary:active {
+.uniface-button.text-button.secondary:active {
   color: var(--uniface-button-secondary-background-color, #D32F2F);
 }
-.uniface-text-button.third {
+.uniface-button.text-button.third {
   color: var(--uniface-button-third-background-color, #2DC071);
 }
-.uniface-text-button.third:hover {
+.uniface-button.text-button.third:hover {
   color: var(--uniface-text-button-third-hover-color, rgba(45, 192, 113, 0.6901960784));
 }
-.uniface-text-button.third:active {
+.uniface-button.text-button.third:active {
   color: var(--uniface-button-third-background-color, #2DC071);
 }
-.uniface-text-button.forth {
+.uniface-button.text-button.forth {
   color: var(--uniface-button-forth-background-color, #FAD85D);
 }
-.uniface-text-button.forth:hover {
+.uniface-button.text-button.forth:hover {
   color: var(--uniface-text-button-forth-hover-color, rgba(250, 216, 93, 0.6901960784));
 }
-.uniface-text-button.forth:active {
+.uniface-button.text-button.forth:active {
   color: var(--uniface-button-forth-background-color, #FAD85D);
 }
-.uniface-text-button.disabled {
+.uniface-button.text-button.disabled {
   cursor: not-allowed;
   color: var(--uniface-disabled-button-text-color, #B3BCCA);
 }
-.uniface-text-button.disabled:hover {
+.uniface-button.text-button.disabled:hover {
   color: var(--uniface-disabled-button-text-color, #B3BCCA);
 }
-.uniface-text-button.disabled:active {
+.uniface-button.text-button.disabled:active {
   top: 0;
   color: var(--uniface-disabled-button-text-color, #B3BCCA);
-}
-
-.uniface-button-bar {
-  position: relative;
-}
-.uniface-button-bar.left::before {
-  content: "";
-  position: absolute;
-  left: -4px;
-  top: 10%;
-  height: 80%;
-  width: 1px;
-  background: var(--uniface-card-inside-border-color, #E2E8F0);
-}
-.uniface-button-bar.right::after {
-  content: "";
-  position: absolute;
-  right: -4px;
-  top: 10%;
-  height: 80%;
-  width: 1px;
-  background: var(--uniface-card-inside-border-color, #E2E8F0);
 }
 
 .uniface-indicator-board {
@@ -1815,16 +1782,8 @@
   box-sizing: border-box;
 }
 
-.multiple {
-  height: 38px;
-  display: inline-block;
-  width: 100%;
-  vertical-align: top;
-}
-.multiple .uniface-common-editor {
-  height: 38px;
-}
 .multiple .option-field {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -2368,70 +2327,6 @@
 }
 .uniface-calendar .weekend {
   color: #ff3e00;
-}
-
-.uniface-date-time-editor {
-  display: inline-block;
-  height: 38px;
-  position: relative;
-  width: 100%;
-}
-.uniface-date-time-editor > div {
-  display: flex;
-  flex-direction: row;
-  justify-items: center;
-}
-.uniface-date-time-editor .editor-action {
-  display: none;
-  box-sizing: border-box;
-  font-size: 16px;
-  line-height: 22px;
-  color: var(--uniface-dropdown-color, #e1e1e1);
-  align-self: center;
-  margin-right: 4px;
-  cursor: pointer;
-}
-.uniface-date-time-editor .editor-action:active {
-  color: var(--uniface-active-dropdown-color, #9d9d9d);
-}
-.uniface-date-time-editor .editor {
-  flex: 1 1 auto;
-  overflow: hidden;
-}
-.uniface-date-time-editor .editor input {
-  width: 100%;
-}
-.uniface-date-time-editor .uniface-common-editor:hover .editor-action {
-  display: block;
-}
-.uniface-date-time-editor .editor-dropdown {
-  box-sizing: border-box;
-  font-size: 22px;
-  line-height: 22px;
-  color: var(--uniface-dropdown-color, #e1e1e1);
-  align-self: center;
-  cursor: pointer;
-}
-.uniface-date-time-editor .editor-dropdown:active {
-  color: var(--uniface-active-dropdown-color, #9d9d9d);
-}
-.uniface-date-time-editor .filled .option-dropdown {
-  color: var(--uniface-secondary-dropdown-color, #b9b9b9);
-}
-.uniface-date-time-editor.compact {
-  height: 28px;
-}
-.uniface-date-time-editor.compact .option-dropdown {
-  padding: 0;
-  font-size: 20px;
-  height: 20px;
-  width: 20px;
-}
-.uniface-date-time-editor.compact .uniface-common-editor {
-  height: 28px;
-}
-.uniface-date-time-editor.compact .uniface-common-editor input {
-  height: 26px;
 }
 
 .time-picker-panel {
@@ -3958,7 +3853,7 @@
 .uniface-data-table .data-content-panel .action-button {
   display: inline-block;
   cursor: pointer;
-  color: var(--uniface-text-button-color, #42A5F5);
+  color: var(--uniface-button-primary-background-color, #42A5F5);
   box-sizing: border-box;
   padding: 2px 4px;
   text-decoration: none;

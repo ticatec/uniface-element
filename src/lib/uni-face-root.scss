@@ -1,44 +1,36 @@
 :root {
-  --uniface-primary-color: #0061FF;
-  --uniface-secondary-color: #22BDFF;
-  --uniface-third-color: #2DC071;
-  --uniface-forth-color: #FAD85D;
+  --uniface-primary-color: #0061FF;  //unused
+  --uniface-secondary-color: #22BDFF; //unused
+  --uniface-third-color: #2DC071;  //unused
+  --uniface-forth-color: #FAD85D;  //unused
 
-  --uniface-h1-text-color: #07123C;
-  --uniface-h2-text-color: #374151;
-  --uniface-h3-text-color: #6B7280;
-  --uniface-h4-text-color: #B3BCCA;
+  --uniface-h1-text-color: #07123C;  //unused
+  --uniface-h2-text-color: #374151;  //unused
+  --uniface-h3-text-color: #6B7280;  //unused
+  --uniface-h4-text-color: #B3BCCA;  //unused
 
-  --uniface-hint-color: #0061FF;
-  --uniface-dangerous-color: #FF685B;
-  --uniface-warning-color: #FFC53D;
-  --uniface-successful-color: #2DC071;
+  --uniface-hint-color: #0061FF;  //unused
+  --uniface-dangerous-color: #FF685B;  //unused
+  --uniface-warning-color: #FFC53D;  //unused
+  --uniface-successful-color: #2DC071;  //unused
 
-  --uniface-primary-background-color: #FFFFFF;
-  --uniface-secondary-border-color: #E2E8F0;
+  --uniface-text-h1-size: 38px;  //unused
+  --uniface-text-h1-line-height: 46px;  //unused
+  --uniface-text-h2-size: 30px;  //unused
+  --uniface-text-h2-line-height: 40px;  //unused
+  --uniface-text-h3-size: 24px;  //unused
+  --uniface-text-h3-line-height: 32px;  //unused
+  --uniface-text-h4-size: 20px;  //unused
+  --uniface-text-h4-line-height: 26px;  //unused
+  --uniface-text-h5-size: 16px;  //unused
+  --uniface-text-h5-line-height: 22px;  //unused
 
+  --uniface-primary-hover-color: #298DEF;  //unused
 
-  --uniface-text-h1-size: 38px;
-  --uniface-text-h1-line-height: 46px;
-  --uniface-text-h2-size: 30px;
-  --uniface-text-h2-line-height: 40px;
-  --uniface-text-h3-size: 24px;
-  --uniface-text-h3-line-height: 32px;
-  --uniface-text-h4-size: 20px;
-  --uniface-text-h4-line-height: 26px;
-  --uniface-text-h5-size: 16px;
-  --uniface-text-h5-line-height: 22px;
-
-  --uniface-primary-text-color: #ffffff;
-
-
-  --uniface-primary-hover-color: #298DEF;
-
-  --uniface-active-editor-border-color: #42A5F5;
-  --uniface-invalid-editor-border-color: #ff3e00;
+  --uniface-active-editor-border-color: #42A5F5;  //unused
+  --uniface-invalid-editor-border-color: #ff3e00;  //unused
 
   /*定义全局变量*/
-
 
   /*定义全局按钮的颜色*/
   --uniface-plain-background-color: #f0f0f0;
@@ -50,6 +42,56 @@
   --uniface-plain-hover-background-color: #ecf5ff;
   --uniface-plain-hover-border-color: #b3d8ff;
   --uniface-plain-hover-color: #42A5F5;
+
+  /*按钮类别*/
+
+  --uniface-button-common-bg: #f0f0f0;
+  --uniface-button-common-border-color: #f0f0f0;
+  --uniface-button-common-color: #374151;
+  --uniface-button-common-reverse-color: #ffffff;
+
+  --uniface-button-plain-disabled-color: #B3BCCA;
+
+  --uniface-text-button-plain-hover-color: #374151B0;
+
+  --uniface-button-plain-background-color: #f0f0f0;
+  --uniface-button-plain-border-color: #f0f0f0;
+  --uniface-button-plain-text-color: #374151;
+  --uniface-button-plain-hover-color: #f0f0f0B0;
+  --uniface-button-plainy-active-color: #f0f0f0;
+
+  --uniface-button-primary-background-color: #42A5F5;
+  --uniface-button-primary-border-color: #42B5DB;
+  --uniface-button-primary-text-color: #ffffff;
+  --uniface-button-primary-hover-color: #42A5F5B0;
+  --uniface-button-primary-active-color: #42A5F5;
+  --uniface-text-button-primary-hover-color: #42A5F5B0;
+
+  --uniface-button-secondary-background-color: #FF685B;
+  --uniface-button-secondary-border-color: #FF7875;
+  --uniface-button-secondary-text-color: #ffffff;
+  --uniface-button-secondary-hover-color: #FF685BB0;
+  --uniface-button-secondary-active-color: #FF4D4F;
+  --uniface-text-button-secondary-hover-color: #D32F2FB0;
+
+  --uniface-button-third-background-color: #2DC071;
+  --uniface-button-third-border-color: #2DD08B;
+  --uniface-button-third-text-color: #ffffff;
+  --uniface-button-third-hover-color: #2DD057B0;
+  --uniface-button-third-active-color: #2DC071;
+  --uniface-text-button-third-hover-color: #2DC071B0;
+
+  --uniface-button-forth-background-color: #FAD85D;
+  --uniface-button-forth-border-color: #FAE877;
+  --uniface-button-forth-text-color: #374151;
+  --uniface-button-forth-hover-color: #FAD85DB0;
+  --uniface-button-forth-active-color: #FAD85D;
+  --uniface-text-button-forth-hover-color: #FAD85DB0;
+
+  --uniface-disabled-button-color: #F1F5F9;
+  --uniface-disabled-button-border-color: #E2E8F0;
+  --uniface-disabled-button-text-color: #B3BCCA;
+
 
   --uniface-text-button-color: #42A5F5;
   --uniface-text-button-hover-color: #1e648d;
@@ -89,43 +131,6 @@
   --uniface-calendar-today-border-color: #298DFF30;
 
   //按钮颜色定义
-  --uniface-button-plain-text-color: #374151;
-  --uniface-button-plain-disabled-color: #B3BCCA;
-
-  --uniface-text-button-plain-hover-color: #374151B0;
-
-  --uniface-button-primary-background-color: #42A5F5;
-  --uniface-button-primary-border-color: #42A5F5;
-  --uniface-button-primary-text-color: #ffffff;
-  --uniface-button-primary-hover-color: #64B5F6;
-  --uniface-button-primary-active-color: #42A5F5;
-  --uniface-text-button-primary-hover-color: #42A5F5B0;
-
-  --uniface-button-secondary-background-color: #FF685B;
-  --uniface-button-secondary-border-color: #FF685B;
-  --uniface-button-secondary-text-color: #ffffff;
-  --uniface-button-secondary-hover-color: #FF7875;
-  --uniface-button-secondary-active-color: #FF4D4F;
-  --uniface-text-button-secondary-hover-color: #FF685BB0;
-
-
-  --uniface-button-third-background-color: #2DC071;
-  --uniface-button-third-border-color: #2DC071;
-  --uniface-button-third-text-color: #ffffff;
-  --uniface-button-third-hover-color: #2DD057;
-  --uniface-button-third-active-color: #2DC071;
-  --uniface-text-button-third-hover-color: #2DC071B0;
-
-  --uniface-button-forth-background-color: #FAD85D;
-  --uniface-button-forth-border-color: #FAD85D;
-  --uniface-button-forth-text-color: #374151;
-  --uniface-button-forth-hover-color: #FAE877;
-  --uniface-button-forth-active-color: #FAD85D;
-  --uniface-text-button-forth-hover-color: #FAD85DB0;
-
-  --uniface-disabled-button-color: #F1F5F9;
-  --uniface-disabled-button-border-color: #E2E8F0;
-  --uniface-disabled-button-text-color: #B3BCCA;
 
 
 

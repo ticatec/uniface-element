@@ -89,14 +89,15 @@
 
 </script>
 
-<CommonPicker {displayMode} {variant} {style} className="uniface-option-select multiple" {compact} dropDownIcon="uniface-icon-chevron-down"
+<CommonPicker {displayMode} {variant} {style} {compact} className="multiple" dropDownIcon="uniface-icon-chevron-down"
               bind:showPopup canClean={value!=null} autoFit clean={cleanData} {textValue} {readonly} {disabled}>
 
     <div class="option-field" aria-hidden="true" on:click={()=>{showPopup = true}}>
         <div style="width: 100%; overflow: hidden; display: flex; flex-direction: row; gap: 6px">
             {#if selectedList.length > 0 }
                 {#each selectedList as code}
-                    <Tag style="flex-shrink: 0" color={tagColor} variant={tagVariant} text={getOptionItem(code)} removable={!readonly && !disabled} removeHandler={removeOption(code)}/>
+                    <Tag style="flex-shrink: 0" color={tagColor} variant={tagVariant} text={getOptionItem(code)}
+                         removable={!readonly && !disabled} removeHandler={removeOption(code)}/>
                 {/each}
             {:else if placeholder != null}
                 <div class:readonly={readonly || disabled}>
@@ -104,7 +105,6 @@
                 </div>
             {/if}
         </div>
-        <!--        <input bind:this={editor} style="position: absolute; top: 0; width: 0; height: 0"/>-->
     </div>
     <div class="options-popover" style={mh} slot="popup-panel">
         {#each options as op}

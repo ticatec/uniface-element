@@ -3,6 +3,7 @@
     import {DisplayMode} from "../common/DisplayMode";
     import Popover from "../common/Popover.svelte";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
+    import CommonPicker from "$lib/common/CommonPicker.svelte";
 
     type OnInputHandler = (s: string) => void;
 
@@ -70,7 +71,6 @@
     }
 
     let showPopup: boolean = false;
-    let divPanel;
 
     let mh;
 
@@ -83,41 +83,25 @@
 
 </script>
 <!-- 待解决浏览模式显示的问题 -->
-<div class="uniface-option-select" class:compact {style} bind:this={divPanel}>
-    <div class="uniface-common-editor {variant}">
-        <div class="option-field">
-            {#if displayMode === DisplayMode.View}
-                <input style="width: 100%" class="display-only" readonly value={text}/>
-            {:else if readonly}
-                <input style="width: 100%" readonly value={text}/>
+
+<CommonPicker {displayMode} {variant} {style} {compact}
+              bind:showPopup canClean={value!=null} autoFit {clean} textValue={text} {readonly} {disabled}>
+    <input style="width: 100%" bind:this={editor} {placeholder}
+           class="text-editor" bind:value={inputText} {disabled}
+           on:input={handleInput}
+           on:compositionstart={handleCompositionStart} on:compositionend={handleCompositionEnd}
+           on:blur={handleBlurEvent} on:focus/>
+
+    <div class="options-popover" style={mh} slot="popup-panel">
+        {#each options as op}
+            {#if itemRender != null}
+                <svelte:component this={itemRender} item={op}
+                                  on:click={handleItemClick(op)}/>
             {:else}
-                <input style="width: 100%" bind:this={editor} {placeholder}
-                       class="text-editor" bind:value={inputText} {disabled}
-                       on:input={handleInput}
-                       on:compositionstart={handleCompositionStart} on:compositionend={handleCompositionEnd}
-                       on:blur={handleBlurEvent} on:focus/>
+                <div on:click={handleItemClick(op)} aria-hidden="true">
+                    <span>{op[textField]}</span>
+                </div>
             {/if}
-        </div>
-        {#if !disabled && !readonly}
-            {#if text != null && text.trim().length > 0}
-                <i class="option-action uniface-icon-x-circle" aria-hidden="true" on:click={clean}></i>
-            {/if}
-        {/if}
+        {/each}
     </div>
-    {#if showPopup}
-        <Popover target={divPanel} on:close={()=>{showPopup=false}}>
-            <div class="options-popover" style={mh}>
-                {#each options as op}
-                    {#if itemRender != null}
-                        <svelte:component this={itemRender} item={op}
-                                          on:click={handleItemClick(op)}/>
-                    {:else}
-                        <div on:click={handleItemClick(op)} aria-hidden="true">
-                            <span>{op[textField]}</span>
-                        </div>
-                    {/if}
-                {/each}
-            </div>
-        </Popover>
-    {/if}
-</div>
+</CommonPicker>

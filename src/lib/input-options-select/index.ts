@@ -1,3 +1,3 @@
-import InputOptionSelect from "./InputOptionsSelect.svelte";
+import InputOptionsSelect from "./InputOptionsSelect.svelte";
 
-export default InputOptionSelect;
+export default InputOptionsSelect;

@@ -3,19 +3,21 @@
     import {DisplayMode} from "../common/DisplayMode";
     import Popover from "../common/Popover.svelte";
     import Icon from "$lib/icon";
+    import type {MouseClickHandler} from "../common/MouseClickHandler";
 
     export let variant: '' | 'plain' | 'outlined' | 'filled';
     export let disabled: boolean;
     export let readonly: boolean;
     export let compact: boolean;
-    export let style: string;
-    export let className: string;
+    export let style: string = '';
+    export let className: string = '';
     export let displayMode: DisplayMode;
-    export let autoFit: boolean;
+    export let autoFit: boolean = true;
     export let canClean: boolean;
     export let textValue: string;
     export let dropDownIcon: string = "";
     export let clean: () => void;
+    export let iconClickHandler: MouseClickHandler = null as unknown as MouseClickHandler;
     export let showPopup: boolean = false;
 
     const openPopup = () => {
@@ -30,20 +32,21 @@
         <span>{textValue}</span>
     </div>
 {:else}
-    <div bind:this={editorElement} class="uniface-common-picker {className}" tabindex="-1" class:compact {style}>
-        <div class="uniface-common-editor {variant}">
-            {#if readonly || disabled}
-                <input class="readonly" class:disabled readonly {disabled} value={textValue}/>
-            {:else}
-                <slot></slot>
-                {#if canClean && textValue && textValue.length > 0}
-                    <Icon name="uniface-icon-x" clickable class="uniface-editor-clean-icon" onClick={clean}/>
-                {/if}
-                <slot name="dropdown-icon">
-                    <Icon name={dropDownIcon} class="editor-dropdown" clickable onClick={openPopup}/>
-                </slot>
+    <div bind:this={editorElement} class="uniface-common-editor {variant} uniface-common-picker {className}" tabindex="-1" class:compact
+         {style}>
+        {#if readonly || disabled}
+            <input style="width: 100%" class="readonly" class:disabled readonly {disabled} value={textValue}/>
+        {:else}
+            <slot></slot>
+            {#if canClean && textValue && textValue.length > 0}
+                <div class="uniface-editor-clean-icon">
+                    <i class="uniface-icon-x clickable " aria-hidden="true" on:click={clean}></i>
+                </div>
             {/if}
-        </div>
+            <slot name="dropdown-icon">
+                <Icon name={dropDownIcon} class="action-icon" onClick={iconClickHandler??openPopup}/>
+            </slot>
+        {/if}
     </div>
     {#if showPopup}
         <Popover target={editorElement} on:close={()=>{showPopup=false}} {autoFit}>

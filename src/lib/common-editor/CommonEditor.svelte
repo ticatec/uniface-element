@@ -6,7 +6,6 @@
     import Icon from "$lib/icon";
 
 
-
     export let disabled: boolean = false;
     export let readonly: boolean = false;
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
@@ -51,7 +50,7 @@
             </div>
         {/if}
         <slot/>
-        <Icon name="uniface-icon-x" clickable class="uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}" onClick={clean}/>
+        <i class="uniface-icon-x clickable uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}" aria-hidden="true" on:click={clean}/>
         {#if !utils.isEmpty(suffix)}
             <div class="editor-suffix" style="flex: 0 0 auto;">
                 <span>{suffix}</span>

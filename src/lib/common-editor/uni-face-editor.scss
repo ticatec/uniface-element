@@ -1,27 +1,4 @@
 /*输入框中的清除按钮*/
-.uniface-editor-clean-icon {
-  visibility: hidden;
-  text-align: center;
-  color: var(--uniface-editor-clean-icon-color, #ffffff);
-  margin-right: 4px;
-
-  i {
-    display: inline-block;
-    box-sizing: border-box;
-    text-align: center;
-    font-size: 10px;
-    line-height: 15px;
-    border-radius: 50%;
-    width: 14px;
-    height: 14px;
-    background-color: var(--uniface-editor-clean-icon-bg, #B3BCCA);
-  }
-
-  &:active {
-    position: relative;
-    top: 1px;
-  }
-}
 
 .uniface-common-editor {
 
@@ -36,10 +13,35 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
+  gap: 8px;
 
   .uniface-editor-clean-icon {
+    flex: 0 0 auto;
     display: none;
-    visibility: visible;
+    text-align: center;
+    color: var(--uniface-editor-clean-icon-color, #ffffff);
+
+    i {
+      display: inline-block;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 10px;
+      line-height: 15px;
+      border-radius: 50%;
+      width: 14px;
+      height: 14px;
+      background-color: var(--uniface-editor-clean-icon-bg, #B3BCCA);
+    }
+
+    &:active {
+      position: relative;
+      top: 1px;
+    }
+
+    &:hover {
+      color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
+      background-color: var(--uniface-editor-inline-action-icon-hover-bg, #42A5F570);
+    }
   }
 
   .editor-embed-icon {
@@ -49,40 +51,6 @@
     img {
       width: 28px;
       height: 28px;
-    }
-  }
-
-  .editor-action-icon {
-    display: block;
-    flex: 0 0 auto;
-    margin: 0 4px;
-    box-sizing: border-box;
-    text-align: center;
-    width: 22px;
-    height: 22px;
-    line-height: 22px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-left: 8px;
-    color: var(--uniface-editor-inline-action-icon-color, #37415170);
-
-    i {
-      position: relative;
-      display: inline-block;
-      border: 1px solid transparent;
-      width: 12px;
-      height: 12px;
-      font-size: 12px;
-
-      &:active {
-        top: 1px;
-      }
-    }
-
-
-    &:hover {
-      color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
-      background-color: var(--uniface-editor-inline-action-icon-hover-bg, #42A5F570);
     }
   }
 
@@ -130,16 +98,16 @@
     outline: none;
     border-bottom: 1px solid var(--uniface-editor-outlined-active-border-color, #298DFF);
 
-    .editor-action-icon {
-      display: block;
-    }
-
     .uniface-editor-clean-icon {
       display: block;
 
       &.hidden {
         display: none;
       }
+    }
+
+    .editor-action-icon {
+      visibility: visible;
     }
   }
 
@@ -216,17 +184,4 @@
     color: #d9d9d9;
   }
 
-  .editor-embed-icon-button {
-
-    display: none;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:active {
-      position: relative;
-      top: 1px;
-    }
-  }
 }

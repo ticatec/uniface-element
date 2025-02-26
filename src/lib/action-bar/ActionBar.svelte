@@ -16,7 +16,9 @@
         {#if button}
             <Button label={button.label} icon={button.icon} type={button.type} onClick={button?.handler}/>
         {:else }
-            <Separator height="28px"/>
+            <Separator height="24px"/>
         {/if}
+    {:else }
+        <slot></slot>
     {/each}
 </div>

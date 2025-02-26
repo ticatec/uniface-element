@@ -18,6 +18,8 @@ import PageDemo from "./page/PageDemo.svelte";
 import PaginationDemo from "./pagination/PaginationDemo.svelte";
 import OptionsSelectorDemo from "./options-selector/OptionsSelectorDemo.svelte";
 import ActionBarDemo from "./action-bar/ActionBarDemo.svelte";
+import DateTimePickerDemo from "./date-picker/DateTimePickerDemo.svelte";
+import PickerDemo from "./pickup/PickerDemo.svelte";
 
 
 const list: Array<any> = [
@@ -56,6 +58,14 @@ const list: Array<any> = [
     {
         name: "Date Table",
         component: DataTableDemo
+    },
+    {
+        name: "Picker/Selector",
+        component: PickerDemo
+    },
+    {
+        name: "Date Picker",
+        component: DateTimePickerDemo
     },
     {
         name: "Image Upload",

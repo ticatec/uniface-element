@@ -1,15 +1,6 @@
 .multiple {
-
-  height: 38px;
-  display: inline-block;
-  width: 100%;
-  vertical-align: top;
-
-  .uniface-common-editor {
-    height: 38px;
-  }
-
   .option-field {
+    flex: 1 1 auto;
     display: flex;
     flex-direction: row;
     height: 100%;
