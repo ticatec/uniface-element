@@ -474,6 +474,32 @@
 }
 
 /*输入框中的清除按钮*/
+.uniface-editor-clean-icon {
+  flex: 0 0 auto;
+  display: none;
+  text-align: center;
+  color: var(--uniface-editor-clean-icon-color, #ffffff);
+}
+.uniface-editor-clean-icon i {
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 10px;
+  line-height: 15px;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  background-color: var(--uniface-editor-clean-icon-bg, #B3BCCA);
+}
+.uniface-editor-clean-icon:active {
+  position: relative;
+  top: 1px;
+}
+.uniface-editor-clean-icon:hover {
+  color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
+  background-color: var(--uniface-editor-inline-action-icon-hover-bg, rgba(66, 165, 245, 0.4392156863));
+}
+
 .uniface-common-editor {
   border-bottom: 1px solid var(--uniface-editor-border-color, #298DFF);
   padding: var(--uniface-editor-padding, 0 4px);
@@ -487,31 +513,6 @@
   flex-direction: row;
   align-items: center;
   gap: 8px;
-}
-.uniface-common-editor .uniface-editor-clean-icon {
-  flex: 0 0 auto;
-  display: none;
-  text-align: center;
-  color: var(--uniface-editor-clean-icon-color, #ffffff);
-}
-.uniface-common-editor .uniface-editor-clean-icon i {
-  display: inline-block;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 10px;
-  line-height: 15px;
-  border-radius: 50%;
-  width: 14px;
-  height: 14px;
-  background-color: var(--uniface-editor-clean-icon-bg, #B3BCCA);
-}
-.uniface-common-editor .uniface-editor-clean-icon:active {
-  position: relative;
-  top: 1px;
-}
-.uniface-common-editor .uniface-editor-clean-icon:hover {
-  color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
-  background-color: var(--uniface-editor-inline-action-icon-hover-bg, rgba(66, 165, 245, 0.4392156863));
 }
 .uniface-common-editor .editor-embed-icon {
   padding-left: 4px;
@@ -2133,7 +2134,7 @@
   display: inline-block;
   padding: 0;
   box-sizing: border-box;
-  color: #444444;
+  color: var(--uniface-default-text-color, #374151);
 }
 .uniface-calendar > div {
   display: flex;
@@ -2167,16 +2168,16 @@
   border: 1px solid transparent;
   text-align: center;
 }
-.uniface-calendar .uniface-title-bar .action-icon:hover {
-  border-color: var(--uniface-inside-border-color, #f0f0f0);
-}
-.uniface-calendar .uniface-title-bar i {
+.uniface-calendar .uniface-title-bar .action-icon i {
   color: var(--uniface-inactive-icon-color, #e1e1e1);
   font-size: 1.2em;
   cursor: pointer;
 }
-.uniface-calendar .uniface-title-bar i:active {
-  color: var(--uniface-active-icon-color, #333333);
+.uniface-calendar .uniface-title-bar .action-icon i:active {
+  color: var(--uniface-default-text-color, #374151);
+}
+.uniface-calendar .uniface-title-bar .action-icon:hover i {
+  color: var(--uniface-primary-hover-color, #42A5F5);
 }
 .uniface-calendar .uniface-month-pickup-panel, .uniface-calendar .uniface-year-pickup-panel {
   position: absolute;
@@ -2448,21 +2449,12 @@
 }
 
 .uniface-navigator-menu-panel {
-  display: flex;
-  flex-direction: column;
+  display: block;
   width: 100%;
   height: 100%;
   user-select: none;
   background-color: var(--uniface-primary-color, #42A5F5);
   color: var(--uniface-primary-text-color, #ffffff);
-}
-.uniface-navigator-menu-panel .menu-panel-header {
-  flex: 0 0 auto;
-}
-.uniface-navigator-menu-panel .menu-panel-content {
-  flex: 1 1 auto;
-  width: 100%;
-  height: 100%;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -2470,17 +2462,17 @@
   font-size: 15px;
   padding: 0.5em 1em 0.5em 0;
 }
-.uniface-navigator-menu-panel .menu-panel-contentul, .uniface-navigator-menu-panel .menu-panel-content ul {
+.uniface-navigator-menu-panelul, .uniface-navigator-menu-panel ul {
   list-style-type: none;
   padding-left: 0;
   width: 100%;
   box-sizing: border-box;
   margin: 0;
 }
-.uniface-navigator-menu-panel .menu-panel-contentul li, .uniface-navigator-menu-panel .menu-panel-content ul li {
+.uniface-navigator-menu-panelul li, .uniface-navigator-menu-panel ul li {
   position: relative;
 }
-.uniface-navigator-menu-panel .menu-panel-contentul li span, .uniface-navigator-menu-panel .menu-panel-content ul li span {
+.uniface-navigator-menu-panelul li span, .uniface-navigator-menu-panel ul li span {
   display: inline-block;
   width: 100%;
   line-height: 1.5em;
@@ -2491,26 +2483,26 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.uniface-navigator-menu-panel .menu-panel-contentul li span:hover, .uniface-navigator-menu-panel .menu-panel-content ul li span:hover {
-  background-color: var(--uniface-navigator-menu-hover-background-color, #90CAF9);
-  color: var(--uniface-navigator-menu-hover-color, #333333);
+.uniface-navigator-menu-panelul li span:hover, .uniface-navigator-menu-panel ul li span:hover {
+  background-color: var(--uniface-navigator-menu-hover-background-color, #81D4FA);
+  color: var(--uniface-default-text-color, #374151);
   border-radius: 4px;
 }
-.uniface-navigator-menu-panel .menu-panel-contentul li.expandable > span:hover::after, .uniface-navigator-menu-panel .menu-panel-content ul li.expandable > span:hover::after {
+.uniface-navigator-menu-panelul li.expandable > span:hover::after, .uniface-navigator-menu-panel ul li.expandable > span:hover::after {
   content: "▲";
   transition: transform 200ms;
   font-size: 0.9em;
   position: absolute;
   right: 8px;
-  color: var(--uniface-navigator-menu-hover-color, #333333);
+  color: var(--uniface-default-text-color, #374151);
 }
-.uniface-navigator-menu-panel .menu-panel-contentul li.expandable.fold ul, .uniface-navigator-menu-panel .menu-panel-content ul li.expandable.fold ul {
+.uniface-navigator-menu-panelul li.expandable.fold ul, .uniface-navigator-menu-panel ul li.expandable.fold ul {
   display: none;
 }
-.uniface-navigator-menu-panel .menu-panel-contentul li.expandable.fold span::after, .uniface-navigator-menu-panel .menu-panel-content ul li.expandable.fold span::after {
+.uniface-navigator-menu-panelul li.expandable.fold span::after, .uniface-navigator-menu-panel ul li.expandable.fold span::after {
   transform: rotate(180deg);
 }
-.uniface-navigator-menu-panel .menu-panel-content ul {
+.uniface-navigator-menu-panel ul {
   padding-left: 1em;
 }
 
@@ -2523,13 +2515,8 @@
 .uniface-range-wrapper .uniface-range-editor {
   display: flex;
   flex-direction: row;
+  gap: 8px;
   align-items: center;
-}
-.uniface-range-wrapper .uniface-range-editor:hover .uniface-editor-clean-icon, .uniface-range-wrapper .uniface-range-editor:focus-within .uniface-editor-clean-icon {
-  visibility: visible;
-}
-.uniface-range-wrapper .uniface-range-editor:hover .hidden, .uniface-range-wrapper .uniface-range-editor:focus-within .hidden {
-  visibility: hidden;
 }
 .uniface-range-wrapper .uniface-range-editor .divider {
   position: relative;
@@ -2546,15 +2533,6 @@
   background-color: var(--uniface-editor-inline-action-icon-color, rgba(55, 65, 81, 0.4392156863));
   transform: translateY(-50%);
 }
-.uniface-range-wrapper .uniface-range-editor .editor-embed-icon {
-  color: var(--uniface-disabled-color);
-  font-size: 22px;
-  padding: 0 4px;
-  cursor: pointer;
-}
-.uniface-range-wrapper .uniface-range-editor .editor-embed-icon:active {
-  color: var(--uniface-app-text-color);
-}
 .uniface-range-wrapper .uniface-range-editor input {
   cursor: default;
   flex: 1 1 auto;
@@ -2567,6 +2545,23 @@
 }
 .uniface-range-wrapper .uniface-range-editor input:focus {
   outline: none;
+}
+.uniface-range-wrapper .uniface-range-editor .action-icon {
+  display: block;
+  visibility: hidden;
+}
+.uniface-range-wrapper .uniface-range-editor .uniface-editor-clean-icon {
+  display: block;
+  visibility: hidden;
+}
+.uniface-range-wrapper .uniface-range-editor:hover .action-icon, .uniface-range-wrapper .uniface-range-editor:focus-within .action-icon {
+  visibility: visible;
+}
+.uniface-range-wrapper .uniface-range-editor:hover .uniface-editor-clean-icon, .uniface-range-wrapper .uniface-range-editor:focus-within .uniface-editor-clean-icon {
+  visibility: visible;
+}
+.uniface-range-wrapper .uniface-range-editor:hover .uniface-editor-clean-icon.hidden, .uniface-range-wrapper .uniface-range-editor:focus-within .uniface-editor-clean-icon.hidden {
+  visibility: hidden;
 }
 .uniface-range-wrapper .uniface-range-editor:focus-within {
   outline: none;

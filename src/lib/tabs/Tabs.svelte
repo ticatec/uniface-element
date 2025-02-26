@@ -3,11 +3,9 @@
     import {onMount, onDestroy} from "svelte";
     import {Tween} from 'svelte/motion';
     import {cubicOut} from 'svelte/easing';
+    import type {TabActionHandler, TabCloseHandler, TabRender} from "./types";
 
 
-    type TabActionHandler = (tab: any) => void;
-    type TabCloseHandler = (tab: any) => Promise<boolean>;
-    type TabRender = (tab: any) => any;
 
     export {className as class};
     export let simple: boolean = false;
