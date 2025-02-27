@@ -14,7 +14,7 @@
 <div class="uniface-action-bar" style="gap: {gap}px; {style}">
     {#each (buttons ?? []) as button}
         {#if button}
-            <Button label={button.label} icon={button.icon} type={button.type} onClick={button?.handler}/>
+            <Button label={button.label} icon={button.icon} disabled={button.disabled===true} type={button.type} onClick={button.handler}/>
         {:else }
             <Separator height="24px"/>
         {/if}

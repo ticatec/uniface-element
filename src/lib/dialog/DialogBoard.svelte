@@ -39,7 +39,7 @@
 
 <div bind:this={board} class="uniface-dialog-board" style="display: {dialogs.length > 0 ? 'block' : 'none'}">
     {#each dialogs as dialog}
-        <DialogBox closeHandler={remove(dialog)} contentComponent={dialog.component} params={dialog.params} >
+        <DialogBox closeHandler={remove(dialog)} dialog={dialog.component} params={dialog.params} >
         </DialogBox>
     {/each}
 </div>

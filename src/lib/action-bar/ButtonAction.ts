@@ -9,6 +9,11 @@ export default interface ButtonAction {
     label: string;
 
     /**
+     * 是否禁用
+     */
+    disabled?: boolean;
+
+    /**
      * 前缀图标
      */
     icon?: string;

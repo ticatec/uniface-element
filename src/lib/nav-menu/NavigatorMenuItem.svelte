@@ -3,6 +3,7 @@
     import {slide} from "svelte/transition";
     import type MenuItem from "./MenuItem";
     import type {OnMenuClick} from "./MenuItem";
+    import i18n from "$lib/i18nContext";
 
     export let item: MenuItem;
     export let expand: boolean = false;
@@ -33,7 +34,7 @@
 
 </script>
 <li class:expandable class:fold={!expand}>
-    <span on:click={handleMenuItemClick}>{item.text}</span>
+    <span on:click={handleMenuItemClick} aria-hidden="true">{item.key ? i18n.getText(item.key, item.text) : item.text}</span>
     {#if item.children}
         {#if expand}
             <ul transition:slide={{duration: 200}}>

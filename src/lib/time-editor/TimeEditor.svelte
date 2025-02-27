@@ -30,6 +30,10 @@
 
     let lastPos = precision == "M" ? 4 : 7;
 
+    let emptyStr: string;
+
+    $: emptyStr = precision == 'M' ? '__:__' : '__:__:__';
+
     const handleFocusEvent = (e: FocusEvent) => {
         if (!readonly) {
             editor.setSelectionRange(cursorIndex, cursorIndex + 1);
@@ -38,7 +42,7 @@
 
     const toTimeText = (v: number): string => {
         if (v == null) {
-            let s = precision == 'M' ? '__:__' : '__:__:__';
+            let s = emptyStr;
             return mandatory ? s.replaceAll('_', '0') : s;
         } else {
             let mins = Math.floor(value);
@@ -154,8 +158,9 @@
         }
     }
 
-    const handleDeleteButton = async (e: MouseEvent) => {
-        textValue = precision == 'M' ? '__:__' : '__:__:__';
+    const handleDeleteButton = async () => {
+        value = null as unknown as number;
+        textValue = emptyStr;
         await tick();
         cursorIndex = 0;
         editor.setSelectionRange(cursorIndex, cursorIndex + 1);
@@ -165,7 +170,8 @@
     $: textValue = toTimeText(value);
 
 </script>
-<CommonEditor {displayMode} {style} value={toTimeText(value)} {suffix} {prefix} {readonly} {variant} {compact} class={className}>
+<CommonEditor {displayMode} {style} value={toTimeText(value)} {suffix} {prefix} {disabled} {readonly} {variant} {compact} class={className}
+              showActionIcon={textValue!=emptyStr} clean={handleDeleteButton}>
     <svelte:fragment slot="leading-icon">
         {#if $$slots['leading-icon']}
             <div class="editor-embed-icon">
@@ -177,11 +183,4 @@
            on:keydown={handleKeyDown} on:focus={handleFocusEvent} on:blur={handleBlurEvent}
            on:mousedown={handleMouseDown}/>
 
-    {#if !readonly && !disabled && !mandatory}
-        <div style="flex: 0 0 auto">
-            <div tabindex="-1" class="editor-action-icon" aria-hidden="true" on:click={handleDeleteButton}>
-                <i class=" uniface-icon-x"></i>
-            </div>
-        </div>
-    {/if}
 </CommonEditor>

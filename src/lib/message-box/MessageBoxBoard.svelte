@@ -133,7 +133,7 @@
                     <div class="control-bar">
                         {#if buttons && buttons.length > 0}
                             {#each buttons as button}
-                                <Button style="margin: 0 4px" type={button.type??''} label={button.label}
+                                <Button style="margin: 0 4px; width: 90px" type={button.type??''} label={button.label}
                                         onClick={handleButtonClick(button.result)}/>
                             {/each}
                         {/if}

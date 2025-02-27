@@ -7,10 +7,15 @@ export default interface MenuItem {
      * 菜单文字
      */
     text: string;
+
     /**
-     * 跳转资源
+     * 用于i18n的key
      */
-    uri?: string;
+    key?: string;
+    /**
+     * 绑定数据，用户处理，通常为uri的跳转地址
+     */
+    data?: any;
     /**
      * 子菜单项
      */

@@ -1,4 +1,4 @@
-
+import i18n from "$lib/i18nContext";
 
 type ShowFun = (message: string, title?: string, escapeHTML?:boolean) => Promise<void>;
 type ShowConfirmFun = (message: string, title?: string | null, escapeHTML?:boolean, type?: 'info' | 'warning') => Promise<any>;;
@@ -15,11 +15,11 @@ enum ModuleResult {
 }
 
 const InfoButtons = [
-    {label: "确认", type: 'primary', result: ModuleResult.MR_OK}
+    {label: i18n.getText('uniface.btnClose', 'Close'), type: 'primary', result: ModuleResult.MR_OK}
 ];
 const ConfirmButtons = [
-    {label: "取消", type: 'default', result: ModuleResult.MR_CANCEL},
-    {label: "确认", type: 'primary', result: ModuleResult.MR_OK}
+    {label: i18n.getText('uniface.btnCancel', 'Cancel'), type: 'default', result: ModuleResult.MR_CANCEL},
+    {label: i18n.getText('uniface.btnConfirm', 'OK'), type: 'primary', result: ModuleResult.MR_OK}
 ];
 
 

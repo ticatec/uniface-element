@@ -1,19 +1,29 @@
 <script lang="ts">
 
     import {fade} from "svelte/transition";
-    import Button from "../button";
     import type {DialogCloseConfirm} from "$lib/dialog/DialogCloseConfirm";
-
-
+    import ActionBar, {type ButtonActions} from "$lib/action-bar";
+    import i18n from "$lib/i18nContext";
+    import type ButtonAction from "$lib/action-bar/ButtonAction";
+    import {onMount} from "svelte";
 
     export let title: string = null as unknown as string;
-    export let confirmCallback: any = null;
+    export let actions: ButtonActions;
     export let closeConfirm: DialogCloseConfirm;
     export let content$style: string = '';
-    export let enableConfirm: boolean = true;
-    export let canClose: boolean = true;
     export let closeHandler: () => void;
 
+
+    export let closeAction: any;
+
+    export const close = async () => {
+        let confirm = closeConfirm ? await closeConfirm() : true;
+        if (confirm) {
+            closeHandler?.();
+        }
+    }
+
+    let dialogActions: ButtonActions;
 
     let top: number = 0;
     let left: number = 0;
@@ -35,28 +45,17 @@
         startMove = false;
     }
 
-    const handleDblClick = (e: MouseEvent) => {
-        left = 0;
-        top = 0;
-        e.stopPropagation();
-        e.preventDefault();
-    }
+    onMount(async () => {
+        closeAction = closeAction ?? {
+            label: i18n.getText('uniface.btnClose', 'Close'),
+            type: 'secondary'
+        };
+        closeAction.handler = close;
+        dialogActions = actions ? [...actions, closeAction] : [closeAction];
+    })
 
-    const doConfirm = async () => {
-        if (await confirmCallback()) {
-            closeHandler?.();
-        }
-    }
-
-    const handleCloseClick = async (e: MouseEvent) => {
-        let confirm = closeConfirm ? await closeConfirm() : true;
-        if (confirm) {
-            closeHandler?.();
-        }
-    }
-
-
-    //$:dialogCss = '';//`width: ${width}; height: ${height ?? "unset"}; max-width: ${maxWidth ?? 'unset'}; max-height: ${maxHeight ?? 'unset'}`;
+    $:console.log(closeAction)
+    $:  dialogActions = actions ? [...actions, closeAction] : [closeAction];
 
 </script>
 
@@ -64,28 +63,17 @@
      on:mouseleave={handleMouseUp} on:mousemove={handleMouseMove}>
     <div>
         <div class="uniface-dialog-box" style="top: {top}px; left: {left}px">
-            <div class="title-bar" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} aria-hidden="true" on:dblclick={handleDblClick}>
+            <div class="title-bar" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} aria-hidden="true">
                 <div style="flex: 1 1 auto"><span>{title ?? 'New window'}</span></div>
                 <div style="flex: 0 0 auto; padding-left: 12px">
-                    <i class="uniface-icon-x dialog-action-button" aria-hidden="true" on:click={handleCloseClick}></i>
+                    <i class="uniface-icon-x dialog-action-button" aria-hidden="true" on:click={close}></i>
                 </div>
             </div>
             <div class="dialog-content" style={content$style}>
                 <slot></slot>
             </div>
             <div class="control-bar">
-                <slot name="control-bar">
-                    {#if confirmCallback}
-                        <div style="flex: 0 0 auto">
-                        <Button type="primary" disabled={!enableConfirm} size="mini" label="确认" onClick={doConfirm}/>
-                        </div>
-                    {/if}
-                    {#if canClose}
-                        <div style="flex: 0 0 auto; margin-left: 8px">
-                            <Button type="default" size="mini" label="关闭" onClick={handleCloseClick}></Button>
-                        </div>
-                    {/if}
-                </slot>
+                <ActionBar buttons={dialogActions}/>
             </div>
         </div>
     </div>

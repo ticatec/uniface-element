@@ -24,8 +24,10 @@
   }
 
   &:hover {
+    i {
     color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
     background-color: var(--uniface-editor-inline-action-icon-hover-bg, #42A5F570);
+      }
   }
 }
 

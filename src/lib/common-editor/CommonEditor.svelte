@@ -1,9 +1,7 @@
 <script lang="ts">
 
     import {DisplayMode} from "../common/DisplayMode";
-    import prefixFilter from "../utils/prefixFilter";
     import utils from "../common/utils";
-    import Icon from "$lib/icon";
 
 
     export let disabled: boolean = false;
@@ -11,6 +9,7 @@
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let compact: boolean = false;
     export {className as class};
+    export let placeholder: string = '';
     export let style: string = '';
     export let value: any = null;
     export let suffix: string = '';
@@ -49,8 +48,14 @@
                 <span>{prefix}</span>
             </div>
         {/if}
-        <slot/>
-        <i class="uniface-icon-x clickable uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}" aria-hidden="true" on:click={clean}/>
+        {#if disabled || readonly}
+            <input style="flex: 1 1 auto" {value} {disabled} {readonly} {placeholder}>
+        {:else}
+            <slot/>
+            <div class="uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}">
+                <i class="uniface-icon-x clickable" aria-hidden="true" on:click={clean}></i>
+            </div>
+        {/if}
         {#if !utils.isEmpty(suffix)}
             <div class="editor-suffix" style="flex: 0 0 auto;">
                 <span>{suffix}</span>
