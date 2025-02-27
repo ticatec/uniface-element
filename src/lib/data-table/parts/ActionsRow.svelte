@@ -2,18 +2,21 @@
 
     import type RowAction from "../lib/RowAction";
     import {TextButton} from "$lib/button";
-    import type TableRow from "$lib/data-table/parts/TableRow";
+    import type TableRow from "./TableRow";
     import {onDestroy, onMount, tick} from "svelte";
     import utils from "$lib/common/utils";
-    import PopupMenu from "$lib/data-table/parts/PopupMenu.svelte";
-
-
+    import PopupMenu from "./PopupMenu.svelte";
     export let row: TableRow;
     export let actions: Array<RowAction>;
     export let alternative: boolean;
     export let parentRect: DOMRect;
 
     export let width: number;
+
+    export let rowHeight: number;
+
+    let style: string;
+
 
     let actionList: Array<RowAction> = [...actions]
     let popupList: Array<RowAction> = [];
@@ -78,8 +81,10 @@
         checkOverflow();
     }
 
+    $: style = rowHeight== null ? '' : `height: ${rowHeight}px`
+
 </script>
-<div class="table-row" class:alternative style="position: relative; width: {width}px; height: 36px; display: block;">
+<div class="table-row" class:alternative style="position: relative; width: {width}px; display: block; {style}">
     <div bind:this={cell}
          style="width: max-content; overflow-x: auto; white-space: nowrap; top: 50%; position: relative; transform: translateY(-50%);">
         {#each actionList as action}

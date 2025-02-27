@@ -32,7 +32,8 @@
         table = new UniDataTable(id, indicatorColumn.width);
     })
     const sortRows = (compareFun: CompareFunction, descending: boolean) => {
-        //table.(compareFun, descending);
+        let oList = list.sort(compareFun);
+        displayList = descending ? oList.reverse() : oList;
         rows = table.rows;
     }
 
@@ -46,11 +47,12 @@
 
     $: selectedRows = selectedRows ?? [];
 
+    $: displayList = [...list];
 
     $: {
         if (table && columns) {
             table.setColumns(columns)
-            table.data = list;
+            table.data = displayList;
             rows = table.rows;
             dataColumns = table.columns;
             colStyle = table.generateTemplateStyle();

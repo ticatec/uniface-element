@@ -184,12 +184,20 @@
         height: 100%;
         position: relative;
         box-sizing: border-box;
-        padding: 0 4px;
+        padding: 4px;
 
         & > div {
           position: relative;
           top: 50%;
           transform: translateY(-50%);
+        }
+
+        .cell-text {
+          overflow: hidden;
+        }
+
+        &:first-child {
+          padding-left: 8px;
         }
 
         &:last-child {

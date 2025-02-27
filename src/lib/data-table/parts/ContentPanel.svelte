@@ -7,7 +7,7 @@
 
     import iconLoading from "../assets/loading.gif"
     import type TableRow from "./TableRow";
-    import type {TableEventHandler} from "$lib/data-table/UniDataTable";
+    import type {TableEventHandler} from "../UniDataTable";
     import ActionPanel from "./ActionsPanel.svelte";
     import FixedColumnsPanel from "./FixedColumnsPanel.svelte";
     import {onMount, tick} from "svelte";
@@ -107,7 +107,7 @@
 
 </script>
 <div class="data-content-panel">
-    <FixedColumnsPanel {indicatorColumn} {expandRow} {fixedCols} {inlineRowHeight} {rows} bind:scrollTop {handleRowExpand}
+    <FixedColumnsPanel {indicatorColumn} {expandRow} {rowHeight} {fixedCols} {inlineRowHeight} {rows} bind:scrollTop {handleRowExpand}
                        {handleRowSelectChange}/>
     <div class="data-view-panel" bind:this={dataPanel} on:scroll|passive={handleDataTableScroll} on:wheel|passive={handleWheelEvent}
          style="{actionsColumn == null ? 'overflow-y: scroll' : ''}">
@@ -143,6 +143,6 @@
         {/if}
     </div>
     {#if actionsColumn}
-        <ActionPanel {expandRow} {actionsColumn} {rows} {inlineRowHeight} bind:scrollTop/>
+        <ActionPanel {expandRow} {rowHeight} {actionsColumn} {rows} {inlineRowHeight} bind:scrollTop/>
     {/if}
 </div>

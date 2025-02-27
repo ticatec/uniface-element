@@ -3748,12 +3748,18 @@
   height: 100%;
   position: relative;
   box-sizing: border-box;
-  padding: 0 4px;
+  padding: 4px;
 }
 .uniface-data-table .data-content-panel .table-row .table-data-cell > div {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+.uniface-data-table .data-content-panel .table-row .table-data-cell .cell-text {
+  overflow: hidden;
+}
+.uniface-data-table .data-content-panel .table-row .table-data-cell:first-child {
+  padding-left: 8px;
 }
 .uniface-data-table .data-content-panel .table-row .table-data-cell:last-child {
   padding: 0;

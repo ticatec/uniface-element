@@ -15,12 +15,9 @@
     export let handleRowSelectChange: RowEventHandler;
     export let selected: boolean = row.selected;
 
+    export let rowHeight: number;
 
-
-    // const handleCheckBoxClick = (e: MouseEvent) => {
-    //     e.stopPropagation();
-    //     toggleRowSectionHandler?.(row);
-    // }
+    let style: string;
 
     const showInlineData = (e: MouseEvent) => {
         handleRowExpand?.(row);
@@ -33,8 +30,10 @@
         handleRowSelectChange(row.selected);
     }
 
+    $: style = rowHeight== null ? '' : `height: ${rowHeight}px`
+
 </script>
-<div class="table-row" class:alternative >
+<div class="table-row" class:alternative {style}>
     <div class="indicator-cell">
         {#if selectable}
             <input type="checkbox" bind:checked={selected}/>

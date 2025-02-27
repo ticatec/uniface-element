@@ -1,7 +1,7 @@
 {
-  "name": "@ticatec/uniface-web",
-  "version": "0.1.8",
-  "description": "uniface web components",
+  "name": "@ticatec/uniface-element",
+  "version": "0.1.9",
+  "description": "uniface web elements",
   "scripts": {
     "dev": "vite dev",
     "build:css": "sass ./src/lib/ticatec-uniface-web.scss:./src/lib/ticatec-uniface-web.css --no-source-map",
@@ -199,6 +199,10 @@
     "./Navigator": {
       "types": "./dist/navigator/index.d.ts",
       "import": "./dist/navigator/index.js"
+    },
+    "./NavigatorMenu": {
+      "types": "./dist/nav-menu/index.d.ts",
+      "import": "./dist/nav-menu/index.js"
     },
     "./NumberEditor": {
       "types": "./dist/number-editor/index.d.ts",

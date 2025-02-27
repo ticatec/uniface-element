@@ -2,8 +2,8 @@
 
 
     import HrefCell from "./HrefCell.svelte";
-    import type DataColumn from "$lib/data-table/lib/DataColumn";
-    import TextCell from "$lib/data-table/parts/TextCell.svelte";
+    import type DataColumn from "../lib/DataColumn";
+    import TextCell from "./TextCell.svelte";
 
     export let frozen: boolean = false;
     export let colIdx: number;

@@ -16,6 +16,8 @@
 
     export let expandRow: TableRow;
 
+    export let rowHeight: number;
+
     let width: number = indicatorColumn.width;
 
     export let inlineRowHeight: number = 0;
@@ -32,9 +34,9 @@
 <div class="fixed-panel" style="width: {width}px">
     <div class="scroll-panel" style="overflow-y: hidden">
         <div style="top: {-scrollTop}px">
-            {#each rows??[] as row, idx}
+            {#each rows ?? [] as row, idx}
                 <FixedRow rowNo={idx+1} {row} selected={row.selected} alternative={idx % 2 == 1} {selectable} cols={fixedCols}
-                              {expandable} {handleRowExpand} {handleRowSelectChange}/>
+                          {rowHeight} {expandable} {handleRowExpand} {handleRowSelectChange}/>
                 {#if row == expandRow}
                     <div class="inline-panel" style="height: {inlineRowHeight}px">
 
