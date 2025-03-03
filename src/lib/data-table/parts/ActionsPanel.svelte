@@ -45,15 +45,18 @@
 
 </script>
 
-<div class="action-panel" bind:this={panel}  style="user-select: none; width: {actionsColumn.width}px;">
+<div class="action-panel" bind:this={panel} style="user-select: none; width: {actionsColumn.width}px;">
     <div bind:this={scrollPanel} class="scroll-panel" on:scroll|passive={handleActionPanelScroll}>
-        {#each rows as row, idx}
-            <ActionsRow {row} {rowHeight} parentRect={rect} alternative={idx % 2 == 1} width={actionsColumn.width} actions={actionsColumn.getActions(row)}/>
-            {#if row == expandRow}
-                <div class="inline-panel" style="height: {inlineRowHeight??0}px">
-                </div>
-            {/if}
-        {/each}
+        <div>
+            {#each rows as row, idx}
+                <ActionsRow {row} {rowHeight} parentRect={rect} alternative={idx % 2 == 1} width={actionsColumn.width}
+                            actions={actionsColumn.getActions(row.data)}/>
+                {#if row == expandRow}
+                    <div class="inline-panel" style="height: {inlineRowHeight??0}px">
+                    </div>
+                {/if}
+            {/each}
+        </div>
     </div>
     <div class="bottom-mask-overlay">
         <!-- 用于匹配中间数据区域的滚动条 -->

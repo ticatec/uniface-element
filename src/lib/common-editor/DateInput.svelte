@@ -3,7 +3,7 @@
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import type {UniDate} from "$lib/base-calendar/dateUtils";
     import {DateFormats} from "$lib/common/DateFormats";
-    import dateUtils from "$lib/common/date-utils";
+    import dateUtils from "$lib/base-calendar/dateUtils";
 
     export let disabled: boolean = false;
     export let readonly: boolean = false;

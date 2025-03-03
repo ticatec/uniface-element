@@ -44,6 +44,13 @@
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
+
+    background-color: var(--uniface-data-table-background-color, #ffffff);
+    height: 36px;
+
+    &.alternative {
+      background-color: var(--uniface-data-table-background-color, #f7f7f7);
+    }
   }
 
   &.row-border {

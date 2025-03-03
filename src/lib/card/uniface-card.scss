@@ -20,6 +20,7 @@
       height: var(--uniface-card-header-height, 54px);
       border-bottom: 1px solid var(--uniface-card-inside-border-color, #E2E8F0);
       box-sizing: border-box;
+      font-weight: 600;
 
       &.simple {
         line-height: var(--uniface-card-header-height, 54px);

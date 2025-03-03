@@ -203,6 +203,9 @@
   --uniface-context-menu-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
+.uniface-common-picker {
+  padding: 0 8px;
+}
 .uniface-common-picker .editor-dropdown {
   visibility: hidden;
   margin-left: 8px;
@@ -1510,6 +1513,7 @@
   height: var(--uniface-card-header-height, 54px);
   border-bottom: 1px solid var(--uniface-card-inside-border-color, #E2E8F0);
   box-sizing: border-box;
+  font-weight: 600;
 }
 .uniface-card > div .card-header.simple {
   line-height: var(--uniface-card-header-height, 54px);
@@ -3631,6 +3635,11 @@
   flex-wrap: nowrap;
   flex-direction: row;
   align-items: center;
+  background-color: var(--uniface-data-table-background-color, #ffffff);
+  height: 36px;
+}
+.uniface-data-table .table-row.alternative {
+  background-color: var(--uniface-data-table-background-color, #f7f7f7);
 }
 .uniface-data-table.row-border .table-row {
   border-bottom: 1px solid var(--uniface-data-table-row-border-color, #f0f0f0);

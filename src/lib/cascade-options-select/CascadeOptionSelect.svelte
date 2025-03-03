@@ -1,11 +1,12 @@
 <script lang="ts">
 
-    import {DisplayMode} from "../common/DisplayMode";
+    import {DisplayMode} from "$lib/common/DisplayMode";
     import iconLoading from "$lib/assets/loading.gif";
     import OptionsBox from "./OptionsBox.svelte";
-    import {tick} from "svelte";
+    import {onMount, tick} from "svelte";
     import CommonPicker from "$lib/common/CommonPicker.svelte";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
+    import type {IsLeafDetermine} from "$lib/cascade-options-select/isLeafDetermine";
 
     type OnSelectOption = (item: any) => Promise<Array<any>>;
 
@@ -18,12 +19,14 @@
     export let keyField: string = "code";
     export let textField: string = "text";
     export let abbrField: string = 'abbr';
+    export let childrenField: string = 'children';
     export let style: string = '';
     export let placeholder: string = "";
     export let displayMode: DisplayMode = DisplayMode.Edit;
     export let emptyText: string | null = null;
+    export let checkLeaf: IsLeafDetermine | null = null;
     export let text: string = '';
-    export let nodes: Array<Array<any>> = [];
+    export let nodes: Array<any> = [];
     export let menu$height: number = 150;
     export let onSelect: OnSelectOption;
     export let box$style: string = "";
@@ -32,22 +35,45 @@
     let oldValue = value;
     let selectedItems: Array<any> = [];
     let busy: boolean = false;
+    let list: Array<Array<any>> = [];
+
+    onMount(async () => {
+        list = [...nodes];
+    })
 
     const selectOption = (level: number) => async (item: any) => {
         value = item?.[keyField];
-        let newArr = nodes.slice(0, level + 1)
+        let newList = list.slice(0, level + 1)
         if (level == 0) {
             selectedItems = [item];
         } else {
             selectedItems = [...selectedItems.slice(0, level), item];
         }
-        busy = true;
-        let list = await (onSelect?.(item));
-        busy = false;
-        if (list && list.length > 0) {
-            nodes = [...newArr, list];
-            await tick();
-            contentPanel.scrollLeft = contentPanel.scrollWidth;
+        let isLeaf = checkLeaf == null ? false : checkLeaf(item);
+        if (!isLeaf) {
+            if (item[childrenField] == null && onSelect != null) {
+                busy = true;
+                let children = (await (onSelect(item))) ?? [];
+                busy = false;
+                item[childrenField] = children;
+                if (children.length > 0) {
+                    list = [...newList, children];
+                    await tick();
+                    contentPanel.scrollLeft = contentPanel.scrollWidth;
+                } else {
+                    showPopup = false;
+                }
+            } else {
+
+                if (item[childrenField] && item[childrenField].length > 0) {
+                    console.log('存在子节点')
+                    list = [...newList, item[childrenField]];
+                    await tick();
+                    contentPanel.scrollLeft = contentPanel.scrollWidth;
+                } else {
+                    showPopup = false;
+                }
+            }
         } else {
             showPopup = false;
         }
@@ -67,6 +93,8 @@
     }
 
     $: mh = `height: ${menu$height}px`;
+
+    $: list = [...nodes];
 
     $: text = selectedItems && selectedItems.length > 0 ? selectedItems[selectedItems.length - 1][textField] : emptyText ?? '';
 
@@ -91,7 +119,7 @@
     <div class="cascade-options-popover" style={mh} slot="popup-panel">
         <div style="width: 100%; height: 100%; position: relative">
             <div bind:this={contentPanel} style="width: 100%; height: 100%; display: flex; flex-direction: row; overflow: auto">
-                {#each nodes as node, idx}
+                {#each list as node, idx}
                     <OptionsBox options={node} {keyField} textField={abbrField} {box$style} onSelect={selectOption(idx)}
                                 selectedItem={selectedItems[idx]}/>
                 {/each}

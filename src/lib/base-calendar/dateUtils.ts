@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import dayjs, {isDayjs} from "dayjs";
 
 export type UniDate = dayjs.Dayjs | Date | string | null;
 

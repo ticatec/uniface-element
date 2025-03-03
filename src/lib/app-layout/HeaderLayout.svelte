@@ -22,7 +22,6 @@
     }
 
 
-
 </script>
 
 <div style="width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; position: relative">
@@ -30,14 +29,16 @@
         <slot name="header"></slot>
     </div>
     <div style="width: 100%; flex: 1 1 auto; overflow: hidden; display: flex; flex-direction: row;">
-        <div bind:this={sidebar}
-             style="height: 100%; flex: 0 0 auto; overflow: auto; width: {sidebarWidth}px; {minWidth} {maxWidth}">
-            <slot name="sidebar"></slot>
-        </div>
-        {#if sidebarResize}
-            <Split direction="vertical" bindingPanel={sidebar}/>
+        {#if $$slots['sidebar']}
+            <div bind:this={sidebar}
+                 style="height: 100%; flex: 0 0 auto; overflow: auto; width: {sidebarWidth}; {minWidth} {maxWidth}">
+                <slot name="sidebar"></slot>
+            </div>
+            {#if sidebarResize}
+                <Split direction="vertical" bindingPanel={sidebar}/>
+            {/if}
         {/if}
-        <div style="height: 100%; flex: 1 1 auto; overflow: auto">
+        <div style="height: 100%; flex: 1 1 auto; overflow: hidden">
             <slot></slot>
         </div>
     </div>

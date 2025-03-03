@@ -14,6 +14,7 @@
     import DateRange from "$lib/date-range";
     import UnitNumberEditor from "$lib/unit-number-editor";
     import type {UnitOption} from "$lib";
+    import NumberRange from "$lib/number-range";
 
     let airlines = [
         {code: "C", text: "南方航空"},
@@ -33,9 +34,9 @@
 
 
     const handleSelectRegion = async (item: any) => {
-        if (item.children && item.children.length > 0) {
+        if (item.subnode && item.subnode.length > 0) {
             await utils.sleep(1);
-            return item.children;
+            return item.subnode;
         } else {
             zones = [[...regions]];
             return null;
@@ -68,7 +69,10 @@
     ]
 
 
-    $: console.log('选中区间：', from, to);
+    $: console.log('选中区间：', JSON.stringify({from, to}) );
+
+    let minValue: number;
+    let maxValue: number;
 
 </script>
 <div style="padding: 12px; width: 100%; box-sizing: border-box; gap: 16px; display: flex; flex-direction: row; flex-wrap: wrap">
@@ -101,5 +105,5 @@
     <LookupEditor style="width: 400px;" variant="outlined" bind:value={text1} text={text1} onAction={()=>{console.log('打开窗口')}} onChange={(v)=>{console.log("选择", v)}}/>
     <DateRange bind:fromValue={from} bind:toValue={to} variant="outlined" style="width: 300px"/>
     <UnitNumberEditor style="width: 400px" variant="outlined" bind:unitCode={dragUnit} readonly={false}  bind:value={cap} units={units} onChange={(v)=>{console.log(v)}}/>
-
+    <NumberRange style="width: 150px" bind:fromValue={minValue} bind:toValue={maxValue} variant="outlined"/>
 </div>

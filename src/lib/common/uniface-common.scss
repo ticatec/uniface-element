@@ -1,5 +1,7 @@
 .uniface-common-picker {
 
+  padding: 0 8px;
+
   .editor-dropdown {
     visibility: hidden;
     margin-left: 8px;
@@ -11,7 +13,6 @@
     font-size: 18px;
     color: var(--uniface-editor-text-color, #374151);
     align-self: center;
-    margin-right: 4px;
     cursor: pointer;
 
     &:active {

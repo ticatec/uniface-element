@@ -3,7 +3,7 @@ const regions: Array<any> = [
         code: "100000",
         text: "北京市",
         abbr: "北京市",
-        children: [
+        subnode: [
             {
                 code: "100001",
                 text: "北京市东城区",
@@ -25,12 +25,12 @@ const regions: Array<any> = [
         code: "130000",
         text: "河北省",
         abbr: "河北省",
-        children: [
+        subnode: [
             {
                 code: "130100",
                 text: "河北省石家庄市",
                 abbr: "石家庄市",
-                children: [
+                subnode: [
                     {
                         code: "130101",
                         text: "河北省石家庄市桥西区",
@@ -57,7 +57,7 @@ const regions: Array<any> = [
                 code: "130200",
                 text: "河北省保定市",
                 abbr: "保定市",
-                children: [
+                subnode: [
                     {
                         code: "130201",
                         text: "河北省保定市莲花区",

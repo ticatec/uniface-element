@@ -4,7 +4,7 @@
     import dayjs from "dayjs";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import type {UniDate} from "$lib/base-calendar/dateUtils";
-    import {dateUtils} from "../../lib/base-calendar";
+    import dateUtils from "../base-calendar/dateUtils";
 
     export let value: UniDate;
     export let style: string = '';
