@@ -6,7 +6,6 @@ export default class TableRows {
 
     private _rows: Array<TableRow>;
 
-
     constructor() {
         this._rows = [];
     }
@@ -18,9 +17,4 @@ export default class TableRows {
     get rows(): Array<TableRow> {
         return this._rows;
     }
-
-    sort(compareFun: CompareFunction, descending: boolean) {
-
-    }
-
 }

@@ -11,18 +11,16 @@
 
     let style: string = '';
 
-
-
     $: style = rowHeight== null ? '' : `height: ${rowHeight}px`
 
 
 </script>
 
-<div class="table-row" {style} class:alternative aria-hidden="true">
+<div class="data-row" {style} class:alternative aria-hidden="true">
     {#each columns as col, idx}
         <DataCell colIdx={idx} data={row.data} column={col}/>
     {/each}
-    <div class="table-data-cell"  style="border-right: none">
+    <div class="data-cell" style="border-right: none; width: unset">
     </div>
 </div>
 

@@ -4,6 +4,7 @@
     import type ActionsColumn from "../lib/ActionsColumn";
     import type TableRow from "./TableRow";
     import {onDestroy, onMount} from "svelte";
+    import i18n from "$lib/i18nContext";
 
     export let actionsColumn: ActionsColumn;
     export let scrollTop: number = 0;
@@ -11,7 +12,7 @@
 
     export let inlineRowHeight: number = 0;
 
-    export let expandRow: TableRow;
+    export let expandRow: TableRow | null;
 
     export let rowHeight: number;
 
@@ -42,11 +43,17 @@
         resizeObserver.disconnect();
     });
 
+    let actionText = i18n.getText('uniface.element.tableActions', 'Actions');
 
 </script>
 
 <div class="action-panel" bind:this={panel} style="user-select: none; width: {actionsColumn.width}px;">
-    <div bind:this={scrollPanel} class="scroll-panel" on:scroll|passive={handleActionPanelScroll}>
+    <div class="header-row">
+        <div class="vertical-center">
+            <span>{actionText}</span>
+        </div>
+    </div>
+    <div bind:this={scrollPanel} class="rows-container" style="overflow-y: auto" on:scroll|passive={handleActionPanelScroll}>
         <div>
             {#each rows as row, idx}
                 <ActionsRow {row} {rowHeight} parentRect={rect} alternative={idx % 2 == 1} width={actionsColumn.width}

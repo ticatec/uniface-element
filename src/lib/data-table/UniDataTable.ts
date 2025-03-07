@@ -4,6 +4,8 @@ import type TableRow from "$lib/data-table/parts/TableRow";
 
 
 export type RowEventHandler = (row: TableRow) => void;
+export type RowSelectEventHandler = (row: TableRow, value: boolean) => void;
+export type HandleRowExpand = (data: any) => Promise<any>;
 export type TableEventHandler = () => void;
 export type SelectionEventHandler = (value: boolean) => void;
 
@@ -23,9 +25,9 @@ export default class UniDataTable {
     private _width: number = 0;
     private _frozenWidth: number = 0;
 
-    constructor(id: string, indicatorWidth: number) {
+    constructor(id: string, indicatorWidth?: number) {
         this.id = id;
-        this.indicatorWidth = indicatorWidth;
+        this.indicatorWidth = indicatorWidth??0;
         this.tableRows = new TableRows();
     }
 
@@ -38,12 +40,10 @@ export default class UniDataTable {
     }
 
     setColumns(columns: Array<DataColumn>) {
-        let frozen: boolean = true;
         this._frozenColumns = [];
         this._columns = [];
         (columns ?? []).forEach(col => {
-            frozen = frozen && col.frozen == true;
-            if (frozen) {
+            if (col.frozen) {
                 this._frozenColumns.push(col);
             } else {
                 this._columns.push(col);
@@ -53,12 +53,12 @@ export default class UniDataTable {
 
     generateTemplateStyle(): string {
         this._width = 0;
-        this._frozenWidth = this.indicatorWidth;
+        this._frozenWidth = 0;
         let colStyle = '';
         let inv = 0;
         this._frozenColumns.forEach((col, idx) => {
             if (col.visible != false) {
-                this.indicatorWidth += col.width;
+                this._frozenWidth += col.width;
                 colStyle += `#tab-${this.id} .fz_col-${idx - inv} {width: ${col.width}px; ext-align: ${col.align ?? 'left'}}\n`;
             } else {
                 inv++;
@@ -81,14 +81,18 @@ export default class UniDataTable {
     }
 
     get frozenWidth() {
-        return this._frozenWidth;
+        return this._frozenWidth + this.indicatorWidth;
     }
 
     get rows(): Array<TableRow> {
         return [...this.tableRows.rows];
     }
 
-    get columns() {
+    get columns():Array<DataColumn> {
         return this._columns;
+    }
+
+    get frozenColumns():Array<DataColumn> {
+        return this._frozenColumns;
     }
 }

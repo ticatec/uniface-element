@@ -28,4 +28,9 @@ export default interface IndicatorColumn {
      *  空数据指示信息
      */
     emptyIndicator?: string;
+
+    /**
+     * 是否显示行号
+     */
+    displayNo?: boolean
 }

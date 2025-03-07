@@ -18,10 +18,10 @@
         hint = column.hint?.(data);
     }
 
-    $: col$class = frozen ? `fz-col-${colIdx}` : `col-${colIdx}`;
+    $: col$class = frozen ? `fz_col-${colIdx}` : `col-${colIdx}`;
 
 </script>
-<div class="table-data-cell {col$class}">
+<div class="data-cell {col$class}">
     <div>
         {#if column.render}
             <svelte:component this={column.render.component} {...column.render.props} {data}/>

@@ -1,11 +1,11 @@
 .uniface-data-table {
-  width: 100%;
-  height: 100%;
   position: relative;
   box-sizing: border-box;
-  background: transparent;
   overflow: hidden;
+  background-color: var(--uniface-data-table-bg, #ffffff);
   color: var(--uniface-default-text-color, #374151);
+  display: flex;
+  flex-direction: row;
 
   ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -28,13 +28,210 @@
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
   }
 
-  & > div {
+  //整个表格区域，分3列，左边为指示列和固定列，右边为操作列，中间为数据区
+
+  .vertical-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .header-row {
+    flex: 0 0 auto;
     width: 100%;
+    position: relative;
+    height: var(--uniface-data-table-header-hight, 48px);
+    font-weight: 600;
+    user-select: none;
+    background-color: var(--uniface-data-table-header-bg, #F8FAFC);
+    border-bottom: 1px solid transparent;
+    color: var(--uniface-data-table-header-color, #374151);
+    display: flex;
+    flex-direction: row;
+
+    .header-cell-divider {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 3px;
+      z-index: 2;
+
+      &::before {
+        content: ''; /* 必须指定伪元素的内容 */
+        position: absolute;
+        left: 50%; /* 将伪元素水平居中 */
+        top: 25%;
+        bottom: 25%;
+        width: 1px; /* 竖线宽度 */
+        background-color: var(--uniface-data-table-header-separator-color, #6B7280);; /* 竖线颜色 */
+        transform: translateX(-50%); /* 精确居中 */
+      }
+
+      &.resizer {
+        cursor: col-resize;
+      }
+    }
+  }
+
+  &.cell-border {
+    .header-cell-divider:not(.resizer) {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+
+  //所有的单元格
+  .data-cell {
     height: 100%;
+    border-right: 1px solid transparent;
+    padding: var(--uniface-data-table-cell-padding, 3px 4px);
+    position: relative;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    //第一个内部的div，展示数据的内容
+    & > div:first-child {
+      width: 100%;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      overflow: hidden;
+    }
+  }
+
+  //数据行
+  .data-row {
     position: relative;
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: var(--uniface-data-table-background-color, #ffffff);
+
+    &.alternative {
+      background-color: var(--uniface-data-table-alter-row-bg, #f7f7f7);
+    }
   }
+
+  //表格有内部的横线
+  &.row-border {
+    .header-row, .data-row {
+      border-bottom: 1px solid var(--uniface-data-table-inline-border-color, #CBD5E1);
+    }
+  }
+
+  //表格有内部的竖线
+  &.cell-border {
+    .data-cell {
+      border-right-color: var(--uniface-data-table-inline-border-color, #CBD5E1);
+    }
+  }
+
+  .rows-container {
+    flex: 1 1 auto;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    & > div {
+      width: 100%;
+      position: relative;
+    }
+  }
+
+  .left-fixed-panel, .action-panel {
+    flex: 0 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .bottom-mask-overlay {
+      flex: 0 0 auto;
+      width: 100%;
+      height: 8px;
+      box-sizing: border-box;
+      background-color: var(--uniface-data-table-bg, #ffffff);
+      border-top: 1px solid var(--uniface-data-table-inline-border-color, #e1e1e180);
+    }
+  }
+
+  .left-fixed-panel {
+    .data-cell {
+      flex: 0 0 auto;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    z-index: 1;
+    border-right: 1px solid var(--uniface-data-table-inline-border-color, #e1e1e180);
+    box-shadow: var(--uniface-data-table-separator-shadow, rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px);
+
+    .indicator-cell {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      .expand-icon {
+        display: none;
+        color: var(--uniface-hover-item-color, #42A5F5);
+        font-size: 14px;
+        top: 4px;
+        position: absolute;
+        right: 4px;
+        cursor: pointer;
+
+        &:active {
+          top: 5px;
+        }
+      }
+
+      &:hover {
+        .expand-icon {
+          display: block;
+        }
+      }
+    }
+
+  }
+
+  .action-panel {
+
+    z-index: 1;
+    border-left: 1px solid var(--uniface-data-table-inline-border-color, #e1e1e180);
+    box-shadow: var(--uniface-data-table-separator-shadow, rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px);
+
+    .header-row {
+      display: block;
+      text-align: center;
+    }
+
+    .data-row {
+      .action-cell {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: max-content;
+        height: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        position: relative;
+      }
+    }
+  }
+
 
   //数据表的行
   .table-row {
@@ -59,116 +256,115 @@
     }
   }
 
-  .table-header-panel {
-    position: relative;
-    width: 100%;
-    background-color: var(--uniface-data-table-header-bg, #F8FAFC);
-    flex: 0 0 auto;
-    overflow: hidden;
-    font-weight: 600;
-    user-select: none;
-    display: flex;
-    flex-direction: row;
-    height: 48px;
-    align-items: center;
-    text-align: center;
+  //.table-header-panel {
+  //  position: relative;
+  //  width: 100%;
+  //  background-color: var(--uniface-data-table-header-bg, #F8FAFC);
+  //  flex: 0 0 auto;
+  //  overflow: hidden;
+  //  font-weight: 600;
+  //  user-select: none;
+  //  height: 48px;
+  //
+  //  .header-indicator {
+  //    flex: 0 0 auto;
+  //    width: 50px;
+  //    height: 100%;
+  //    border-right: 1px solid var(--uniface-data-table-header-separator-color, #6B7280);
+  //    box-sizing: border-box;
+  //
+  //    z-index: 1;
+  //    box-shadow: var(--uniface-data-table-separator-shadow, rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px);
+  //
+  //    & > div {
+  //      padding: 4px;
+  //      height: 100%;
+  //      display: flex;
+  //      flex-direction: row;
+  //      justify-content: center;
+  //      align-items: center;
+  //    }
+  //  }
+  //
+  //  .header-actions {
+  //    flex: 0 0 auto;
+  //    border-left: 1px solid var(--uniface-data-table-header-separator-color, #6B7280);
+  //    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  //    display: block;
+  //    width: 100%;
+  //    font-weight: 600;
+  //    height: 100%;
+  //    position: relative;
+  //    box-sizing: border-box;
+  //
+  //    & > div {
+  //      top: 50%;
+  //      position: relative;
+  //      transform: translateY(-50%);
+  //    }
+  //  }
+  //
+  //  .header-row-panel {
+  //    display: flex;
+  //    flex-direction: row;
+  //    position: relative;
+  //    box-sizing: border-box;
+  //    flex-wrap: nowrap;
+  //    align-items: center;
+  //  }
+  //
+  //  .table-cell {
+  //    text-align: center;
+  //    color: var(--uniface-data-table-header-color, #374151);;
+  //    overflow: hidden;
+  //    position: relative;
+  //    flex: 0 0 auto;
+  //    line-height: 28px;
+  //
+  //    & > div {
+  //      text-align: center;
+  //    }
+  //
+  //    .sortable {
+  //      cursor: pointer;
+  //    }
+  //
+  //    .header-cell-divider {
+  //      position: absolute;
+  //      top: 0;
+  //      right: 0;
+  //      bottom: 0;
+  //      width: 3px;
+  //      z-index: 2;
+  //
+  //      &::before {
+  //        content: ''; /* 必须指定伪元素的内容 */
+  //        position: absolute;
+  //        left: 50%; /* 将伪元素水平居中 */
+  //        top: 0;
+  //        bottom: 0;
+  //        width: 1px; /* 竖线宽度 */
+  //        background-color: var(--uniface-data-table-header-separator-color, #6B7280);; /* 竖线颜色 */
+  //        transform: translateX(-50%); /* 精确居中 */
+  //      }
+  //
+  //      &.resizer {
+  //        cursor: ew-resize;
+  //      }
+  //    }
+  //
+  //
+  //    span {
+  //      display: inline-block;
+  //      vertical-align: center;
+  //      align-self: center;
+  //    }
+  //
+  //
+  //  }
+  //
+  //}
 
-    .header-indicator {
-      flex: 0 0 auto;
-      width: 50px;
-      height: 100%;
-      border-right: 1px solid var(--uniface-data-table-header-separator-color, #6B7280);
-      box-sizing: border-box;
-
-      z-index: 1;
-      box-shadow: var(--uniface-data-table-separator-shadow, rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px);
-
-      & > div {
-        padding: 4px;
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-
-    .header-actions {
-      flex: 0 0 auto;
-      border-left: 1px solid var(--uniface-data-table-header-separator-color, #6B7280);
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-      display: block;
-      width: 100%;
-      font-weight: 600;
-      height: 100%;
-      position: relative;
-      box-sizing: border-box;
-
-      & > div {
-        top: 50%;
-        position: relative;
-        transform: translateY(-50%);
-      }
-    }
-
-    .header-row-panel {
-      display: flex;
-      flex-direction: row;
-      position: relative;
-      box-sizing: border-box;
-    }
-
-    .table-cell {
-      text-align: center;
-      color: var(--uniface-data-table-header-color, #374151);;
-      overflow: hidden;
-      position: relative;
-      flex: 0 0 auto;
-      line-height: 28px;
-
-      & > div {
-        text-align: center;
-      }
-
-      .sortable {
-        cursor: pointer;
-      }
-
-      .header-cell-divider {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 3px;
-        z-index: 2;
-
-        &::before {
-          content: ''; /* 必须指定伪元素的内容 */
-          position: absolute;
-          left: 50%; /* 将伪元素水平居中 */
-          top: 0;
-          bottom: 0;
-          width: 1px; /* 竖线宽度 */
-          background-color: var(--uniface-data-table-header-separator-color, #6B7280);; /* 竖线颜色 */
-          transform: translateX(-50%); /* 精确居中 */
-        }
-
-        &.resizer {
-          cursor: ew-resize;
-        }
-      }
-
-
-      span {
-        display: inline-block;
-        vertical-align: center;
-        align-self: center;
-      }
-
-
-    }
-
-  }
 
   .data-content-panel {
     position: relative;
@@ -176,7 +372,31 @@
     flex: 1 1 auto;
     overflow: hidden;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
+    .data-cell {
+      flex: 0 0 auto;
+
+      & > div:first-child {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .header-row {
+      & > div {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .data-cell {
+        text-align: center !important;
+      }
+    }
 
     .table-row {
       background-color: var(--uniface-data-table-background-color, #ffffff);
@@ -220,39 +440,6 @@
     }
 
     //左边的固定列和右边的操作列
-    .fixed-panel, .action-panel {
-      flex: 0 0 auto;
-      height: 100%;
-      position: relative;
-      box-sizing: border-box;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-
-      .scroll-panel {
-        flex: 1 1 auto;
-        height: 100%;
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-
-        & > div {
-          height: 100%;
-          width: 100%;
-          position: relative;
-        }
-      }
-
-      .bottom-mask-overlay {
-        flex: 0 0 auto;
-        width: 100%;
-        height: 8px;
-        box-sizing: border-box;
-        background-color: #ffffff;
-        border-top: 1px solid var(--uniface-inner-border-color, #d9d9d9);
-
-      }
-    }
 
     .action-panel {
       border-left: 1px solid var(--uniface-inner-border-color, #d9d9d9);
@@ -283,93 +470,6 @@
             box-sizing: border-box;
             overflow: hidden;
             white-space: nowrap;
-          }
-        }
-      }
-    }
-
-    .fixed-panel {
-      width: 50px;
-      border-right: 1px solid var(--uniface-inner-border-color, #d9d9d9);
-      z-index: 1;
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-      overflow: hidden;
-
-
-      .indicator-cell {
-        position: relative;
-        width: 100%;
-        display: flex;
-        padding: 0 6px 0 3px;
-        box-sizing: border-box;
-        flex-direction: row;
-        align-items: center;
-
-
-        &.alternative {
-          background-color: var(--uniface-data-table-background-color, #f7f7f7);
-        }
-
-        input {
-          flex: 0 0 auto;
-        }
-
-        span {
-          flex: 1 1 auto;
-          display: inline-block;
-          text-align: center;
-        }
-      }
-    }
-
-    .action-button {
-      display: inline-block;
-      cursor: pointer;
-      color: var(--uniface-button-primary-background-color, #42A5F5);
-      box-sizing: border-box;
-      padding: 2px 4px;
-      text-decoration: none;
-
-      &:hover {
-        font-weight: 600;
-      }
-
-      &:active {
-        position: relative;
-        top: 1px;
-      }
-    }
-
-    .data-table-popover {
-      position: relative;
-      z-index: 50;
-
-      .contents-wrapper {
-        position: absolute;
-        transition: none;
-        display: block;
-
-        .contents {
-          background: var(--uniface-app-background-color, #ffffff);
-          box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
-          padding-top: 0;
-          opacity: 1;
-          transform: scale(1);
-          display: block;
-
-          .contents-inner {
-            overflow: auto;
-          }
-
-          .action-popover {
-            padding: 0 4px;
-            box-sizing: border-box;
-            line-height: 1.5em;
-            cursor: pointer;
-
-            &:hover {
-              background-color: #f7f7f7;
-            }
           }
         }
       }
