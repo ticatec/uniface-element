@@ -60,7 +60,7 @@
         </div>
         {#if $$slots['right-sidebar']}
             {#if sidebarResize}
-                <Split direction="vertical" bindingPanel={rightBar}/>
+                <Split direction="vertical" bindingPanel={rightBar} reverse/>
             {/if}
             <div bind:this={rightBar} style="width: 100%; flex: 0 0 auto; overflow: auto; width: {rightBarWidth}; {rightMinWidth} {rightMaxWidth}">
                 <slot name="right-sidebar"></slot>

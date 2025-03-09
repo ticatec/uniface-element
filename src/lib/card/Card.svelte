@@ -1,6 +1,5 @@
 <script lang="ts">
 
-    import CardHeader from "$lib/card/CardHeader.svelte";
     import type CardAction from "$lib/card/CardAction";
     import CommonCardActionBar from "$lib/card/CommonCardActionBar.svelte";
 
@@ -15,7 +14,9 @@
 <div class="uniface-card" class:shadowBox={variant=='3d'}>
     <div {style}>
         {#if title}
-            <CardHeader {title}/>
+            <div class="card-header simple">
+                <span>{title}</span>
+            </div>
         {:else if $$slots['header-bar']}
             <div class="card-header">
                 <slot name="header-bar"/>

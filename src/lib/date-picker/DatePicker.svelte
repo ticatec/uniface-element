@@ -56,6 +56,11 @@
                 value = null;
                 textValue = '';
                 showPopup = false;
+            } else if (e.key == 'Tab') {
+                if (showPopup) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
             } else if (e.key == 'Escape') {
                 showPopup = false;
             } else {

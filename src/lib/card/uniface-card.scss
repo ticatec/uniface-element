@@ -77,6 +77,22 @@
               top: 1px;
             }
           }
+
+          &.disabled {
+            i {
+              cursor: default;
+              color: var(--uniface-disabled-button-text-color, #B3BCCA);
+
+              &:hover {
+                color: var(--uniface-disabled-button-text-color, #B3BCCA);
+              }
+
+              &:active {
+                position: relative;
+                top: 0;
+              }
+            }
+          }
         }
 
       }

@@ -90,18 +90,26 @@
     padding: var(--uniface-data-table-cell-padding, 3px 4px);
     position: relative;
 
+    .sortable {
+      cursor: pointer;
+    }
+
     &:last-child {
       border-right: none;
     }
 
-    //第一个内部的div，展示数据的内容
-    & > div:first-child {
-      width: 100%;
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
+    &>div:first-child {
       overflow: hidden;
     }
+
+    //第一个内部的div，展示数据的内容
+    //& > div:first-child {
+    //  width: 100%;
+    //  position: relative;
+    //  top: 50%;
+    //  transform: translateY(-50%);
+    //  overflow: hidden;
+    //}
   }
 
   //数据行
@@ -188,14 +196,10 @@
         display: none;
         color: var(--uniface-hover-item-color, #42A5F5);
         font-size: 14px;
-        top: 4px;
+        width: 16px;
         position: absolute;
         right: 4px;
         cursor: pointer;
-
-        &:active {
-          top: 5px;
-        }
       }
 
       &:hover {
@@ -233,138 +237,11 @@
   }
 
 
-  //数据表的行
-  .table-row {
-    position: relative;
-    display: flex;
-    width: 100%;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-items: center;
-
-    background-color: var(--uniface-data-table-background-color, #ffffff);
-    height: 36px;
-
-    &.alternative {
-      background-color: var(--uniface-data-table-background-color, #f7f7f7);
-    }
-  }
-
   &.row-border {
     .table-row {
       border-bottom: 1px solid var(--uniface-data-table-row-border-color, #f0f0f0);
     }
   }
-
-  //.table-header-panel {
-  //  position: relative;
-  //  width: 100%;
-  //  background-color: var(--uniface-data-table-header-bg, #F8FAFC);
-  //  flex: 0 0 auto;
-  //  overflow: hidden;
-  //  font-weight: 600;
-  //  user-select: none;
-  //  height: 48px;
-  //
-  //  .header-indicator {
-  //    flex: 0 0 auto;
-  //    width: 50px;
-  //    height: 100%;
-  //    border-right: 1px solid var(--uniface-data-table-header-separator-color, #6B7280);
-  //    box-sizing: border-box;
-  //
-  //    z-index: 1;
-  //    box-shadow: var(--uniface-data-table-separator-shadow, rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px);
-  //
-  //    & > div {
-  //      padding: 4px;
-  //      height: 100%;
-  //      display: flex;
-  //      flex-direction: row;
-  //      justify-content: center;
-  //      align-items: center;
-  //    }
-  //  }
-  //
-  //  .header-actions {
-  //    flex: 0 0 auto;
-  //    border-left: 1px solid var(--uniface-data-table-header-separator-color, #6B7280);
-  //    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  //    display: block;
-  //    width: 100%;
-  //    font-weight: 600;
-  //    height: 100%;
-  //    position: relative;
-  //    box-sizing: border-box;
-  //
-  //    & > div {
-  //      top: 50%;
-  //      position: relative;
-  //      transform: translateY(-50%);
-  //    }
-  //  }
-  //
-  //  .header-row-panel {
-  //    display: flex;
-  //    flex-direction: row;
-  //    position: relative;
-  //    box-sizing: border-box;
-  //    flex-wrap: nowrap;
-  //    align-items: center;
-  //  }
-  //
-  //  .table-cell {
-  //    text-align: center;
-  //    color: var(--uniface-data-table-header-color, #374151);;
-  //    overflow: hidden;
-  //    position: relative;
-  //    flex: 0 0 auto;
-  //    line-height: 28px;
-  //
-  //    & > div {
-  //      text-align: center;
-  //    }
-  //
-  //    .sortable {
-  //      cursor: pointer;
-  //    }
-  //
-  //    .header-cell-divider {
-  //      position: absolute;
-  //      top: 0;
-  //      right: 0;
-  //      bottom: 0;
-  //      width: 3px;
-  //      z-index: 2;
-  //
-  //      &::before {
-  //        content: ''; /* 必须指定伪元素的内容 */
-  //        position: absolute;
-  //        left: 50%; /* 将伪元素水平居中 */
-  //        top: 0;
-  //        bottom: 0;
-  //        width: 1px; /* 竖线宽度 */
-  //        background-color: var(--uniface-data-table-header-separator-color, #6B7280);; /* 竖线颜色 */
-  //        transform: translateX(-50%); /* 精确居中 */
-  //      }
-  //
-  //      &.resizer {
-  //        cursor: ew-resize;
-  //      }
-  //    }
-  //
-  //
-  //    span {
-  //      display: inline-block;
-  //      vertical-align: center;
-  //      align-self: center;
-  //    }
-  //
-  //
-  //  }
-  //
-  //}
-
 
   .data-content-panel {
     position: relative;
@@ -398,81 +275,11 @@
       }
     }
 
-    .table-row {
-      background-color: var(--uniface-data-table-background-color, #ffffff);
-      height: 36px;
-
-      &.alternative {
-        background-color: var(--uniface-data-table-background-color, #f7f7f7);
-      }
-
-      .table-data-cell {
-        flex: 0 0 auto;
-        height: 100%;
-        position: relative;
-        box-sizing: border-box;
-        padding: 4px;
-
-        & > div {
-          position: relative;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        .cell-text {
-          overflow: hidden;
-        }
-
-        &:first-child {
-          padding-left: 8px;
-        }
-
-        &:last-child {
-          padding: 0;
-        }
-      }
-    }
 
     .expand-data-row {
       background-color: var(--uniface-data-table-expand-row-bg, #f7f7f7);
       min-height: 32px;
       box-sizing: border-box;
-    }
-
-    //左边的固定列和右边的操作列
-
-    .action-panel {
-      border-left: 1px solid var(--uniface-inner-border-color, #d9d9d9);
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-
-      .scroll-panel {
-        overflow-y: auto;
-      }
-
-      & > div {
-
-        .operation-row {
-          position: relative;
-          width: 100%;
-          display: flex;
-          box-sizing: border-box;
-          border-bottom: 1px solid #f0f0f0;
-          flex-direction: row;
-          align-items: center;
-
-          &.alternative {
-            background-color: var(--uniface-data-table-background-color, #f7f7f7);
-          }
-
-          & > div:first-child {
-            width: 100%;
-            padding: 2px 4px;
-            box-sizing: border-box;
-            overflow: hidden;
-            white-space: nowrap;
-          }
-        }
-      }
     }
 
     .data-view-panel {

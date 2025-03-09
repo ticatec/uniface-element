@@ -256,11 +256,14 @@
   --uniface-data-table-alter-row-bg: #f7f7f7;
   --uniface-data-table-header-bg: #F8FAFC;
   --uniface-data-table-shadow-gap: 2px;
+  --uniface-data-table-header-divid-color: #B3BCCA;
+  --uniface-data-table-cell-padding: 3px 4px;
 
   --uniface-data-table-inline-row-panel-border: 1px solid #F8FAFC;
   --uniface-data-table-inline-row-panel-bg: #F1F5F9;
   --uniface-scroll-color: #e1e1e180;
-  --uniface-data-table-inline-border-color: #e1e1e180;
+  --uniface-data-table-inline-border-color: #CBD5E1;
+  --uniface-data-table-bg: #ffffff;
 
   //Trewview
   --uniface-treeview-icon-color: #8AA7FF;
@@ -276,6 +279,8 @@
   --uniface-context-menu-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
 
-
+  --uniface-box-header-bg: #F8FAFC;
+  --uniface-box-footer-bg: #F8FAFC;
+  --uniface-box-border-radius: 8px;
 
 }

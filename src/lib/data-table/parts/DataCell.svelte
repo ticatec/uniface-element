@@ -22,7 +22,7 @@
 
 </script>
 <div class="data-cell {col$class}">
-    <div>
+    <div class="vertical-center">
         {#if column.render}
             <svelte:component this={column.render.component} {...column.render.props} {data}/>
         {:else if column.href}

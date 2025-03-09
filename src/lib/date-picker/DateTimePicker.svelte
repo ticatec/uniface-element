@@ -28,7 +28,7 @@
     let textValue: string;
     let editor: any;
     let oldValue: Date = dateUtils.toDayjs(value)?.toDate();
-    let currentValue : dayjs.Dayjs;
+    let currentValue: dayjs.Dayjs;
 
     const dateFmts = {
         "H": "YYYY-MM-DD HH:mm",
@@ -64,6 +64,11 @@
         if (e.key == 'Backspace' || e.key == 'Delete') {
             value = null;
             showPopup = false;
+        } else if (e.key == 'Tab') {
+            if (showPopup) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
         } else if (e.key == 'Escape') {
             showPopup = false;
         }

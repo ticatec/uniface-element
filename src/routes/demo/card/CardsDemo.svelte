@@ -7,6 +7,7 @@
     let actions: Array<CardAction> = [
         {
             icon: 'uniface-icon-user',
+            disabled: true,
             callback: () => {
                 window.Toast.show('打折好消息', "success")
             }

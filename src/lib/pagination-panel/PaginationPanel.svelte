@@ -13,7 +13,7 @@
     export let big: boolean = false;
     export let rowsSet: Array<number> = [25, 50, 100];
     export let total: number = null as unknown as number;
-    export let generateInfo: GenerateTotalInfo;
+    export let generateInfo: GenerateTotalInfo | null = null;
     export let rowCount: number = 25;
     export let rowCountLabel: string = 'Rows/Page';
     export let align: 'left' | 'right' | '' = '';

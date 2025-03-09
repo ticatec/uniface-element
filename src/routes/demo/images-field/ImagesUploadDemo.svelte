@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import {ModuleResult} from "$lib/message-box";
+    import {ModalResult} from "$lib/message-box";
     import type {ErrorHandler, OnUploaded, ProgressUpdate, UploadProgress} from "$lib/attachment-files/FileUpload";
     import type ImageFile from "$lib/image-files/ImageFile";
     import ImageFilesField from "$lib/image-files";
@@ -10,7 +10,7 @@
 
 
     const confirmRemoveImageFile = async (file: ImageFile): Promise<boolean> => {
-        return await window.MessageBox.showConfirm(`确定要删除已经上传的文件: <b>${file.name}</b> ?`, "删除确认", true, "warning") == ModuleResult.MR_OK;
+        return await window.MessageBox.showConfirm(`确定要删除已经上传的文件: <b>${file.name}</b> ?`, "删除确认", true, "warning") == ModalResult.MR_OK;
     }
 
 

@@ -61,7 +61,7 @@
 <div class="header-row">
     <div style="left: {-scrollLeft}px; width: {width}px">
         {#each dataCols ?? [] as col, index}
-            <div class="col-{index} data-cell" class:whitespace={hasWhitespace}>
+            <div class="col-{index} data-cell" class:sortable={col.compareFunction!=null} class:whitespace={hasWhitespace}>
                 <div class:sortable={col.compareFunction != null} on:click={handleCellClick(col)} aria-hidden="true" class="vertical-center">
                     <span>{col.text}</span>
                     {#if col === orderColumn}

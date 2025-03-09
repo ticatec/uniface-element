@@ -3,7 +3,7 @@
     import DataRow from "./DataRow.svelte";
     import type DataColumn from "../lib/DataColumn";
     import type TableRow from "./TableRow";
-    import {onMount} from "svelte";
+    import {onDestroy, onMount} from "svelte";
     import TableHeaderPanel from "$lib/data-table/parts/TableHeaderPanel.svelte";
     import UniDataTable, {type TableEventHandler} from "$lib/data-table/UniDataTable";
     import {OrderDirection} from "$lib/data-table/lib/OrderDirection";
@@ -31,6 +31,7 @@
     export let table: UniDataTable;
 
     export let showVerticalScroll: boolean = false;
+    export let displayHorizontalScroll: boolean = true;
 
     export let handleWidthChange: TableEventHandler;
 
@@ -46,10 +47,14 @@
     onMount(async () => {
         resizeObserver = new ResizeObserver(() => {
             // 每次 div 尺寸变化时，更新 clientWidth
-            viewWidth = viewPanel?.clientWidth;
+            viewWidth = Math.round(viewPanel?.clientWidth)-1;
         });
         resizeObserver.observe(viewPanel);
     });
+
+    onDestroy(()=>{
+        resizeObserver.disconnect();
+    })
 
     const handleDataTableScroll = (e: Event) => {
         if (showVerticalScroll) {
@@ -111,7 +116,7 @@
 
     <TableHeaderPanel {handleCellClick} {orderColumn} {orderDirection} dataCols={columns} {scrollLeft} width={tabWidth} {hasWhitespace} {handleWidthChange}/>
     <div class="data-view-panel" bind:this={dataPanel} on:scroll|passive={handleDataTableScroll} on:wheel|passive={handleWheelEvent}
-         style="overflow-y: {showVerticalScroll ?'auto': 'hidden' }">
+         style="overflow-x: {displayHorizontalScroll ? 'scroll' : 'auto'}; overflow-y: {showVerticalScroll ?'auto': 'hidden' };">
         {#if rows && rows.length > 0}
             <div style="box-sizing: border-box; width: {rowWidth}px; top: {top}">
                 {#each rows as row, idx}
@@ -120,7 +125,7 @@
                         <div class="expand-data-row" bind:clientHeight={inlineRowHeight}
                              style="position: relative; box-sizing: content-box; width: 100%; height: auto">
                             <div class="inline-panel">
-                                <svelte:component this={inlineComponent} data={row}/>
+                                <svelte:component this={inlineComponent} data={row.data}/>
                             </div>
                         </div>
                     {/if}

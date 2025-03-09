@@ -13,21 +13,6 @@ export default interface IndicatorColumn {
      */
     buildInlineComponent?: (data:any) => Promise<any>;
 
-    /**
-     *
-     * @param ex
-     */
-    getInlineError?: (ex:Error) => string;
-
-    /**
-     * 读取数据的指示信息
-     */
-    loadingIndicator?: string;
-
-    /**
-     *  空数据指示信息
-     */
-    emptyIndicator?: string;
 
     /**
      * 是否显示行号

@@ -1,7 +1,7 @@
 import {DateContext} from "./base-calendar";
 import type CardAction from "./card/CardAction";
 import type {DialogCloseConfirm, IDialog} from './dialog'
-import {type IMessageBox, ModuleResult} from "./message-box";
+import {type IMessageBox, ModalResult} from "./message-box";
 import type {Toast} from "./toast";
 import type {Indicator} from "./indicator"
 import type {UnitOption} from "./unit-number-editor";
@@ -13,7 +13,7 @@ import type {MouseClickHandler} from "$lib/common/MouseClickHandler";
 
 export {
     DateContext,
-    ModuleResult,
+    ModalResult,
     DisplayMode
 };
 

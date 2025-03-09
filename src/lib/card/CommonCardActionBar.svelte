@@ -8,7 +8,7 @@
     let clickEnable = true;
 
     const handleActionClick = (action: CardAction) => async (e: MouseEvent) => {
-        if (clickEnable) {
+        if (clickEnable && !action.disabled) {
             clickEnable = false;
             action.callback?.();
             await utils.sleep(0.5);
@@ -20,8 +20,8 @@
 
 <div class="card-action-bar simple">
     {#each actions as action}
-        <div class="action-item">
-            <i class={action.icon} on:click={handleActionClick(action)}></i>
+        <div class:disabled={action.disabled} class="action-item">
+            <i class={action.icon} aria-hidden="true" on:click={handleActionClick(action)}></i>
         </div>
     {/each}
 </div>

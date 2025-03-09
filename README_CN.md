@@ -59,6 +59,8 @@ window.Toast.show("Can't delete an active user", "error", 2);
 * `type`: 信息的类别，可以显示不同的颜色，包括三种类型，错误，信息提示和成功，如果参数为空，默认为错误
 * `duration`: 信息展示的时长，单位为秒，如果没有传，默认为3秒
 
+
+
 ### 消息提示框 `MessageBox`
 
 #### 使用方法

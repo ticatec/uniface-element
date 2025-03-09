@@ -1,7 +1,7 @@
 <script lang="ts">
 
     import {onDestroy, onMount} from "svelte";
-    import {initialize, ConfirmButtons, ModuleResult} from "./IMessageBox";
+    import {initialize, ConfirmButtons, ModalResult} from "./IMessageBox";
     import Button from "../button";
     import {fade} from "svelte/transition";
     import utils from "$lib/common/utils";
@@ -80,7 +80,7 @@
         startMove = false;
     }
 
-    const handleButtonClick = (mr: ModuleResult) => (e: MouseEvent) => {
+    const handleButtonClick = (mr: ModalResult) => (e: MouseEvent) => {
         if (resolve != null) {
             resolve(mr);
             resolve = null;
@@ -90,7 +90,7 @@
 
     const handleCloseClick = (e: MouseEvent) => {
         if (resolve != null) {
-            resolve(ModuleResult.MR_CANCEL);
+            resolve(ModalResult.MR_CANCEL);
             resolve = null;
             visible = false;
         }

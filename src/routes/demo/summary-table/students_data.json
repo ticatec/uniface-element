@@ -1,0 +1,423 @@
+[
+    {
+        "name": "Paul Robinson",
+        "nationality": "El Salvador",
+        "address": "3446 Breanna Stream, Michaelside, PA 63777",
+        "zipcode": "62509",
+        "enrollment_date": "2022-11-29",
+        "major": "Music",
+        "minor": "Public Health",
+        "gender": "Female",
+        "hobbies": [
+            "Reading"
+        ],
+        "phone": "810.113.7870x631",
+        "email": "anthony13@gmail.com",
+        "emergency_contact": "Dylan Hays",
+        "emergency_phone": "444-507-3595x28017",
+        "relationship": "Cousin",
+        "emergency_email": "eric48@yahoo.com",
+        "notes": "Nothing management author author word myself."
+    },
+    {
+        "name": "Sandy Reese",
+        "nationality": "Yemen",
+        "address": "3488 Curtis Mill Suite 190, North Seanbury, IL 25126",
+        "zipcode": "98458",
+        "enrollment_date": "2023-01-17",
+        "major": "Physics",
+        "minor": "Education",
+        "gender": "Female",
+        "hobbies": [
+            "Music"
+        ],
+        "phone": "(476)394-0259x35036",
+        "email": "dwright@hotmail.com",
+        "emergency_contact": "Eduardo Herring",
+        "emergency_phone": "774.925.1310x945",
+        "relationship": "Parent",
+        "emergency_email": "elizabeth82@cruz.com",
+        "notes": "Goal say card check process several."
+    },
+    {
+        "name": "Nicole Miller",
+        "nationality": "Montserrat",
+        "address": "5073 Hawkins Key Suite 868, Daviesview, KY 68798",
+        "zipcode": "45065",
+        "enrollment_date": "2020-10-22",
+        "major": "History",
+        "minor": "Statistics",
+        "gender": "Male",
+        "hobbies": [
+            "Cycling",
+            "Gaming"
+        ],
+        "phone": "001-862-172-3687",
+        "email": "melissa50@yahoo.com",
+        "emergency_contact": "Danielle Kim",
+        "emergency_phone": "(466)785-7639",
+        "relationship": "Aunt",
+        "emergency_email": "ekennedy@yahoo.com",
+        "notes": "Seek wish entire."
+    },
+    {
+        "name": "Roberta Martin",
+        "nationality": "French Southern Territories",
+        "address": "204 Munoz Loaf, East Dianaborough, OK 03350",
+        "zipcode": "98873",
+        "enrollment_date": "2024-01-11",
+        "major": "Business Administration",
+        "minor": "Statistics",
+        "gender": "Female",
+        "hobbies": [
+            "Photography",
+            "Dancing",
+            "Swimming"
+        ],
+        "phone": "168.346.1408",
+        "email": "pittscatherine@gmail.com",
+        "emergency_contact": "Arthur Turner",
+        "emergency_phone": "+1-878-762-1167x55135",
+        "relationship": "Cousin",
+        "emergency_email": "youngmarissa@gmail.com",
+        "notes": "Threat social ahead evening blood represent education."
+    },
+    {
+        "name": "Natalie Chen",
+        "nationality": "Guam",
+        "address": "3898 Bridges Land Suite 501, West Ronaldborough, GA 77194",
+        "zipcode": "37007",
+        "enrollment_date": "2021-05-26",
+        "major": "Mathematics",
+        "minor": "Journalism",
+        "gender": "Female",
+        "hobbies": [
+            "Dancing"
+        ],
+        "phone": "+1-036-690-5574x931",
+        "email": "steven40@yahoo.com",
+        "emergency_contact": "Antonio Blackwell",
+        "emergency_phone": "(352)932-5843x7599",
+        "relationship": "Aunt",
+        "emergency_email": "kingaaron@gmail.com",
+        "notes": "Ability machine measure ask boy design."
+    },
+    {
+        "name": "Erica Robinson",
+        "nationality": "Finland",
+        "address": "096 Gibson Port Apt. 990, Brownport, WY 63341",
+        "zipcode": "42458",
+        "enrollment_date": "2022-07-22",
+        "major": "Music",
+        "minor": "Public Health",
+        "gender": "Male",
+        "hobbies": [
+            "Swimming",
+            "Reading",
+            "Music"
+        ],
+        "phone": "001-864-099-4356x8802",
+        "email": "lisa35@hotmail.com",
+        "emergency_contact": "Sara Mitchell",
+        "emergency_phone": "323-258-1806x130",
+        "relationship": "Friend",
+        "emergency_email": "bobby86@gmail.com",
+        "notes": "Star throughout check must should music year."
+    },
+    {
+        "name": "Michael Wood",
+        "nationality": "Nauru",
+        "address": "77397 Kevin Prairie, Brookeside, IA 22397",
+        "zipcode": "16149",
+        "enrollment_date": "2021-11-05",
+        "major": "Literature",
+        "minor": "Environmental Science",
+        "gender": "Male",
+        "hobbies": [
+            "Cooking"
+        ],
+        "phone": "266.945.7339x70711",
+        "email": "rlane@jones-aguirre.biz",
+        "emergency_contact": "Amber Woodward",
+        "emergency_phone": "+1-361-133-3258x7527",
+        "relationship": "Parent",
+        "emergency_email": "mcollins@yahoo.com",
+        "notes": "Without against human give eat tonight hospital."
+    },
+    {
+        "name": "Joshua Ramsey",
+        "nationality": "Venezuela",
+        "address": "3218 James Point Suite 381, Angelaland, NV 35560",
+        "zipcode": "13996",
+        "enrollment_date": "2021-07-27",
+        "major": "Mathematics",
+        "minor": "Education",
+        "gender": "Female",
+        "hobbies": [
+            "Cooking"
+        ],
+        "phone": "918.618.6549x93665",
+        "email": "wvillarreal@yahoo.com",
+        "emergency_contact": "Matthew Martinez",
+        "emergency_phone": "(264)440-4790x5728",
+        "relationship": "Uncle",
+        "emergency_email": "david95@gmail.com",
+        "notes": "According free certainly book white consider."
+    },
+    {
+        "name": "Terry Mcintyre",
+        "nationality": "Cameroon",
+        "address": "USCGC Alexander, FPO AE 91762",
+        "zipcode": "76094",
+        "enrollment_date": "2024-06-02",
+        "major": "Psychology",
+        "minor": "Linguistics",
+        "gender": "Male",
+        "hobbies": [
+            "Cycling",
+            "Hiking",
+            "Music"
+        ],
+        "phone": "971.479.4659",
+        "email": "benjamin12@hotmail.com",
+        "emergency_contact": "Melvin Johnson",
+        "emergency_phone": "320.247.6104x5321",
+        "relationship": "Aunt",
+        "emergency_email": "qlynch@flores-anderson.com",
+        "notes": "It commercial voice leader."
+    },
+    {
+        "name": "Sandra Robinson",
+        "nationality": "Falkland Islands (Malvinas)",
+        "address": "976 Hayes Ports, Burnsville, OR 04822",
+        "zipcode": "66934",
+        "enrollment_date": "2020-12-15",
+        "major": "Computer Science",
+        "minor": "Linguistics",
+        "gender": "Male",
+        "hobbies": [
+            "Swimming",
+            "Gaming",
+            "Photography"
+        ],
+        "phone": "642-927-7373x84450",
+        "email": "calvarez@gmail.com",
+        "emergency_contact": "Christopher Moon",
+        "emergency_phone": "(172)769-5710x305",
+        "relationship": "Guardian",
+        "emergency_email": "dsandoval@hotmail.com",
+        "notes": "Example letter house generation positive investment."
+    },
+    {
+        "name": "Cory Liu",
+        "nationality": "Peru",
+        "address": "724 Johnson Road Apt. 456, New Jenniferberg, WI 47477",
+        "zipcode": "48604",
+        "enrollment_date": "2024-12-06",
+        "major": "Physics",
+        "minor": "Philosophy",
+        "gender": "Male",
+        "hobbies": [
+            "Cycling",
+            "Cooking",
+            "Reading"
+        ],
+        "phone": "(349)800-7593",
+        "email": "oberg@nelson-brewer.com",
+        "emergency_contact": "Kevin Cruz",
+        "emergency_phone": "710.816.6175x37442",
+        "relationship": "Guardian",
+        "emergency_email": "tina00@houston-holmes.com",
+        "notes": "Type type firm southern."
+    },
+    {
+        "name": "Zachary Miller",
+        "nationality": "Lao People's Democratic Republic",
+        "address": "1448 Mack River Suite 045, East Omar, NV 29054",
+        "zipcode": "74069",
+        "enrollment_date": "2023-03-09",
+        "major": "Business Administration",
+        "minor": "Journalism",
+        "gender": "Female",
+        "hobbies": [
+            "Cycling",
+            "Music",
+            "Gaming"
+        ],
+        "phone": "217.939.0276x26382",
+        "email": "cookkevin@davis.com",
+        "emergency_contact": "Diane Garcia",
+        "emergency_phone": "+1-048-234-9427",
+        "relationship": "Aunt",
+        "emergency_email": "tuckergregory@gmail.com",
+        "notes": "Not show site they reveal."
+    },
+    {
+        "name": "Marissa Ward",
+        "nationality": "United Kingdom",
+        "address": "74216 Hanson Cliff, Lake Raymondhaven, WV 42582",
+        "zipcode": "20220",
+        "enrollment_date": "2024-05-30",
+        "major": "Economics",
+        "minor": "Statistics",
+        "gender": "Female",
+        "hobbies": [
+            "Reading",
+            "Photography"
+        ],
+        "phone": "349-498-6657x23356",
+        "email": "marywilliams@smith-estes.com",
+        "emergency_contact": "Jennifer Stewart",
+        "emergency_phone": "253.229.6449",
+        "relationship": "Uncle",
+        "emergency_email": "sierra19@baker.com",
+        "notes": "Military money example across camera."
+    },
+    {
+        "name": "Brian Mills",
+        "nationality": "Isle of Man",
+        "address": "PSC 6510, Box 7791, APO AA 31295",
+        "zipcode": "77452",
+        "enrollment_date": "2022-06-28",
+        "major": "Art",
+        "minor": "Linguistics",
+        "gender": "Female",
+        "hobbies": [
+            "Cooking",
+            "Hiking"
+        ],
+        "phone": "685.265.8900",
+        "email": "blacklarry@cox.biz",
+        "emergency_contact": "Kimberly Esparza",
+        "emergency_phone": "880-973-7990x4988",
+        "relationship": "Uncle",
+        "emergency_email": "miranda20@yahoo.com",
+        "notes": "Oil since last over night stock."
+    },
+    {
+        "name": "Carlos Hill",
+        "nationality": "Egypt",
+        "address": "679 Frost Ridges, Brendaview, IA 02387",
+        "zipcode": "57003",
+        "enrollment_date": "2024-07-05",
+        "major": "Biology",
+        "minor": "Environmental Science",
+        "gender": "Male",
+        "hobbies": [
+            "Cycling",
+            "Reading",
+            "Hiking"
+        ],
+        "phone": "225.308.9290",
+        "email": "franklindavid@mitchell.org",
+        "emergency_contact": "Gregory Delgado",
+        "emergency_phone": "866.425.2716x8424",
+        "relationship": "Friend",
+        "emergency_email": "jillmyers@campbell.com",
+        "notes": "Born themselves better recognize among office worry."
+    },
+    {
+        "name": "Rebecca Knight",
+        "nationality": "Azerbaijan",
+        "address": "285 Charles Shoal, Patrickfurt, MA 08391",
+        "zipcode": "91684",
+        "enrollment_date": "2022-02-18",
+        "major": "Political Science",
+        "minor": "Anthropology",
+        "gender": "Female",
+        "hobbies": [
+            "Photography"
+        ],
+        "phone": "(005)351-8147",
+        "email": "allen36@barnes.com",
+        "emergency_contact": "Jason Leblanc",
+        "emergency_phone": "+1-171-619-0985",
+        "relationship": "Parent",
+        "emergency_email": "deannalewis@dixon.com",
+        "notes": "Service hotel type believe present."
+    },
+    {
+        "name": "Michael Acosta",
+        "nationality": "Brazil",
+        "address": "PSC 2685, Box 9519, APO AE 06780",
+        "zipcode": "50093",
+        "enrollment_date": "2025-02-20",
+        "major": "Mathematics",
+        "minor": "Education",
+        "gender": "Male",
+        "hobbies": [
+            "Dancing",
+            "Swimming",
+            "Gaming"
+        ],
+        "phone": "123.850.3805x02650",
+        "email": "mark26@yahoo.com",
+        "emergency_contact": "Adam Wilson",
+        "emergency_phone": "421.763.7531x3938",
+        "relationship": "Aunt",
+        "emergency_email": "zacharyjefferson@prince-johnson.com",
+        "notes": "Scientist sell oil down see act."
+    },
+    {
+        "name": "Raymond Nelson",
+        "nationality": "Malta",
+        "address": "6571 Guzman Cape Apt. 148, Cooperview, AR 91163",
+        "zipcode": "36258",
+        "enrollment_date": "2024-04-09",
+        "major": "History",
+        "minor": "Linguistics",
+        "gender": "Male",
+        "hobbies": [
+            "Music",
+            "Cycling",
+            "Cooking"
+        ],
+        "phone": "533-574-4051x90312",
+        "email": "swhite@bennett.com",
+        "emergency_contact": "Jonathan Lyons",
+        "emergency_phone": "3388489212",
+        "relationship": "Guardian",
+        "emergency_email": "qwebb@hotmail.com",
+        "notes": "Easy find others wear clear."
+    },
+    {
+        "name": "Lauren Hamilton",
+        "nationality": "Guadeloupe",
+        "address": "USNS Butler, FPO AP 98312",
+        "zipcode": "42319",
+        "enrollment_date": "2021-01-16",
+        "major": "Computer Science",
+        "minor": "Linguistics",
+        "gender": "Male",
+        "hobbies": [
+            "Swimming"
+        ],
+        "phone": "001-695-055-2555x925",
+        "email": "rogermartinez@rich.com",
+        "emergency_contact": "Gregory Brown",
+        "emergency_phone": "187-485-1260x2901",
+        "relationship": "Sibling",
+        "emergency_email": "matthew31@gmail.com",
+        "notes": "Right group young."
+    },
+    {
+        "name": "Donna Rose",
+        "nationality": "Israel",
+        "address": "9369 Samantha Forks Apt. 305, Ashleytown, NH 42424",
+        "zipcode": "13103",
+        "enrollment_date": "2020-06-22",
+        "major": "Computer Science",
+        "minor": "Sociology",
+        "gender": "Male",
+        "hobbies": [
+            "Reading"
+        ],
+        "phone": "(113)696-2163x1861",
+        "email": "smithronald@crawford-garcia.com",
+        "emergency_contact": "Ryan Graham",
+        "emergency_phone": "553.599.5696",
+        "relationship": "Guardian",
+        "emergency_email": "butlerdenise@gmail.com",
+        "notes": "Including several throw teacher pretty table."
+    }
+]

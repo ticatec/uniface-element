@@ -61,3 +61,13 @@ export interface LazyLoader {
     load: LoadChildrenFun;
 
 }
+
+/**
+ * 判断是否是根节点
+ */
+export type RootDetermine = (item: any) => boolean;
+
+/**
+ * 层级排序
+ */
+export type NodeLevelCompare = (e1: any, e2: any) => number;

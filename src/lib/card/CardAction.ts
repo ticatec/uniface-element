@@ -4,5 +4,7 @@ export default interface CardAction {
 
     icon?: string;
 
+    disabled?: boolean;
+
     callback: ActionCallback;
 }

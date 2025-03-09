@@ -4,7 +4,7 @@
     import type ButtonAction from "$lib/action-bar/ButtonAction";
     import TextEditor from "$lib/text-editor";
     import FormField from "$lib/form-field";
-    import {ModuleResult} from "$lib";
+    import {ModalResult} from "$lib";
     import {onMount} from "svelte";
     import LookupEditor from "$lib/lookup-editor";
     import DialogDeptPickupPanel from "./DialogDeptPickupPanel.svelte";
@@ -36,7 +36,7 @@
 
     export const closeConfirm = async (): Promise<boolean> => {
         if (JSON.stringify(data) != oldData) {
-            return await window.MessageBox.showConfirm('数据尚未保存，确定要关闭吗？', '关闭窗口') == ModuleResult.MR_OK;
+            return await window.MessageBox.showConfirm('数据尚未保存，确定要关闭吗？', '关闭窗口') == ModalResult.MR_OK;
         } else {
             return true
         }

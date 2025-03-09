@@ -5,7 +5,7 @@
     import type ActionsColumn from "./lib/ActionsColumn";
     import type IndicatorColumn from "./lib/IndicatorColumn";
     import type TableRow from "./parts/TableRow";
-    import UniDataTable, {type HandleRowExpand} from "./UniDataTable";
+    import UniDataTable from "./UniDataTable";
     import {onMount} from "svelte";
     import FixedColumnsPanel from "$lib/data-table/parts/FixedColumnsPanel.svelte";
     import ActionPanel from "$lib/data-table/parts/ActionsPanel.svelte";
@@ -21,8 +21,6 @@
     export let inlineRowHeight: number = 80;
     export let rowBorder: boolean = false;
     export let colBorder: boolean = false;
-
-    export let onRowExpand: HandleRowExpand;
 
     export let style: string = '';
 
@@ -98,19 +96,23 @@
         }
     }
 
+    $: rowHeight = rowHeight ?? 42;
+
 </script>
 
 <div id="tab-{id}" {style} class="uniface-data-table" class:cell-border={colBorder} class:row-border={rowBorder}>
     {@html tabStyle}
     {#if table && dataColumns && fixedCols}
-        {#if indicatorColumn || fixedCols}
-            <FixedColumnsPanel {handleRowExpand} bind:selectedRows {orderDirection} {orderColumn} {handleCellClick} {indicatorColumn} bind:expandRow {table}
+        {#if indicatorColumn || fixedCols.length > 0}
+            <FixedColumnsPanel {handleRowExpand} bind:selectedRows {orderDirection} {orderColumn} {handleCellClick} {indicatorColumn}
+                               bind:expandRow {table}
                                {rowHeight} {fixedCols} {inlineRowHeight} {rows} {handleWidthChange} width={frozenWidth}
                                bind:scrollTop/>
         {/if}
 
         <ContentPanel columns={dataColumns} {orderDirection} {orderColumn} {handleWidthChange} {handleCellClick} {tabWidth} bind:rows
                       bind:scrollTop {expandRow} {rowHeight} {list} {table} {inlineComponent} bind:inlineRowHeight
+                      displayHorizontalScroll={actionsColumn!=null || indicatorColumn != null || fixedCols.length > 0}
                       showVerticalScroll={actionsColumn == null}/>
     {/if}
 

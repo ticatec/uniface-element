@@ -19,6 +19,8 @@
     export let displayMode: DisplayMode = DisplayMode.Edit;
     export let onChange: ((value: string) => void) | undefined = undefined;
 
+    export let autoFocus: boolean = false;
+
     let className: string = '';
     let input$: any;
     let editor: any;
@@ -31,7 +33,7 @@
 
     const clean = () => {
         value = '';
-        editor.setFocus();
+        editor.focus();
     }
 
     $: if (oldValue != value) {
@@ -39,9 +41,13 @@
         oldValue = value;
     }
 
+    $: if (editor && autoFocus) {
+        editor.focus();
+    }
+
 </script>
 <CommonEditor {displayMode} {style} {value} {suffix} {prefix} {readonly} {disabled} {variant} {compact}
-              showActionIcon={!readonly && !disabled && removable && value?.length > 0}
+              showActionIcon={!readonly && !disabled && removable && value?.length > 0} placeholder={input$['placeholder']}
               class={className} clean={clean}>
     <svelte:fragment slot="leading-icon">
         {#if $$slots['leading-icon']}

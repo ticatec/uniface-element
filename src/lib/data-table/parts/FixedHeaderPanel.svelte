@@ -5,13 +5,14 @@
     import {type SelectionEventHandler, SelectionMode, type TableEventHandler} from "$lib/data-table/UniDataTable";
     import utils from "$lib/common/utils";
     import {OrderDirection} from "$lib/data-table/lib/OrderDirection";
+    import i18n from "$lib/i18nContext";
 
     export let columns: Array<DataColumn>;
     export let indicatorColumn: IndicatorColumn | null;
     export let handleWidthChange: TableEventHandler;
     export let rowHeight;
     export let handleCellClick: (col: DataColumn) => any;
-    export let orderColumn: DataColumn ;
+    export let orderColumn: DataColumn;
     export let orderDirection: OrderDirection;
     export let selectionMode: SelectionMode;
 
@@ -80,12 +81,18 @@
                 <div style="text-align: center" class="vertical-center">
                     <input type="checkbox" tabindex="-1" bind:checked {indeterminate} on:click={handleHeaderCheckBoxClick}/>
                 </div>
-                <div class="header-cell-divider"></div>
+            {:else }
+                <div style="text-align: center" class="vertical-center">
+                    {#if indicatorColumn.displayNo}
+                        <span>{i18n.getText('uniface.dataTable.rowNo', '#No')}</span>
+                    {/if}
+                </div>
             {/if}
+            <div class="header-cell-divider"></div>
         </div>
     {/if}
     {#each columns as column, index}
-        <div class="fz_col-{index} data-cell" style="text-align: center">
+        <div class="fz_col-{index} data-cell" class:sortable={column.compareFunction!=null} style="text-align: center">
             <div class:sortable={column.compareFunction != null} on:click={handleCellClick(column)} aria-hidden="true" class="vertical-center">
                 <span>{column.text}</span>
                 {#if column === orderColumn}

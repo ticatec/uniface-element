@@ -17,6 +17,17 @@
     align-items: center;
   }
 
+  .box-footer {
+    width: 100%;
+    background-color: var(--uniface-box-footer-bg, #F8FAFC);
+    flex: 0 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   .box-content {
     flex: 1 1 auto;
     position: relative;

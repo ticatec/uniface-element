@@ -9,6 +9,8 @@
     flex-direction: row;
     gap: 8px;
     align-items: center;
+    height: 100%;
+    box-sizing: border-box;
 
     .divider {
       position: relative;

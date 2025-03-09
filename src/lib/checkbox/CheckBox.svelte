@@ -41,7 +41,7 @@
 
 </script>
 <div class="uniface-checkbox" class:disabled class:compact {style}>
-    <label on:click={handleClickEvent} aria-hidden="true" >
+    <label on:click={handleClickEvent} >
         <input bind:this={checkbox} type="checkbox" bind:checked={value} {readonly} {disabled}/>
         <span>{label}</span>
     </label>

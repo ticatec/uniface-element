@@ -1,42 +1,56 @@
 import type TreeNode from "./TreeNode";
+import type {NodeLevelCompare, RootDetermine} from "./TreeNode";
+
 
 /**
- *
- * @param data
- * @param keyField
- * @param textField
- * @param parentField
- * @param parentCode
- * @param parent
+ * 将一个数组转换成树状结构
+ * @param list 待转换的数组
+ * @param idKey 元素的主键
+ * @param joinKey 父子间连接字段
+ * @param valueField 取值的字段
+ * @param textField 显示文字的字段
+ * @param isRoot 判断是否是根节点，如果函数不存在，通过连接字段查询，无法获取到父节点就是根节点
+ * @param sortFun 比较函数，用于曾经排序
  */
-
-const convertArrayToTree = (data: Array<any>, keyField: string, textField: string, parentField: string,
-                            parentCode: string | null = null, parent: TreeNode | null = null) : Array<TreeNode> => {
-    let nodes:Array<TreeNode> = [];
-    for (let i = 0; i < data.length; i++) {
-        let pCode = data[i][parentField];
-        if ((parentCode == null && pCode == null) || ( pCode == parentCode)) {
-            let code:string = data[i][keyField];
-            let node:TreeNode = {value:code, text: data[i][textField], data:data[i], parent}
-            let children = convertArrayToTree(data, keyField, textField, parentField, code, node);
-            if (children.length > 0) {
-                node.children = children;
-            }
-            nodes.push(node);
-        }
+const buildTreeNode = (list: Array<any>, idKey: string, joinKey: string, textField: string, valueField?: string,
+                       isRoot?: RootDetermine, sortFun?: NodeLevelCompare): Array<TreeNode> => {
+    if (sortFun != null) {
+        list = list.sort(sortFun);
     }
+    let nodes: Array<TreeNode> = [];
+    let map: Map<string, TreeNode> = new Map<string, TreeNode>();
+    list.forEach(item => {
+        let node: TreeNode = {value: item[valueField ?? idKey], text: item[textField], data: item}
+        if (isRoot != null) {
+            if (isRoot(item)) {
+                nodes.push(node);
+                map.set(item[idKey], node);
+            } else {
+                let parent: any = map.get(item[joinKey]);
+                if (parent != null) {
+                    parent.children = [...(parent.children??[]), node];
+                    node.parent = parent;
+                    map.set(item[idKey], node);
+                } else {
+                    console.warn('Isolated node：', item);
+                }
+            }
+        } else {
+            let parent: any = map.get(item[joinKey]);
+            if (parent != null) {
+                parent.children = [...(parent.children??[]), item];
+                node.parent = parent;
+                map.set(item[idKey], node);
+            } else {
+                nodes.push(node);
+                map.set(item[idKey], node);
+            }
+        }
+    })
     return nodes;
 }
 
-/**
- * 把数组构建成一棵树
- * @param arr
- * @param keyField
- * @param textField
- * @param parentField
- * @param rootParentCode
- */
-export const buildTree = (arr: Array<any>, keyField: string, textField: string, parentField: string,
-                          rootParentCode: string | null = null): Array<TreeNode> => {
-    return convertArrayToTree(arr, keyField, textField, parentField, rootParentCode);
+
+export default {
+    buildTreeNode
 }

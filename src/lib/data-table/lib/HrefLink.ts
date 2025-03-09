@@ -1,4 +1,4 @@
-export type HrefBuilder = (item: any) => Array<HrefLink | string> | HrefLink;
+export type HrefBuilder = (item: any) => Array<HrefLink> | HrefLink;
 
 export type HrefAction = () => void;
 

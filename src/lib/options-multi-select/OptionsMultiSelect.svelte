@@ -19,6 +19,7 @@
     export let keyField: string = "code";
     export let textField: string = "text";
     export let placeholder: string = '';
+    export let emptyText: string = '';
     export let disableOptions: Array<string> = [];
     export let hideOptions: Array<string> = [];
     export let displayMode: DisplayMode = DisplayMode.Edit;
@@ -43,7 +44,9 @@
         } else {
             removeSelectCode(key);
         }
-        onChange?.(selectedList)
+        onChange?.(selectedList);
+        editor.focus();
+
     }
 
     const getOptionItem = (code: string) => {
@@ -76,6 +79,12 @@
         e.preventDefault();
     }
 
+    const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key=='Tab') {
+            showPopup = false;
+        }
+    }
+
     const cleanData = () => {
         value = '';
         onChange?.([])
@@ -87,21 +96,28 @@
     $: mh = `height: ${menu$height > 0 ? menu$height + 'px' : 'auto'}`;
     $: textValue = generateTextValue(selectedList);
 
+    let editor: any;
+
+    $: if (showPopup) {
+        editor.focus();
+    }
+
 </script>
 
 <CommonPicker {displayMode} {variant} {style} {compact} className="multiple" dropDownIcon="uniface-icon-chevron-down"
               bind:showPopup canClean={value!=null} autoFit clean={cleanData} {textValue} {readonly} {disabled}>
 
     <div class="option-field" aria-hidden="true" on:click={()=>{showPopup = true}}>
+        <input bind:this={editor} style="position: absolute; left: 1px; width: 1px" on:keydown={handleKeyDown}/>
         <div style="width: 100%; overflow: hidden; display: flex; flex-direction: row; gap: 6px">
             {#if selectedList.length > 0 }
                 {#each selectedList as code}
                     <Tag style="flex-shrink: 0" color={tagColor} variant={tagVariant} text={getOptionItem(code)}
                          removable={!readonly && !disabled} removeHandler={removeOption(code)}/>
                 {/each}
-            {:else if placeholder != null}
+            {:else if emptyText != null || placeholder != null}
                 <div class:readonly={readonly || disabled}>
-                    <span style="color: #7f7f7f">{placeholder}</span>
+                    <span>{emptyText ?? placeholder}</span>
                 </div>
             {/if}
         </div>

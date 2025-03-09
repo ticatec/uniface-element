@@ -1,6 +1,6 @@
 {
   "name": "@ticatec/uniface-element",
-  "version": "0.1.11",
+  "version": "0.1.14",
   "description": "uniface web elements",
   "scripts": {
     "dev": "vite dev",
@@ -96,7 +96,7 @@
       "types": "./dist/checkbox/index.d.ts",
       "import": "./dist/checkbox/index.js"
     },
-    "./FullscreenOverlay": {
+    "./FullScreenOverlay": {
       "types": "./dist/common/FullscreenOverlay.svelte.d.ts",
       "import": "./dist/common/FullscreenOverlay.svelte"
     },

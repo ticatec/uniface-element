@@ -18,14 +18,15 @@ const columns: Array<DataColumn> =
             "text": "姓名",
             "field": "name",
             "width": 130,
-            "resizable": true
+            "frozen": false,
+            "resizable": true,
+            compareFunction: (o1: any, o2: any) => compareObjects(o1?.address, o2?.address),
         },
         {
             "text": "性别",
             "width": 60,
             "field": "gender",
             "align": "center",
-            "resizable": true,
             formatter: (value: any) => value == null ? '' : value == 'M' ? '<span style="color: red">男</span>' : '<span>女</span>',
             escapeHTML: true
         },
@@ -41,23 +42,27 @@ const columns: Array<DataColumn> =
         },
         {
             "text": "联系电话",
-            "width": 120,
+            "width": 150,
             "field": "phone",
             align: "center",
             "href": (item: any) => {
-                return {
+                return [{
                     text: "查看详情",
                     action: () => {
-                        console.log(item)
+                        window.Toast.show(`查看详情-${item.name ?? '无'}`);
                     }
-                }
+                }, {
+                    text: "申请加急",
+                    action: () => {
+                        window.Toast.show(`申请加急-${item.name ?? '无'}`);
+                    }
+                }]
             }
         },
         {
             "text": "联系人",
             "width": 90,
             "field": "concat",
-            "resizable": true,
             "visible": true,
             "align": "right",
             "render": ConcatPerson

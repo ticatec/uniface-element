@@ -1,7 +1,7 @@
 import MessageBoxBoard from "./MessageBoxBoard.svelte";
 import type IMessageBox from "./IMessageBox";
-import {ModuleResult} from "./IMessageBox";
+import {ModalResult} from "./IMessageBox";
 
 
 export default MessageBoxBoard;
-export {ModuleResult, type IMessageBox}
+export {ModalResult, type IMessageBox}

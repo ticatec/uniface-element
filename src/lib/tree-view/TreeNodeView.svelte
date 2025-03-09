@@ -72,15 +72,13 @@
         <div class="node-item" class:selected={activeNode===node} on:click={handleNodeClick} aria-hidden="true"
              on:contextmenu={handleContextMenu}>
             <div class="item-icon">
-                {#if loading}
-                    <img alt="" style="cursor: default" src={iconLoading}/>
-                {:else }
-                    <span aria-hidden="true" on:click={handleNodeIconClick}>{expanded ? '▼' : '▶'}</span>
+                {#if isBranch()}
+                    {#if loading}
+                        <img alt="" style="cursor: default" src={iconLoading}/>
+                    {:else }
+                        <span aria-hidden="true" on:click={handleNodeIconClick}>{expanded ? '▼' : '▶'}</span>
+                    {/if}
                 {/if}
-            </div>
-            <div class="item-icon" style="margin-left: 4px;">
-                <i class={isBranch() ? "uniface-icon-folder" : "uniface-icon-file"}
-                   aria-hidden="true"></i>
             </div>
             <span class="item-text">{node.text}</span>
         </div>

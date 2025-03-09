@@ -10,8 +10,6 @@
     let escapeHTML: boolean = false;
 
 
-
-
     $: {
         let value = tableUtils.extractFieldValue(data, column.field);
         if (column.formatter) {
@@ -26,10 +24,9 @@
 
 </script>
 
-<div class="cell-text">
-    {#if escapeHTML == true}
-        {@html text}
-    {:else}
-        <span>{text}</span>
-    {/if}
-</div>
+
+{#if escapeHTML == true}
+    {@html text}
+{:else}
+    <span>{text}</span>
+{/if}

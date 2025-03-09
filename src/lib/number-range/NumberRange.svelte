@@ -11,6 +11,7 @@
     export let max: number | null = null;
     export let fromValue: number = null as unknown as number;
     export let toValue: number = null as unknown as number;
+    export let allowNegative: boolean = false;
 
     let className: string = '';
     let showActionIcon: boolean = true;
@@ -27,9 +28,9 @@
 </script>
 <CommonRangeEditor {compact} class="{className}" {style} {variant} {showActionIcon} clean={cleanValue}>
     <svelte:fragment slot="from">
-        <NumberInput bind:this={editor} style="width: 100%; text-align: center" placeholder="" {min} max={toValue} bind:value={fromValue}/>
+        <NumberInput bind:this={editor} style="width: 100%; text-align: center" {allowNegative} placeholder="" {min} max={toValue} bind:value={fromValue}/>
     </svelte:fragment>
     <svelte:fragment slot="to">
-        <NumberInput style="width: 100%; text-align: center" placeholder="" {max} min={fromValue} bind:value={toValue}/>
+        <NumberInput style="width: 100%; text-align: center" {allowNegative} placeholder="" {max} min={fromValue} bind:value={toValue}/>
     </svelte:fragment>
 </CommonRangeEditor>

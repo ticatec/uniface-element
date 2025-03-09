@@ -5,7 +5,6 @@ import type TableRow from "$lib/data-table/parts/TableRow";
 
 export type RowEventHandler = (row: TableRow) => void;
 export type RowSelectEventHandler = (row: TableRow, value: boolean) => void;
-export type HandleRowExpand = (data: any) => Promise<any>;
 export type TableEventHandler = () => void;
 export type SelectionEventHandler = (value: boolean) => void;
 

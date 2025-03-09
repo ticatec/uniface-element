@@ -66,13 +66,19 @@
         editor.focus();
     }
 
+    const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key=='Tab') {
+            showPopup = false;
+        }
+    }
+
 </script>
 
 <CommonPicker {displayMode} {variant} {style} {compact} dropDownIcon="uniface-icon-chevron-down"
               bind:showPopup canClean={!mandatory && value!=null} autoFit clean={cleanData} {textValue} {readonly} {disabled}>
 
-    <input style="width: 100%" bind:this={editor} on:click={openPopup} {placeholder} {readonly}
-           class="text-editor" bind:value={textValue} on:blur on:focus/>
+    <input style="width: 100%" bind:this={editor} on:click={openPopup} {placeholder} readonly
+           class="text-editor" bind:value={textValue} on:blur on:focus on:keydown={handleKeyDown}/>
 
     <div class="options-popover" style={mh} slot="popup-panel">
         {#each options as op}

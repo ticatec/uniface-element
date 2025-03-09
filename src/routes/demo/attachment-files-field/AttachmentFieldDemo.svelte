@@ -2,14 +2,14 @@
 
     import AttachmentFilesField from "$lib/attachment-files/AttachmentFilesField.svelte";
     import type AttachmentFile from "$lib/attachment-files/AttachmentFile";
-    import {ModuleResult} from "$lib/message-box";
+    import {ModalResult} from "$lib/message-box";
     import type {ErrorHandler, OnUploaded, ProgressUpdate, UploadProgress} from "$lib/attachment-files/FileUpload";
     import Button from "$lib/button";
     import {DisplayMode} from "$lib/common/DisplayMode";
     import {HeaderLayout} from "$lib/app-layout";
 
     const confirmRemoveFile = async (file: AttachmentFile): Promise<boolean> => {
-        return await window.MessageBox.showConfirm(`确定要删除已经上传的文件: <b>${file.name}</b> ?`, "删除确认", true, "warning") == ModuleResult.MR_OK;
+        return await window.MessageBox.showConfirm(`确定要删除已经上传的文件: <b>${file.name}</b> ?`, "删除确认", true, "warning") == ModalResult.MR_OK;
     }
 
 

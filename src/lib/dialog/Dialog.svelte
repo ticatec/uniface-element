@@ -4,7 +4,6 @@
     import type {DialogCloseConfirm} from "$lib/dialog/DialogCloseConfirm";
     import ActionBar, {type ButtonActions} from "$lib/action-bar";
     import i18n from "$lib/i18nContext";
-    import type ButtonAction from "$lib/action-bar/ButtonAction";
     import {onMount} from "svelte";
 
     export let title: string = null as unknown as string;

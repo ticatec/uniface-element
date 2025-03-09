@@ -5,6 +5,7 @@
     export let round: boolean = false;
 
     export let content$style: string = '';
+    export let fonter$style: string = '';
 
 </script>
 
@@ -21,4 +22,11 @@
     <div class="box-content" style={content$style}>
         <slot></slot>
     </div>
+    {#if $$slots['footer']}
+        <div class="box-footer" style={fonter$style}>
+            <slot name="footer">
+
+            </slot>
+        </div>
+    {/if}
 </div>
