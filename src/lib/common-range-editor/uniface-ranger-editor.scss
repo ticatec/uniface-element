@@ -15,7 +15,7 @@
     .divider {
       position: relative;
       flex: 0 0 auto;
-      width: 10px;
+      width: 6px;
 
       &::before {
         content: "";
@@ -37,7 +37,7 @@
       box-sizing: border-box;
       font-size: 1em;
       height: 36px;
-      padding: 0 12px;
+      padding: 0;
 
       &:focus {
         outline: none;

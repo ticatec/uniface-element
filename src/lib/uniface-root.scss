@@ -137,29 +137,7 @@
 
 
 
-  //输入框内的清除按钮
 
-  --uniface-editor-clean-icon-bg: #B3BCCA;
-  --uniface-editor-clean-icon-color: #ffffff;
-
-
-  //编辑器组件
-  --uniface-editor-text-color: #374151;
-  --uniface-editor-line-height: 16px;
-  --uniface-editor-padding: 0 4px;
-  --uniface-editor-border-color: #E2E8F0;
-  --uniface-editor-outlined-disabled-backgournd-color: #F1F5F9;
-  --uniface-editor-outlined-disabled-text-color: #B3BCCA;
-  --uniface-editor-outlined-radius: 4px;
-  --uniface-editor-outlined-active-border-color: #298DFF;
-  --uniface-editor-filled-backgournd-color: #F8FAFC;
-  --uniface-editor-action-icon-color: #ffffff;
-  --uniface-editor-action-icon-hover-color: #374151;
-  --uniface-editor-action-icon-background-color: #B3BCCA;
-  --uniface-editor-indicator-color: #B3BCCA;
-  --uniface-editor-inline-action-icon-color: #37415170;
-  --uniface-editor-inline-action-icon-hover-color: #374151;
-  --uniface-editor-inline-action-icon-hover-bg: #42A5F51A;
 
   //多行编辑器
   --uniface-memo-padding: 6px 8px;
@@ -189,12 +167,7 @@
   --uniface-progress-bar-bg: #E2E8F0;
 
   //progress step bar
-  --uniface-progress-step-bar-bg: #FFFFFF;
-  --uniface-progress-step-processing-color: #0061FF;
-  --uniface-progress-step-pending-color: #B3BCCA;
-  --uniface-progress-step-completed-color: #374151;
-  --uniface-progress-step-completed-icon-bg: #0061FF1A;
-  --uniface-progress-step-completed-icon-color: #0061FF;
+
 
   --uniface-tabs-header-background-color: #FFFFFF;
   --uniface-tab-active-text-color: #0061FF;
@@ -207,11 +180,7 @@
   --uniface-tab-hover-text-color: #298DFF;
   --uniface-tab-header-radius: 4px;
 
-  --uniface-navigator-background-color: #F8FAFC;
-  --uniface-navigator-vertical-padding: 16px;
-  --uniface-navigator-completed-text-color: #374151;
-  --uniface-navigator-not-start-text-color: #6B7280;
-  --uniface-navigator-warning-dot-color: #C62828;
+
 
   //可以拖动的分界线
   --uniface-dividing-line-bg: #E2E8F0;
@@ -248,9 +217,7 @@
   --uniface-page-margin-size: 12px;
 
   //List
-  --uniface-listbox-separator-color: #F0F0F0;
-  --uniface-list-box-hover-bg: #FFFFE1;
-  --uniface-list-box-selected-bg: #b1c8f6;
+
 
   --uniface-data-table-header-hight: 48px;
   --uniface-data-table-separator-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
@@ -282,8 +249,5 @@
   --uniface-context-menu-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
 
-  --uniface-box-header-bg: #F8FAFC;
-  --uniface-box-footer-bg: #F8FAFC;
-  --uniface-box-border-radius: 8px;
 
 }

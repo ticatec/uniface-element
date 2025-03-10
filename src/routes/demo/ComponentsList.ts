@@ -25,6 +25,8 @@ import DialogDemo from "./dialog/DialogDemo.svelte";
 import ClassicLayoutDemo from "./app-layout/ClassicLayoutDemo.svelte";
 import SummaryTableDemo from "./summary-table/SummaryTableDemo.svelte";
 import FormFieldDemo from "./form-field/FormFieldDemo.svelte";
+import CriteriaFieldDemo from "./criteria-field/CriteriaFieldDemo.svelte";
+import SimpleListBoxDemo from "./list-box/SimpleListBoxDemo.svelte";
 
 
 const list: Array<any> = [
@@ -57,6 +59,10 @@ const list: Array<any> = [
         component: BoxDemo
     },
     {
+        name: "ListBox",
+        component: SimpleListBoxDemo
+    },
+    {
         name: "Button",
         component: ButtonDemo
     },
@@ -75,6 +81,10 @@ const list: Array<any> = [
     {
         name: "Form Field",
         component: FormFieldDemo
+    },
+    {
+        name: "Criteria Field",
+        component: CriteriaFieldDemo
     },
     {
         name: "Dialog",

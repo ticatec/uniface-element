@@ -1,3 +1,12 @@
+:root {
+  --uniface-progress-step-bar-bg: #FFFFFF;
+  --uniface-progress-step-processing-color: #0061FF;
+  --uniface-progress-step-pending-color: #B3BCCA;
+  --uniface-progress-step-completed-color: #374151;
+  --uniface-progress-step-completed-icon-bg: #0061FF1A;
+  --uniface-progress-step-completed-icon-color: #0061FF;
+}
+
 .uniface-progress-step-container {
   position: relative;
   width: 100%;

@@ -1,3 +1,27 @@
+:root {
+  //输入框内的清除按钮
+
+  --uniface-editor-clean-icon-bg: #B3BCCA;
+  --uniface-editor-clean-icon-color: #ffffff;
+  //编辑器组件
+  --uniface-editor-text-color: #374151;
+  --uniface-editor-line-height: 16px;
+  --uniface-editor-padding: 0 8px;
+  --uniface-editor-border-color: #E2E8F0;
+  --uniface-editor-outlined-disabled-backgournd-color: #F1F5F9;
+  --uniface-editor-outlined-disabled-text-color: #B3BCCA;
+  --uniface-editor-outlined-radius: 4px;
+  --uniface-editor-outlined-active-border-color: #298DFF;
+  --uniface-editor-filled-backgournd-color: #F8FAFC;
+  --uniface-editor-action-icon-color: #ffffff;
+  --uniface-editor-action-icon-hover-color: #374151;
+  --uniface-editor-action-icon-background-color: #B3BCCA;
+  --uniface-editor-indicator-color: #B3BCCA;
+  --uniface-editor-inline-action-icon-color: #37415170;
+  --uniface-editor-inline-action-icon-hover-color: #374151;
+  --uniface-editor-inline-action-icon-hover-bg: #42A5F51A;
+}
+
 /*输入框中的清除按钮*/
 
 .uniface-editor-clean-icon {
@@ -34,7 +58,7 @@
 .uniface-common-editor {
 
   border-bottom: 1px solid var(--uniface-editor-border-color, #298DFF);
-  padding: var(--uniface-editor-padding, 0 4px);
+  padding: var(--uniface-editor-padding);
   box-sizing: border-box;
   overflow: hidden;
   width: 100%;
@@ -68,7 +92,7 @@
     box-sizing: border-box;
     font-size: 1em;
     height: 36px;
-    padding: 0 4px;
+    padding: 0 2px;
     color: var(--uniface-editor-text-color, #374151);
 
 

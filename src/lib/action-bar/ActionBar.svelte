@@ -1,8 +1,8 @@
 <script lang="ts">
 
     import type {ButtonActions} from "./ButtonAction";
-    import Button from "$lib/button";
-    import Separator from "$lib/separator";
+    import Button from "$lib/button/Button.svelte";
+    import Separator from "$lib/separator/Separator.svelte";
 
     export let buttons: ButtonActions = [];
     export let style: string = '';

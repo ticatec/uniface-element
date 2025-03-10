@@ -1,8 +1,9 @@
 <script lang="ts">
 
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
+    import {tick} from "svelte";
 
-    export let label: string = "";
+    export let label: string | null = null;
     export let readonly: boolean = false;
     export let disabled: boolean = false;
     export let value: boolean = false;
@@ -15,6 +16,7 @@
     let oldValue = value;
 
     let checkbox: any;
+    let checked: boolean;
 
     const handleClickEvent = (e: MouseEvent) => {
         if (readonly || disabled) {
@@ -22,8 +24,13 @@
             e.preventDefault();
         } else {
             indeterminate = false;
-            setTimeout(()=>{
+            setTimeout(async () => {
                 onClick?.(e);
+                await tick();
+                if (checked != oldValue) {
+                    value = checked;
+                    onChange?.(value)
+                }
             }, 50)
             e.stopPropagation();
         }
@@ -33,16 +40,18 @@
         checkbox.indeterminate = indeterminate;
     }
 
-    $: if (value != oldValue) {
+    $: { //当value从外面发生变化的时候
+        checked = value;
         oldValue = value;
-        onChange?.(value)
     }
 
 
 </script>
 <div class="uniface-checkbox" class:disabled class:compact {style}>
-    <label on:click={handleClickEvent} >
-        <input bind:this={checkbox} type="checkbox" bind:checked={value} {readonly} {disabled}/>
-        <span>{label}</span>
+    <label on:click={handleClickEvent}>
+        <input bind:this={checkbox} type="checkbox" bind:checked={checked} {readonly} {disabled}/>
+        {#if label}
+            <span>{label}</span>
+        {/if}
     </label>
 </div>

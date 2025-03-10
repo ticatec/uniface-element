@@ -1,15 +1,23 @@
 <script lang="ts">
 
     import CommonEditor from "../common-editor/CommonEditor.svelte";
-    import iconLoader from "../assets/loading.gif";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
 
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let compact: boolean = false;
     export let style: string = '';
     export let value: string = '';
-    export let loading: boolean = false;
+    export let disabled: boolean = false;
     export let onChange: OnChangeHandler<string> = null as unknown as OnChangeHandler<string>;
+
+    export let placeholder: string | null = null;
+
+    export const focus = () => {
+        console.log('查询框获取焦点')
+        editor.focus();
+    }
+
+    let editor: any;
 
     let composing: boolean = false;
     let inputText: string;
@@ -23,27 +31,26 @@
         }
     };
     const handleCompositionStart = (event: CompositionEvent) => {
-        //event.target.composing = true;
         composing = true;
     };
 
     const handleCompositionEnd = (event: CompositionEvent) => {
-        //event.target.composing = false;
         composing = false;
         value = inputText;
         onChange?.(value);
     };
 
+    const clean = () => {
+        value = null;
+        onChange?.(value);
+    }
+
 </script>
 
-<CommonEditor {variant} {compact} {style}>
+<CommonEditor {variant} {compact} {style} showActionIcon={value != null && value.length > 0} {clean}>
     <div slot='leading-icon'>
-        {#if loading}
-            <img width="20" height="20" src={iconLoader} alt=""/>
-        {:else}
-            <i class="uniface-icon-search"></i>
-        {/if}
+        <i class="uniface-icon-search"></i>
     </div>
-    <input style="width: 100%" bind:value={inputText} on:input={handleInput} on:compositionstart={handleCompositionStart}
-           on:compositionend={handleCompositionEnd} />
+    <input bind:this={editor} style="width: 100%" bind:value={inputText} {disabled}  on:input={handleInput} on:compositionstart={handleCompositionStart}
+           on:compositionend={handleCompositionEnd} {placeholder}/>
 </CommonEditor>

@@ -8,7 +8,10 @@
 
 :root {
   --uniface-form-field-required-indicator-color: #ff3e00;
-  --uniface-form-field-label-color: var(--uniface-primary-text-color, #374151)
+  --uniface-form-field-label-color: var(--uniface-primary-text-color, #374151);
+  --uniface-form-field-invalid-message-color: #ff3e00;
+  --uniface-form-field-label-width: 120px;
+  --uniface-form-field-label-alignment: right;
 }
 
 .uniface-form-field {
@@ -20,7 +23,7 @@
   padding: 6px 4px;
 
   .required-indicator {
-    color: var(--uniface-form-field-required-indicator-color, #ff3e00);
+    color: var(--uniface-form-field-required-indicator-color);
   }
 
   .field-hint {
@@ -29,7 +32,7 @@
     padding: 4px 0;
     font-size: 0.9em;
     font-style: italic;
-    color: var(--uniface-invalid-message-color, #ff3e00);
+    color: var(--uniface-form-field-invalid-message-color);
     grid-area: hint;
   }
 
@@ -87,8 +90,8 @@
       "empty hint";
 
       .field-label {
-        width: 120px;
-        text-align: right;
+        width: var(--uniface-form-field-label-width);
+        text-align: var(--uniface-form-field-label-alignment);
       }
     }
   }

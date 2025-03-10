@@ -1,8 +1,5 @@
 <script lang="ts">
 
-
-
-
     import FormField from "$lib/form-field";
     import TextEditor from "$lib/text-editor";
     import DatePicker from "$lib/date-picker";

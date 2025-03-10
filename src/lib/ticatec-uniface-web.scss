@@ -28,12 +28,12 @@
 @use "./pagination-panel/uniface-pagination-panel.scss";
 @use "./nav-menu/uni-face-navigator-menu.scss";
 @use "./common-range-editor/uniface-ranger-editor.scss";
-@use "./list-box/uni-face-listbox.scss";
+@use "./box/uniface-box.scss";
+@use "./list-box/uniface-listbox";
 @use "./transfer-field/uni-face-transfer-field.scss";
 @use "./form-panel/uniface-form-layout.scss";
 @use "./image-files/uni-face-image-files-field.scss";
 @use "./cascade-options-select/uni-face-cascade-option-select";
-@use "./box/uniface-box.scss";
 @use "./navigator/uniface-navigator";
 @use "./progress-bar/uniface-progress-bar";
 @use "./progress-step-bar/uniface-progress-step-bar";

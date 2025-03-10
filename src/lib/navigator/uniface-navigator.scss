@@ -1,10 +1,21 @@
+:root {
+  --uniface-navigator-background-color: var(--uniface-application-bg);
+  --uniface-navigator-vertical-padding: 16px;
+  --uniface-navigator-completed-text-color: #374151;
+  --uniface-navigator-not-start-text-color: #6B7280;
+  --uniface-navigator-warning-dot-color: #C62828;
+  --uniface-navigator-hover-text-color: #298DFF;
+  --uniface-navigator-active-text-color: #0061FF;
+  --uniface-navigator-active-text-weight: 600;
+}
+
 .uniface-navigator-panel {
   position: relative;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: var(--uniface-navigator-background-color, #FFFFFF);
+  background-color: var(--uniface-navigator-background-color);
 
   .navigator-content {
     width: 100%;
@@ -34,11 +45,11 @@
 
 
       &.nav-completed {
-        color: var(--uniface-navigator-completed-text-color, #374151);
+        color: var(--uniface-navigator-completed-text-color);
       }
 
       &.nav-warning {
-        color: var(--uniface-navigator-completed-text-color, #374151);
+        color: var(--uniface-navigator-completed-text-color);
         position: relative;
         &::after {
           content: "";
@@ -49,23 +60,23 @@
           width: 6px;
           height: 6px;
           border-radius: 50%; /* 圆形 */
-          background-color: var(--uniface-navigator-warning-dot-color, #C62828);
+          background-color: var(--uniface-navigator-warning-dot-color);
         }
       }
 
       &.nav-not-start {
-        color: var(--uniface-navigator-not-start-text-color, #6B7280);
+        color: var(--uniface-navigator-not-start-text-color);
         font-style: italic;
       }
 
       &:hover {
-        color: var(--uniface-primary-hover-text-color, #298DFF);
+        color: var(--uniface-navigator-hover-text-color);
         cursor: pointer;
       }
 
       &.active {
-        color: var(--uniface-active-label-text-color, #0061FF);
-        font-weight: var(--uniface-primary-active-text-weight, 600);
+        color: var(--uniface-navigator-active-text-color);
+        font-weight: var(--uniface-navigator-active-text-weight);
 
         &::before {
           content: "";
@@ -75,13 +86,13 @@
           transform: translateY(-50%);
           width: 15px;
           height: 15px;
-          border: 4px solid var(--uniface-active-label-text-color, #0061FF);
+          border: 4px solid var(--uniface-navigator-active-text-color);
           border-radius: 50%; /* 圆形 */
           background-color: white;
         }
 
         &:hover {
-          color: var(--uniface-active-label-text-color, #0061FF);
+          color: var(--uniface-navigator-active-text-color);
           cursor: default;
         }
 

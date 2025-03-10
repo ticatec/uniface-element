@@ -1,0 +1,95 @@
+:root {
+  --uniface-listbox-separator-color: #F0F0F0;
+  --uniface-list-box-hover-bg: #FFFFE1;
+  --uniface-list-box-selected-bg: #b1c8f6;
+  --uniface-list-box-header-bottom-border: 1px solid #f0f0f0;
+}
+
+.uniface-listbox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+  user-select: none;
+
+  .list-view-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FFFFFF10;
+  }
+
+  .box-header {
+    flex-direction: column;
+    gap: 0;
+    border-bottom: var(--uniface-list-box-header-bottom-border);
+
+    .title {
+      font-weight: 600;
+      line-height: 32px;
+      border-bottom: 1px solid var(--uniface-box-border-color);
+    }
+
+    .header-search {
+      width: 100%;
+      border-top: 1px solid var(--uniface-box-border-color);
+    }
+
+    &>div:first-child {
+      border-top: none;
+    }
+
+  }
+
+  .box-footer {
+    border-top: var(--uniface-list-box-header-bottom-border);
+    height: auto;
+  }
+
+  .listbox-header {
+    border-bottom: 1px solid var(--uniface-listbox-separator-color);
+  }
+
+  .listbox-footer {
+    border-top: 1px solid var(--uniface-listbox-separator-color);
+  }
+
+  .listbox-content {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1 1 auto;
+
+    .listview-item {
+      border-bottom: 1px solid var(--uniface-listbox-separator-color);
+
+      &.no-border {
+        border-bottom: unset;
+      }
+
+    }
+
+    &.selectable {
+      .listview-item {
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--uniface-list-box-hover-bg);
+        }
+
+        &:active {
+        }
+
+        &.selected {
+          background-color: var(--uniface-list-box-selected-bg);
+        }
+      }
+    }
+
+  }
+}

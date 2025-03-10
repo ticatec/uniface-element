@@ -16,4 +16,8 @@ import Box from "$lib/box";
     <Box style="width: 240px; height: 400px" title="带标题的圆角" round>
 
     </Box>
+
+    <Box style="width: 240px; height: 400px" title="带标题的圆角" round>
+        <div slot="footer" style="padding: 0 12px">脚注</div>
+    </Box>
 </div>

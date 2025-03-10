@@ -1,3 +1,10 @@
+:root {
+  --uniface-criteria-field-label-color: var(--uniface-primary-text-color, #374151);
+  --uniface-criteria-field-label-width: 120px;
+  --uniface-criteria-field-label-alignment: right;
+}
+
+
 .uniface-filter-field {
 
   box-sizing: border-box;
@@ -5,7 +12,6 @@
   position: relative;
   padding: 0 4px;
   width: 100px;
-  vertical-align: top;
 
   &.x15 {
     width: 150px;
@@ -30,25 +36,29 @@
   &.x40 {
     width: 400px;
   }
-  
+
+  .field-container {
+    width: 100%;
+    display: grid;
+    position: relative;
+    gap: 4px;
+  }
+
 
   .field-label {
-    color: var(--uniface-primary-label-color, #333333);
+    color: var(--uniface-criteria-field-label-color);
     font-size: 0.9em;
     font-weight: 500;
     box-sizing: border-box;
   }
 
   &.vertical {
-    &>div {
-      width: 100%;
-      position: relative;
-      text-align: left;
+    .field-container {
+      grid-template-columns: 1fr;
     }
 
     .field-label {
       width: 100%;
-      padding: 0 4px 4px 4px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -60,34 +70,21 @@
       flex-direction: row;
       justify-items: center;
       width: 100%;
-      &>div {
-        width: 100%;
-      }
     }
   }
 
   &.horizontal {
-    &>div {
-      display: grid;
-      width: 100%;
-      position: relative;
-      grid-template-columns: auto auto;
+    .field-container {
+      grid-template-columns: auto 1fr;
       align-items: center;
-      box-sizing: border-box;
-
-      .field-label {
-        text-align: right;
-        width: 80px;
-        padding-right: 4px;
-        box-sizing: border-box;
-        overflow: hidden;
-      }
-
-      .field {
-        position: relative;
-        box-sizing: border-box;
-      }
     }
+
+    .field-label {
+      text-align: var(--uniface-criteria-field-label-alignment);
+      width: var(--uniface-criteria-field-label-width);
+      overflow: hidden;
+    }
+
   }
 
 }
