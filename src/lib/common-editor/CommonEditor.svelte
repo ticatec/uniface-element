@@ -18,6 +18,9 @@
     export let showActionIcon: boolean = false;
     export let clean: () => void;
 
+    export let hasLeadingIcon: boolean = false;
+    export let hasTrailingIcon: boolean = false;
+
     let className: string = '';
 
 </script>
@@ -40,29 +43,34 @@
 {:else}
     <div class:compact class="uniface-common-editor {variant} {className}" tabindex="-1"
          style="{style}">
-        {#if $$slots['leading-icon']}
-            <slot name="leading-icon"/>
-        {/if}
         {#if !utils.isEmpty(prefix)}
             <div class="editor-prefix" tabindex="-1" style="flex: 0 0 auto;">
                 <span>{prefix}</span>
+            </div>
+        {:else if $$slots['leading-icon'] && hasLeadingIcon}
+            <div class="editor-embed-icon" style="flex: 0 0 auto;">
+                <slot name="leading-icon"/>
             </div>
         {/if}
         {#if disabled || readonly}
             <input style="flex: 1 1 auto" {value} {disabled} {readonly} {placeholder}>
         {:else}
-            <slot/>
-            <div class="uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}">
-                <i class="uniface-icon-x clickable" aria-hidden="true" on:click={clean}></i>
+            <div style="position: relative; flex: 1 1 auto">
+                <slot/>
+                <div class="uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}">
+                    <i class="uniface-icon-x clickable" aria-hidden="true" on:click={clean}></i>
+                </div>
             </div>
         {/if}
         {#if !utils.isEmpty(suffix)}
             <div class="editor-suffix" style="flex: 0 0 auto;">
                 <span>{suffix}</span>
             </div>
+        {:else if $$slots['trailing-icon'] && hasTrailingIcon}
+            <div class="editor-embed-icon" style="flex: 0 0 auto;">
+                <slot name="trailing-icon"/>
+            </div>
         {/if}
-        {#if $$slots['trailing-icon']}
-            <slot name="trailing-icon"/>
-        {/if}
+
     </div>
 {/if}

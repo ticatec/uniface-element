@@ -1,5 +1,7 @@
 <script lang="ts">
 
+
+    import utils from "$lib/common/utils";
     import Icon from "$lib/icon";
 
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
@@ -12,19 +14,16 @@
     let className: string = '';
 
 </script>
-<div class="uniface-range-wrapper {className}" tabindex="-1" class:compact {style} on:blur>
-    <div class="uniface-range-editor uniface-common-picker {variant}">
+
+<div class="uniface-common-editor uniface-range-editor uniface-common-picker {variant} {className}" class:compact tabindex="-1" {style}
+     on:blur>
+    <div style="flex: 1 1 auto; height: 100%; display: flex; flex-direction: row; gap: 2px; position: relative">
         <slot name="from"/>
         <div class="divider"></div>
         <slot name="to"/>
         <div class="uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}">
             <i class="uniface-icon-x clickable" aria-hidden="true" on:click={clean}></i>
         </div>
-        {#if $$slots['trailing-icon']}
-            <div class="action-icon">
-                <slot name="trailing-icon"/>
-            </div>
-        {/if}
     </div>
-    <slot></slot>
+    <slot/>
 </div>

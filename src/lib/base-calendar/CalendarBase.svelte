@@ -12,9 +12,7 @@
     export let value: UniDate;
     export let min: UniDate = null;
     export let max: UniDate = null;
-    export let weekTitle: Array<string> | null = null;
-    export let monthTitle: Array<string> | null = null;
-    export let weekBegin: number | null = null;
+
     export let style: string = '';
     export let cellWidth: number = 32;
     export let cellHeight: number = 32;
@@ -31,6 +29,12 @@
     let showMonths: boolean = false;
     let showYears: boolean = false;
     let oldValue: any;
+
+    let weekTitle: Array<string> = dateCtx.weekTitleAbbr;
+    let monthTitle: Array<string> = dateCtx.months;
+    let weekBegin: number = dateCtx.weekBegin;
+
+    console.log("日期资源", dateCtx.weekTitle, dateCtx.months, dateCtx.weekTitleAbbr)
 
     const onSelectDate = (date: dayjs.Dayjs) => {
         value = date;

@@ -1,9 +1,21 @@
+:root {
+  --uniface-page-text-color: var(--default-text-color, #374151);
+  --uniface-page-content-bg: var(--uniface-application-bg, #ffffff);
+  --uniface-page-margin-bg: #F8FAFC;
+  --uniface-page-border-radius: 12px;
+  --uniface-page-header-comment-color: #6B7280;
+  --uniface-page-box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  --uniface-page-margin-color: #F8FAFD;
+  --uniface-page-margin-size: 12px;
+  --uniface-page-divid-color: #F0F0F0;
+}
+
 .uniface-page-wrapper {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding: var(--uniface-page-margin-size, 12px);
-  background-color: var(--uniface-page-margin-color, #F8FAFD);
+  padding: var(--uniface-page-margin-size);
+  background-color: var(--uniface-page-margin-color);
 
   .uniface-page {
     width: 100%;
@@ -11,15 +23,15 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: var(--uniface-default-page-content-bg, #ffffff);
-    color: var(--uniface-default-text-color, #374151);
+    background-color: var(--uniface-page-content-bg);
+    color: var(--uniface-page-text-color);
 
     &.round {
-      border-radius: var(--uniface-page-border-radius, 12px);
+      border-radius: var(--uniface-page-border-radius);
     }
 
     &.shadow {
-      box-shadow: var(--uniface-page-box-shadow, rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px);
+      box-shadow: var(--uniface-page-box-shadow);
     }
 
     .uniface-page-header {
@@ -33,7 +45,7 @@
       height: 48px;
       padding: 0 12px;
       box-sizing: border-box;
-      border-bottom: 1px solid var(--uniface-page-divid-color, #F0F0F0);
+      border-bottom: 1px solid var(--uniface-page-divid-color);
       line-height: 1.25em;
 
       .page-topic {
@@ -44,7 +56,7 @@
       .page-comment {
         flex: 1 1 auto;
         overflow: hidden;
-        color: var(--uniface-page-header-comment-color, --uniface-h3-text-color, #6B7280);
+        color: var(--uniface-page-header-comment-color);
         margin-left: 8px;
         text-overflow: ellipsis;
         white-space: nowrap;

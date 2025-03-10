@@ -1,3 +1,9 @@
+:root {
+  --uniface-treeview-icon-color: #8AA7FF;
+  --uniface-treeview-icon-hover-color: #0057FE;
+  --uniface-treeview-item-bg: #EEF4FF;
+  --uniface-treeview-item-selected-color: #0061FF;
+}
 .uniface-tree-view {
   position: relative;
   background-color: var(--uniface-default-page-content-bg, #ffffff);

@@ -3,7 +3,7 @@
     import {slide} from "svelte/transition";
     import type MenuItem from "./MenuItem";
     import type {OnMenuClick} from "./MenuItem";
-    import i18n from "$lib/i18nContext";
+    import i18n from "$lib/i18n/i18nContext";
 
     export let item: MenuItem;
     export let expand: boolean = false;

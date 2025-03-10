@@ -37,15 +37,19 @@
         {#if readonly || disabled}
             <input style="width: 100%" class="readonly" class:disabled readonly {disabled} value={textValue}/>
         {:else}
-            <slot></slot>
-            {#if canClean && textValue && textValue.length > 0}
-                <div class="uniface-editor-clean-icon">
-                    <i class="uniface-icon-x clickable " aria-hidden="true" on:click={clean}></i>
-                </div>
-            {/if}
-            <slot name="dropdown-icon">
-                <Icon name={dropDownIcon} class="action-icon" onClick={iconClickHandler??openPopup}/>
-            </slot>
+            <div style="flex: 1 1 auto; position: relative; height: 100%">
+                <slot></slot>
+                {#if canClean && textValue && textValue.length > 0}
+                    <div class="uniface-editor-clean-icon">
+                        <i class="uniface-icon-x clickable " aria-hidden="true" on:click={clean}></i>
+                    </div>
+                {/if}
+            </div>
+            <div style="flex: 0 0 auto">
+                <slot name="dropdown-icon">
+                    <Icon name={dropDownIcon} class="action-icon" onClick={iconClickHandler??openPopup}/>
+                </slot>
+            </div>
         {/if}
     </div>
     {#if showPopup}

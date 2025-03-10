@@ -6,7 +6,7 @@
     import NumberEditor from "$lib/number-editor";
     import MemoEditor from "$lib/memo-editor";
 
-    let data = {}
+    let data:any = {}
 
     let errors = {name: 'Name is required.', height: 'Height is not a valid value.'}
 
@@ -14,7 +14,7 @@
 
 <div style="width: 100%; padding: 12px">
     <div style="display: flex; flex-direction: row; gap: 8px; flex-wrap: wrap">
-        <FormField style="width: 150px" required label="Name very long label can be overflow" error={errors.name}>
+        <FormField style="width: 200px" required label="Name very long label can be overflow" error={errors.name}>
             <TextEditor variant="filled" bind:value={data.name} input$placeholder="Please enter the name"/>
         </FormField>
         <FormField style="width: 150px" required label="Date of birth" error={errors.dob}>
@@ -22,6 +22,24 @@
         </FormField>
         <FormField style="width: 150px" required label="Height" error={errors.height}>
             <NumberEditor variant="filled" suffix="CM" bind:value={data.height} precision={0} input$placeholder="Please enter the name"/>
+        </FormField>
+        <FormField style="width: 200px" required label="Name very long label can be overflow" error={errors.name}>
+            <TextEditor variant="filled" bind:value={data.name} input$placeholder="Please enter the name">
+                <i class="uniface-icon-anchor" style="color: #747c84" slot="trailing-icon"></i>
+                <i class="uniface-icon-alert-triangle" style="color: #747c84" slot="leading-icon"></i>
+            </TextEditor>
+        </FormField>
+        <FormField style="width: 200px" required label="Name very long label can be overflow" error={errors.name}>
+            <TextEditor variant="filled" bind:value={data.name} input$placeholder="Please enter the name" prefix="HTTPS://">
+                <i class="uniface-icon-anchor" style="color: #747c84" slot="trailing-icon"></i>
+                <i class="uniface-icon-alert-triangle" style="color: #747c84" slot="leading-icon"></i>
+            </TextEditor>
+        </FormField>
+        <FormField style="width: 200px" required label="Name very long label can be overflow" error={errors.name}>
+            <TextEditor variant="filled" bind:value={data.name} input$placeholder="Please enter the name" suffix=".hk">
+                <i class="uniface-icon-anchor" style="color: #747c84" slot="trailing-icon"></i>
+                <i class="uniface-icon-alert-triangle" style="color: #747c84" slot="leading-icon"></i>
+            </TextEditor>
         </FormField>
     </div>
     <div style="display: flex; flex-direction: row; gap: 8px; flex-wrap: wrap">
@@ -34,8 +52,9 @@
         <FormField style="width: 350px" arrangement="horizontal" required label="Height">
             <NumberEditor variant="filled" suffix="CM" bind:value={data.height} precision={0} input$placeholder="Please enter the name"/>
         </FormField>
-        <FormField style="width: 350px" label$alignment="top" label$style="width: 150px"  arrangement="horizontal" required label="Note very long label can be wrap line" error={errors.name}>
-            <MemoEditor variant="filled"  bind:value={data.note}  input$placeholder="Please enter the note"/>
+        <FormField style="width: 350px" label$alignment="top" label$style="width: 150px" arrangement="horizontal" required
+                   label="Note very long label can be wrap line" error={errors.name}>
+            <MemoEditor variant="filled" bind:value={data.note} input$placeholder="Please enter the note"/>
         </FormField>
     </div>
 </div>

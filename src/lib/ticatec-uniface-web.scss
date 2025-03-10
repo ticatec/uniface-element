@@ -1,13 +1,17 @@
 @use "uniface-root.scss";
+@use "./box/uniface-box.scss";
+@use "./list-box/uniface-listbox";
+@use "./checkbox/uinface-checkbox";
+@use "./group-box/uniface-group-box";
 @use "./common/uniface-common.scss";
-@use "./checkbox/uin-face-checkbox.scss";
-@use "./memo-editor/uni-face-memo-editor.scss";
-@use "./common-editor/uni-face-editor.scss";
+@use "./common-editor/uniface-editor";
+@use "./common-range-editor/uniface-ranger-editor.scss";
+@use "./criteria-field/uniface-filter-field.scss";
 @use "./switch/uniface-switch-box.scss";
 @use "./form-field/uniface-form-field.scss";
 @use "./layout/uniface-layouts.scss";
+@use "./memo-editor/uni-face-memo-editor.scss";
 @use "./options-select/uni-face-option-select.scss";
-@use "./group-box/uniface-group-box";
 @use "./radio-button/uni-face-radio-button.scss";
 @use "./dialog/uniface-dialog.scss";
 @use "./button/uniface-button";
@@ -16,20 +20,16 @@
 @use "./message-box/uniface-message-box.scss";
 @use "./card/uniface-card.scss";
 @use "./tabs/uniface-tabs.scss";
-@use "./criteria-field/uniface-filter-field.scss";
 @use "./options-multi-select/uniface-multi-select.scss";
 @use "./tree-view/uniface-tree-view.scss";
 @use "./drawer/uniface-drawer.scss";
 @use "./pagination/uniface-pagination.scss";
 @use "./app-top-bar/uni-face-header.scss";
 @use "./lookup-editor/uni-face-lookup-editor.scss";
-@use "base-calendar/uniface-calendar.scss";
+@use "./base-calendar/uniface-calendar.scss";
 @use "./date-picker/uniface-date-time.scss";
 @use "./pagination-panel/uniface-pagination-panel.scss";
 @use "./nav-menu/uni-face-navigator-menu.scss";
-@use "./common-range-editor/uniface-ranger-editor.scss";
-@use "./box/uniface-box.scss";
-@use "./list-box/uniface-listbox";
 @use "./transfer-field/uni-face-transfer-field.scss";
 @use "./form-panel/uniface-form-layout.scss";
 @use "./image-files/uni-face-image-files-field.scss";
@@ -49,7 +49,7 @@
 @use "./context-menu/uniace-context-menu";
 @use "./property-editor/uniface-property-editor-table";
 @use "./action-bar/uni-face-action-bar";
-@use "concise-data-table/uniface-concise-table";
+@use "./concise-data-table/uniface-concise-table";
 
 //定义默认都是border-box
 html {

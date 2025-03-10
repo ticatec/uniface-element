@@ -25,8 +25,11 @@
 /*输入框中的清除按钮*/
 
 .uniface-editor-clean-icon {
-  flex: 0 0 auto;
+  position: absolute;
+  top: 10px;
+  right: 0;
   display: none;
+  cursor: pointer;
   text-align: center;
   color: var(--uniface-editor-clean-icon-color, #ffffff);
 
@@ -43,8 +46,7 @@
   }
 
   &:active {
-    position: relative;
-    top: 1px;
+    top: 11px;
   }
 
   &:hover {
@@ -54,6 +56,7 @@
       }
   }
 }
+
 
 .uniface-common-editor {
 
@@ -70,12 +73,7 @@
   align-items: center;
   gap: 8px;
 
-
-
   .editor-embed-icon {
-    padding-left: 4px;
-    padding-right: 4px;
-
     img {
       width: 28px;
       height: 28px;
@@ -92,7 +90,7 @@
     box-sizing: border-box;
     font-size: 1em;
     height: 36px;
-    padding: 0 2px;
+    padding: 0;
     color: var(--uniface-editor-text-color, #374151);
 
 
@@ -119,6 +117,13 @@
 
     input {
       height: 28px;
+    }
+
+    .uniface-editor-clean-icon {
+      top: 5px;
+      &:active {
+        top: 6px;
+      }
     }
   }
 
@@ -180,16 +185,8 @@
     color: #6B7280;
     font-size: 1em;
     line-height: normal;
-    box-sizing: border-box;
   }
 
-  .editor-prefix {
-    margin-left: 4px;
-  }
-
-  .editor-suffix {
-    margin-left: 4px;
-  }
 
   .password-icon {
     color: var(--uniface-editor-action-icon-color, #ffffff);

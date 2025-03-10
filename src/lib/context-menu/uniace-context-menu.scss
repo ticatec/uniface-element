@@ -1,3 +1,8 @@
+:root {
+  --uniface-context-menu-bg: #ffffff;
+  --uniface-context-menu-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
 .uniface-context-menu {
   position: absolute;
   color: var(--uniface-default-text-color, #374151);

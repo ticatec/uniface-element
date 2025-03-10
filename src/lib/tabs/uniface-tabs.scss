@@ -1,3 +1,16 @@
+:root {
+  --uniface-tabs-header-background-color: #FFFFFF;
+  --uniface-tab-active-text-color: #0061FF;
+  --uniface-tab-active-background-color: #FFFFFF;
+  --uniface-tab-inactive-text-color: #374151;
+  --uniface-tab-inactive-background-color: #FFFFFF;
+  --uniface-tab-border-color: #E2E8F0;
+  --uniface-tab-bg: #F8FAFC;
+  --uniface-tab-action-background: #FFFFFF;
+  --uniface-tab-hover-text-color: #298DFF;
+  --uniface-tab-header-radius: 4px;
+}
+
 .uniface-tab-panel {
   width: 100%;
   box-sizing: border-box;

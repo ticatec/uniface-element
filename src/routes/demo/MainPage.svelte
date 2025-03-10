@@ -2,8 +2,7 @@
 
 
     import {onMount} from "svelte";
-    import i18n from "$lib/i18nContext";
-    import resource_en from "$lib/UnifaceResource";
+    import i18n from "$lib/i18n/i18nContext";
     import componentsList from "./ComponentsList";
     import IndicatorBoard from "$lib/indicator";
     import {DialogBoard} from "$lib/dialog";
@@ -14,7 +13,6 @@
 
     onMount(() => {
         i18n.setResource({
-            ...resource_en,
             tutorial: {
                 appLayout: "应用布局",
                 sidebarLayout: "左右两栏布局"

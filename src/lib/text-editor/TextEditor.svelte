@@ -47,13 +47,12 @@
 
 </script>
 <CommonEditor {displayMode} {style} {value} {suffix} {prefix} {readonly} {disabled} {variant} {compact}
+              hasLeadingIcon={$$slots['leading-icon']} hasTrailingIcon={$$slots['trailing-icon']}
               showActionIcon={!readonly && !disabled && removable && value?.length > 0} placeholder={input$['placeholder']}
               class={className} clean={clean}>
     <svelte:fragment slot="leading-icon">
         {#if $$slots['leading-icon']}
-            <div class="editor-embed-icon">
-                <slot name="leading-icon"/>
-            </div>
+            <slot name="leading-icon"/>
         {/if}
     </svelte:fragment>
     <input bind:this={editor} type="text" style="flex: 1 1 auto" bind:value={value} {...input$}

@@ -6,7 +6,7 @@
     import DateRange from "$lib/date-range";
     import SearchBox from "$lib/search-box";
 
-    let criteria = {}
+    let criteria: any = {}
 
     let filterText: string;
 
@@ -19,6 +19,9 @@
         </CriteriaField>
         <CriteriaField size="x30" required label="Date of birth">
             <DateRange variant="outlined" bind:fromValue={criteria.dobFrom} bind:toValue={criteria.dobTo} />
+        </CriteriaField>
+        <CriteriaField size="x30" required label="Weight">
+            <NumberRange variant="outlined" compact bind:fromValue={criteria.minWeight} bind:toValue={criteria.maxWeight} />
         </CriteriaField>
     </div>
     <div style="display: flex; flex-direction: row; gap: 8px; flex-wrap: wrap; padding-top: 8px">

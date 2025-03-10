@@ -4,7 +4,7 @@
     import type ActionsColumn from "../lib/ActionsColumn";
     import type TableRow from "./TableRow";
     import {onDestroy, onMount} from "svelte";
-    import i18n from "$lib/i18nContext";
+    import i18n from "$lib/i18n/i18nContext";
 
     export let actionsColumn: ActionsColumn;
     export let scrollTop: number = 0;
@@ -43,7 +43,7 @@
         resizeObserver.disconnect();
     });
 
-    let actionText = i18n.getText('uniface.element.tableActions', 'Actions');
+    let actionText = i18n.getText('uniface.dataTable.actions', 'Actions');
 
 </script>
 

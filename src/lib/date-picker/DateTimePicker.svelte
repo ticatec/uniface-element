@@ -9,6 +9,7 @@
     import {TextButton} from "../button";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import CommonPicker from "$lib/common/CommonPicker.svelte";
+    import i18nContext from "$lib/i18n/i18nContext";
 
     export let disabled: boolean = false;
     export let readonly: boolean = false;
@@ -24,7 +25,7 @@
     export let mandatory: boolean = false;
     export let onChange: OnChangeHandler<Date> = null as unknown as OnChangeHandler<Date>;
 
-    let confirmText = DateContext.getInstance().confirmText;
+    let confirmText = i18nContext.getText('uniface.calendar.confirmText');
     let textValue: string;
     let editor: any;
     let oldValue: Date = dateUtils.toDayjs(value)?.toDate();
@@ -43,11 +44,6 @@
     onMount(async () => {
 
     })
-
-    const extractDisplayTime = () => {
-        displayTime = dateUtils.formatDate(value, format);
-        editor && editor.focus();
-    }
 
     const openPopup = () => {
         displayTime = dateUtils.formatDate(currentValue, format);
@@ -136,7 +132,7 @@
                 <span>{displayTime}</span>
             </div>
             <div style="flex: 0 0 auto;">
-                <TextButton label={confirmText} disabled={btnDisabled} onClick={confirm}/>
+                <TextButton label={confirmText} type="primary" disabled={btnDisabled} onClick={confirm}/>
             </div>
         </div>
     </div>

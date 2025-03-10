@@ -65,8 +65,8 @@
         <svelte:fragment slot="to">
             <input style="width: 100%; text-align: center" readonly on:click={showPopover} value={textTo}/>
         </svelte:fragment>
-        <svelte:fragment slot="trailing-icon">
-            <i class="uniface-icon-calendar uniface-editor-action-icon" aria-hidden="true" on:click={showPopover}></i>
+        <svelte:fragment>
+            <i class="uniface-icon-calendar action-icon" aria-hidden="true" on:click={showPopover}></i>
         </svelte:fragment>
     </CommonRangeEditor>
 

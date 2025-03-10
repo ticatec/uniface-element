@@ -29,8 +29,8 @@
       "import": "./dist/index.js"
     },
     "./I18nContext": {
-      "types": "./dist/i18nContext.d.ts",
-      "import": "./dist/i18nContext.js"
+      "types": "./dist/i18n/index.d.ts",
+      "import": "./dist/i18n/index.js"
     },
     "./ticatec-uniface-web.css": {
       "default": "./dist/ticatec-uniface-web.css"

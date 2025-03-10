@@ -1,3 +1,15 @@
+:root {
+  --uniface-card-primary-text-color: #374151;
+  --uniface-card-border-color: #E2E8F0;
+  --uniface-card-hover-border-color: #E2E8F0;
+  --uniface-card-divid-border-color: #42A5F570;//卡片内部分割线
+  --uniface-card-header-height: 54px;
+  --uniface-card-header-padding: 0 24px;
+  --uniface-card-icon-color: #374151;
+  --uniface-card-icon-hover-color: #37415170;
+  --uniface-card-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 .uniface-card {
 
   display: block;

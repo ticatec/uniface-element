@@ -3,7 +3,7 @@
     import {fade} from "svelte/transition";
     import type {DialogCloseConfirm} from "$lib/dialog/DialogCloseConfirm";
     import ActionBar, {type ButtonActions} from "$lib/action-bar";
-    import i18n from "$lib/i18nContext";
+    import i18n from "$lib/i18n/i18nContext";
     import {onMount} from "svelte";
 
     export let title: string = null as unknown as string;

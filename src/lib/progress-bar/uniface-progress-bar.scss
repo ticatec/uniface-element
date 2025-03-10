@@ -1,3 +1,12 @@
+:root {
+  --uniface-progress-bar-color: #22BDFF;
+  --uniface-progress-bar-text-color: #374151;
+  --uniface-progress-bar-success-color: #2DC071;
+  --uniface-progress-bar-failure-color: #FF685B;
+  --uniface-progress-bar-canceled-color: #FFC53D;
+  --uniface-progress-bar-bg: #E2E8F0;
+}
+
 .uniface-progress-container {
   display: flex;
   align-items: center;

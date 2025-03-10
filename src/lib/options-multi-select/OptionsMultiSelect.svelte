@@ -108,7 +108,7 @@
               bind:showPopup canClean={value!=null} autoFit clean={cleanData} {textValue} {readonly} {disabled}>
 
     <div class="option-field" aria-hidden="true" on:click={()=>{showPopup = true}}>
-        <input bind:this={editor} style="position: absolute; left: 1px; width: 1px" on:keydown={handleKeyDown}/>
+        <input bind:this={editor} style="position: absolute; left: 1px; width: 1px; visibility: hidden" on:keydown={handleKeyDown}/>
         <div style="width: 100%; overflow: hidden; display: flex; flex-direction: row; gap: 6px">
             {#if selectedList.length > 0 }
                 {#each selectedList as code}

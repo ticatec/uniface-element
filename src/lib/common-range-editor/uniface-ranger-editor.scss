@@ -1,110 +1,20 @@
-.uniface-range-wrapper {
-  display: block;
-  height: 38px;
-  position: relative;
-  width: 100%;
+.uniface-range-editor {
 
-  .uniface-range-editor {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    align-items: center;
-    height: 100%;
-    box-sizing: border-box;
+  .divider {
+    position: relative;
+    flex: 0 0 auto;
+    width: 6px;
 
-    .divider {
-      position: relative;
-      flex: 0 0 auto;
-      width: 6px;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background-color: var(--uniface-editor-inline-action-icon-color, #37415170);
-        transform: translateY(-50%);
-      }
-    }
-
-    input {
-      cursor: default;
-      flex: 1 1 auto;
-      background-color: transparent;
-      border: 0 solid;
-      box-sizing: border-box;
-      font-size: 1em;
-      height: 36px;
-      padding: 0;
-
-      &:focus {
-        outline: none;
-      }
-
-    }
-
-    .action-icon {
-      display: block;
-      visibility: hidden;
-    }
-
-    .uniface-editor-clean-icon {
-      display: block;
-      visibility: hidden;
-    }
-
-    &:hover, &:focus-within {
-      .action-icon {
-        visibility: visible;
-      }
-
-      .uniface-editor-clean-icon {
-        visibility: visible;
-
-        &.hidden {
-        visibility: hidden;
-      }
-      }
-
-
-    }
-
-    &:focus-within {
-      outline: none;
-      border-bottom-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
-    }
-
-    &.outlined {
-      border: 1px solid var(--uniface-editor-border-color, #E2E8F0);
-      border-radius: var(--uniface-field-round, 4px);
-
-      &:focus-within {
-        border-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
-      }
-    }
-
-    &.filled {
-      border-top-right-radius: var(--uniface-field-round, 4px);
-      border-top-left-radius: var(--uniface-field-round, 4px);
-      background-color: var(--uniface-editor-filled-backgournd-color, #F8FAFC);
-      border-bottom: 1px solid var(--uniface-editor-border-color, #E2E8F0);
-
-      &:focus-within {
-        outline: none;
-        border-bottom-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
-      }
-    }
-
-  }
-
-
-  &.compact {
-    height: 30px;
-    input {
-      height: 28px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--uniface-editor-inline-action-icon-color, #37415170);
+      transform: translateY(-50%);
     }
   }
+
 }
-

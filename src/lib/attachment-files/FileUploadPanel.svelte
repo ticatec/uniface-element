@@ -8,7 +8,7 @@
     import type {FileUpload} from "$lib/attachment-files/FileUpload";
     import utils from "$lib/common/utils";
     import ModalPopover from "$lib/common/ModalPopover.svelte";
-    import i18n from "$lib/i18nContext";
+    import i18n from "$lib/i18n/i18nContext";
 
     export let accept: string = "*/*";
     export let maxSize: number = 1024 * 1024 * 10;
