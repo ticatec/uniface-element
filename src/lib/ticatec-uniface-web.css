@@ -3979,6 +3979,80 @@
   width: fit-content;
 }
 
+:root {
+  --uniface-concise-table-primary-color: #333;
+  --uniface-concise-table-primary-background-color: #ffffff;
+  --uniface-concise-table-out-border: #333;
+  --uniface-concise-table-header-background: #E1F5FE;
+  --uniface-concise-table-header-color: #333;
+  --uniface-concise-table-header-line-color: #fff;
+  --uniface-concise-table-data-line-color: #7f7f7f;
+  --uniface-concise-table-fixed-columns-background: #E0E0E0;
+  --uniface-concise-table-bg: unset;
+}
+
+.uniface-concise-datatable {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: var(--uniface-concise-table-bg, unset);
+}
+.uniface-concise-datatable .table-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.uniface-concise-datatable .table-row {
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+}
+.uniface-concise-datatable .table-row .data-cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 2px 4px;
+}
+.uniface-concise-datatable .table-header {
+  background-color: #f5f5f5;
+  padding: 0;
+  flex-shrink: 0;
+  z-index: 10;
+  user-select: none;
+}
+.uniface-concise-datatable .table-header .table-row {
+  font-weight: 600;
+}
+.uniface-concise-datatable .table-header .table-row .data-cell {
+  text-align: center !important;
+}
+.uniface-concise-datatable .table-body-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.uniface-concise-datatable .table-body-container .table-body {
+  width: 100%;
+}
+.uniface-concise-datatable .table-body-container .table-row {
+  cursor: pointer;
+}
+.uniface-concise-datatable .table-body-container .table-row.alternative {
+  background-color: var(--uniface-concise-table-row-alter-bg, #F8FAFC);
+  color: var(--uniface-concise-table-row-alter-color, #374151);
+}
+.uniface-concise-datatable .table-body-container .table-row:hover {
+  background-color: #f9f9f9;
+}
+.uniface-concise-datatable .table-body-container.auto-scroll {
+  overflow-y: hidden;
+}
+
 html {
   box-sizing: border-box;
 }

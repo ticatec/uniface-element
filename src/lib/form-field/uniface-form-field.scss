@@ -1,9 +1,14 @@
-.uniface-display-field {
-  width: 100%;
-  padding: 8px 6px 2px 6px;
-  box-sizing: border-box;
-  border-bottom: 1px solid var(--uniface-editor-border-color, #E2E8F0);
-  color: var(--uniface-editor-text-color, #374151);
+//.uniface-display-field {
+//  width: 100%;
+//  padding: 8px 6px 2px 6px;
+//  box-sizing: border-box;
+//  border-bottom: 1px solid var(--uniface-editor-border-color, #E2E8F0);
+//  color: var(--uniface-editor-text-color, #374151);
+//}
+
+:root {
+  --uniface-form-field-required-indicator-color: #ff3e00;
+  --uniface-form-field-label-color: var(--uniface-primary-text-color, #374151)
 }
 
 .uniface-form-field {
@@ -11,82 +16,83 @@
   box-sizing: border-box;
   display: block;
   position: relative;
+  height: auto;
+  padding: 6px 4px;
 
   .required-indicator {
-    color: #ff3e00;
+    color: var(--uniface-form-field-required-indicator-color, #ff3e00);
+  }
+
+  .field-hint {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px 0;
+    font-size: 0.9em;
+    font-style: italic;
+    color: var(--uniface-invalid-message-color, #ff3e00);
+    grid-area: hint;
+  }
+
+  .field {
+    width: 100%;
+    position: relative;
+    grid-area: field;
   }
 
   .field-label {
-    color: var(--uniface-primary-label-color, #333333);
-    font-size: 0.8em;
+    color: var(--uniface-form-field-label-color);
+    font-size: 0.9em;
     font-weight: 500;
     box-sizing: border-box;
     line-height: 1.1em;
     user-select: none;
+    grid-area: label;
+    align-self: center;
+
+    &.vert-top {
+      align-self: self-start;
+      margin-top: 10px;
+    }
   }
 
-  .uniface-field-text {
+  .form-content {
     width: 100%;
-    padding: 4px 0;
-    border-bottom: 1px solid var(--uniface-primary-label-color, #333333);
-    min-height: 20px;
+    display: grid;
+    gap: 4px;
   }
 
   &.vertical {
     .form-content {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
+      grid-template-columns: 1fr;
+      grid-template-areas: "label" "field" "hint";
 
       .field-label {
         width: 100%;
-        padding: 0 4px 4px 4px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        flex: 0 0 auto;
       }
 
-      .field-hint {
-        flex: 0 0 auto;
-      }
-
-      .field {
-        flex: 1 1 auto;
+      .empty-field {
+        display: none;
       }
     }
   }
 
   &.horizontal {
     .form-content {
-      display: flex;
-      flex-direction: row;
-      box-sizing: border-box;
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+      "label field"
+      "empty hint";
 
       .field-label {
-        flex: 0 0 auto;
         width: 120px;
         text-align: right;
-        padding-right: 8px;
-        box-sizing: border-box;
-        line-height: 14px;
-      }
-
-      .field {
-        flex: 1 1 auto;
-        position: relative;
-        box-sizing: border-box;
       }
     }
   }
 
-  .field-hint {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 4px;
-    font-size: 0.9em;
-    font-style: italic;
-    color: var(--uniface-invalid-message-color, #ff3e00)
-  }
+
 
 }

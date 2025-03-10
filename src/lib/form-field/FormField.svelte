@@ -5,18 +5,20 @@
     export {className as class}
     export let label: string = "Label:"
     export let style: string = '';
-    export let label$style: string = '';
+    export let label$style: string | null = null;
     export let required: boolean = false;
     export let error: string = '';
     export let arrangement: 'vertical' | 'horizontal' = 'vertical';
     export let labelSuffix: string = ':';
+
+    export let label$alignment: 'center' | 'top' = 'center'
 
     let className: string = '';
 
 </script>
 <div class="uniface-form-field {arrangement} {className}" {style}>
     <div class="form-content" style="width: 100%">
-        <div class="field-label" style="align-self: center; {label$style};">
+        <div class="field-label" style={label$style} class:vert-top={arrangement== 'horizontal' && label$alignment=='top'}>
             {#if required}
                 <span class="required-indicator">*</span>
             {/if}
@@ -25,14 +27,10 @@
         <div class="field">
             <slot/>
         </div>
-    </div>
-    {#if !utils.isEmpty(error)}
-        <div class="form-content" style="width: 100%">
-            {#if arrangement == "horizontal"}
-                <div class="field-label" style={label$style}>
-                </div>
-            {/if}
+        {#if !utils.isEmpty(error)}
+            <div class="empty-field"></div>
             <div class="field-hint"><span>{error}</span></div>
-        </div>
-    {/if}
+        {/if}
+    </div>
+
 </div>

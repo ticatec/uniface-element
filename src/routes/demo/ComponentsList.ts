@@ -24,6 +24,7 @@ import MenuDemo from "./menu/MenuDemo.svelte";
 import DialogDemo from "./dialog/DialogDemo.svelte";
 import ClassicLayoutDemo from "./app-layout/ClassicLayoutDemo.svelte";
 import SummaryTableDemo from "./summary-table/SummaryTableDemo.svelte";
+import FormFieldDemo from "./form-field/FormFieldDemo.svelte";
 
 
 const list: Array<any> = [
@@ -70,6 +71,10 @@ const list: Array<any> = [
     {
         name: "Summary Table",
         component: SummaryTableDemo
+    },
+    {
+        name: "Form Field",
+        component: FormFieldDemo
     },
     {
         name: "Dialog",
