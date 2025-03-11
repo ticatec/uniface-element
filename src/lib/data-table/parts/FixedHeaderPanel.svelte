@@ -5,7 +5,7 @@
     import {type SelectionEventHandler, SelectionMode, type TableEventHandler} from "$lib/data-table/UniDataTable";
     import utils from "$lib/common/utils";
     import {OrderDirection} from "$lib/data-table/lib/OrderDirection";
-    import i18n from "$lib/i18n/i18nContext";
+    import i18n from "@ticatec/i18n";
 
     export let columns: Array<DataColumn>;
     export let indicatorColumn: IndicatorColumn | null;

@@ -15,7 +15,7 @@
     export let autoFit: boolean = true;
     export let canClean: boolean;
     export let textValue: string;
-    export let dropDownIcon: string = "";
+    export let dropDownIcon: string | null = null;
     export let clean: () => void;
     export let iconClickHandler: MouseClickHandler = null as unknown as MouseClickHandler;
     export let showPopup: boolean = false;
@@ -45,11 +45,13 @@
                     </div>
                 {/if}
             </div>
-            <div style="flex: 0 0 auto">
-                <slot name="dropdown-icon">
-                    <Icon name={dropDownIcon} class="action-icon" onClick={iconClickHandler??openPopup}/>
-                </slot>
-            </div>
+            {#if $$slots['dropdown-icon'] || dropDownIcon}
+                <div style="flex: 0 0 auto">
+                    <slot name="dropdown-icon">
+                        <Icon name={dropDownIcon} class="action-icon" onClick={iconClickHandler??openPopup}/>
+                    </slot>
+                </div>
+            {/if}
         {/if}
     </div>
     {#if showPopup}

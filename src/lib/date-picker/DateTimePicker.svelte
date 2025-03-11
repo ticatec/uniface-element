@@ -9,7 +9,7 @@
     import {TextButton} from "../button";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import CommonPicker from "$lib/common/CommonPicker.svelte";
-    import i18nContext from "$lib/i18n/i18nContext";
+    import i18nContext from "@ticatec/i18n";
 
     export let disabled: boolean = false;
     export let readonly: boolean = false;

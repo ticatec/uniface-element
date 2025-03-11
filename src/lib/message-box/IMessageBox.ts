@@ -1,4 +1,4 @@
-import i18n from "$lib/i18n/i18nContext";
+import i18n from "@ticatec/i18n";
 
 type ShowFun = (message: string, title?: string, escapeHTML?:boolean) => Promise<void>;
 type ShowConfirmFun = (message: string, title?: string | null, escapeHTML?:boolean, type?: 'info' | 'warning') => Promise<any>;;

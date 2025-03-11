@@ -5,7 +5,7 @@
     import {ProgressStatus} from "$lib/progress-bar/ProgressStatus";
     import {onMount} from "svelte";
     import type UploadFile from "$lib/attachment-files/UploadFile";
-    import i18n from "$lib/i18n/i18nContext";
+    import i18n from "@ticatec/i18n";
 
     export let file: UploadFile;
     export let removeFile: (file: any) => void;

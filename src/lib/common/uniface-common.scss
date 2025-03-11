@@ -23,10 +23,62 @@
       display: block;
       visibility: visible;
     }
-
   }
 
+  .options-item-render {
+    width: 100%;
 
+    &:hover {
+      background-color: var(--uniface-plain-hover-border-color, #b3d8ff);
+    }
+
+  }
+}
+
+.options-popover {
+  .more-indicator-footer {
+    line-height: 24px;
+    color: #B3BCCA;
+    font-style: italic;
+    font-size: 1.1em;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .popover-mask-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #FFFFFF20;
+  }
+
+  user-select: none;
+  max-height: 30vh;
+
+  .option-item {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    line-height: 1.5em;
+
+    &:hover {
+      background-color: var(--uniface-hover-item-background, #f7f7f7);
+      color: var(--uniface-hover-item-color, #42A5F5);
+    }
+
+    &.disabled {
+      color: var(--uniface-disabled-color, #7f7f7f);
+      cursor: default;
+
+      &:hover {
+        background-color: unset;
+      }
+    }
+  }
 }
 
 .uniface-popover-wrapper {

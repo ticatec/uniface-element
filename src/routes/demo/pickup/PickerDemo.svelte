@@ -74,6 +74,17 @@
     let minValue: number;
     let maxValue: number;
 
+    const loadOptions = () => {
+        return new Promise(resolve => {
+            setTimeout(()=>{
+                resolve({
+                    list: airlines,
+                    hasMore: true
+                })
+            }, 5000)
+        });
+    }
+
 </script>
 <div style="padding: 12px; width: 100%; box-sizing: border-box; gap: 16px; display: flex; flex-direction: row; flex-wrap: wrap">
     <DatePicker style="width: 400px;" variant="filled" bind:value={date}/>
@@ -101,7 +112,7 @@
                          onSelect={handleSelectRegion}/>
     <CascadeOptionSelect style="width: 800px;" variant="outlined" bind:value={selectedZones} box$style="min-width: 120px" text={text2}
                          bind:nodes={zones} onSelect={handleSelectRegion}/>
-    <InputOptionSelect style="width: 400px;" variant="outlined" bind:value={text1} options={filterOptions} onInput={handleTextChange} onChange={(v)=>{console.log("选择", v)}}/>
+    <InputOptionSelect style="width: 400px;" placeholder="请选择航空公司" variant="outlined" bind:value={text1} lazyLoader={loadOptions} onChange={(v)=>{console.log("选择", v)}}/>
     <LookupEditor style="width: 400px;" variant="outlined" bind:value={text1} text={text1} onAction={()=>{console.log('打开窗口')}} onChange={(v)=>{console.log("选择", v)}}/>
     <DateRange bind:fromValue={from} bind:toValue={to} variant="outlined" style="width: 300px"/>
     <UnitNumberEditor style="width: 400px" variant="outlined" bind:unitCode={dragUnit} readonly={false}  bind:value={cap} units={units} onChange={(v)=>{console.log(v)}}/>

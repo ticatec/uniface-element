@@ -4,7 +4,7 @@
     import type ActionsColumn from "../lib/ActionsColumn";
     import type TableRow from "./TableRow";
     import {onDestroy, onMount} from "svelte";
-    import i18n from "$lib/i18n/i18nContext";
+    import i18n from "@ticatec/i18n";
 
     export let actionsColumn: ActionsColumn;
     export let scrollTop: number = 0;

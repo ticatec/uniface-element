@@ -2,7 +2,7 @@
 
 
     import {onMount} from "svelte";
-    import i18n from "$lib/i18n/i18nContext";
+    import i18n from "@ticatec/i18n";
     import componentsList from "./ComponentsList";
     import IndicatorBoard from "$lib/indicator";
     import {DialogBoard} from "$lib/dialog";

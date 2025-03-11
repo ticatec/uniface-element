@@ -423,15 +423,12 @@
   padding: var(--uniface-editor-compact-padding, 3px 4px);
 }
 
-.uniface-common-picker {
-  padding: 0 8px;
-}
 .uniface-common-picker .editor-dropdown {
   visibility: hidden;
-  margin-left: 8px;
 }
 .uniface-common-picker .action-icon {
-  display: none;
+  display: block;
+  visibility: hidden;
   box-sizing: border-box;
   font-size: 18px;
   color: var(--uniface-editor-text-color, #374151);
@@ -445,9 +442,51 @@
   display: block;
   visibility: visible;
 }
-.uniface-common-picker:hover .uniface-editor-clean-icon, .uniface-common-picker:focus-within .uniface-editor-clean-icon, .uniface-common-picker:focus .uniface-editor-clean-icon {
-  display: block;
-  visibility: visible;
+.uniface-common-picker .options-item-render {
+  width: 100%;
+}
+.uniface-common-picker .options-item-render:hover {
+  background-color: var(--uniface-plain-hover-border-color, #b3d8ff);
+}
+
+.options-popover {
+  user-select: none;
+  max-height: 30vh;
+}
+.options-popover .more-indicator-footer {
+  line-height: 24px;
+  color: #B3BCCA;
+  font-style: italic;
+  font-size: 1.1em;
+  text-align: center;
+  cursor: pointer;
+}
+.options-popover .popover-mask-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: rgba(255, 255, 255, 0.1254901961);
+}
+.options-popover .option-item {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+.options-popover .option-item:hover {
+  background-color: var(--uniface-hover-item-background, #f7f7f7);
+  color: var(--uniface-hover-item-color, #42A5F5);
+}
+.options-popover .option-item.disabled {
+  color: var(--uniface-disabled-color, #7f7f7f);
+  cursor: default;
+}
+.options-popover .option-item.disabled:hover {
+  background-color: unset;
 }
 
 .uniface-popover-wrapper {
@@ -507,8 +546,11 @@
 
 /*输入框中的清除按钮*/
 .uniface-editor-clean-icon {
-  flex: 0 0 auto;
+  position: absolute;
+  top: 10px;
+  right: 0;
   display: none;
+  cursor: pointer;
   text-align: center;
   color: var(--uniface-editor-clean-icon-color, #ffffff);
 }
@@ -524,8 +566,7 @@
   background-color: var(--uniface-editor-clean-icon-bg, #B3BCCA);
 }
 .uniface-editor-clean-icon:active {
-  position: relative;
-  top: 1px;
+  top: 11px;
 }
 .uniface-editor-clean-icon:hover i {
   color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
@@ -546,10 +587,6 @@
   align-items: center;
   gap: 8px;
 }
-.uniface-common-editor .editor-embed-icon {
-  padding-left: 4px;
-  padding-right: 4px;
-}
 .uniface-common-editor .editor-embed-icon img {
   width: 28px;
   height: 28px;
@@ -563,7 +600,7 @@
   box-sizing: border-box;
   font-size: 1em;
   height: 36px;
-  padding: 0 2px;
+  padding: 0;
   color: var(--uniface-editor-text-color, #374151);
 }
 .uniface-common-editor input:focus {
@@ -584,6 +621,12 @@
 }
 .uniface-common-editor.compact input {
   height: 28px;
+}
+.uniface-common-editor.compact .uniface-editor-clean-icon {
+  top: 5px;
+}
+.uniface-common-editor.compact .uniface-editor-clean-icon:active {
+  top: 6px;
 }
 .uniface-common-editor:focus-within {
   outline: none;
@@ -629,13 +672,6 @@
   color: #6B7280;
   font-size: 1em;
   line-height: normal;
-  box-sizing: border-box;
-}
-.uniface-common-editor .editor-prefix {
-  margin-left: 4px;
-}
-.uniface-common-editor .editor-suffix {
-  margin-left: 4px;
 }
 .uniface-common-editor .password-icon {
   color: var(--uniface-editor-action-icon-color, #ffffff);
@@ -654,26 +690,12 @@
   color: #d9d9d9;
 }
 
-.uniface-range-wrapper {
-  display: block;
-  height: 38px;
-  position: relative;
-  width: 100%;
-}
-.uniface-range-wrapper .uniface-range-editor {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  align-items: center;
-  height: 100%;
-  box-sizing: border-box;
-}
-.uniface-range-wrapper .uniface-range-editor .divider {
+.uniface-range-editor .divider {
   position: relative;
   flex: 0 0 auto;
   width: 6px;
 }
-.uniface-range-wrapper .uniface-range-editor .divider::before {
+.uniface-range-editor .divider::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -682,63 +704,6 @@
   height: 1px;
   background-color: var(--uniface-editor-inline-action-icon-color, rgba(55, 65, 81, 0.4392156863));
   transform: translateY(-50%);
-}
-.uniface-range-wrapper .uniface-range-editor input {
-  cursor: default;
-  flex: 1 1 auto;
-  background-color: transparent;
-  border: 0 solid;
-  box-sizing: border-box;
-  font-size: 1em;
-  height: 36px;
-  padding: 0;
-}
-.uniface-range-wrapper .uniface-range-editor input:focus {
-  outline: none;
-}
-.uniface-range-wrapper .uniface-range-editor .action-icon {
-  display: block;
-  visibility: hidden;
-}
-.uniface-range-wrapper .uniface-range-editor .uniface-editor-clean-icon {
-  display: block;
-  visibility: hidden;
-}
-.uniface-range-wrapper .uniface-range-editor:hover .action-icon, .uniface-range-wrapper .uniface-range-editor:focus-within .action-icon {
-  visibility: visible;
-}
-.uniface-range-wrapper .uniface-range-editor:hover .uniface-editor-clean-icon, .uniface-range-wrapper .uniface-range-editor:focus-within .uniface-editor-clean-icon {
-  visibility: visible;
-}
-.uniface-range-wrapper .uniface-range-editor:hover .uniface-editor-clean-icon.hidden, .uniface-range-wrapper .uniface-range-editor:focus-within .uniface-editor-clean-icon.hidden {
-  visibility: hidden;
-}
-.uniface-range-wrapper .uniface-range-editor:focus-within {
-  outline: none;
-  border-bottom-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
-}
-.uniface-range-wrapper .uniface-range-editor.outlined {
-  border: 1px solid var(--uniface-editor-border-color, #E2E8F0);
-  border-radius: var(--uniface-field-round, 4px);
-}
-.uniface-range-wrapper .uniface-range-editor.outlined:focus-within {
-  border-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
-}
-.uniface-range-wrapper .uniface-range-editor.filled {
-  border-top-right-radius: var(--uniface-field-round, 4px);
-  border-top-left-radius: var(--uniface-field-round, 4px);
-  background-color: var(--uniface-editor-filled-backgournd-color, #F8FAFC);
-  border-bottom: 1px solid var(--uniface-editor-border-color, #E2E8F0);
-}
-.uniface-range-wrapper .uniface-range-editor.filled:focus-within {
-  outline: none;
-  border-bottom-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
-}
-.uniface-range-wrapper.compact {
-  height: 30px;
-}
-.uniface-range-wrapper.compact input {
-  height: 28px;
 }
 
 :root {
@@ -1135,30 +1100,6 @@
   font-size: 20px;
   height: 20px;
   width: 20px;
-}
-
-.options-popover {
-  user-select: none;
-  max-height: 30vh;
-}
-.options-popover > div {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 4px 6px;
-  cursor: pointer;
-  font-size: 1.1em;
-  line-height: 1.5em;
-}
-.options-popover > div:hover {
-  background-color: var(--uniface-hover-item-background, #f7f7f7);
-  color: var(--uniface-hover-item-color, #42A5F5);
-}
-.options-popover > div.disabled {
-  color: var(--uniface-disabled-color, #7f7f7f);
-  cursor: default;
-}
-.options-popover > div.disabled:hover {
-  background-color: unset;
 }
 
 .uniface-radio-button {

@@ -1,4 +1,4 @@
-import i18n from "$lib/i18n/i18nContext";
+import i18n from "@ticatec/i18n";
 
 
 export default class DateContext {
