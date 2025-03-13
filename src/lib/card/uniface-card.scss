@@ -2,12 +2,14 @@
   --uniface-card-primary-text-color: #374151;
   --uniface-card-border-color: #E2E8F0;
   --uniface-card-hover-border-color: #E2E8F0;
-  --uniface-card-divid-border-color: #42A5F570;//卡片内部分割线
+  --uniface-card-divid-border-color: #42A5F570; //卡片内部分割线
   --uniface-card-header-height: 54px;
   --uniface-card-header-padding: 0 24px;
   --uniface-card-icon-color: #374151;
   --uniface-card-icon-hover-color: #37415170;
   --uniface-card-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --uniface-action-image-size: 15px;
+  --uniface-action-image-hover-size: 18px;
 }
 
 .uniface-card {
@@ -66,6 +68,23 @@
           flex: 1;
           position: relative;
           padding: 10px;
+          font-size: var(--uniface-action-image-size);
+
+          .card-action-img {
+            width: var(--uniface-action-image-size);
+            height: var(--uniface-action-image-size);
+            cursor: pointer;
+
+            &:hover {
+              width: var(--uniface-action-image-hover-size);
+              height: var(--uniface-action-image-hover-size);
+            }
+
+            &:active {
+              position: relative;
+              top: 1px;
+            }
+          }
 
           &:not(:first-child)::before {
             content: "";
@@ -81,7 +100,7 @@
             color: var(--uniface-card-primary-text-color, #374151);
 
             &:hover {
-              color: var(--uniface-card-icon-hover-color, #37415170);
+              font-size: var(--uniface-action-image-hover-size);
             }
 
             &:active {
@@ -93,6 +112,7 @@
           &.disabled {
             i {
               cursor: default;
+              font-size: var(--uniface-action-image-size);
               color: var(--uniface-disabled-button-text-color, #B3BCCA);
 
               &:hover {
@@ -104,6 +124,22 @@
                 top: 0;
               }
             }
+
+            .card-action-img {
+              filter: grayscale(100%);
+              cursor: default;
+
+              &:hover {
+                width: var(--uniface-action-image-size);
+                height: var(--uniface-action-image-size);
+              }
+
+              &:active {
+                position: relative;
+                top: 0;
+              }
+            }
+
           }
         }
 
@@ -116,7 +152,7 @@
   }
 
   &.shadowBox {
-    >div {
+    > div {
       box-shadow: var(--uniface-card-shadow, rgba(0, 0, 0, 0.16) 0px 1px 4px);
     }
   }

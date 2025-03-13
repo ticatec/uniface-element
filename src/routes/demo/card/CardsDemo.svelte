@@ -3,8 +3,9 @@
 
     import type CardAction from "$lib/card/CardAction";
     import Card from "$lib/card";
+    import alert from "./message_alert.png"
 
-    let actions: Array<CardAction> = [
+    let getActions = (): Array<CardAction> => [
         {
             icon: 'uniface-icon-user',
             disabled: true,
@@ -25,7 +26,8 @@
             }
         },
         {
-            icon: 'uniface-icon-wind',
+            img: alert,
+            disabled: Math.random() < 0.3,
             callback: () => {
             }
         }
@@ -33,42 +35,42 @@
 
 </script>
 <div style="width: 100%; padding: 6px; display: flex; flex-direction: row; gap: 10px; flex-wrap: wrap">
-    <Card title="系统管理员 - 系统管理员 - 系统管理员 - 系统管理员" {actions}>
+    <Card title="系统管理员 - 系统管理员 - 系统管理员 - 系统管理员" actions={getActions()}>
         <div style="height: 60px; padding: 12px 15px; box-sizing: border-box; width: 100%">
             <span>这是一张卡片</span>
         </div>
     </Card>
-    <Card style="" title="角色管理" {actions} variant="3d">
+    <Card style="" title="角色管理" actions={getActions()} variant="3d">
         <div style="height: 60px; padding: 12px 15px; box-sizing: border-box; width: 100%">
             <span>这是一张卡片</span>
         </div>
     </Card>
-    <Card style="" title="角色管理" {actions} variant="3d">
+    <Card style="" title="角色管理" actions={getActions()} variant="3d">
         <div style="height: 60px; padding: 12px 15px; box-sizing: border-box; width: 100%">
             <span>这是一张卡片</span>
         </div>
     </Card>
-    <Card style="" title="角色管理" {actions} variant="3d">
+    <Card style="" title="角色管理" actions={getActions()} variant="3d">
         <div style="height: 60px; padding: 12px 15px; box-sizing: border-box; width: 100%">
             <span>这是一张卡片</span>
         </div>
     </Card>
-    <Card style="" title="角色管理" {actions} variant="3d">
+    <Card style="" title="角色管理" actions={getActions()} variant="3d">
         <div style="height: 60px; padding: 12px 15px; box-sizing: border-box; width: 100%">
             <span>这是一张卡片</span>
         </div>
     </Card>
-    <Card style="" title="角色管理" {actions}>
+    <Card style="" title="角色管理" actions={getActions()}>
         <div style="height: 60px; padding: 12px 15px; box-sizing: border-box; width: 100%">
             <span>这是一张卡片</span>
         </div>
     </Card>
-    <Card style="" title="角色管理" {actions}>
+    <Card style="" title="角色管理" actions={getActions()}>
         <div style="height: 60px; padding: 12px 15px; box-sizing: border-box; width: 100%">
             <span>这是一张卡片</span>
         </div>
     </Card>
-    <Card style="" title="角色管理" {actions}>
+    <Card style="" title="角色管理" actions={getActions()}>
         <div style="height: 60px; padding: 12px 15px; box-sizing: border-box; width: 100%">
             <span>这是一张卡片</span>
         </div>
