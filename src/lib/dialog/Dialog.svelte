@@ -2,18 +2,16 @@
 
     import {fade} from "svelte/transition";
     import type {DialogCloseConfirm} from "$lib/dialog/DialogCloseConfirm";
-    import ActionBar, {type ButtonActions} from "$lib/action-bar";
+    import ActionBar, {type ButtonAction, type ButtonActions} from "$lib/action-bar";
     import i18n from "@ticatec/i18n";
     import {onMount} from "svelte";
 
-    export let title: string = null as unknown as string;
-    export let actions: ButtonActions;
-    export let closeConfirm: DialogCloseConfirm;
+    export let title: string;
+    export let actions: ButtonActions | null = null;
+    export let closeConfirm: DialogCloseConfirm | null = null;
     export let content$style: string = '';
     export let closeHandler: () => void;
-
-
-    export let closeAction: any;
+    export let closeAction: ButtonAction | null = null;
 
     export const close = async () => {
         let confirm = closeConfirm ? await closeConfirm() : true;
@@ -50,10 +48,8 @@
             type: 'secondary'
         };
         closeAction.handler = close;
-        dialogActions = actions ? [...actions, closeAction] : [closeAction];
     })
 
-    $:console.log(closeAction)
     $:  dialogActions = actions ? [...actions, closeAction] : [closeAction];
 
 </script>

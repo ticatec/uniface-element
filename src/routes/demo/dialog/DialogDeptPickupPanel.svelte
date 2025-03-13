@@ -3,6 +3,9 @@
     import type {ButtonActions} from "$lib/action-bar";
     import type ButtonAction from "$lib/action-bar/ButtonAction";
     import {onMount} from "svelte";
+    import Dialog from "$lib/dialog";
+
+    export let closeHandler: any;
 
     export let confirmCallback: any;
 
@@ -26,7 +29,8 @@
     export let actions: ButtonActions;
 
 </script>
-
-<div style="width: 600px; height: 300px; padding: 12px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: wrap">
-    <div>User List</div>
-</div>
+<Dialog {title} {actions}  {closeHandler}>
+    <div style="width: 600px; height: 300px; padding: 12px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: wrap">
+        <div>User List</div>
+    </div>
+</Dialog>

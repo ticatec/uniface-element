@@ -18,8 +18,8 @@
     export let showActionIcon: boolean = false;
     export let clean: () => void;
 
-    export let hasLeadingIcon: boolean = false;
-    export let hasTrailingIcon: boolean = false;
+    export let hasLeadingIcon: boolean = $$slots['leading-icon'];
+    export let hasTrailingIcon: boolean = $$slots['trailing-icon'];
 
     let className: string = '';
 

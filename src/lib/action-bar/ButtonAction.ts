@@ -26,7 +26,7 @@ export default interface ButtonAction {
     /**
      * click处理函数
      */
-    handler: MouseClickHandler
+    handler?: MouseClickHandler
 }
 
 export type ButtonActions = Array<ButtonAction | null>;

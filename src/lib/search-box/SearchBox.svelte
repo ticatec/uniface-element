@@ -6,9 +6,9 @@
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let compact: boolean = false;
     export let style: string = '';
-    export let value: string = '';
+    export let value: string | null;
     export let disabled: boolean = false;
-    export let onChange: OnChangeHandler<string> = null as unknown as OnChangeHandler<string>;
+    export let onChange: OnChangeHandler<string|null> = null as unknown as OnChangeHandler<string|null>;
 
     export let placeholder: string | null = null;
 
@@ -22,7 +22,7 @@
     let composing: boolean = false;
     let inputText: string;
 
-    $: inputText = value;
+    $: inputText = value??'';
 
     const handleInput = () => {
         if (composing == false) {

@@ -8,7 +8,11 @@
     import {onMount} from "svelte";
     import LookupEditor from "$lib/lookup-editor";
     import DialogDeptPickupPanel from "./DialogDeptPickupPanel.svelte";
+    import Dialog from "$lib/dialog";
+    import FormContainer, {Row} from "$lib/form-panel/flex-row-form";
+    import {CellField} from "$lib/form-panel/flex-form";
 
+    export let closeHandler: any;
     export let saveAction: any;
     export let submitAction: any;
 
@@ -78,15 +82,19 @@
     const showDeptDialog = () => {
         window.Dialog.showModal(DialogDeptPickupPanel, {confirmCallback: setUserDepartment})
     }
-
 </script>
 
-<div style="width: 800px; height: 600px; padding: 12px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: wrap; gap: 10px">
 
-    <FormField style="width: 140px" label="姓名" required={true}>
-        <TextEditor variant="filled" bind:value={data.name}/>
-    </FormField>
-    <FormField style="width: 160px" label="部门" required={true}>
-        <LookupEditor variant="filled" text={data.deptName} value={data.dept} onAction={showDeptDialog}/>
-    </FormField>
-</div>
+<Dialog {title} {actions} {closeConfirm} {closeHandler}>
+    <FormContainer style="width: 800px; height: 600px; padding: 12px; ">
+        <Row>
+            <CellField span={4} label="姓名" required={true}>
+                <TextEditor variant="filled" bind:value={data.name}/>
+            </CellField>
+            <CellField span={4} label="部门" required={true}>
+                <LookupEditor variant="filled" text={data.deptName} value={data.dept} onAction={showDeptDialog}/>
+            </CellField>
+        </Row>
+
+    </FormContainer>
+</Dialog>
