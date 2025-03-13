@@ -98,6 +98,7 @@
 
 <div bind:this={divPanel}>
     <CommonEditor {displayMode} {style} {value} {prefix} suffix={unit?.text??unit?.code} {readonly} {variant} {compact} class={className}
+                  hasLeadingIcon={$$slots['leading-icon']}
                   showActionIcon={removable && !readonly && !disabled && value != null} {clean}>
         <svelte:fragment slot="leading-icon">
             {#if $$slots['leading-icon']}

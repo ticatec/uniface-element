@@ -1665,6 +1665,8 @@
   --uniface-card-icon-color: #374151;
   --uniface-card-icon-hover-color: #37415170;
   --uniface-card-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --uniface-action-image-size: 15px;
+  --uniface-action-image-hover-size: 18px;
 }
 
 .uniface-card {
@@ -1719,6 +1721,20 @@
   flex: 1;
   position: relative;
   padding: 10px;
+  font-size: var(--uniface-action-image-size);
+}
+.uniface-card > div .card-action-bar.simple .action-item .card-action-img {
+  width: var(--uniface-action-image-size);
+  height: var(--uniface-action-image-size);
+  cursor: pointer;
+}
+.uniface-card > div .card-action-bar.simple .action-item .card-action-img:hover {
+  width: var(--uniface-action-image-hover-size);
+  height: var(--uniface-action-image-hover-size);
+}
+.uniface-card > div .card-action-bar.simple .action-item .card-action-img:active {
+  position: relative;
+  top: 1px;
 }
 .uniface-card > div .card-action-bar.simple .action-item:not(:first-child)::before {
   content: "";
@@ -1733,7 +1749,7 @@
   color: var(--uniface-card-primary-text-color, #374151);
 }
 .uniface-card > div .card-action-bar.simple .action-item i:hover {
-  color: var(--uniface-card-icon-hover-color, rgba(55, 65, 81, 0.4392156863));
+  font-size: var(--uniface-action-image-hover-size);
 }
 .uniface-card > div .card-action-bar.simple .action-item i:active {
   position: relative;
@@ -1741,12 +1757,25 @@
 }
 .uniface-card > div .card-action-bar.simple .action-item.disabled i {
   cursor: default;
+  font-size: var(--uniface-action-image-size);
   color: var(--uniface-disabled-button-text-color, #B3BCCA);
 }
 .uniface-card > div .card-action-bar.simple .action-item.disabled i:hover {
   color: var(--uniface-disabled-button-text-color, #B3BCCA);
 }
 .uniface-card > div .card-action-bar.simple .action-item.disabled i:active {
+  position: relative;
+  top: 0;
+}
+.uniface-card > div .card-action-bar.simple .action-item.disabled .card-action-img {
+  filter: grayscale(100%);
+  cursor: default;
+}
+.uniface-card > div .card-action-bar.simple .action-item.disabled .card-action-img:hover {
+  width: var(--uniface-action-image-size);
+  height: var(--uniface-action-image-size);
+}
+.uniface-card > div .card-action-bar.simple .action-item.disabled .card-action-img:active {
   position: relative;
   top: 0;
 }

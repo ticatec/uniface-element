@@ -10,7 +10,7 @@
     export let content$style: string = '';
     export let closeHandler: () => void;
     export let enableConfirm: boolean = true;
-    export let confirmHandler: (()=>Promise<void>) | null = null;
+    export let confirmHandler: (()=>Promise<any>) | null = null;
     export let confirmText: string | null = null;
 
     let confirmAction: ButtonAction = {

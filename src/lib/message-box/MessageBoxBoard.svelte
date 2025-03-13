@@ -5,6 +5,7 @@
     import Button from "../button";
     import {fade} from "svelte/transition";
     import utils from "$lib/common/utils";
+    import i18n from "@ticatec/i18n";
 
     export let appTitle: string = null as unknown as string;
 
@@ -27,6 +28,7 @@
     }
 
     let showMessageBox = (_message: string, _buttons: Array<any> | null, _title: string, _type: string | null, _escapeHTML: boolean = true): Promise<any> => {
+        console.log('显示消息框')
         if (!visible) {
             top = 0;
             left = 0;
@@ -34,6 +36,12 @@
             message = _message;
             title = _title ?? appTitle;
             escapeHTML = _escapeHTML != false;
+            if (_buttons) {
+                _buttons.forEach(button => {
+                    console.log(button.key, i18n.getText(button.key, button.text));
+                    button.label = i18n.getText(button.key, button.text)
+                });
+            }
             buttons = _buttons;
             iconType = _type == null ? 'uniface-icon-alert-circle' : _type == 'info' ? 'uniface-icon-help-circle' : 'uniface-icon-alert-triangle';
             type = _type ?? "info";

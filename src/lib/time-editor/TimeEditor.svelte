@@ -171,6 +171,7 @@
 
 </script>
 <CommonEditor {displayMode} {style} value={toTimeText(value)} {suffix} {prefix} {disabled} {readonly} {variant} {compact} class={className}
+              hasLeadingIcon={$$slots['leading-icon']} hasTrailingIcon={$$slots['trailing-icon']}
               showActionIcon={textValue!=emptyStr} clean={handleDeleteButton}>
     <svelte:fragment slot="leading-icon">
         {#if $$slots['leading-icon']}
@@ -182,5 +183,11 @@
     <input bind:this={editor} type="text" style="flex: 1 1 auto" bind:value={textValue} {disabled}
            on:keydown={handleKeyDown} on:focus={handleFocusEvent} on:blur={handleBlurEvent}
            on:mousedown={handleMouseDown}/>
-
+    <svelte:fragment slot="trailing-icon">
+        {#if $$slots['trailing-icon']}
+            <div class="editor-embed-icon">
+                <slot name="trailing-icon"/>
+            </div>
+        {/if}
+    </svelte:fragment>
 </CommonEditor>
