@@ -36,7 +36,7 @@
 
 </script>
 <CommonEditor {displayMode} {style} {value} {suffix} {prefix} {readonly} {variant} {compact} class={className}
-              hasLeadingIcon={$$slots['leading-icon']} hasTrailingIcon={$$slots['trailing-icon']}
+              hasLeadingIcon={$$slots['leading-icon']!=null} hasTrailingIcon={$$slots['trailing-icon']!=null}
               showActionIcon={removable && !readonly && !disabled && value != null} {clean}>
     <svelte:fragment slot="leading-icon">
         {#if $$slots['leading-icon']}

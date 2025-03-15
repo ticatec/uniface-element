@@ -1,0 +1,50 @@
+:root {
+  --breadcrumbs-gap: 8px;
+  --breadcrumbs-color: var(--uniface-primary-text-color, #374151);
+  --breadcrumbs-hover-color: var(--uniface-primary-hover-color, #298DEF);
+  --breadcrumbs-active-color: var(--uniface-primary-hover-color, #298DEF);
+  --breadcrumbs-active-weight: 600;
+  --breadcrumbs-padding: 8px 12px;
+}
+
+.uniface-breadcrumbs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  color: var(--breadcrumbs-color);
+  gap: var(--breadcrumbs-gap);
+  padding: var(--breadcrumbs-padding);
+
+
+  .breadcrumb {
+    margin: 0 6px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--breadcrumbs-hover-color)
+    }
+
+    &:active {
+      color: var(--breadcrumbs-active-color);
+      font-weight: var(--breadcrumbs-active-weight);
+    }
+  }
+
+  &>div {
+    &:last-child {
+      .breadcrumb {
+        cursor: default;
+        &:hover {
+          color: var(--uniface-primary-text-color)
+        }
+
+        &:active {
+          color: var(--uniface-primary-text-color);
+          font-weight: unset;
+        }
+      }
+    }
+  }
+}

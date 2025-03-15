@@ -28,7 +28,7 @@
     }
 
     const calculateHeight = (event: MouseEvent) => {
-        reverse ? Math.max(5, bindingPanel.clientHeight - event.movementY) : Math.max(5, bindingPanel.clientHeight + event.movementY)
+        return reverse ? Math.max(5, bindingPanel.clientHeight - event.movementY) : Math.max(5, bindingPanel.clientHeight + event.movementY)
     }
 
     const calculateWidth = (event: MouseEvent) => {

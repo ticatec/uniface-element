@@ -1,6 +1,6 @@
 {
   "name": "@ticatec/uniface-element",
-  "version": "0.1.18",
+  "version": "0.1.24",
   "description": "uniface web elements",
   "scripts": {
     "dev": "vite dev",
@@ -50,6 +50,14 @@
     "./app-layout/ClassicLayout": {
       "types": "./dist/app-layout/ClassicLayout.svelte.d.ts",
       "import": "./dist/app-layout/ClassicLayout.svelte"
+    },
+    "./app-layout/ColumnsLayout": {
+      "types": "./dist/app-layout/ColumnsLayout.svelte.d.ts",
+      "import": "./dist/app-layout/ColumnsLayout.svelte"
+    },
+    "./app-layout/RowsLayout": {
+      "types": "./dist/app-layout/RowsLayout.svelte.d.ts",
+      "import": "./dist/app-layout/RowsLayout.svelte"
     },
     "./Accordion": {
       "types": "./dist/accordion/index.d.ts",
@@ -131,6 +139,10 @@
     "./Dialog": {
       "types": "./dist/dialog/index.d.ts",
       "import": "./dist/dialog/index.js"
+    },
+    "./CommonDialog": {
+      "types": "./dist/dialog/CommonDialog.svelte.d.ts",
+      "import": "./dist/dialog/CommonDialog.svelte"
     },
     "./DialogBoard": {
       "types": "./dist/dialog/DialogBoard.svelte.d.ts",

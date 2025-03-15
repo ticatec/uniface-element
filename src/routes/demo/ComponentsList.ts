@@ -27,6 +27,8 @@ import SummaryTableDemo from "./summary-table/SummaryTableDemo.svelte";
 import FormFieldDemo from "./form-field/FormFieldDemo.svelte";
 import CriteriaFieldDemo from "./criteria-field/CriteriaFieldDemo.svelte";
 import SimpleListBoxDemo from "./list-box/SimpleListBoxDemo.svelte";
+import CombineLayout from "./app-layout/CombineLayout.svelte";
+import BreadcrumbsDemo from "./breadcrumb/BreadcrumbsDemo.svelte";
 
 
 const list: Array<any> = [
@@ -55,8 +57,16 @@ const list: Array<any> = [
         component: ClassicLayoutDemo
     },
     {
+        name: "Combine Layout",
+        component: CombineLayout
+    },
+    {
         name: "Box",
         component: BoxDemo
+    },
+    {
+        name: "Breadcrumbs",
+        component: BreadcrumbsDemo
     },
     {
         name: "ListBox",

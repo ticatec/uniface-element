@@ -171,7 +171,7 @@
 
 </script>
 <CommonEditor {displayMode} {style} value={toTimeText(value)} {suffix} {prefix} {disabled} {readonly} {variant} {compact} class={className}
-              hasLeadingIcon={$$slots['leading-icon']} hasTrailingIcon={$$slots['trailing-icon']}
+              hasLeadingIcon={$$slots['leading-icon']!=null} hasTrailingIcon={$$slots['trailing-icon']!=null}
               showActionIcon={textValue!=emptyStr} clean={handleDeleteButton}>
     <svelte:fragment slot="leading-icon">
         {#if $$slots['leading-icon']}
