@@ -1,6 +1,6 @@
 {
   "name": "@ticatec/uniface-element",
-  "version": "0.1.24",
+  "version": "0.1.27",
   "description": "uniface web elements",
   "scripts": {
     "dev": "vite dev",
@@ -74,6 +74,10 @@
     "./AttachmentFiles": {
       "types": "./dist/attachment-files/index.d.ts",
       "import": "./dist/attachment-files/index.js"
+    },
+    "./Breadcrumbs": {
+      "types": "./dist/breadcrumbs/index.d.ts",
+      "import": "./dist/breadcrumbs/index.js"
     },
     "./Box": {
       "types": "./dist/box/index.d.ts",

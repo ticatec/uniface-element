@@ -4105,6 +4105,47 @@
   overflow-y: hidden;
 }
 
+:root {
+  --breadcrumbs-gap: 8px;
+  --breadcrumbs-color: var(--uniface-primary-text-color, #374151);
+  --breadcrumbs-hover-color: var(--uniface-primary-hover-color, #298DEF);
+  --breadcrumbs-active-color: var(--uniface-primary-hover-color, #298DEF);
+  --breadcrumbs-active-weight: 600;
+  --breadcrumbs-padding: 8px 12px;
+}
+
+.uniface-breadcrumbs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  color: var(--breadcrumbs-color);
+  gap: var(--breadcrumbs-gap);
+  padding: var(--breadcrumbs-padding);
+}
+.uniface-breadcrumbs .breadcrumb {
+  margin: 0 6px;
+  cursor: pointer;
+}
+.uniface-breadcrumbs .breadcrumb:hover {
+  color: var(--breadcrumbs-hover-color);
+}
+.uniface-breadcrumbs .breadcrumb:active {
+  color: var(--breadcrumbs-active-color);
+  font-weight: var(--breadcrumbs-active-weight);
+}
+.uniface-breadcrumbs > div:last-child .breadcrumb {
+  cursor: default;
+}
+.uniface-breadcrumbs > div:last-child .breadcrumb:hover {
+  color: var(--uniface-primary-text-color);
+}
+.uniface-breadcrumbs > div:last-child .breadcrumb:active {
+  color: var(--uniface-primary-text-color);
+  font-weight: unset;
+}
+
 html {
   box-sizing: border-box;
 }

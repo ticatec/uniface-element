@@ -64,15 +64,14 @@
 
 <div bind:this={divPanel}>
     <CommonEditor {displayMode} {style} {value} {prefix} {suffix} {readonly} {variant} {compact} class={className}
-                  showActionIcon={removable && !readonly && !disabled && !utils.isEmpty(value)} {clean}>
+                  showActionIcon={removable && !readonly && !disabled && !utils.isEmpty(value)} {clean}
+                  hasLeadingIcon={$$slots['leading-icon']!=null}>
         <svelte:fragment slot="leading-icon">
             {#if $$slots['leading-icon']}
-                <div class="editor-embed-icon">
-                    <slot name="leading-icon"/>
-                </div>
+                <slot name="leading-icon"/>
             {/if}
         </svelte:fragment>
-        <input bind:this={editor}  style="flex: 1 1 auto" {disabled} {placeholder} bind:value={value} {readonly}/>
+        <input bind:this={editor} style="flex: 1 1 auto" {disabled} {placeholder} bind:value={value} {readonly}/>
         <div class="editor-embed-icon" slot="trailing-icon">
             {#if !disabled && !readonly}
                 <i class="option-dropdown uniface-icon-chevron-down" aria-hidden="true" on:click={openPopup}></i>
@@ -84,7 +83,8 @@
         <Popover target={divPanel} autoFit align="right" on:close={()=>{showPopup=false}}>
             <div class="options-popover" style={mh}>
                 {#each words as word}
-                    <div style="padding-left: 12px; padding-right: 12px" on:click={handleHintClick(word)} aria-hidden="true">
+                    <div class="option-item" style="padding-left: 12px; padding-right: 12px" on:click={handleHintClick(word)}
+                         aria-hidden="true">
                         <span>{word}</span>
                     </div>
                 {/each}

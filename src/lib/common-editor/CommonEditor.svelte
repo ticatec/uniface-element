@@ -66,7 +66,8 @@
             <div class="editor-suffix" style="flex: 0 0 auto;">
                 <span>{suffix}</span>
             </div>
-        {:else if $$slots['trailing-icon'] && hasTrailingIcon}
+        {/if}
+        {#if $$slots['trailing-icon'] && hasTrailingIcon}
             <div class="editor-embed-icon" style="flex: 0 0 auto;">
                 <slot name="trailing-icon"/>
             </div>

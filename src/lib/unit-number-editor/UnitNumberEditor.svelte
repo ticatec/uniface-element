@@ -121,7 +121,7 @@
         <Popover target={divPanel} autoFit={false} align="right" on:close={()=>{showPopup=false}}>
             <div class="options-popover" style="min-width: 90px; box-sizing: border-box; text-align: center; {mh}" >
                 {#each units as op}
-                    <div style="padding-left: 12px; padding-right: 12px" on:click={handleUnitClick(op)} aria-hidden="true">
+                    <div class="option-item" style="padding-left: 12px; padding-right: 12px" on:click={handleUnitClick(op)} aria-hidden="true">
                         <span>{op.text ?? op.code}</span>
                     </div>
                 {/each}

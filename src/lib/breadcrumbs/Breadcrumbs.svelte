@@ -6,10 +6,12 @@
     export let separator: string = "/"; // 分隔符
     export let onItemClick: (item: any) => (event: MouseEvent) => void;
 
+    export let style: string = '';
+
 </script>
 
 
-<div class="uniface-breadcrumbs">
+<div class="uniface-breadcrumbs" {style}>
     {#each items as item}
         <div>
             <span>{separator}</span>
