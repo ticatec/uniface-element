@@ -74,9 +74,16 @@
         window.addEventListener("resize", updatePosition);
         document.addEventListener("scroll", updatePosition, {passive: false});
         const interval = setInterval(checkPosition, 10); // 每 100ms 检测一次
+        const resizeObserver = new ResizeObserver(entries => {
+            for (let entry of entries) {
+                updatePosition();
+            }
+        });
+        resizeObserver.observe(contentPanel);
         return () => {
             window.removeEventListener("resize", updatePosition);
             document.removeEventListener("scroll", updatePosition);
+            resizeObserver.disconnect();
             clearInterval(interval);
         };
     });
@@ -95,8 +102,8 @@
 </script>
 <svelte:window bind:innerWidth={w} bind:innerHeight={h}/>
 <Portal target="body">
-    <div class="uniface-popover-wrapper" class:hidden style="{vertPos}; left: {position.left-margin}px; width: {position.width}px; ">
-        <div class="uniface-popover" style="" use:clickOutside
+    <div class="uniface-popover-wrapper" class:hidden style="{vertPos}; height: auto; left: {position.left-margin}px; width: {position.width}px; ">
+        <div class="uniface-popover"  use:clickOutside
              on:outerClick={close}>
             <div bind:this={contentPanel} style="{horzPos}">
                 <div class="contents" style="{style}">

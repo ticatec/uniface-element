@@ -78,7 +78,7 @@
         {/if}
         {#if !disabled && value && value.length > 0}
             <div class="action-button-wrapper" style="position: absolute; top: 0; left: 0; width: {width}px;">
-                <Icon name="uniface-icon-x" clickable class="uniface-editor-clean-icon" onClick={clean}/>
+                <Icon name="icon_google_clear" clickable class="uniface-editor-clean-icon" onClick={clean}/>
             </div>
         {/if}
     </div>

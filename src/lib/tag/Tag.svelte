@@ -22,6 +22,6 @@
 <div class="uniface-tag" {style}>
     <div class="{size} {variant} {className} {colorClass}" class:removable={removable} >
         <span>{text}</span>
-        <Icon name="uniface-icon-x" clickable class="uniface-remove-icon" onClick={removeHandler}/>
+        <Icon name="icon_google_clear" clickable class="uniface-remove-icon" onClick={removeHandler}/>
     </div>
 </div>

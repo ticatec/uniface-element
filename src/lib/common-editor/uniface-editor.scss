@@ -3,6 +3,7 @@
 
   --uniface-editor-clean-icon-bg: #B3BCCA;
   --uniface-editor-clean-icon-color: #ffffff;
+  --uniface-embed-icon-color: #6B7280;
   //编辑器组件
   --uniface-editor-text-color: #374151;
   --uniface-editor-line-height: 16px;
@@ -21,6 +22,20 @@
   --uniface-editor-inline-action-icon-hover-color: #374151;
   --uniface-editor-inline-action-icon-hover-bg: #42A5F51A;
 }
+
+.uniface-display-field {
+  height: 24px;
+  position: relative;
+  line-height: 1.25em;
+  border-bottom: 1px solid var(--uniface-editor-border-color);
+
+  .content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
 
 /*输入框中的清除按钮*/
 
@@ -51,9 +66,9 @@
 
   &:hover {
     i {
-    color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
-    background-color: var(--uniface-editor-inline-action-icon-hover-bg, #42A5F570);
-      }
+      color: var(--uniface-editor-inline-action-icon-hover-color, #374151);
+      background-color: var(--uniface-editor-inline-action-icon-hover-bg, #42A5F570);
+    }
   }
 }
 
@@ -67,16 +82,21 @@
   width: 100%;
   position: relative;
   height: 38px;
-  line-height: var(--uniface-editor-line-height, 16px);
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
 
   .editor-embed-icon {
+    font-size: 20px;
+    color: var(--uniface-embed-icon-color);
+
     img {
       width: 28px;
       height: 28px;
+    }
+
+    .option-dropdown {
     }
   }
 
@@ -121,6 +141,7 @@
 
     .uniface-editor-clean-icon {
       top: 5px;
+
       &:active {
         top: 6px;
       }

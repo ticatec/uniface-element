@@ -29,7 +29,10 @@
 </script>
 {#if displayMode === DisplayMode.View}
     <div class="uniface-display-field">
-        <span>{textValue}</span>
+        <div class="content">
+            <span>{textValue}</span>
+        </div>
+
     </div>
 {:else}
     <div bind:this={editorElement} class="uniface-common-editor {variant} uniface-common-picker {className}" tabindex="-1" class:compact
@@ -41,7 +44,7 @@
                 <slot></slot>
                 {#if canClean && textValue && textValue.length > 0}
                     <div class="uniface-editor-clean-icon">
-                        <i class="uniface-icon-x clickable " aria-hidden="true" on:click={clean}></i>
+                        <i class="icon_google_clear clickable " aria-hidden="true" on:click={clean}></i>
                     </div>
                 {/if}
             </div>

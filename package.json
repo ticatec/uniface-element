@@ -1,6 +1,6 @@
 {
   "name": "@ticatec/uniface-element",
-  "version": "0.1.27",
+  "version": "0.1.28",
   "description": "uniface web elements",
   "scripts": {
     "dev": "vite dev",
@@ -325,7 +325,7 @@
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/package": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
-    "@ticatec/uniface-icons": "^0.2.0",
+    "@ticatec/uniface-google-material-icons": "^0.1.1",
     "dayjs": "^1.11.10",
     "publint": "^0.3.2",
     "sass": "^1.57.1",

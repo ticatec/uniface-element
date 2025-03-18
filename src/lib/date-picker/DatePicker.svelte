@@ -46,7 +46,7 @@
     }
 
     const handleCalendarSelect = (d: dayjs.Dayjs) => {
-        value = d;
+        value = d.toDate();
         showPopup = false;
     }
 
@@ -78,7 +78,7 @@
 
 </script>
 
-<CommonPicker {displayMode} {variant} {style} className="uniface-date-time-editor" {compact} dropDownIcon="uniface-icon-calendar"
+<CommonPicker {displayMode} {variant} {style} className="uniface-date-time-editor" {compact} dropDownIcon="icon_google_event_available"
               bind:showPopup canClean={!mandatory && value!=null} autoFit={false} clean={cleanData} {textValue} {readonly} {disabled}>
 
     <input style="width: 100%" bind:this={editor} on:click={openPopup} {placeholder} on:keydown={handleKeyDown}

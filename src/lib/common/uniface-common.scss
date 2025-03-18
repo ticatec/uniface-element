@@ -8,10 +8,11 @@
     display: block;
     visibility: hidden;
     box-sizing: border-box;
-    font-size: 18px;
     color: var(--uniface-editor-text-color, #374151);
     align-self: center;
     cursor: pointer;
+    font-size: 22px;
+    line-height: 1;
 
     &:active {
       color: var(--uniface-active-dropdown-color, #9d9d9d);

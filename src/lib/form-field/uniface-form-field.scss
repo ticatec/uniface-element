@@ -29,7 +29,6 @@
   .field-hint {
     width: 100%;
     box-sizing: border-box;
-    padding: 4px 0;
     font-size: 0.9em;
     font-style: italic;
     color: var(--uniface-form-field-invalid-message-color);
@@ -61,7 +60,7 @@
   .form-content {
     width: 100%;
     display: grid;
-    gap: 4px;
+    gap: 8px;
   }
 
   &.vertical {
@@ -85,6 +84,7 @@
   &.horizontal {
     .form-content {
       grid-template-columns: auto 1fr;
+      gap: 8px;
       grid-template-areas:
       "label field"
       "empty hint";

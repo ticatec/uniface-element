@@ -2,6 +2,7 @@
 
     import type AccordionItem from "$lib/accordion/AccordionItem";
     import Accordion from "$lib/accordion/AccordionItemView.svelte";
+    import {onMount} from "svelte";
 
     export let style: string = '';
     export {className as class};
@@ -13,6 +14,13 @@
     let className: string = '';
 
     let openSet: Set<AccordionItem> = new Set();
+
+    onMount(() => {
+        if (exclusive && activeItem == null) {
+            openSet.add(accordions[0]);
+            accordions = [...accordions];
+        }
+    })
 
     const handleAccordionClick = (accordion: AccordionItem) => (event: MouseEvent) => {
         if (exclusive) {
@@ -36,7 +44,7 @@
 
 <div class="uniface-accordion-panel {className}" {style} class:compact>
     {#each accordions as accordion}
-        <Accordion title={accordion.title} isOpen={openSet.has(accordion)} onClick={handleAccordionClick(accordion)}>
+        <Accordion title={accordion.title} isOpen={openSet.has(accordion)} {exclusive}  onClick={handleAccordionClick(accordion)}>
             <svelte:component this={accordion.component} {...accordion.params}/>
         </Accordion>
     {/each}

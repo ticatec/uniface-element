@@ -66,7 +66,7 @@
             <input style="width: 100%; text-align: center" readonly on:click={showPopover} value={textTo}/>
         </svelte:fragment>
         <svelte:fragment>
-            <i class="uniface-icon-calendar action-icon" aria-hidden="true" on:click={showPopover}></i>
+            <i class="icon_google_event_note action-icon" aria-hidden="true" on:click={showPopover}></i>
         </svelte:fragment>
     </CommonRangeEditor>
 

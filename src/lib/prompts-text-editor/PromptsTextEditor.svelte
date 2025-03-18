@@ -71,12 +71,12 @@
                 <slot name="leading-icon"/>
             {/if}
         </svelte:fragment>
-        <input bind:this={editor} style="flex: 1 1 auto" {disabled} {placeholder} bind:value={value} {readonly}/>
-        <div class="editor-embed-icon" slot="trailing-icon">
+        <input style="width: 100%" bind:this={editor} {disabled} {placeholder} bind:value={value} {readonly}/>
+        <svelte:fragment slot="trailing-icon">
             {#if !disabled && !readonly}
-                <i class="option-dropdown uniface-icon-chevron-down" aria-hidden="true" on:click={openPopup}></i>
+                <i class="option-dropdown icon_google_arrow_drop_down" aria-hidden="true" on:click={openPopup}></i>
             {/if}
-        </div>
+        </svelte:fragment>
     </CommonEditor>
 
     {#if showPopup}

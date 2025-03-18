@@ -74,7 +74,7 @@
 
 </script>
 
-<CommonPicker {displayMode} {variant} {style} {compact} dropDownIcon="uniface-icon-chevron-down"
+<CommonPicker {displayMode} {variant} {style} {compact} dropDownIcon="icon_google_arrow_drop_down"
               bind:showPopup canClean={!mandatory && value!=null} autoFit clean={cleanData} {textValue} {readonly} {disabled}>
 
     <input style="width: 100%" bind:this={editor} on:click={openPopup} {placeholder} readonly

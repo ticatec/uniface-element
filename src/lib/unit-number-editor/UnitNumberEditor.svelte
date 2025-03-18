@@ -82,8 +82,9 @@
 
 
     onMount(async () => {
-        unit = units.find(item => item.code == unitCode) ?? units[0];
         standardUnit = units.find(item => item.ratio == 1);
+        unit = units.find(item => item.code == unitCode) ?? standardUnit ?? units[0];
+        unitCode = unit.code;
         calculateUnitValue();
     })
 
@@ -110,11 +111,11 @@
         <NumberInput bind:this={editor} style="flex: 1 1 auto" {disabled} {placeholder} bind:value={unitValue} precision={unit?.precision}
                      {allowNegative}
                      max={unit?.max} min={unit?.min} {readonly} onChange={handleValueChange}/>
-        <div class="editor-embed-icon" slot="trailing-icon">
+        <svelte:fragment slot="trailing-icon">
             {#if !disabled && !readonly}
-                <i class="option-dropdown uniface-icon-chevron-down" aria-hidden="true" on:click={openPopup}></i>
+                <i style="font-size: 22px" class="option-dropdown icon_google_arrow_drop_down" aria-hidden="true" on:click={openPopup}></i>
             {/if}
-        </div>
+        </svelte:fragment>
     </CommonEditor>
 
     {#if showPopup}

@@ -1,25 +1,21 @@
 <script lang="ts">
-    export let title: string = 'My Header';
+    export let title: string;
     export let style: string = '';
 </script>
 
-<div class="uniface-header" {style}>
+<div class="uniface-top-bar" {style}>
     {#if $$slots['home']}
-    <div class="bar-home" style="align-self: center">
-        <slot name="home">
+        <div class="bar-home">
+            <slot name="home">
 
-        </slot>
-    </div>
+            </slot>
+        </div>
     {/if}
-    <div class="title">
+    <div class="main-content">
         <slot>
             <span>{title}</span>
         </slot>
     </div>
-    {#if $$slots['right']}
-        <div class="bar-right">
-        <slot name="right">
-        </slot>
-        </div>
-    {/if}
+    <slot name="right">
+    </slot>
 </div>

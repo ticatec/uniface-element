@@ -9,6 +9,8 @@
     export let actions: Array<CardAction> = [];
     export let variant: 'plain' | '3d' = 'plain';
 
+    export let iconColor: string | null = null;
+
 </script>
 
 <div class="uniface-card" class:shadowBox={variant=='3d'}>
@@ -26,7 +28,7 @@
             <slot/>
         </div>
         {#if actions && actions.length > 0}
-            <CommonCardActionBar {actions}/>
+            <CommonCardActionBar color={iconColor} {actions}/>
         {:else }
             {#if $$slots['action-bar']}
                 <div class="card-action-bar">

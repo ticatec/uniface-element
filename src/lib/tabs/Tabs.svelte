@@ -126,10 +126,10 @@
                             {:else}
                                 <span>{tab[textField]}</span>
                                 {#if refreshable}
-                                    <i class="uniface-icon-rotate-cw tab-refresh" on:click={reloadTab(tab)} aria-hidden="true"></i>
+                                    <i class="icon_google_refresh tab-refresh" on:click={reloadTab(tab)} aria-hidden="true"></i>
                                 {/if}
                                 {#if closable === true || (typeof (closable) == "function" && closable(tab))}
-                                    <i class="uniface-icon-x tab-action" on:click={closeTab(tab)} aria-hidden="true"></i>
+                                    <i class="icon_google_clear tab-action" on:click={closeTab(tab)} aria-hidden="true"></i>
                                 {/if}
                             {/if}
                         </div>

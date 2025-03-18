@@ -31,12 +31,13 @@
     }
 
     .card-header {
-      height: var(--uniface-card-header-height, 54px);
-      border-bottom: 1px solid var(--uniface-card-inside-border-color, #E2E8F0);
       box-sizing: border-box;
       font-weight: 600;
+      position: relative;
 
       &.simple {
+        height: var(--uniface-card-header-height, 54px);
+        border-bottom: 1px solid var(--uniface-card-inside-border-color, #E2E8F0);
         line-height: var(--uniface-card-header-height, 54px);
         padding: var(--uniface-card-header-padding, 0 24px);
         width: 100%;
@@ -97,7 +98,6 @@
 
           i {
             cursor: pointer;
-            color: var(--uniface-card-primary-text-color, #374151);
 
             &:hover {
               font-size: var(--uniface-action-image-hover-size);

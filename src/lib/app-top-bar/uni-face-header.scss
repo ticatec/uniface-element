@@ -1,51 +1,69 @@
-.uniface-header {
-  background-color: var(--uniface-primary-color, #42A5F5);
-  color: var(--uniface-primary-text-color, #ffffff);
+:root {
+  --uniface-top-bar-background-color: #0061FF;
+  --uniface-top-bar-color: #f0f0f0;
+  --uniface-top-bar-height: 48px;
+  --uniface-top-bar-font-szie: 24px;
+  --uniface-top-bar-margin: 12px;
+  --uniface-avatar-size: 40px;
+  --uniface-avatar-radius: 50%;
+}
+
+.uniface-top-bar {
+  background-color: var(--uniface-top-bar-background-color);
+  color: var(--uniface-top-bar-color);
   text-align: center;
   width: 100%;
+  height: var(--uniface-top-bar-height);
+  font-size: var(--uniface-top-bar-font-szie);
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
   justify-items: center;
-  padding: 0.5em 0.5em;
-  .bar-home, .bar-right {
+  align-items: center;
+  padding: 0 var(--uniface-top-bar-margin);
+  gap: 8px;
+
+  & > div {
     flex: 0 0 auto;
-    align-self: center;
   }
 
+
   .bar-home {
-    display: flex;
     position: relative;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid transparent;
-    overflow: hidden;
-    box-sizing: border-box;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-size: 22px;
+    cursor: pointer;
 
     &:hover {
-      border-color: #ffffff;
+
     }
 
     &:active {
       top: 1px;
-
     }
   }
 
-  .title {
+  .main-content {
     flex: 1 1 auto;
-    overflow: hidden;
-    align-self: center;
-
-    span {
-      padding: 0 4px;
-      font-size: 24px;
-    }
+    text-align: left;
   }
+
+  .avatar {
+    height: var(--uniface-avatar-size);
+
+    img {
+      position: relative;
+      width: var(--uniface-avatar-size);
+      height: var(--uniface-avatar-size);
+      border-radius: var(--uniface-avatar-radius);
+      object-fit: cover;
+      cursor: pointer;
+
+      &:active {
+        top: 1px;
+      }
+    }
+
+
+  }
+
 
 }

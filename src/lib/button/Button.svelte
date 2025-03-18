@@ -30,11 +30,11 @@
 <div {style} class="uniface-button common-button {variant} {size} {type}" aria-hidden="true" class:disabled
      on:click={handleClick}>
     {#if icon != null}
-        <i style="margin-right: 6px" class={icon}></i>
+        <i class={icon}></i>
     {/if}
     <slot>
         {#if label != null && label.length > 0}
-            <span>{label}</span>
+            <span style="flex: 1 1 auto">{label}</span>
         {/if}
     </slot>
 </div>

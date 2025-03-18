@@ -9,7 +9,7 @@
 </script>
 <div style="padding: 12px; width: 100%; height: 100%; box-sizing: border-box">
     <Box style="width: 400px; height: 100%; box-sizing: border-box">
-        <NavigatorMenu menuItems={menu} bind:activeMenu onItemClick={(item: MenuItem)=>{console.log(item)}}/>
+        <NavigatorMenu menuItems={menu} onItemClick={(item: MenuItem)=>{console.log(item)}}/>
 
     </Box>
 </div>

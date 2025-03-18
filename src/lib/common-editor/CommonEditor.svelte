@@ -43,13 +43,13 @@
 {:else}
     <div class:compact class="uniface-common-editor {variant} {className}" tabindex="-1"
          style="{style}">
-        {#if !utils.isEmpty(prefix)}
-            <div class="editor-prefix" tabindex="-1" style="flex: 0 0 auto;">
-                <span>{prefix}</span>
-            </div>
-        {:else if $$slots['leading-icon'] && hasLeadingIcon}
+        {#if $$slots['leading-icon'] && hasLeadingIcon}
             <div class="editor-embed-icon" style="flex: 0 0 auto;">
                 <slot name="leading-icon"/>
+            </div>
+        {:else if !utils.isEmpty(prefix)}
+            <div class="editor-prefix" tabindex="-1" style="flex: 0 0 auto;">
+                <span>{prefix}</span>
             </div>
         {/if}
         {#if disabled || readonly}
@@ -58,7 +58,7 @@
             <div style="position: relative; flex: 1 1 auto">
                 <slot/>
                 <div class="uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}">
-                    <i class="uniface-icon-x clickable" aria-hidden="true" on:click={clean}></i>
+                    <i class="icon_google_clear clickable" aria-hidden="true" on:click={clean}></i>
                 </div>
             </div>
         {/if}

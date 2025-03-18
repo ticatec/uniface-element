@@ -1,9 +1,5 @@
 <script lang="ts">
 
-
-    import utils from "$lib/common/utils";
-    import Icon from "$lib/icon";
-
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let compact: boolean = false;
     export {className as class};
@@ -22,7 +18,7 @@
         <div class="divider"></div>
         <slot name="to"/>
         <div class="uniface-editor-clean-icon {showActionIcon ? '' : 'hidden'}">
-            <i class="uniface-icon-x clickable" aria-hidden="true" on:click={clean}></i>
+            <i class="icon_google_clear clickable" aria-hidden="true" on:click={clean}></i>
         </div>
     </div>
     <slot/>

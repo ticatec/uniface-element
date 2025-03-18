@@ -2,7 +2,7 @@ export default interface MenuItem {
     /**
      * 菜单编码
      */
-    code: string;
+    code?: string;
     /**
      * 菜单文字
      */

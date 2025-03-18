@@ -1,10 +1,17 @@
+:root {
+  --uniface-navigator-menu-background-color: #ffffff;
+  --uniface-navigator-menu-color: #374151;
+  --uniface-navigator-menu-hover-background-color: #81D4FA;
+  --uniface-navigator-menu-hover-color: #374151;
+}
+
 .uniface-navigator-menu-panel {
   display: block;
   width: 100%;
   height: 100%;
   user-select: none;
-  background-color: var(--uniface-primary-color, #42A5F5);
-  color: var(--uniface-primary-text-color, #ffffff);
+  background-color: var(--uniface-navigator-menu-background-color);
+  color: var(--uniface-navigator-menu-color);
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -36,7 +43,7 @@
 
         &:hover {
           background-color: var(--uniface-navigator-menu-hover-background-color, #81D4FA);
-          color: var(--uniface-default-text-color, #374151);
+          color: var(--uniface-navigator-menu-hover-color);
           border-radius: 4px;
         }
       }
@@ -49,7 +56,7 @@
             font-size: 0.9em;
             position: absolute;
             right: 8px;
-            color: var(--uniface-default-text-color, #374151);
+            color: var(--uniface-navigator-menu-color);
           }
         }
 

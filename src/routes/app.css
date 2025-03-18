@@ -2,3 +2,13 @@
     --uniface-primary-color: #1976D2;
     font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
+
+.demo-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.demo-block {
+    padding: 6px;
+}

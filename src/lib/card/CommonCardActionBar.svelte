@@ -3,7 +3,7 @@
     import utils from "$lib/common/utils";
 
     export let actions: Array<CardAction>;
-
+    export let color: string | null = null;
 
     let clickEnable = true;
 
@@ -16,9 +16,11 @@
         }
     }
 
+    $: fontColor = color ? `color: ${color}` : '';
+
 </script>
 
-<div class="card-action-bar simple">
+<div class="card-action-bar simple" style="{fontColor}">
     {#each actions as action}
         <div class:disabled={action.disabled} class="action-item">
             {#if action.icon}

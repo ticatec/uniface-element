@@ -7,9 +7,11 @@
   line-height: 1.5em;
   color: var(--uniface-default-text-color, #374151);
   padding: var(--uniface-memo-padding, 6px 8px);
+  border-bottom: 1px solid var(--uniface-editor-border-color, #E2E8F0);
 
   &:focus {
     outline: none;
+    border-bottom-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
   }
 
   &.plain {

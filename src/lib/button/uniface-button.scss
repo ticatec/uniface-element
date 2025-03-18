@@ -1,6 +1,52 @@
+:root {
+
+  --uniface-button-min-width: 80px;
+
+  --uniface-button-plain-background-color: #f0f0f0;
+  --uniface-button-plain-border-color: #f0f0f0;
+  --uniface-button-plain-text-color: #374151;
+  --uniface-button-plain-hover-color: #f0f0f0B0;
+  --uniface-button-plainy-active-color: #f0f0f0;
+
+  --uniface-button-primary-background-color: #42A5F5;
+  --uniface-button-primary-border-color: #42B5DB;
+  --uniface-button-primary-text-color: #ffffff;
+  --uniface-button-primary-hover-color: #42A5F5B0;
+  --uniface-button-primary-active-color: #42A5F5;
+  --uniface-text-button-primary-hover-color: #42A5F5B0;
+
+  --uniface-button-secondary-background-color: #FF685B;
+  --uniface-button-secondary-border-color: #FF7875;
+  --uniface-button-secondary-text-color: #ffffff;
+  --uniface-button-secondary-hover-color: #FF685BB0;
+  --uniface-button-secondary-active-color: #FF4D4F;
+  --uniface-text-button-secondary-hover-color: #D32F2FB0;
+
+  --uniface-button-third-background-color: #2DC071;
+  --uniface-button-third-border-color: #2DD08B;
+  --uniface-button-third-text-color: #ffffff;
+  --uniface-button-third-hover-color: #2DD057B0;
+  --uniface-button-third-active-color: #2DC071;
+  --uniface-text-button-third-hover-color: #2DC071B0;
+
+  --uniface-button-forth-background-color: #FAD85D;
+  --uniface-button-forth-border-color: #FAE877;
+  --uniface-button-forth-text-color: #374151;
+  --uniface-button-forth-hover-color: #FAD85DB0;
+  --uniface-button-forth-active-color: #FAD85D;
+  --uniface-text-button-forth-hover-color: #FAD85DB0;
+
+  --uniface-disabled-button-color: #F1F5F9;
+  --uniface-disabled-button-border-color: #E2E8F0;
+  --uniface-disabled-button-text-color: #B3BCCA;
+
+}
+
 /*通用按钮设置*/
 .uniface-button {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
   box-sizing: border-box;
   cursor: pointer;
   text-align: center;
@@ -8,6 +54,9 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  min-width: var(--uniface-button-min-width);
+  height: 28px;
+  gap: 8px;
   font-size: 12px;
   letter-spacing: 1px;
   transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
@@ -110,20 +159,20 @@
 
   /*普通按钮*/
   &.common-button {
-    padding: 6px 16px;
+    padding: 0 16px;
     border-radius: 4px;
 
-    & > span {
-      padding: 0 4px;
+    i {
+      font-size: 1.5em;
     }
 
     &.big {
-      padding: 10px 20px;
+      height: 32px;
       font-size: 1.1em;
     }
 
     &.mini {
-      padding: 4px 10px;
+      height: 24px;
       font-size: 0.9em;
     }
 
@@ -145,35 +194,31 @@
   }
 
   &.icon-button {
-    width: 32px;
-    height: 32px;
-    padding: 2px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
+    min-width: unset;
+    justify-content: center;
 
     i {
-      line-height: 28px;
-      font-size: 16px;
+      font-size: 18px;
     }
 
     &.big {
-      width: 48px;
-      height: 48px;
-      padding: 4px;
+      width: 32px;
+      height: 32px;
 
       i {
-        line-height: 40px;
-        font-size: 24px;
+        font-size: 22px;
       }
     }
 
     &.mini {
       width: 24px;
       height: 24px;
-      padding: 2px;
 
       i {
-        line-height: 20px;
-        font-size: 12px;
+        font-size: 16px;
       }
     }
   }
@@ -184,8 +229,9 @@
     cursor: pointer;
     text-align: center;
     background-color: transparent;
-    color: var(--uniface-button-plain-text-color, #374151);
+    color: var(--uniface-button-plain-text-color);
     user-select: none;
+    min-width: unset;
 
     &.big {
       font-size: 1.2em;

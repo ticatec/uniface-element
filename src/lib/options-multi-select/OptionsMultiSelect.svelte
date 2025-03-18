@@ -104,7 +104,7 @@
 
 </script>
 
-<CommonPicker {displayMode} {variant} {style} {compact} className="multiple" dropDownIcon="uniface-icon-chevron-down"
+<CommonPicker {displayMode} {variant} {style} {compact} className="multiple" dropDownIcon="icon_google_arrow_drop_down"
               bind:showPopup canClean={value!=null} autoFit clean={cleanData} {textValue} {readonly} {disabled}>
 
     <div class="option-field" aria-hidden="true" on:click={()=>{showPopup = true}}>

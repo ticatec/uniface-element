@@ -1,37 +1,38 @@
-import AccordionDemo from "./accordition/AccordionDemo.svelte";
+import AccordionDemo from "./containers/accordition/AccordionDemo.svelte";
 import SidebarLayoutDemo from "./app-layout/SidebarLayoutDemo.svelte";
 import HeaderBarLayoutDemo from "./app-layout/HeaderBarLayoutDemo.svelte";
 import PropertyEditorDemo from "./property-editor/PropertyEditorDemo.svelte";
-import BoxDemo from "./box/BoxDemo.svelte";
+import BoxDemo from "./containers/box/BoxDemo.svelte";
 import TreeDemo from "./treeview/TreeDemo.svelte";
-import ProgressBarDemo from "./progress-bar/ProgressBarDemo.svelte";
-import ProgressStepsDemo from "./progress-steps/ProgressStepsDemo.svelte";
-import NavigatorDemo from "./navigator/NavigatorDemo.svelte";
+import ProgressBarDemo from "./progress/progress-bar/ProgressBarDemo.svelte";
+import ProgressStepsDemo from "./progress/progress-steps/ProgressStepsDemo.svelte";
+import NavigatorDemo from "./progress/navigator/NavigatorDemo.svelte";
 import AttachmentFieldDemo from "./attachment-files-field/AttachmentFieldDemo.svelte";
 import ImagesUploadDemo from "./images-field/ImagesUploadDemo.svelte";
-import ButtonDemo from "./button/ButtonDemo.svelte";
-import CardsDemo from "./card/CardsDemo.svelte";
-import TabsDemo from "./tabs/TabsDemo.svelte";
+import CardsDemo from "./containers/card/CardsDemo.svelte";
+import TabsDemo from "./containers/tabs/TabsDemo.svelte";
 import DataTableDemo from "./data-table/DataTableDemo.svelte";
 import TagDemo from "./tag/TagDemo.svelte";
-import PageDemo from "./page/PageDemo.svelte";
+import PageDemo from "./containers/page/PageDemo.svelte";
 import PaginationDemo from "./pagination/PaginationDemo.svelte";
 import OptionsSelectorDemo from "./options-selector/OptionsSelectorDemo.svelte";
-import ActionBarDemo from "./action-bar/ActionBarDemo.svelte";
+import ActionBarDemo from "./buttons/ActionBarDemo.svelte";
 import DateTimePickerDemo from "./date-picker/DateTimePickerDemo.svelte";
 import PickerDemo from "./pickup/PickerDemo.svelte";
 import MenuDemo from "./menu/MenuDemo.svelte";
 import DialogDemo from "./dialog/DialogDemo.svelte";
 import ClassicLayoutDemo from "./app-layout/ClassicLayoutDemo.svelte";
 import SummaryTableDemo from "./summary-table/SummaryTableDemo.svelte";
-import FormFieldDemo from "./form-field/FormFieldDemo.svelte";
-import CriteriaFieldDemo from "./criteria-field/CriteriaFieldDemo.svelte";
-import SimpleListBoxDemo from "./list-box/SimpleListBoxDemo.svelte";
+import FormFieldDemo from "./containers/form-field/FormFieldDemo.svelte";
+import CriteriaFieldDemo from "./containers/criteria-field/CriteriaFieldDemo.svelte";
+import SimpleListBoxDemo from "./data-display/list-box/SimpleListBoxDemo.svelte";
 import CombineLayout from "./app-layout/CombineLayout.svelte";
-import BreadcrumbsDemo from "./breadcrumb/BreadcrumbsDemo.svelte";
+import BreadcrumbsDemo from "./misc/breadcrumb/BreadcrumbsDemo.svelte";
+import AppTopBarDemo from "./app-top-bar/AppTopBarDemo.svelte";
 
 
 const list: Array<any> = [
+
     {
         name: "Accordion",
         component: AccordionDemo
@@ -72,10 +73,7 @@ const list: Array<any> = [
         name: "ListBox",
         component: SimpleListBoxDemo
     },
-    {
-        name: "Button",
-        component: ButtonDemo
-    },
+
     {
         name: "Card",
         component: CardsDemo
