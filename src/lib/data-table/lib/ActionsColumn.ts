@@ -9,4 +9,9 @@ export default interface ActionsColumn {
      *
      */
     getActions: GetRowActions;
+
+    /**
+     * 对齐方式，默认靠左对齐
+     */
+    align?: 'left' | 'center';
 }

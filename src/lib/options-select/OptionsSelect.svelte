@@ -84,7 +84,7 @@
         {#each options as op}
             {#if hideOptions.indexOf(op[keyField]) < 0}
                 {#if itemRender != null}
-                    <svelte:component this={itemRender} item={op} disabled={disableOptions.indexOf(op[keyField])>-1}
+                    <svelte:component this={itemRender.component} {...itemRender.props} item={op} disabled={disableOptions.indexOf(op[keyField])>-1}
                                       on:click={handleItemClick(op)}/>
                 {:else}
                     <div class="option-item" class:disabled={disableOptions.indexOf(op[keyField])>-1} aria-hidden="true"

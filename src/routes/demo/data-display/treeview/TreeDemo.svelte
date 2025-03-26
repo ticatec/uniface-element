@@ -1,10 +1,10 @@
 <script lang="ts">
 
-    import TreeView from "$lib/tree-view/TreeView.svelte";
+    import TreeView from "$lib/tree-view";
     import type TreeNode from "../../lib/tree-view/TreeNode";
     import {type LazyLoader} from "../../lib/tree-view/TreeNode";
     import utils from "$lib/common/utils";
-    import ContextMenu from "$lib/context-menu/ContextMenu.svelte";
+    import ContextMenu from "$lib/context-menu";
     import type {OnContextMenu} from "$lib/common/ShowContextMenu";
 
 

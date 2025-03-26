@@ -4,7 +4,7 @@
     import dayjs from "dayjs";
     import {onMount} from "svelte";
     import userAvatar from "./img.png";
-    import {clickOutside} from "./app-top-bar/clickOutside";
+    import {clickOutside} from "./misc/app-top-bar/clickOutside";
     import Drawer from "$lib/drawer";
 
     export let drawVisible: boolean = false;

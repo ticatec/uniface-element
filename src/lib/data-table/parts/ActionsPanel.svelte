@@ -56,7 +56,7 @@
     <div bind:this={scrollPanel} class="rows-container" style="overflow-y: auto" on:scroll|passive={handleActionPanelScroll}>
         <div>
             {#each rows as row, idx}
-                <ActionsRow {row} {rowHeight} parentRect={rect} alternative={idx % 2 == 1} width={actionsColumn.width}
+                <ActionsRow {row} {rowHeight} parentRect={rect} alternative={idx % 2 == 1} width={actionsColumn.width} align={actionsColumn.align}
                             actions={actionsColumn.getActions(row.data)}/>
                 {#if row == expandRow}
                     <div class="inline-panel" style="height: {inlineRowHeight??0}px">

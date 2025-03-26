@@ -30,7 +30,8 @@ const langRes = {
         },
         dataTable: {
             rowNo: "序号",
-            actions: "操作"
+            actions: "操作",
+            emptyDataSet: '空数据集'
         }
     }
 }

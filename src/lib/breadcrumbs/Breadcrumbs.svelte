@@ -12,10 +12,10 @@
 
 
 <div class="uniface-breadcrumbs" {style}>
-    {#each items as item}
+    {#each items as item, idx}
         <div>
             <span>{separator}</span>
-            <span aria-hidden="true" class="breadcrumb" on:click={onItemClick(item.data)}>{item.label}</span>
+            <span aria-hidden="true" class="breadcrumb" on:click={idx==items.length-1 ? null : onItemClick(item.data)}>{item.label}</span>
         </div>
     {/each}
 </div>

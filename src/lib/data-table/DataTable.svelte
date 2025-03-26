@@ -21,6 +21,7 @@
     export let inlineRowHeight: number = 80;
     export let rowBorder: boolean = false;
     export let colBorder: boolean = false;
+    export let emptyIndicator: string | undefined = undefined;
 
     export let style: string = '';
 
@@ -111,7 +112,7 @@
         {/if}
 
         <ContentPanel columns={dataColumns} {orderDirection} {orderColumn} {handleWidthChange} {handleCellClick} {tabWidth} bind:rows
-                      bind:scrollTop {expandRow} {rowHeight} {list} {table} {inlineComponent} bind:inlineRowHeight
+                      bind:scrollTop {expandRow} {rowHeight} {list} {table} {inlineComponent} bind:inlineRowHeight {emptyIndicator}
                       displayHorizontalScroll={actionsColumn!=null || indicatorColumn != null || fixedCols.length > 0}
                       showVerticalScroll={actionsColumn == null}/>
     {/if}

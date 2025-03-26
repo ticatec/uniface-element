@@ -8,7 +8,7 @@
     import {DialogBoard} from "$lib/dialog";
     import ToastBoard from "$lib/toast";
     import MessageBoxBoard from "$lib/message-box";
-    import AppTopBarDemo from "./app-top-bar/AppTopBarDemo.svelte";
+    import AppTopBarDemo from "./misc/app-top-bar/AppTopBarDemo.svelte";
     import HomePage from "./HomePage.svelte";
     import MainMenu from "./MainMenu.svelte";
     import type MenuItem from "../../lib/nav-menu/MenuItem";

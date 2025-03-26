@@ -90,7 +90,7 @@
         </div>
         <ActionBar style="margin-top: 20px">
             <Button label="default" variant="round" type="default" onClick={handleButtonClick}></Button>
-            <Button label="primary" variant="round"  type="primary" onClick={handleButtonClick}></Button>
+            <Button label="button" variant="round"  type="primary" onClick={handleButtonClick}></Button>
             <Button label="secondary" variant="round"  type="secondary" onClick={handleButtonClick}></Button>
             <Separator height="28px"/>
             <Button label="导入" variant="round" icon="icon_google_file_download" type="third" onClick={handleButtonClick}></Button>

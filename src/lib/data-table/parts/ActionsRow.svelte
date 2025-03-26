@@ -15,6 +15,8 @@
 
     export let rowHeight: number;
 
+    export let align: 'left' | 'center' | undefined;
+
     let style: string;
 
 
@@ -84,9 +86,8 @@
     $: style = rowHeight== null ? '' : `height: ${rowHeight}px`
 
 </script>
-<div class="data-row" class:alternative style="position: relative; width: {width}px; display: block; {style}">
-    <div class="action-cell" bind:this={cell}
-         style="">
+<div class="data-row" class:alternative style="position: relative;  display: block; width: {width}px; {style}">
+    <div class="action-cell" bind:this={cell} style="{align=='center' ? 'margin: 0 auto' : ''}">
         {#each actionList as action}
             <TextButton style="flex-shrink: 0; top: 0" size="mini" type="primary" label={action.label} onClick={()=>action.callback(row.data)}/>
         {/each}

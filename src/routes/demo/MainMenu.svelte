@@ -28,7 +28,16 @@
     import ProgressStepsDemo from "./progress/progress-steps/ProgressStepsDemo.svelte";
     import NavigatorDemo from "./progress/navigator/NavigatorDemo.svelte";
     import ListBoxDemo from "./data-display/ListBoxDemo.svelte";
-    import TreeDemo from "./treeview/TreeDemo.svelte";
+    import TreeDemo from "./data-display/treeview/TreeDemo.svelte";
+    import TagDemo from "./misc/TagDemo.svelte";
+    import BreadcrumbsDemo from "./misc/BreadcrumbsDemo.svelte";
+    import MenuDemo from "./misc/menu/MenuDemo.svelte";
+    import AppTopBarDemo from "./misc/app-top-bar/AppTopBarDemo.svelte";
+    import ColorPickerDemo from "./pick-up/ColorPickerDemo.svelte";
+    import ProtoBoard from "./ui-designer/ProtoBoard.svelte";
+    import ResizeDemo from "./ui-designer/ResizeDemo.svelte";
+    import DottedGridPanelDemo from "./ui-designer/DottedGridPanelDemo.svelte";
+    import DataTableDemo from "./data-table/DataTableDemo.svelte";
 
     export let onItemClick: OnMenuClick;
 
@@ -105,6 +114,10 @@
                         {
                             text: "DateTimePickup",
                             data: DateTimePickupDemo
+                        },
+                        {
+                            text: "Color Picker",
+                            data: ColorPickerDemo
                         }
                     ]
                 },
@@ -167,6 +180,10 @@
                 {
                     text: "TreeView",
                     data: TreeDemo
+                },
+                {
+                    text: "Data Table",
+                    data: DataTableDemo
                 }
             ]
         },
@@ -184,6 +201,39 @@
                 {
                     text: "Navigator",
                     data: NavigatorDemo
+                }
+            ]
+        },
+        {
+            text: "Misc",
+            children: [
+                {
+                    text: "Tag",
+                    data: TagDemo
+                },
+                {
+                    text: "Breadcrumbs",
+                    data: BreadcrumbsDemo
+                },
+                {
+                    text: "Menu",
+                    data: MenuDemo
+                },
+                {
+                    text: "AppTopBar",
+                    data: AppTopBarDemo
+                },
+                {
+                    text: "UI Designer",
+                    data: ProtoBoard
+                },
+                {
+                    text: "Resize Demo",
+                    data: ResizeDemo
+                },
+                {
+                    text: "Dotted Grid Panel",
+                    data: DottedGridPanelDemo
                 }
             ]
         }

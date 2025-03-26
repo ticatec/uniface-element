@@ -1,0 +1,14 @@
+:root {
+  --component-library-block-width: 100px;
+  --component-library-block-height: 120px;
+}
+
+.vision-craft {
+
+  .component-block {
+    width: var(--component-library-block-width);
+    height: var(--component-library-block-height);
+    display: flex;
+  }
+
+}

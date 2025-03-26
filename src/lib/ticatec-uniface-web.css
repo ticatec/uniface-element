@@ -398,10 +398,11 @@
   display: block;
   visibility: hidden;
   box-sizing: border-box;
-  font-size: 18px;
   color: var(--uniface-editor-text-color, #374151);
   align-self: center;
   cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
 }
 .uniface-common-picker .action-icon:active {
   color: var(--uniface-active-dropdown-color, #9d9d9d);
@@ -494,6 +495,7 @@
 :root {
   --uniface-editor-clean-icon-bg: #B3BCCA;
   --uniface-editor-clean-icon-color: #ffffff;
+  --uniface-embed-icon-color: #6B7280;
   --uniface-editor-text-color: #374151;
   --uniface-editor-line-height: 16px;
   --uniface-editor-padding: 0 8px;
@@ -510,6 +512,18 @@
   --uniface-editor-inline-action-icon-color: #37415170;
   --uniface-editor-inline-action-icon-hover-color: #374151;
   --uniface-editor-inline-action-icon-hover-bg: #42A5F51A;
+}
+
+.uniface-display-field {
+  height: 24px;
+  position: relative;
+  line-height: 1.25em;
+  border-bottom: 1px solid var(--uniface-editor-border-color);
+}
+.uniface-display-field .content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /*输入框中的清除按钮*/
@@ -549,11 +563,14 @@
   width: 100%;
   position: relative;
   height: 38px;
-  line-height: var(--uniface-editor-line-height, 16px);
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
+}
+.uniface-common-editor .editor-embed-icon {
+  font-size: 20px;
+  color: var(--uniface-embed-icon-color);
 }
 .uniface-common-editor .editor-embed-icon img {
   width: 28px;
@@ -736,6 +753,7 @@
 .uniface-filter-field.horizontal .field-container {
   grid-template-columns: auto 1fr;
   align-items: center;
+  gap: 8px;
 }
 .uniface-filter-field.horizontal .field-label {
   text-align: var(--uniface-criteria-field-label-alignment);
@@ -862,7 +880,6 @@
 .uniface-form-field .field-hint {
   width: 100%;
   box-sizing: border-box;
-  padding: 4px 0;
   font-size: 0.9em;
   font-style: italic;
   color: var(--uniface-form-field-invalid-message-color);
@@ -890,7 +907,7 @@
 .uniface-form-field .form-content {
   width: 100%;
   display: grid;
-  gap: 4px;
+  gap: 8px;
 }
 .uniface-form-field.vertical .form-content {
   grid-template-columns: 1fr;
@@ -907,6 +924,7 @@
 }
 .uniface-form-field.horizontal .form-content {
   grid-template-columns: auto 1fr;
+  gap: 8px;
   grid-template-areas: "label field" "empty hint";
 }
 .uniface-form-field.horizontal .form-content .field-label {
@@ -954,9 +972,11 @@
   line-height: 1.5em;
   color: var(--uniface-default-text-color, #374151);
   padding: var(--uniface-memo-padding, 6px 8px);
+  border-bottom: 1px solid var(--uniface-editor-border-color, #E2E8F0);
 }
 .uniface-memo-editor:focus {
   outline: none;
+  border-bottom-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
 }
 .uniface-memo-editor.plain {
   border: none;
@@ -1692,12 +1712,13 @@
   border-color: var(--uniface-card-divid-border-color, rgba(66, 165, 245, 0.4392156863));
 }
 .uniface-card > div .card-header {
-  height: var(--uniface-card-header-height, 54px);
-  border-bottom: 1px solid var(--uniface-card-inside-border-color, #E2E8F0);
   box-sizing: border-box;
   font-weight: 600;
+  position: relative;
 }
 .uniface-card > div .card-header.simple {
+  height: var(--uniface-card-header-height, 54px);
+  border-bottom: 1px solid var(--uniface-card-inside-border-color, #E2E8F0);
   line-height: var(--uniface-card-header-height, 54px);
   padding: var(--uniface-card-header-padding, 0 24px);
   width: 100%;
@@ -1752,7 +1773,6 @@
 }
 .uniface-card > div .card-action-bar.simple .action-item i {
   cursor: pointer;
-  color: var(--uniface-card-primary-text-color, #374151);
 }
 .uniface-card > div .card-action-bar.simple .action-item i:hover {
   font-size: var(--uniface-action-image-hover-size);
@@ -3587,11 +3607,13 @@
 }
 .uniface-accordion-panel .accordion .header {
   background-color: var(--uniface-accordion-title-bg, #F8FAFC);
-  padding: 12px 16px;
+  padding: 8px 12px;
   width: 100%;
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
+  gap: 8px;
+  flex-direction: row;
   align-items: center;
 }
 .uniface-accordion-panel .accordion .header:hover {
@@ -3605,7 +3627,7 @@
   transition: height 0.3s ease-out;
 }
 .uniface-accordion-panel.compact .accordion .header {
-  padding: 6px 8px;
+  padding: 4px 8px;
 }
 .uniface-accordion-panel.compact .accordion .content {
   padding: 8px;

@@ -3,6 +3,7 @@ const langRes = {
         btnClose: "Close",
         btnCancel: 'Cancel',
         btnConfirm: "OK",
+        colorPicker: "Pick up color",
         calendar: {
             months: [
                 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
@@ -30,7 +31,8 @@ const langRes = {
         },
         dataTable: {
             rowNo: "Row#",
-            actions: "Actions"
+            actions: "Actions",
+            emptyDataSet: 'Empty dataset'
         }
     }
 }

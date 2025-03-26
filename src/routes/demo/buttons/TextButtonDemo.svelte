@@ -38,7 +38,7 @@
         </div>
         <ActionBar style="margin-top: 20px">
             <TextButton label="default" size="big" type="default" onClick={handleButtonClick}></TextButton>
-            <TextButton label="primary" size="big" type="primary" onClick={handleButtonClick}></TextButton>
+            <TextButton label="Text Button" size="big" type="primary" onClick={handleButtonClick}></TextButton>
             <TextButton label="secondary"size="big" type="secondary" onClick={handleButtonClick}></TextButton>
             <Separator height="28px"/>
             <TextButton label="导入" size="big" type="third" onClick={handleButtonClick}></TextButton>

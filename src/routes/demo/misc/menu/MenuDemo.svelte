@@ -1,6 +1,6 @@
 <script lang="ts">
     import menu from "./menu";
-    import Box from "$lib/box/Box.svelte";
+    import Box from "$lib/box";
     import NavigatorMenu, {type MenuItem} from "$lib/nav-menu";
 
     let activeMenu: MenuItem;

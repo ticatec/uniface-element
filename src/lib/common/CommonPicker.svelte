@@ -40,7 +40,7 @@
         {#if readonly || disabled}
             <input style="width: 100%" class="readonly" class:disabled readonly {disabled} value={textValue}/>
         {:else}
-            <div style="flex: 1 1 auto; position: relative; height: 100%">
+            <div style="flex: 1 1 auto; position: relative; overflow: hidden; height: 100%">
                 <slot></slot>
                 {#if canClean && textValue && textValue.length > 0}
                     <div class="uniface-editor-clean-icon">

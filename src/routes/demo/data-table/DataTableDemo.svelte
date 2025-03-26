@@ -1,17 +1,17 @@
 <script lang="ts">
     import columns from "./columns";
-    //import type ActionsColumn from "../lib/lib/ActionsColumn";
+    import type ActionsColumn from "$lib/data-table/lib/ActionsColumn";
     import InlineComponent from "./InlineComponent.svelte";
     import DataTable from "$lib/data-table";
     import Box from "$lib/box";
     import type {IndicatorColumn} from "$lib";
+    import {onMount} from "svelte";
 
-    let actionsColumn = {
-        title: "动作",
+    let actionsColumn: ActionsColumn = {
         width: 130,
-        vacancy: 3,
+        align: 'center',
         getActions: (item: any) => {
-            return [
+            let actions = [
                 {
                     label: '查看',
                     callback: () => {
@@ -23,30 +23,38 @@
                     callback: () => {
                         console.log(item)
                     }
-                },
-                {
+                }
+            ]
+            let m = Math.random();
+            if (m > 0.25) {
+                actions.push({
                     label: '锁定',
                     callback: () => {
                         console.log(item)
                     }
-                },
-                {
+                });
+            }
+            if (m > 0.5) {
+                actions.push({
                     label: '解锁',
                     callback: () => {
                         console.log(item)
                     }
-                },
-                {
+                });
+            }
+            if (m > 0.75) {
+                actions.push({
                     label: '删除',
                     callback: () => {
                         console.log(item)
                     }
-                }
-            ]
+                })
+            }
+            return actions;
         }
     }
-    let list2 = [];
-    let list = [
+    let list:Array<any> = [];
+    let list2 = [
         {
             name: "张三",
             gender: "M",
@@ -99,19 +107,21 @@
     let columns1 = JSON.parse(JSON.stringify(columns))
     //colBorder {actionsColumn}
     $:console.log(selectedRows)
+
+    onMount(()=> {
+        setTimeout(()=>{list=list2}, 5000);
+    })
 </script>
 
 
 <div style="padding: 20px; box-sizing: border-box; height: 100%; background-color: #FFFFFF">
-    <Box style="width: 100%; height: 100%; border-radius: 8px; " content$style="width: 100%;  height: 100%; " title="患者数据列表">
-        <DataTable rowBorder style="width: 100%; height:100%; border-top: 1px solid #e1e1e1" {indicatorColumn} bind:selectedRows {columns}
-                   {list}
-                   {actionsColumn}/>
-<!--        <DataTable rowBorder style="width: 100%; height: 50%; border-top: 1px solid #e1e1e1" {indicatorColumn} bind:selectedRows={selectedRows1}-->
-<!--                   columns={columns1} {list}-->
-<!--                   />-->
-        <div slot="footer" style="height: 48px; flex: 0 0  auto">
-            <span>分页</span>
+    <Box style="width: 100%; height: 100%; border-radius: 8px; " content$style="width: 100%;  height: 100%;  padding: 12px" title="患者数据列表">
+        <DataTable style="width: 100%; height: 100%" {indicatorColumn} bind:selectedRows {columns} emptyIndicator="当前没有复合条件的数据，请更改查询参数"
+                   {list} {actionsColumn}/>
+        <div slot="footer" style="height: 48px;">
+            <div style="position: relative; top: 50%; transform: translateY(-50%)">
+                <span>分页</span>
+            </div>
         </div>
     </Box>
 </div>
