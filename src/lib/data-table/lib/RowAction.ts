@@ -15,6 +15,16 @@ export default interface RowAction {
     /**
      *
      */
+    type?: 'primary' | 'secondary' | 'third' | 'forth';
+
+    /**
+     *
+     */
+    icon?: string;
+
+    /**
+     *
+     */
     callback: ActionFunction;
 }
 

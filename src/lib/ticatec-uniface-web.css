@@ -3892,6 +3892,7 @@
 .uniface-data-table .action-panel .data-row .action-cell {
   display: flex;
   flex-direction: row;
+  gap: 4px;
   align-items: center;
   width: max-content;
   height: 100%;

@@ -4,22 +4,25 @@
     import InlineComponent from "./InlineComponent.svelte";
     import DataTable from "$lib/data-table";
     import Box from "$lib/box";
-    import type {IndicatorColumn} from "$lib";
+    import type {IndicatorColumn, RowAction} from "$lib";
     import {onMount} from "svelte";
 
     let actionsColumn: ActionsColumn = {
-        width: 130,
-        align: 'center',
+        width: 110,
+        align: 'left',
         getActions: (item: any) => {
-            let actions = [
+            let actions:Array<RowAction> = [
                 {
                     label: '查看',
+                    icon: 'icon_google_list_alt',
                     callback: () => {
                         console.log(item)
                     }
                 },
                 {
                     label: '修改',
+                    icon: 'icon_google_create',
+                    type: "secondary",
                     callback: () => {
                         console.log(item)
                     }
@@ -42,9 +45,11 @@
                     }
                 });
             }
-            if (m > 0.75) {
+            if (m > 0.6) {
                 actions.push({
                     label: '删除',
+                    type: "secondary",
+                    icon: 'icon_google_delete',
                     callback: () => {
                         console.log(item)
                     }

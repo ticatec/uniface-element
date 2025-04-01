@@ -1,11 +1,12 @@
 <script lang="ts">
 
     import type RowAction from "../lib/RowAction";
-    import {TextButton} from "$lib/button";
+    import {IconButton, TextButton} from "$lib/button";
     import type TableRow from "./TableRow";
     import {onDestroy, onMount, tick} from "svelte";
     import utils from "$lib/common/utils";
     import PopupMenu from "./PopupMenu.svelte";
+
     export let row: TableRow;
     export let actions: Array<RowAction>;
     export let alternative: boolean;
@@ -83,13 +84,20 @@
         checkOverflow();
     }
 
-    $: style = rowHeight== null ? '' : `height: ${rowHeight}px`
+    $: style = rowHeight == null ? '' : `height: ${rowHeight}px`;
+
 
 </script>
-<div class="data-row" class:alternative style="position: relative;  display: block; width: {width}px; {style}">
+<div class="data-row" class:alternative style="position: relative;  display: block; padding: 0 4px; width: {width}px; {style}">
     <div class="action-cell" bind:this={cell} style="{align=='center' ? 'margin: 0 auto' : ''}">
         {#each actionList as action}
-            <TextButton style="flex-shrink: 0; top: 0" size="mini" type="primary" label={action.label} onClick={()=>action.callback(row.data)}/>
+            {#if action.icon}
+                <IconButton style="flex-shrink: 0; top: 0" size="mini" type="{action.type ?? 'primary'}" icon={action.icon}
+                            onClick={()=>action.callback(row.data)}/>
+            {:else}
+                <TextButton style="flex-shrink: 0; top: 0" size="mini" type="{action.type ?? 'primary'}" label={action.label}
+                            onClick={()=>action.callback(row.data)}/>
+            {/if}
         {/each}
         {#if popupList.length > 0}
             <TextButton size="mini" type="primary" style="flex-shrink: 0; top: 0" label="..." onClick={showPopupMenu}/>
@@ -99,10 +107,15 @@
     {#if showPopup}
         <PopupMenu {parentRect} closeCallback={()=>{showPopup = false}}>
             <div style="padding: 4px 6px; box-sizing: border-box; background-color: #ffffff;">
-                {#each popupList as action}
-                    <div class="action-popover" style="padding: 4px 6px">
-                        <TextButton size="mini" type="primary" label={action.label}
-                                    onClick={()=>{action.callback?.(row.data); showPopup=false}}/>
+                {#each popupList.reverse() as action}
+                    <div class="action-popover" style="padding: 4px 6px; text-align: center">
+                        {#if action.icon}
+                            <IconButton style="flex-shrink: 0; top: 0" size="mini" type="{action.type ?? 'primary'}" icon={action.icon}
+                                        onClick={()=>{action.callback(row.data); showPopup=false}}/>
+                        {:else}
+                            <TextButton style="flex-shrink: 0; top: 0" size="mini" type="{action.type ?? 'primary'}" label={action.label}
+                                        onClick={()=>{action.callback(row.data); showPopup=false}}/>
+                        {/if}
                     </div>
                 {/each}
             </div>
