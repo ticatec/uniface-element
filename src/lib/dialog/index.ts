@@ -2,7 +2,7 @@ import Dialog from "./Dialog.svelte";
 import DialogBoard from "./DialogBoard.svelte";
 import type IDialog from "./IDialog";
 import type {DialogCloseConfirm} from "./DialogCloseConfirm";
-import CommonDialog from "$lib/dialog/CommonDialog.svelte";
+import CommonDialog from "./CommonDialog.svelte";
 
 declare global {
     interface Window {
@@ -10,11 +10,8 @@ declare global {
     }
 }
 
-export {type IDialog};
-
-export {type DialogCloseConfirm};
-
-export {DialogBoard}
-
 export default Dialog;
+export {type IDialog};
+export {type DialogCloseConfirm};
+export {DialogBoard}
 export {CommonDialog}

@@ -1,6 +1,6 @@
 {
   "name": "@ticatec/uniface-element",
-  "version": "0.1.32",
+  "version": "0.1.33",
   "description": "uniface web elements",
   "scripts": {
     "dev": "vite dev",
@@ -27,6 +27,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js"
     },
     "./i18n_resources": {
       "types": "./dist/i18n_resources/index.d.ts",
@@ -127,6 +131,10 @@
     "./DatePicker": {
       "types": "./dist/date-picker/index.d.ts",
       "import": "./dist/date-picker/index.js"
+    },
+    "./DateTimePicker": {
+      "types": "./dist/date-picker/DateTimePicker.svelte.d.ts",
+      "import": "./dist/date-picker/DateTimePicker.svelte"
     },
     "./DataTable": {
       "types": "./dist/data-table/index.d.ts",

@@ -1,5 +1,5 @@
 import Card from "./Card.svelte";
-import  type CardAction from "./CardAction";
+import type CardAction from "./CardAction";
 
 
 export default Card;

@@ -7,10 +7,9 @@
     export let style: string = '';
     export let label$style: string | null = null;
     export let required: boolean = false;
-    export let error: string = '';
+    export let error: string | null = null;
     export let arrangement: 'vertical' | 'horizontal' = 'vertical';
     export let labelSuffix: string = ':';
-
     export let label$alignment: 'center' | 'top' = 'center'
 
     let className: string = '';

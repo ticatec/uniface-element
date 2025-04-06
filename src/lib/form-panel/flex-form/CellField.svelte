@@ -7,7 +7,7 @@
     export let style: string = '';
     export let label$style: string = '';
     export let required: boolean = false;
-    export let error: string = null;
+    export let error: string | null = null;
     export let arrangement: 'vertical' | 'horizontal' = 'vertical' ;
     export let labelSuffix: string = ':';
 
