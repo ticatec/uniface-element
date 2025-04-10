@@ -1,11 +1,12 @@
 <script lang="ts">
 
     import TreeView from "$lib/tree-view";
-    import type TreeNode from "../../lib/tree-view/TreeNode";
-    import {type LazyLoader} from "../../lib/tree-view/TreeNode";
+    import type TreeNode from "$lib/tree-view/TreeNode";
+    import {type LazyLoader} from "$lib/tree-view/TreeNode";
     import utils from "$lib/common/utils";
     import ContextMenu from "$lib/context-menu";
-    import type {OnContextMenu} from "$lib/common/ShowContextMenu";
+    import type {OnContextMenu} from "$lib/context-menu";
+    import Box from "$lib/box";
 
 
     let nodes: Array<TreeNode> = [
@@ -192,5 +193,7 @@
         ]);
     }
 </script>
-<TreeView style="width: 300px; height: 100%;" nodes={firstLevels} {lazyLoader} onSelectionChange={onSelectionChange} {onContextMenu}/>
+<Box style="width: 300px; height: 100%;" title="树状节点">
+<TreeView  nodes={firstLevels} {lazyLoader} onSelectionChange={onSelectionChange} {onContextMenu}/>
+</Box>
 <ContextMenu bind:this={contextMenu}/>

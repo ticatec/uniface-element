@@ -1,10 +1,8 @@
 <script lang="ts">
 
-
     import {DisplayMode} from "../common/DisplayMode";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import CommonPicker from "$lib/common/CommonPicker.svelte";
-
 
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let disabled: boolean = false;

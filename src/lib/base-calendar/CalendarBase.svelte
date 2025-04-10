@@ -93,14 +93,14 @@
     <div>
         <div class="uniface-title-bar">
             <div class="action-icon" on:click={adjustMonth(-1)} aria-hidden="true">
-                <i class="uniface-icon-chevron-left"></i>
+                <i class="icon_google_keyboard_arrow_left"></i>
             </div>
             <div style="flex: 1 1 auto; text-align: center">
                 <span class="title-text" on:click={pickupYear} aria-hidden="true">{year}</span>
                 <span class="title-text" on:click={pickupMonth} aria-hidden="true">{month + 1}</span>
             </div>
             <div class="action-icon" on:click={adjustMonth(1)} aria-hidden="true">
-                <i class="uniface-icon-chevron-right"></i>
+                <i class="icon_google_keyboard_arrow_right"></i>
             </div>
         </div>
         <div style="flex: 1 1 auto; overflow: hidden">

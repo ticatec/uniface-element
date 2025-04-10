@@ -1,5 +1,5 @@
 .uniface-group-box {
-  border-bottom: 1px solid var(--uniface-border-color, #9d9d9d);
+  border-bottom: 1px solid var(--uniface-editor-border-color);
   padding: var(--uniface-box-padding, 0 4px);
   width: 100%;
   box-sizing: border-box;
@@ -11,13 +11,21 @@
 
   &:focus-within, &:focus, &:active {
     outline: none;
-    border-bottom-color: var(--uniface-active-border-color, #ff3e00);
+    border-bottom-color: var(--uniface-active-border-color);
   }
 
+  &.filled {
+    border-top-right-radius: var(--uniface-field-round, 4px);
+    border-top-left-radius: var(--uniface-field-round, 4px);
+    background-color: var(--uniface-editor-filled-backgournd-color);
+  }
 
   &.disabled {
+    background-color: var(--uniface-editor-outlined-disabled-backgournd-color);
+    color: var(--uniface-editor-outlined-disabled-text-color);
+
     &:focus-within, &:focus, &:active {
-      border-bottom-color: var(--uniface-border-color, #9d9d9d);
+      border-bottom-color: var(--uniface-editor-border-color);
     }
   }
 
@@ -26,24 +34,18 @@
   }
 
   &.outlined {
-    border: 1px solid var(--uniface-border-color, #9d9d9d);
+    border: 1px solid var(--uniface-editor-border-color);
     border-radius: var(--uniface-field-round, 4px);
 
     &:focus-within, &:focus, &:active {
-      border-color: var(--uniface-active-border-color, #ff3e00);
+      border-color: var(--uniface-editor-border-color);
     }
 
     &.disabled {
       &:focus-within, &:focus, &:active {
-        border-color: var(--uniface-border-color, #9d9d9d);
+        border-color: var(--uniface-editor-border-color);
       }
     }
-  }
-
-  &.filled {
-    border-top-right-radius: var(--uniface-field-round, 4px);
-    border-top-left-radius: var(--uniface-field-round, 4px);
-    background-color: var(--uniface-filled-color, #f7f7f7);
   }
 
   &.compact {

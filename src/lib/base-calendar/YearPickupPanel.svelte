@@ -33,7 +33,7 @@
         <div>
             <div style="text-align: center">
                 <div style="display: inline-block; width: 30px; height: 10px; padding: 6px 0">
-                    <i class="uniface-icon-chevrons-up" on:click={showYears(-years)}></i>
+                    <i class="icon_google_keyboard_arrow_up" on:click={showYears(-years)}></i>
                 </div>
             </div>
             <div style="display: grid; grid-template-columns: auto auto auto auto; width: 100%; overflow: hidden">
@@ -45,7 +45,7 @@
             </div>
             <div style="text-align: center">
                 <div style="display: inline-block; width: 30px; height: 10px; padding: 6px 0">
-                    <i class="uniface-icon-chevrons-down" on:click={showYears(years)}></i>
+                    <i class="icon_google_keyboard_arrow_down" on:click={showYears(years)}></i>
                 </div>
             </div>
         </div>

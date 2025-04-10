@@ -26,7 +26,7 @@
 </script>
 
 <div style="width: 100%; height: 100%; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column">
-    <AppTopBar style="float:0 0 auto;" title="My Business dashboard">
+    <AppTopBar style="flex:0 0 auto;" title="My Business dashboard">
         <div slot="home">
             <i class="icon_google_menu" on:click={()=>{drawVisible = !drawVisible}}></i>
         </div>

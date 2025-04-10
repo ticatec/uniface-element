@@ -90,7 +90,7 @@
 
     let idleTime = 0;
     const delayReload = async () => {
-        idleTime ++;
+        idleTime++;
         if (idleTime > 10) {
             clearInterval(interval);
             interval = null;
@@ -167,22 +167,20 @@
 
 </script>
 
-<Box class="uniface-listbox {className}" {round} {footer$style} {style} showFooter={$$slots.footer!=null}
-     header$style={boxHeaderStyle}>
-    <svelte:fragment slot="header">
-        {#if title || $$slots['header']}
-            <slot name="header">
-                <div class="title">
-                    <span>{title}</span>
-                </div>
-            </slot>
-        {/if}
-        {#if readonly === false && (filter || lazyLoader)}
-            <div class="header-search">
-                <SearchBox bind:this={searchBox} compact variant="plain" disabled={isBusy} style="width: 100%" bind:value={filterText} onChange={handleCriteriaChange}/>
+<div {style} class="uniface-box {className}" class:round>
+    {#if title || $$slots['header']}
+        <slot name="header">
+            <div class="title" style={boxHeaderStyle}>
+                <span>{title}</span>
             </div>
-        {/if}
-    </svelte:fragment>
+        </slot>
+    {/if}
+    {#if readonly === false && (filter || lazyLoader)}
+        <div class="header-search">
+            <SearchBox bind:this={searchBox} compact variant="plain" disabled={isBusy} style="width: 100%" bind:value={filterText}
+                       onChange={handleCriteriaChange}/>
+        </div>
+    {/if}
     <div class="listbox-content" class:selectable={selectMode==='single'} bind:this={scrollElement} on:scroll={handleScroll}>
         {#if filteredList && itemRender}
             {#each filteredList as item}
@@ -207,7 +205,12 @@
             <slot name="loadMoreIndicator"></slot>
         {/if}
     </div>
-    <slot name="footer" slot="footer"/>
+    {#if $$slots['footer']}
+        <div class="box-footer flex-container" style="{footer$style};">
+            <slot name="footer">
+            </slot>
+        </div>
+    {/if}
     {#if isBusy}
         <div class="list-view-mask">
             <div style="height: 100%; height: 100%; text-align: center">
@@ -215,4 +218,4 @@
             </div>
         </div>
     {/if}
-</Box>
+</div>

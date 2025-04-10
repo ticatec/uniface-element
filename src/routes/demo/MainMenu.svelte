@@ -38,6 +38,7 @@
     import ResizeDemo from "./ui-designer/ResizeDemo.svelte";
     import DottedGridPanelDemo from "./ui-designer/DottedGridPanelDemo.svelte";
     import DataTableDemo from "./data-table/DataTableDemo.svelte";
+    import GroupRadioBoxDemo from "./group-box/GroupRadioBoxDemo.svelte";
 
     export let onItemClick: OnMenuClick;
 
@@ -130,7 +131,7 @@
                         },
                         {
                             text: "GroupRadioBox",
-                            data: OptionsMultiSelectDemo
+                            data: GroupRadioBoxDemo
                         }
                     ]
                 }

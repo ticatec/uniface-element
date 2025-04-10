@@ -1,17 +1,10 @@
-//.uniface-display-field {
-//  width: 100%;
-//  padding: 8px 6px 2px 6px;
-//  box-sizing: border-box;
-//  border-bottom: 1px solid var(--uniface-editor-border-color, #E2E8F0);
-//  color: var(--uniface-editor-text-color, #374151);
-//}
-
 :root {
   --uniface-form-field-required-indicator-color: #ff3e00;
   --uniface-form-field-label-color: var(--uniface-primary-text-color, #374151);
   --uniface-form-field-invalid-message-color: #ff3e00;
   --uniface-form-field-label-width: 120px;
   --uniface-form-field-label-alignment: right;
+  --uniface-form-field-padding: 6px 4px;
 }
 
 .uniface-form-field {
@@ -20,7 +13,7 @@
   display: block;
   position: relative;
   height: auto;
-  padding: 6px 4px;
+  padding: var(--uniface-form-field-padding);
 
   .required-indicator {
     color: var(--uniface-form-field-required-indicator-color);
