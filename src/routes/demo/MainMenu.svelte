@@ -39,6 +39,9 @@
     import DottedGridPanelDemo from "./ui-designer/DottedGridPanelDemo.svelte";
     import DataTableDemo from "./data-table/DataTableDemo.svelte";
     import GroupRadioBoxDemo from "./group-box/GroupRadioBoxDemo.svelte";
+    import FlexRowFormDemo from "./form-container/FlexRowFormDemo.svelte";
+    import FlexFormDemo from "./form-container/FlexFormDemo.svelte";
+    import GridFormDemo from "./form-container/GridFormDemo.svelte";
 
     export let onItemClick: OnMenuClick;
 
@@ -168,6 +171,18 @@
                 {
                     text: "Criteria Field",
                     data: CriteriaFieldDemo
+                },
+                {
+                    text: "Flex Row Form",
+                    data: FlexRowFormDemo
+                },
+                {
+                    text: "Flex Form",
+                    data: FlexFormDemo
+                },
+                {
+                    text: "Grid Form",
+                    data: GridFormDemo
                 }
             ]
         },

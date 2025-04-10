@@ -5,6 +5,7 @@
   --uniface-form-field-label-width: 120px;
   --uniface-form-field-label-alignment: right;
   --uniface-form-field-padding: 6px 4px;
+  --uniface-field-gap: 4px;
 }
 
 .uniface-form-field {
@@ -13,7 +14,6 @@
   display: block;
   position: relative;
   height: auto;
-  padding: var(--uniface-form-field-padding);
 
   .required-indicator {
     color: var(--uniface-form-field-required-indicator-color);
@@ -53,11 +53,11 @@
   .form-content {
     width: 100%;
     display: grid;
-    gap: 8px;
   }
 
   &.vertical {
     .form-content {
+      grid-template-rows: auto 1fr auto;
       grid-template-columns: 1fr;
       grid-template-areas: "label" "field" "hint";
 
@@ -66,6 +66,8 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        margin-bottom: var(--uniface-field-gap);
+        padding: 0 4px;
       }
 
       .empty-field {
@@ -76,8 +78,8 @@
 
   &.horizontal {
     .form-content {
+      grid-template-rows: 1fr auto;
       grid-template-columns: auto 1fr;
-      gap: 8px;
       grid-template-areas:
       "label field"
       "empty hint";
@@ -85,6 +87,7 @@
       .field-label {
         width: var(--uniface-form-field-label-width);
         text-align: var(--uniface-form-field-label-alignment);
+        padding-right: 8px;
       }
     }
   }

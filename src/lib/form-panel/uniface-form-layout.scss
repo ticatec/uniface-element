@@ -1,60 +1,57 @@
+:root {
+  --uniface-flex-form-row-gap: 12px;
+  --uniface-flex-container-padding: 8px 6px;
+  --uniface-flex-cell-padding: 0 6px;
+  --uniface-flex-form-row-padding: 6px 0;
+  --uniface-grid-cell-padding: 6px;
+}
 
-.flex-row-form {
+.flex-row-form, .flex-form {
 
   width: 100%;
-  height: 100%;
-  overflow: auto;
   position: relative;
   box-sizing: border-box;
+  padding: var(--uniface-flex-container-padding);
 
   &>div {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     position: relative;
+    justify-items: start;
     box-sizing: border-box;
   }
 
+  .form-cell {
+    position: relative;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    padding: var(--uniface-flex-cell-padding);
+  }
+}
+
+.flex-row-form {
+  &>div {
+    flex-direction: column;
+  }
+
   .form-row {
-    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-items: flex-start;
-    box-sizing: border-box;
-    padding: 3px 0;
+    padding: var(--uniface-flex-form-row-padding);
 
-    .cell-field {
-      box-sizing: border-box;
-      padding: 0 4px;
-    }
-
-    .form-cell {
-      position: relative;
-      box-sizing: border-box;
-      padding: 0 4px;
-      flex: 0 0 auto;
+    &:last-child {
+      padding-bottom: 0;
     }
   }
 }
 
 .flex-form {
-  position: relative;
-  width: 100%;
-  display: block;
 
   &>div {
-    position: relative;
-    width: 100%;
-    display: flex;
     flex-wrap: wrap;
-    justify-items: start;
-    box-sizing: border-box;
-  }
-
-  .cell-field {
-    box-sizing: border-box;
-    padding: 4px;
+    flex-direction: row;
+    row-gap: var(--uniface-flex-form-row-gap);
   }
 
   .row-break {
@@ -68,46 +65,20 @@
   position: relative;
   width: 100%;
   display: block;
+  padding: var(--uniface-flex-container-padding);
 
   &>div {
     width: 100%;
+    height: 100%;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
     justify-items: start;
     box-sizing: border-box;
-    padding: 6px 8px;
-    grid-row-gap: 3px;
-    grid-column-gap: 4px;
   }
 
-  .cell-field {
+  .form-cell {
     width: 100%;
     box-sizing: border-box;
-  }
-
-  .uniface-form-field {
-
-    &.vertical {
-      .form-content {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-
-        .field-label {
-          flex: 0 0 auto;
-        }
-
-        .field-hint {
-          flex: 0 0 auto;
-        }
-
-        .field {
-          flex: 1 1 auto;
-        }
-      }
-    }
-
-
+    padding: var(--uniface-grid-cell-padding);
   }
 }
