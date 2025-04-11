@@ -6,9 +6,14 @@
     export let displayText: string | null = null;
 
     export let style: string = '';
+
+    export {className as class};
+
+    let className: string = null as unknown as string;
+
 </script>
 
-<Box class="demo-block" {style}>
+<Box class="demo-block {className}" {style}>
     <h3>{title}</h3>
     <div class="description">
         <slot name="description"/>

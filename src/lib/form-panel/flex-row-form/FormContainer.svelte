@@ -7,7 +7,7 @@
     let className: string = "";
 
 </script>
-<div class="flex-row-form field-layout-{fieldLayout}" {style}>
+<div class="flex-row-form" class:field-layout-horizontal={fieldLayout=='horizontal'} {style}>
     <div>
         <slot/>
     </div>

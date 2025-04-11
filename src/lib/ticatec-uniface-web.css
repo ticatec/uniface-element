@@ -731,38 +731,37 @@
   display: grid;
   position: relative;
   gap: 4px;
+  grid-template-columns: 1fr;
 }
 .uniface-filter-field .field-label {
   color: var(--uniface-criteria-field-label-color);
   font-size: 0.9em;
   font-weight: 500;
   box-sizing: border-box;
-}
-.uniface-filter-field.vertical .field-container {
-  grid-template-columns: 1fr;
-}
-.uniface-filter-field.vertical .field-label {
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.uniface-filter-field.vertical .field {
+.uniface-filter-field .field {
   position: relative;
   display: flex;
   flex-direction: row;
   justify-items: center;
   width: 100%;
 }
-.uniface-filter-field.horizontal .field-container {
+
+.field-layout-horizontal .field-container {
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 8px;
 }
-.uniface-filter-field.horizontal .field-label {
+.field-layout-horizontal .field-label {
   text-align: var(--uniface-criteria-field-label-alignment);
   width: var(--uniface-criteria-field-label-width);
-  overflow: hidden;
+  overflow: unset;
+  text-overflow: unset;
+  white-space: unset;
 }
 
 .switch-box input[type=checkbox] {
@@ -912,13 +911,11 @@
 .uniface-form-field .form-content {
   width: 100%;
   display: grid;
-}
-.uniface-form-field.vertical .form-content {
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   grid-template-areas: "label" "field" "hint";
 }
-.uniface-form-field.vertical .form-content .field-label {
+.uniface-form-field .form-content .field-label {
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -926,16 +923,21 @@
   margin-bottom: var(--uniface-field-gap);
   padding: 0 4px;
 }
-.uniface-form-field.vertical .form-content .empty-field {
+.uniface-form-field .form-content .empty-field {
   display: none;
 }
-.uniface-form-field.horizontal .form-content {
+
+.field-layout-horizontal .form-content {
   grid-template-rows: 1fr auto;
   grid-template-columns: auto 1fr;
   grid-template-areas: "label field" "empty hint";
 }
-.uniface-form-field.horizontal .form-content .field-label {
+.field-layout-horizontal .form-content .field-label {
   width: var(--uniface-form-field-label-width);
+  white-space: wrap;
+  overflow: unset;
+  text-overflow: unset;
+  margin-bottom: unset;
   text-align: var(--uniface-form-field-label-alignment);
   padding-right: 8px;
 }

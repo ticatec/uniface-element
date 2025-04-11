@@ -42,6 +42,8 @@
     display: grid;
     position: relative;
     gap: 4px;
+    //vertical layout
+    grid-template-columns: 1fr;
   }
 
 
@@ -50,42 +52,36 @@
     font-size: 0.9em;
     font-weight: 500;
     box-sizing: border-box;
+    //vertical layout
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  &.vertical {
-    .field-container {
-      grid-template-columns: 1fr;
-    }
+  .field {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    width: 100%;
+  }
+}
 
-    .field-label {
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+.field-layout-horizontal {
 
-    .field {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      justify-items: center;
-      width: 100%;
-    }
+  .field-container {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 8px;
   }
 
-  &.horizontal {
-    .field-container {
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .field-label {
-      text-align: var(--uniface-criteria-field-label-alignment);
-      width: var(--uniface-criteria-field-label-width);
-      overflow: hidden;
-    }
-
+  .field-label {
+    text-align: var(--uniface-criteria-field-label-alignment);
+    width: var(--uniface-criteria-field-label-width);
+    overflow: unset;
+    text-overflow: unset;
+    white-space: unset;
   }
 
 }

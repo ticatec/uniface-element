@@ -53,17 +53,6 @@
     width: 100%;
     display: grid;
 
-    .empty-field {
-      display: none;
-    }
-  }
-
-
-}
-
-
-.field-layout-vertical {
-  .form-content {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 1fr;
     grid-template-areas: "label" "field" "hint";
@@ -76,8 +65,13 @@
       margin-bottom: var(--uniface-field-gap);
       padding: 0 4px;
     }
+
+    .empty-field {
+      display: none;
+    }
   }
 }
+
 
 .field-layout-horizontal {
   .form-content {
@@ -89,6 +83,10 @@
 
     .field-label {
       width: var(--uniface-form-field-label-width);
+      white-space: wrap;
+      overflow: unset;
+      text-overflow: unset;
+      margin-bottom: unset;
       text-align: var(--uniface-form-field-label-alignment);
       padding-right: 8px;
     }

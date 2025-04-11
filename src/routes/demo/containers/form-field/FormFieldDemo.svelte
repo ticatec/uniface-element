@@ -13,7 +13,7 @@
 </script>
 
 <div style="width: 100%; padding: 12px">
-    <div class="demo-blocks field-layout-vertical">
+    <div class="demo-blocks">
         <DemoBlock title="Common FormField">
             <FormField required label="Name">
                 <TextEditor variant="filled" bind:value={data.name} input$placeholder="Please enter the name"/>

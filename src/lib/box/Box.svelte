@@ -9,7 +9,7 @@
 
     export {className as class};
 
-    let className: string | null = null;
+    let className: string = null as unknown as string;
 
 
 </script>

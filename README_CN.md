@@ -1,4 +1,4 @@
-# Uniface Web UI 组件
+# Uniface Element 组件
 
 Uniface Web UI是一套基于svelte 5.0的组件，本套框架可以普通的web网站页面，也可用于web应用的开发；尤其是针对web开发做了更多的优化，是的web应用开发更加简单。
 如果想提高web应用的开发，建议配合Uniface App Templates组件库一起使用。

@@ -8,7 +8,7 @@
     $: gridStyle = `grid-template-columns: repeat(${columns}, 1fr)`
 
 </script>
-<div class="grid-form field-layout-{fieldLayout}" {style}>
+<div class="grid-form" class:field-layout-horizontal={fieldLayout=='horizontal'} {style}>
     <div style="{gridStyle}">
         <slot/>
     </div>

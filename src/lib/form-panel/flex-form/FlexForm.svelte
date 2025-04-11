@@ -3,7 +3,7 @@
     export let fieldLayout: 'vertical' | 'horizontal' = 'vertical';
 
 </script>
-<div class="flex-form field-layout-{fieldLayout}"  {style}>
+<div class="flex-form" class:field-layout-horizontal={fieldLayout=='horizontal'}  {style}>
     <div>
         <slot/>
     </div>
