@@ -870,6 +870,7 @@
   --uniface-form-field-label-width: 120px;
   --uniface-form-field-label-alignment: right;
   --uniface-form-field-padding: 6px 4px;
+  --uniface-field-gap: 4px;
 }
 
 .uniface-form-field {
@@ -877,7 +878,6 @@
   display: block;
   position: relative;
   height: auto;
-  padding: var(--uniface-form-field-padding);
 }
 .uniface-form-field .required-indicator {
   color: var(--uniface-form-field-required-indicator-color);
@@ -912,9 +912,9 @@
 .uniface-form-field .form-content {
   width: 100%;
   display: grid;
-  gap: 8px;
 }
 .uniface-form-field.vertical .form-content {
+  grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   grid-template-areas: "label" "field" "hint";
 }
@@ -923,18 +923,21 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: var(--uniface-field-gap);
+  padding: 0 4px;
 }
 .uniface-form-field.vertical .form-content .empty-field {
   display: none;
 }
 .uniface-form-field.horizontal .form-content {
+  grid-template-rows: 1fr auto;
   grid-template-columns: auto 1fr;
-  gap: 8px;
   grid-template-areas: "label field" "empty hint";
 }
 .uniface-form-field.horizontal .form-content .field-label {
   width: var(--uniface-form-field-label-width);
   text-align: var(--uniface-form-field-label-alignment);
+  padding-right: 8px;
 }
 
 .flex-block {
@@ -2739,56 +2742,51 @@
   margin: auto 20px;
 }
 
-.flex-row-form {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  position: relative;
-  box-sizing: border-box;
-}
-.flex-row-form > div {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  box-sizing: border-box;
-}
-.flex-row-form .form-row {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-items: flex-start;
-  box-sizing: border-box;
-  padding: 3px 0;
-}
-.flex-row-form .form-row .cell-field {
-  box-sizing: border-box;
-  padding: 0 4px;
-}
-.flex-row-form .form-row .form-cell {
-  position: relative;
-  box-sizing: border-box;
-  padding: 0 4px;
-  flex: 0 0 auto;
+:root {
+  --uniface-flex-form-row-gap: 12px;
+  --uniface-flex-container-padding: 8px 6px;
+  --uniface-flex-cell-padding: 0 6px;
+  --uniface-flex-form-row-padding: 6px 0;
+  --uniface-grid-cell-padding: 6px;
 }
 
-.flex-form {
-  position: relative;
+.flex-row-form, .flex-form {
   width: 100%;
-  display: block;
+  position: relative;
+  box-sizing: border-box;
+  padding: var(--uniface-flex-container-padding);
 }
-.flex-form > div {
-  position: relative;
+.flex-row-form > div, .flex-form > div {
   width: 100%;
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  position: relative;
   justify-items: start;
   box-sizing: border-box;
 }
-.flex-form .cell-field {
+.flex-row-form .form-cell, .flex-form .form-cell {
+  position: relative;
   box-sizing: border-box;
-  padding: 4px;
+  flex: 0 0 auto;
+  padding: var(--uniface-flex-cell-padding);
+}
+
+.flex-row-form > div {
+  flex-direction: column;
+}
+.flex-row-form .form-row {
+  display: flex;
+  flex-direction: row;
+  padding: var(--uniface-flex-form-row-padding);
+}
+.flex-row-form .form-row:last-child {
+  padding-bottom: 0;
+}
+
+.flex-form > div {
+  flex-wrap: wrap;
+  flex-direction: row;
+  row-gap: var(--uniface-flex-form-row-gap);
 }
 .flex-form .row-break {
   width: 100%;
@@ -2799,35 +2797,20 @@
   position: relative;
   width: 100%;
   display: block;
+  padding: var(--uniface-flex-container-padding);
 }
 .grid-form > div {
   width: 100%;
+  height: 100%;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
   justify-items: start;
   box-sizing: border-box;
-  padding: 6px 8px;
-  grid-row-gap: 3px;
-  grid-column-gap: 4px;
 }
-.grid-form .cell-field {
+.grid-form .form-cell {
   width: 100%;
   box-sizing: border-box;
-}
-.grid-form .uniface-form-field.vertical .form-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.grid-form .uniface-form-field.vertical .form-content .field-label {
-  flex: 0 0 auto;
-}
-.grid-form .uniface-form-field.vertical .form-content .field-hint {
-  flex: 0 0 auto;
-}
-.grid-form .uniface-form-field.vertical .form-content .field {
-  flex: 1 1 auto;
+  padding: var(--uniface-grid-cell-padding);
 }
 
 .uniface-display-field.images-field > div {

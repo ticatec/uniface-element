@@ -8,12 +8,12 @@
 
     let data:any = {}
 
-    let errors = {name: 'Name is required.', height: 'Height is not a valid value.'}
+    let errors:any = {name: 'Name is required.', height: 'Height is not a valid value.'}
 
 </script>
 
 <div style="width: 100%; padding: 12px">
-    <div class="demo-blocks">
+    <div class="demo-blocks field-layout-vertical">
         <DemoBlock title="Common FormField">
             <FormField required label="Name">
                 <TextEditor variant="filled" bind:value={data.name} input$placeholder="Please enter the name"/>
@@ -41,20 +41,22 @@
                 <TextEditor variant="filled" bind:value={data.name} input$placeholder="Please enter the name"/>
             </FormField>
         </DemoBlock>
+    </div>
+    <div class="demo-blocks field-layout-horizontal">
 
         <DemoBlock style="grid-column: 1/3" title="Horizontal arrangement">
-            <FormField arrangement="horizontal" required label="Date of birth">
+            <FormField required label="Date of birth">
                 <DatePicker variant="filled" bind:value={data.dob}/>
             </FormField>
         </DemoBlock>
         <DemoBlock style="grid-column: 3/5" title="Horizontal arrangement with customize label">
-            <FormField arrangement="horizontal" label$style="text-align: left; color: #3367f0" required label="Name" error={errors.name}>
+            <FormField label$style="text-align: left; color: #3367f0" required label="Name" error={errors.name}>
                 <TextEditor variant="filled" bind:value={data.name} input$placeholder="Please enter the name"/>
             </FormField>
         </DemoBlock>
         <DemoBlock style="grid-column: 5/7" title="Horizontal align to the top">
-            <FormField arrangement="horizontal" label$alignment="top"  label="note" error={errors.note}>
-                <MemoEditor variant="filled" bind:value={data.note} resize="vertical" showIndicator maxLength="300"/>
+            <FormField label$alignment="top"  label="note" error={errors.note}>
+                <MemoEditor variant="filled" bind:value={data.note} resize="vertical" showIndicator input$maxLength="300"/>
             </FormField>
         </DemoBlock>
     </div>

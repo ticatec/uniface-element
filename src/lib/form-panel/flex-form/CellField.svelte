@@ -8,7 +8,6 @@
     export let label$style: string = '';
     export let required: boolean = false;
     export let error: string | null = null;
-    export let arrangement: 'vertical' | 'horizontal' = 'vertical';
     export let labelSuffix: string = ':';
 
     let cellCss: string = '';
@@ -25,6 +24,6 @@
     $: cellCss = generateCss(span);
 
 </script>
-<FormField class="form-cell" {label} {labelSuffix} style="{style}; {cellCss}" {label$style} {required} {error} {arrangement}>
+<FormField class="form-cell" {label} {labelSuffix} style="{style}; {cellCss}" {label$style} {required} {error}>
     <slot/>
 </FormField>

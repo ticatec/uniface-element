@@ -9,7 +9,6 @@
 }
 
 .uniface-form-field {
-
   box-sizing: border-box;
   display: block;
   position: relative;
@@ -53,45 +52,45 @@
   .form-content {
     width: 100%;
     display: grid;
-  }
 
-  &.vertical {
-    .form-content {
-      grid-template-rows: auto 1fr auto;
-      grid-template-columns: 1fr;
-      grid-template-areas: "label" "field" "hint";
-
-      .field-label {
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-bottom: var(--uniface-field-gap);
-        padding: 0 4px;
-      }
-
-      .empty-field {
-        display: none;
-      }
+    .empty-field {
+      display: none;
     }
   }
 
-  &.horizontal {
-    .form-content {
-      grid-template-rows: 1fr auto;
-      grid-template-columns: auto 1fr;
-      grid-template-areas:
+
+}
+
+
+.field-layout-vertical {
+  .form-content {
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: "label" "field" "hint";
+
+    .field-label {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: var(--uniface-field-gap);
+      padding: 0 4px;
+    }
+  }
+}
+
+.field-layout-horizontal {
+  .form-content {
+    grid-template-rows: 1fr auto;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
       "label field"
       "empty hint";
 
-      .field-label {
-        width: var(--uniface-form-field-label-width);
-        text-align: var(--uniface-form-field-label-alignment);
-        padding-right: 8px;
-      }
+    .field-label {
+      width: var(--uniface-form-field-label-width);
+      text-align: var(--uniface-form-field-label-alignment);
+      padding-right: 8px;
     }
   }
-
-
-
 }
