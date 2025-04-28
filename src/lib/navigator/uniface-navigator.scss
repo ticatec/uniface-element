@@ -7,6 +7,7 @@
   --uniface-navigator-hover-text-color: #298DFF;
   --uniface-navigator-active-text-color: #0061FF;
   --uniface-navigator-active-text-weight: 600;
+  --uniface-navigator-highlight-text-color: #0061FF;
 }
 
 .uniface-navigator-panel {
@@ -72,6 +73,10 @@
       &:hover {
         color: var(--uniface-navigator-hover-text-color);
         cursor: pointer;
+      }
+
+      &.highlight {
+        color: var(--uniface-navigator-highlight-text-color);
       }
 
       &.active {

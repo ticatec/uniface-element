@@ -50,11 +50,11 @@
     <div class="file-icon">
         <img src={icon} width="64px" height="64px"/>
         <div class="action-icon" style="top: 15px;">
-            <i class="uniface-icon-download" ></i>
+            <i class="icon_google_file_download" ></i>
         </div>
         {#if !readonly}
             <div class="action-icon" style="top: 35px;">
-                <i class="uniface-icon-x" aria-hidden="true" on:click={removeFile}></i>
+                <i class="icon_google_clear" aria-hidden="true" on:click={removeFile}></i>
             </div>
     {/if}
     </div>

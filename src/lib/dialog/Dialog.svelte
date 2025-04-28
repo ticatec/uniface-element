@@ -61,7 +61,7 @@
             <div class="title-bar" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} aria-hidden="true">
                 <div style="flex: 1 1 auto"><span>{title ?? 'New window'}</span></div>
                 <div style="flex: 0 0 auto; padding-left: 12px">
-                    <i class="uniface-icon-x dialog-action-button" aria-hidden="true" on:click={close}></i>
+                    <i class="icon_google_clear dialog-action-button" aria-hidden="true" on:click={close}></i>
                 </div>
             </div>
             <div class="dialog-content" style={content$style}>

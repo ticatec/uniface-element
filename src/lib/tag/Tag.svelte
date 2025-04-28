@@ -20,8 +20,10 @@
 
 </script>
 <div class="uniface-tag" {style}>
-    <div class="{size} {variant} {className} {colorClass}" class:removable={removable} >
+    <div class="{size} {variant} {className} {colorClass}" class:removable={removable}>
         <span>{text}</span>
-        <Icon name="icon_google_clear" clickable class="uniface-remove-icon" onClick={removeHandler}/>
+        {#if removable}
+            <Icon name="icon_google_clear" class="uniface-remove-icon" onClick={removeHandler}/>
+        {/if}
     </div>
 </div>

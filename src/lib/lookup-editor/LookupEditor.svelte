@@ -38,7 +38,7 @@
 
 </script>
 
-<CommonPicker {displayMode} {variant} {style} {compact} className="multiple" dropDownIcon="uniface-icon-more-horizontal"
+<CommonPicker {displayMode} {variant} {style} {compact} className="multiple" dropDownIcon="icon_google_keyboard_control"
                canClean={!mandatory && value!=null} autoFit {clean} textValue={text} {readonly} {disabled} iconClickHandler={handleActionIconClick}>
     <input style="width: 100%" {placeholder} class="text-editor" readonly value={text??''} {disabled}
            on:keydown on:focus on:click={handleActionIconClick}/>

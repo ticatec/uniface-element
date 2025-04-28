@@ -89,9 +89,9 @@
                 </div>
                 <!-- 顶部工具栏 -->
                 <div class="toolbar" on:click|stopPropagation aria-hidden="true">
-                    <IconButton icon="uniface-icon-zoom-in" type="default" onClick={zoomIn}></IconButton>
-                    <IconButton icon="uniface-icon-zoom-out" type="default" onClick={zoomOut}></IconButton>
-                    <IconButton icon="uniface-icon-x" type="default" onClick={()=>{visible = false}}></IconButton>
+                    <IconButton icon="icon_google_zoom_in" type="default" onClick={zoomIn}></IconButton>
+                    <IconButton icon="icon_google_zoom_out" type="default" onClick={zoomOut}></IconButton>
+                    <IconButton icon="icon_google_cancel" type="default" onClick={()=>{visible = false}}></IconButton>
                 </div>
             </div>
         </div>

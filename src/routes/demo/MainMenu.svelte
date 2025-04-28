@@ -42,6 +42,7 @@
     import FlexRowFormDemo from "./form-container/FlexRowFormDemo.svelte";
     import FlexFormDemo from "./form-container/FlexFormDemo.svelte";
     import GridFormDemo from "./form-container/GridFormDemo.svelte";
+    import SimpleListBoxDemo from "./data-display/list-box/SimpleListBoxDemo.svelte";
 
     export let onItemClick: OnMenuClick;
 
@@ -191,7 +192,7 @@
             children: [
                 {
                     text: "ListBox",
-                    data: ListBoxDemo
+                    data: SimpleListBoxDemo
                 },
                 {
                     text: "TreeView",

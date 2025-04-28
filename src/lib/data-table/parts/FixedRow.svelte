@@ -46,7 +46,7 @@
 
             {#if expandable}
                 <div class="expand-icon" style="">
-                    <i class={row == expandRow ? 'uniface-icon-folder' : "uniface-icon-folder-plus"} aria-hidden="true" on:click={showInlineData}></i>
+                    <i class={row == expandRow ? 'icon_google_folder' : "icon_google_folder_open"} aria-hidden="true" on:click={showInlineData}></i>
                 </div>
             {/if}
             {#if indicatorColumn.displayNo}

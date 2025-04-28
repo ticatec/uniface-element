@@ -117,7 +117,7 @@
                 <input bind:this={fileInput} type="file" {accept} multiple={maxFiles > 1} on:change={handleFilePickup}/>
             </div>
             <div style="margin-bottom: 8px; flex: 0 0 auto; text-align: center">
-                <Button type="primary" disabled={files.length >= maxFiles} icon="uniface-icon-upload" label={btnPickup}
+                <Button type="primary" disabled={files.length >= maxFiles} icon="icon_google_file_upload" label={btnPickup}
                         onClick={showFileDialog}></Button>
             </div>
             <div style="flex: 1 1 auto; overflow: auto; padding: 0 24px">

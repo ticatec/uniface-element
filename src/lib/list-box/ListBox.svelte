@@ -68,7 +68,6 @@
     }
 
     const lazyLoad = async (clean: boolean = true) => {
-        console.log('加载数据...')
         isBusy = true;
         try {
             let result = await lazyLoader?.(filterText, pageNo);
@@ -81,7 +80,6 @@
                 selectedItem = null;
                 filteredList = list;
                 hasMore = result.hasMore;
-                console.log('加载数据完成')
             }
         } finally {
             isBusy = false;
@@ -157,7 +155,7 @@
     let searchBox: any;
 
     const handleScroll = () => {
-        const bottom = scrollElement.scrollHeight - scrollElement.scrollTop === scrollElement.clientHeight;
+        const bottom = scrollElement.scrollHeight - scrollElement.scrollTop - scrollElement.clientHeight < 2;
         if (bottom && lazyLoader && !isBusy && hasMore) {
             fetchMore();
         }
@@ -167,18 +165,22 @@
 
 </script>
 
-<div {style} class="uniface-box {className}" class:round>
-    {#if title || $$slots['header']}
-        <slot name="header">
-            <div class="title" style={boxHeaderStyle}>
-                <span>{title}</span>
-            </div>
-        </slot>
-    {/if}
-    {#if readonly === false && (filter || lazyLoader)}
-        <div class="header-search">
-            <SearchBox bind:this={searchBox} compact variant="plain" disabled={isBusy} style="width: 100%" bind:value={filterText}
-                       onChange={handleCriteriaChange}/>
+<div {style} class="uniface-listbox {className}" class:round>
+    {#if title || $$slots['header'] || (readonly === false && (filter || lazyLoader))}
+        <div class="box-header">
+            {#if title || $$slots['header']}
+                <slot name="header">
+                    <div class="title" style={boxHeaderStyle}>
+                        <span>{title}</span>
+                    </div>
+                </slot>
+            {/if}
+            {#if readonly === false && (filter || lazyLoader)}
+                <div class="header-search">
+                    <SearchBox bind:this={searchBox} compact variant="plain" disabled={isBusy} style="width: 100%" bind:value={filterText}
+                               onChange={handleCriteriaChange}/>
+                </div>
+            {/if}
         </div>
     {/if}
     <div class="listbox-content" class:selectable={selectMode==='single'} bind:this={scrollElement} on:scroll={handleScroll}>

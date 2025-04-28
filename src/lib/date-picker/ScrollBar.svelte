@@ -74,7 +74,7 @@
 <div class="scroll-bar" tabindex="1" on:wheel={handleMouseWheel}>
     <div class="action-bar">
         <div class="arrow-up" class:disabled={!enable}>
-            <i class="uniface-icon-chevron-up" on:click={decValue} on:dragstart={(e)=>{e.preventDefault()}}
+            <i class="icon_google_keyboard_arrow_up" on:click={decValue} on:dragstart={(e)=>{e.preventDefault()}}
                  on:mousedown={handleMouseDown(-1)} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp}></i>
         </div>
     </div>
@@ -83,7 +83,7 @@
     {/each}
     <div class="action-bar">
         <div class="arrow-down" class:disabled={!enable}>
-            <i class="uniface-icon-chevron-down" on:click={incValue} on:dragstart={(e)=>{e.preventDefault()}}
+            <i class="icon_google_keyboard_arrow_downn" on:click={incValue} on:dragstart={(e)=>{e.preventDefault()}}
                  on:mousedown={handleMouseDown(1)} on:mouseup={handleMouseUp} on:mouseleave={handleMouseUp}></i>
         </div>
     </div>

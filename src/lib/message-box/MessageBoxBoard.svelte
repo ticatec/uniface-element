@@ -114,7 +114,7 @@
                 <div style="top: {top}px; left: {left}px">
                     <div class="title-bar" aria-hidden="true" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp}>
                         <div>
-                            <i class="uniface-icon-x dialog-action-button" aria-hidden="true" on:click={handleCloseClick}></i>
+                            <i class="icon_google_clear dialog-action-button" aria-hidden="true" on:click={handleCloseClick}></i>
                         </div>
                     </div>
                     <div class="box-content" style="min-height: 40px">

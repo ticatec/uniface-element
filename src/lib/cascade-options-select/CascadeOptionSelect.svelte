@@ -112,7 +112,7 @@
 </script>
 
 
-<CommonPicker {displayMode} {variant} {style} {compact} className="multiple" dropDownIcon="uniface-icon-chevron-down"
+<CommonPicker {displayMode} {variant} {style} {compact} className="multiple" dropDownIcon="icon_google_keyboard_arrow_down"
               bind:showPopup canClean={!mandatory && text!=null} autoFit clean={cleanData} textValue={text??''} {readonly} {disabled}>
     <input style="width: 100%" bind:this={editor} on:click={openPopup} {placeholder}
            class="text-editor" bind:value={text} on:blur on:focus/>

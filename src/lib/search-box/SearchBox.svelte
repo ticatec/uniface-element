@@ -48,8 +48,8 @@
 </script>
 
 <CommonEditor {variant} {compact} {style} showActionIcon={value != null && value.length > 0} {clean}>
-    <div slot='leading-icon'>
-        <i class="uniface-icon-search"></i>
+    <div slot='leading-icon' style="line-height: 16px; font-size: 18px">
+        <i class="icon_google_search"></i>
     </div>
     <input bind:this={editor} style="width: 100%" bind:value={inputText} {disabled}  on:input={handleInput} on:compositionstart={handleCompositionStart}
            on:compositionend={handleCompositionEnd} {placeholder}/>

@@ -6,7 +6,7 @@ export default interface IndicatorColumn {
     /**
      *
      */
-    selectable: boolean;
+    selectable?: boolean;
 
     /**
      *

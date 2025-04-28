@@ -8,7 +8,7 @@
 
     export let nodes: Array<TreeNode>;
     export let style: string = "";
-    export let lazyLoader: LazyLoader;
+    export let lazyLoader: LazyLoader | null = null;
     export let activeNode: any = null;
     export {className as class};
     export let isVisible: NodeVisibleFun = null as unknown as NodeVisibleFun;

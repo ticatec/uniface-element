@@ -6,7 +6,7 @@
     import type {OnContextMenu} from "$lib/context-menu/ContextMenuItem";
 
     export let node: TreeNode;
-    export let lazyLoader: LazyLoader;
+    export let lazyLoader: LazyLoader | null;
     export let activeNode: any;
     export let isVisible: NodeVisibleFun;
     export let level: number = 1;

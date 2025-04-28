@@ -1,5 +1,6 @@
 .uniface-tag {
   display: inline-block;
+  cursor: default;
 
   & > div {
     display: block;
@@ -34,6 +35,7 @@
       height: 14px;
       width: 14px;
       border-radius: 50%;
+      cursor: pointer;
 
       top: 2px;
       right: 1px;

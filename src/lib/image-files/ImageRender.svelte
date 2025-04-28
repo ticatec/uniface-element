@@ -21,11 +21,11 @@
         <div class="img-overlay">
             <div>
                 <div class="action-icon" style="top: 15px;">
-                    <i class="uniface-icon-eye" aria-hidden="true" on:click={()=>{onPreview?.(file)}}></i>
+                    <i class="icon_google_remove_red_eye" aria-hidden="true" on:click={()=>{onPreview?.(file)}}></i>
                 </div>
                 {#if !readonly}
                     <div class="action-icon" style="top: 35px;">
-                        <i class="uniface-icon-x" aria-hidden="true" on:click={removeFile}></i>
+                        <i class="icon_google_delete" aria-hidden="true" on:click={removeFile}></i>
                     </div>
                 {/if}
             </div>

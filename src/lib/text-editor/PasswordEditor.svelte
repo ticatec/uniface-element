@@ -28,7 +28,7 @@
 
 
 </script>
-<CommonEditor {style} {value} type="password" {readonly} {variant} {compact} class={className}>
+<CommonEditor {style} {value} {readonly} {variant} {compact} class={className}>
     {#if type=="password"}
         <input type="password" style="flex: 1 1 auto" bind:value={value} {disabled} {...input$}
            on:blur on:focus />
@@ -36,9 +36,9 @@
         <input type="text" style="flex: 1 1 auto" bind:value={value} {disabled} {...input$}
                on:blur on:focus />
     {/if}
-    <div slot="trailing-icon" class="editor-embed-icon password-icon">
+    <div slot="trailing-icon" class="editor-embed-icon">
         {#if (!readonly && !disabled)}
-            <i class={type == "password" ? "uniface-icon-eye" : "uniface-icon-eye-off"} on:click={toggleType}></i>
+            <i class={type == "password" ? "icon_google_remove_red_eye" : "icon_google_visibility_off"} on:click={toggleType}></i>
         {/if}
     </div>
 </CommonEditor>

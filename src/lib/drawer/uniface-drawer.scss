@@ -1,3 +1,9 @@
+;root {
+  --uniface-drawer-bg: #ffffff;
+  --uniface-drawer-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+  --uniface-drawer-border-color: #e1e1e1;
+}
+
 .uniface-drawer {
 
   position: fixed;
@@ -11,8 +17,8 @@
   &>div {
     position: absolute;
     height: 100%;
-    background-color: var(--tsui-app-background-color, #ffffff);
-    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+    background-color: var(--uniface-drawer-bg);
+    box-shadow: var(--uniface-drawer-shadow);
     &>div {
       position: relative;
       width: 100%;
@@ -22,12 +28,12 @@
 
     &.left {
       left: 0;
-      border-right: 1px solid var(--tsui-border-color, #9d9d9d);
+      border-right: 1px solid var(--uniface-drawer-border-color);
     }
 
     &.right {
       right: 0;
-      border-left: 1px solid var(--tsui-border-color, #9d9d9d);
+      border-left: 1px solid var(--uniface-drawer-border-color);
     }
 
   }

@@ -5,6 +5,7 @@
     import DemoBlock from "../DemoBlock.svelte";
 
     let airlines = [
+        {code: "N/A", text: "无"},
         {code: "C", text: "南方航空"},
         {code: "A", text: "国际航空"},
         {code: "S", text: "东方航空"},
@@ -14,6 +15,26 @@
     ];
 
     let data: any = {}
+
+    let disabledItems:any = [];
+
+    const handleSelectionChange = (value: string) => {
+        if (value == '') {
+            disabledItems = [];
+        } else {
+            let items = value.split(';');
+            console.log(value, items);
+            if (items[items.length - 1] == "N/A") {
+                data.preferred = "N/A";
+                disabledItems = airlines.filter(item => item.code != "N/A").map(item => (item.code));
+            } else if (items[0] == "N/A") {
+                items.splice(0, 1);
+                data.preferred = items.join(';');
+            }
+        }
+        console.log(data.preferred);
+    }
+
 </script>
 
 <div style="width: 100%; padding: 12px">
@@ -23,7 +44,7 @@
                 <span>普通的多选框，结果为字符串，用<b>;</b>连接</span>
             </div>
             <FormField label="Select preferred airlines">
-                <GroupCheckBox options={airlines} bind:value={data.preferred}/>
+                <GroupCheckBox options={airlines} bind:value={data.preferred} disabledOptions={disabledItems} onChange={handleSelectionChange}/>
             </FormField>
         </DemoBlock>
         <DemoBlock style="grid-column: 4/7" title="Bits GroupCheckBox" displayText={`${data.preferredValue} - ${(data.preferredValue??0).toString(2)}`}>

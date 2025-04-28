@@ -3,6 +3,9 @@
   --uniface-list-box-hover-bg: #FFFFE1;
   --uniface-list-box-selected-bg: #b1c8f6;
   --uniface-list-box-header-bottom-border: 1px solid #f0f0f0;
+  --uniface-list-box-border-color: #f0f0f0;
+  --uniface-list-box-header-bg: #F8FAFC;
+  --uniface-list-box-footer-bg: #F8FAFC;
 }
 
 .uniface-listbox {
@@ -12,6 +15,7 @@
   overflow: hidden;
   box-sizing: border-box;
   user-select: none;
+  border: 1px solid var(--uniface-list-box-border-color);
 
   .list-view-mask {
     width: 100%;
@@ -30,7 +34,8 @@
     .title {
       font-weight: 600;
       line-height: 32px;
-      border-bottom: 1px solid var(--uniface-box-border-color);
+      padding: 0 8px;
+      background-color: var(--uniface-list-box-header-bg, #F8FAFC);
     }
 
     .header-search {
@@ -46,6 +51,7 @@
 
   .box-footer {
     border-top: var(--uniface-list-box-header-bottom-border);
+    background-color: var(--uniface-list-box-footer-bg);
     height: auto;
   }
 

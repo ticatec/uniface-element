@@ -97,7 +97,7 @@
                 <span>{column.text}</span>
                 {#if column === orderColumn}
                     <i style="margin-left: 2px; font-size: 12px; position: absolute; top: 0; right: 4px"
-                       class={orderDirection===OrderDirection.Ascending ? 'uniface-icon-chevron-up' : 'uniface-icon-chevron-down'}></i>
+                       class={orderDirection===OrderDirection.Ascending ? 'icon_google_keyboard_arrow_up' : 'icon_google_keyboard_arrow_down'}></i>
                 {/if}
             </div>
 

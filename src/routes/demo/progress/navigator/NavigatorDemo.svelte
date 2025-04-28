@@ -51,6 +51,7 @@
         {text: '院内溶栓治疗'}
     ]
 
+    let highlights = [items[5], items[7], items[10]];
 
 </script>
 
@@ -59,7 +60,7 @@
     <div class="demo-blocks">
         <DemoBlock style="grid-column: 1/2" title="任务导航条演示">
             <Box style="border-radius: 6px; height: 900px">
-                <Navigator {items} {retrieveStatus} {itemClickHandler}/>
+                <Navigator {items} {retrieveStatus} {highlights} {itemClickHandler}/>
             </Box>
         </DemoBlock>
     </div>

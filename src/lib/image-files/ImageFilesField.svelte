@@ -80,7 +80,7 @@
             </div>
             {#if !disabled && !readonly}
                 <div class="editor-action-icon ">
-                    <i class="uniface-icon-upload" aria-hidden="true" on:click={showDialog}></i>
+                    <i class="icon_google_file_upload" aria-hidden="true" on:click={showDialog}></i>
                 </div>
             {/if}
         </div>
