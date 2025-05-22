@@ -49,9 +49,11 @@
         <slot name="header"></slot>
     </div>
     <div style="height: 100%; flex: 1 1 auto; overflow: hidden; display: flex; flex-direction: row; position: relative">
-        <div bind:this={sidebar} style="width: 100%; flex: 0 0 auto; overflow: auto; width: {sidebarWidth}; {minWidth} {maxWidth}">
-            <slot name="sidebar"></slot>
-        </div>
+        {#if sidebar}
+            <div bind:this={sidebar} style="width: 100%; flex: 0 0 auto; overflow: auto; width: {sidebarWidth}; {minWidth} {maxWidth}">
+                <slot name="sidebar"></slot>
+            </div>
+        {/if}
         {#if sidebarResize}
             <Split direction="vertical" bindingPanel={sidebar}/>
         {/if}
@@ -62,7 +64,8 @@
             {#if sidebarResize}
                 <Split direction="vertical" bindingPanel={rightBar} reverse/>
             {/if}
-            <div bind:this={rightBar} style="width: 100%; flex: 0 0 auto; overflow: auto; width: {rightBarWidth}; {rightMinWidth} {rightMaxWidth}">
+            <div bind:this={rightBar}
+                 style="width: 100%; flex: 0 0 auto; overflow: auto; width: {rightBarWidth}; {rightMinWidth} {rightMaxWidth}">
                 <slot name="right-sidebar"></slot>
             </div>
         {/if}

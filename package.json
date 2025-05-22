@@ -1,6 +1,6 @@
 {
   "name": "@ticatec/uniface-element",
-  "version": "0.1.45",
+  "version": "0.1.46",
   "description": "uniface web elements",
   "scripts": {
     "dev": "vite dev",
