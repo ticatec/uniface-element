@@ -48,94 +48,132 @@
 
     const menus: Array<MenuItem> = [
         {
-            text: 'Basic components',
+            item: {
+                text: 'Basic components',
+            },
             children: [
                 {
-                    text: "Buttons",
+                    item: {
+                        text: "Buttons",
+                    },
                     children: [
                         {
-                            text: "Button",
-                            data: ButtonDemo
+                            item: {
+                                text: "Button",
+                                data: ButtonDemo
+                            }
                         },
                         {
-                            text: "Icon Button",
-                            data: IconButtonDemo
+                            item: {
+                                text: "Icon Button",
+                                data: IconButtonDemo
+                            }
                         },
                         {
-                            text: "Text Button",
-                            data: TextButtonDemo
+                            item: {
+                                text: "Text Button",
+                                data: TextButtonDemo
+                            }
                         },
                         {
-                            text: "Action Bar",
-                            data: ActionBarDemo
+                            item: {
+                                text: "Action Bar",
+                                data: ActionBarDemo
+                            }
                         }
                     ],
                     expand: true
                 },
                 {
-                    text: 'Editors',
+                    item: {text: 'Editors'},
                     children: [
                         {
-                            text: "Common Editor",
-                            data: CommonEditorDemo
+                            item: {
+                                text: "Common Editor",
+                                data: CommonEditorDemo
+                            }
                         },
                         {
-                            text: "TextEditor",
-                            data: TextEditorDemo
+                            item: {
+                                text: "TextEditor",
+                                data: TextEditorDemo
+                            }
                         },
                         {
-                            text: "NumberEditor",
-                            data: NumberEditorDemo
+                            item: {
+                                text: "NumberEditor",
+                                data: NumberEditorDemo
+                            }
                         },
                         {
-                            text: "UnitNumberEditor",
-                            data: UnitNumberEditorDemo
+                            item: {
+                                text: "UnitNumberEditor",
+                                data: UnitNumberEditorDemo
+                            }
                         },
                         {
-                            text: "TimeEditor",
-                            data: TimeEditorDemo
+                            item: {
+                                text: "TimeEditor",
+                                data: TimeEditorDemo
+                            }
                         },
                         {
-                            text: "MemoEditor",
-                            data: MemoEditorDemo
+                            item: {
+                                text: "MemoEditor",
+                                data: MemoEditorDemo
+                            }
                         }
                     ],
                 },
                 {
-                    text: "Pick up",
+                    item: {text: "Pick up"},
                     children: [
                         {
-                            text: "OptionsSelect",
-                            data: OptionsSelectDemo
+                            item: {
+                                text: "OptionsSelect",
+                                data: OptionsSelectDemo
+                            }
                         },
                         {
-                            text: "OptionsMultiSelect",
-                            data: OptionsMultiSelectDemo
+                            item: {
+                                text: "OptionsMultiSelect",
+                                data: OptionsMultiSelectDemo
+                            }
                         },
                         {
-                            text: "DatePickup",
-                            data: DatePickupDemo
+                            item: {
+                                text: "DatePickup",
+                                data: DatePickupDemo
+                            }
                         },
                         {
-                            text: "DateTimePickup",
-                            data: DateTimePickupDemo
+                            item: {
+                                text: "DateTimePickup",
+                                data: DateTimePickupDemo
+                            }
                         },
                         {
-                            text: "Color Picker",
-                            data: ColorPickerDemo
+                            item: {
+                                text: "Color Picker",
+                                data: ColorPickerDemo
+                            }
                         }
                     ]
                 },
                 {
-                    text: "GroupBox",
+                    item: {text: "GroupBox"},
                     children: [
                         {
-                            text: "GroupCheckBox",
-                            data: GroupCheckBoxDemo
+                            item: {
+                                text: "GroupCheckBox",
+                                data: GroupCheckBoxDemo
+                            }
                         },
                         {
-                            text: "GroupRadioBox",
-                            data: GroupRadioBoxDemo
+                            item: {
+                                text: "GroupRadioBox",
+                                data: GroupRadioBoxDemo
+                            }
                         }
                     ]
                 }
@@ -143,114 +181,162 @@
             expand: true
         },
         {
-            text: 'Container components',
+            item: {
+                text: 'Container components'
+            },
             children: [
                 {
-                    text: "Box",
-                    data: BoxDemo
+                    item: {
+                        text: "Box",
+                        data: BoxDemo
+                    }
                 },
                 {
-                    text: "Card",
-                    data: CardsDemo
+                    item: {
+                        text: "Card",
+                        data: CardsDemo
+                    }
                 },
                 {
-                    text: "Tabs",
-                    data: TabsDemo
+                    item: {
+                        text: "Tabs",
+                        data: TabsDemo
+                    }
                 },
                 {
-                    text: "Page",
-                    data: PageDemo
+                    item: {
+                        text: "Page",
+                        data: PageDemo
+                    }
                 },
                 {
-                    text: "Accordion",
-                    data: AccordionDemo
+                    item: {
+                        text: "Accordion",
+                        data: AccordionDemo
+                    }
                 },
                 {
-                    text: "Form Field",
-                    data: FormFieldDemo
+                    item: {
+                        text: "Form Field",
+                        data: FormFieldDemo
+                    }
                 },
                 {
-                    text: "Criteria Field",
-                    data: CriteriaFieldDemo
+                    item: {
+                        text: "Criteria Field",
+                        data: CriteriaFieldDemo
+                    }
                 },
                 {
-                    text: "Flex Row Form",
-                    data: FlexRowFormDemo
+                    item: {
+                        text: "Flex Row Form",
+                        data: FlexRowFormDemo
+                    }
                 },
                 {
-                    text: "Flex Form",
-                    data: FlexFormDemo
+                    item: {
+                        text: "Flex Form",
+                        data: FlexFormDemo
+                    }
                 },
                 {
-                    text: "Grid Form",
-                    data: GridFormDemo
+                    item: {
+                        text: "Grid Form",
+                        data: GridFormDemo
+                    }
                 }
             ]
         },
         {
-            text: "Data display",
+            item: {text: "Data display"},
             children: [
                 {
-                    text: "ListBox",
-                    data: SimpleListBoxDemo
+                    item: {
+                        text: "ListBox",
+                        data: SimpleListBoxDemo
+                    }
                 },
                 {
-                    text: "TreeView",
-                    data: TreeDemo
+                    item: {
+                        text: "TreeView",
+                        data: TreeDemo
+                    }
                 },
                 {
-                    text: "Data Table",
-                    data: DataTableDemo
+                    item: {
+                        text: "Data Table",
+                        data: DataTableDemo
+                    }
                 }
             ]
         },
         {
-            text: "Progress",
+            item: {text: "Progress"},
             children: [
                 {
-                    text: "Progress Bar",
-                    data: ProgressBarDemo
+                    item: {
+                        text: "Progress Bar",
+                        data: ProgressBarDemo
+                    }
                 },
                 {
-                    text: "Progress steps",
-                    data: ProgressStepsDemo
+                    item: {
+                        text: "Progress steps",
+                        data: ProgressStepsDemo
+                    }
                 },
                 {
-                    text: "Navigator",
-                    data: NavigatorDemo
+                    item: {
+                        text: "Navigator",
+                        data: NavigatorDemo
+                    }
                 }
             ]
         },
         {
-            text: "Misc",
+            item: {text: "Misc"},
             children: [
                 {
-                    text: "Tag",
-                    data: TagDemo
+                    item: {
+                        text: "Tag",
+                        data: TagDemo
+                    }
                 },
                 {
-                    text: "Breadcrumbs",
-                    data: BreadcrumbsDemo
+                    item: {
+                        text: "Breadcrumbs",
+                        data: BreadcrumbsDemo
+                    }
                 },
                 {
-                    text: "Menu",
-                    data: MenuDemo
+                    item: {
+                        text: "Menu",
+                        data: MenuDemo
+                    }
                 },
                 {
-                    text: "AppTopBar",
-                    data: AppTopBarDemo
+                    item: {
+                        text: "AppTopBar",
+                        data: AppTopBarDemo
+                    }
                 },
                 {
-                    text: "UI Designer",
-                    data: ProtoBoard
+                    item: {
+                        text: "UI Designer",
+                        data: ProtoBoard
+                    }
                 },
                 {
-                    text: "Resize Demo",
-                    data: ResizeDemo
+                    item: {
+                        text: "Resize Demo",
+                        data: ResizeDemo
+                    }
                 },
                 {
-                    text: "Dotted Grid Panel",
-                    data: DottedGridPanelDemo
+                    item: {
+                        text: "Dotted Grid Panel",
+                        data: DottedGridPanelDemo
+                    }
                 }
             ]
         }
@@ -258,6 +344,6 @@
 
 
 </script>
-<NavigatorMenu menuItems={menus} {onItemClick}>
+<NavigatorMenu menuItems={menus} {onItemClick} textField="text">
 
 </NavigatorMenu>

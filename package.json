@@ -1,6 +1,6 @@
 {
   "name": "@ticatec/uniface-element",
-  "version": "0.1.46",
+  "version": "0.1.50",
   "description": "uniface web elements",
   "scripts": {
     "dev": "vite dev",
@@ -291,6 +291,10 @@
     "./Tabs": {
       "types": "./dist/tabs/index.d.ts",
       "import": "./dist/tabs/index.js"
+    },
+    "./TreeNodes": {
+      "types": "./dist/lib/index.d.ts",
+      "import": "./dist/lib/index.js"
     },
     "./Tag": {
       "types": "./dist/tag/index.d.ts",

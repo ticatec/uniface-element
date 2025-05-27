@@ -33,8 +33,8 @@
 
     let drawVisible: boolean = false;
 
-    const onItemClick = (item: MenuItem) => {
-        demoComponent = item.data;
+    const onItemClick = (menu: MenuItem) => {
+        demoComponent = menu.item.data;
         drawVisible = false
     }
 

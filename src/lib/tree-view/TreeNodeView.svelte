@@ -1,25 +1,26 @@
 <script lang="ts">
-    import type TreeNode from "./TreeNode";
-    import type {LazyLoader, NodeVisibleFun, OnNodeSelectionChange} from "./TreeNode";
+
+    import type {LazyLoader, NodeVisibleFun, OnNodeSelectionChange} from "./Types";
     import iconLoading from "../assets/loading.gif"
     import utils from "$lib/common/utils";
     import type {OnContextMenu} from "$lib/context-menu/ContextMenuItem";
+    import type {CheckIsDirectory, GetText, TreeNode} from "$lib/lib/TreeNodes";
 
-    export let node: TreeNode;
+    export let node: TreeNode<any>;
+    export let textField: string | GetText<any>;
     export let lazyLoader: LazyLoader | null;
     export let activeNode: any;
     export let isVisible: NodeVisibleFun;
-    export let level: number = 1;
-    export let dispLevels: number = 1;
     export let onContextMenu: OnContextMenu;
     export let onNodeSelectionChange: OnNodeSelectionChange;
 
+    export let checkIsDirectory: CheckIsDirectory<TreeNode<any>>;
 
-    let expanded: boolean = dispLevels <= level;
     let loading: boolean = false;
 
-    const isBranch = () => {
-        return lazyLoader == null ? (node.children && node.children.length > 0) : lazyLoader.isBranch(node);
+    const isDirectory = () => {
+        console.log('检测目录函数', checkIsDirectory);
+        return lazyLoader == null ? checkIsDirectory?.(node) : lazyLoader.isBranch(node);
     }
 
     const loadChildren = async () => {
@@ -38,11 +39,13 @@
         e.preventDefault();
         if (respond) {
             respond = false;
-            if (isBranch()) {
-                expanded = !expanded;
-                await loadChildren();
+            if (isDirectory()) {
+                if (!node.children) {
+                    node.expand = false;
+                    await loadChildren();
+                }
+                node.expand = !node.expand;
             }
-            dispLevels = expanded ? level + 1 : level;
             await utils.sleep(0.2);
             respond = true;
         }
@@ -58,7 +61,6 @@
         }
     }
 
-    $: expanded = dispLevels > level;
 
     const handleContextMenu = (event: MouseEvent) => {
         onContextMenu?.(event, node);
@@ -68,25 +70,25 @@
 
 
 {#if isVisible == null || isVisible(node)}
-    <div class="tree-node" class:expanded>
+    <div class="tree-node" class:expanded={node.expand}>
         <div class="node-item" class:selected={activeNode===node} on:click={handleNodeClick} aria-hidden="true"
              on:contextmenu={handleContextMenu}>
             <div class="item-icon">
-                {#if isBranch()}
+                {#if isDirectory()}
                     {#if loading}
                         <img alt="" style="cursor: default" src={iconLoading}/>
                     {:else }
-                        <span aria-hidden="true" on:click={handleNodeIconClick}>{expanded ? '▼' : '▶'}</span>
+                        <span aria-hidden="true" on:click={handleNodeIconClick}>{node.expand ? '▼' : '▶'}</span>
                     {/if}
                 {/if}
             </div>
-            <span class="item-text">{node.text}</span>
+            <span class="item-text">{typeof textField == "string" ? node.item[textField] : textField(node.item)}</span>
         </div>
-        {#if expanded && node.children}
+        {#if node.expand && node.children}
             <div class="sub-tree">
                 {#each node.children as child}
-                    <svelte:self node={child} {lazyLoader} {onContextMenu}
-                                 {dispLevels} {isVisible} level={level+1} {activeNode} {onNodeSelectionChange}/>
+                    <svelte:self node={child} {lazyLoader} {onContextMenu} {textField} {checkIsDirectory}
+                                 {isVisible} {activeNode} {onNodeSelectionChange}/>
                 {/each}
             </div>
         {/if}

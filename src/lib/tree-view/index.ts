@@ -1,9 +1,6 @@
 import TreeView from "./TreeView.svelte";
-import type TreeNode from "./TreeNode";
-import type {LazyLoader, NodeVisibleFun, OnNodeSelectionChange, CheckBranchFun, LoadChildrenFun, NodeLevelCompare, RootDetermine} from "./TreeNode";
+import type {LazyLoader, NodeVisibleFun, OnNodeSelectionChange, LoadChildrenFun} from "./Types";
 
-import treeUtils from "./TreeUtils";
 
 export default TreeView;
-export {treeUtils}
-export type {TreeNode, LazyLoader, NodeVisibleFun, OnNodeSelectionChange, CheckBranchFun, LoadChildrenFun, NodeLevelCompare, RootDetermine}
+export type {LazyLoader, NodeVisibleFun, OnNodeSelectionChange, LoadChildrenFun}
