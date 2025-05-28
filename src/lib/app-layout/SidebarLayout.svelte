@@ -22,8 +22,8 @@
 
 </script>
 
-<div style="width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: row">
-    {#if $$slots[sidebar]}
+<div style="width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: row; gap: 8px">
+    {#if $$slots["sidebar"]}
         <div bind:this={sidebar}
              style="height: 100%; flex: 0 0 auto; overflow: auto; border-right: 1px solid var(--uniface-plain-border-color, #f0f0f0); width: {sidebarWidth}; {maxWidth} {minWidth}">
             <slot name="sidebar"></slot>
