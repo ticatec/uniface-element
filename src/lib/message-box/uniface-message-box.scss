@@ -37,9 +37,11 @@
 
     .box-icon {
       flex: 0 0 auto;
-      width: 64px;
       box-sizing: border-box; padding: 8px 12px;
       margin-right: 24px;
+      flex-direction: row;
+      display: flex;
+      align-items: center;
 
       &.warning {
         color: orange;

@@ -1,4 +1,4 @@
-export type ActionCallback = () => void;
+export type ActionCallback = (data: any) => void;
 
 export default interface CardAction {
 
@@ -11,6 +11,11 @@ export default interface CardAction {
      * 直接嵌入图标
      */
     img?: string;
+
+    /**
+     * 鼠标停留的提示
+     */
+    hint?: string;
 
     /**
      *

@@ -12,17 +12,15 @@
     import HomePage from "./HomePage.svelte";
     import MainMenu from "./MainMenu.svelte";
     import type MenuItem from "../../lib/nav-menu/MenuItem";
+    import {en_resource} from "$lib/i18n_resources";
+    import PopupHint from "$lib/popup-hint/PopupHint.svelte";
 
     let initialized: boolean = false;
 
     onMount(() => {
-        i18n.setResource({
-            tutorial: {
-                appLayout: "应用布局",
-                sidebarLayout: "左右两栏布局"
-            }
-        });
+        i18n.setResource(en_resource);
         initialized = true;
+
     });
 
     let demoComponent: any;
@@ -58,10 +56,12 @@
 </HomePage>
 
 
-<IndicatorBoard/>
 <DialogBoard/>
-<ToastBoard/>
 <MessageBoxBoard/>
+<PopupHint/>
+<ToastBoard/>
+<IndicatorBoard/>
+
 <style>
     .section {
         width: 100%;

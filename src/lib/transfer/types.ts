@@ -1,0 +1,1 @@
+export type TransferData = (list: Array<any>, direction: "left" | "right") => Promise<boolean>;

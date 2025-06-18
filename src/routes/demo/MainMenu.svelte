@@ -43,6 +43,7 @@
     import FlexFormDemo from "./form-container/FlexFormDemo.svelte";
     import GridFormDemo from "./form-container/GridFormDemo.svelte";
     import SimpleListBoxDemo from "./data-display/list-box/SimpleListBoxDemo.svelte";
+    import TransferDemo from "./containers/transfer/TransferDemo.svelte";
 
     export let onItemClick: OnMenuClick;
 
@@ -243,6 +244,12 @@
                     item: {
                         text: "Grid Form",
                         data: GridFormDemo
+                    }
+                },
+                {
+                    item: {
+                        text: "Transfer",
+                        data: TransferDemo
                     }
                 }
             ]

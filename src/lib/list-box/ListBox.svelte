@@ -188,7 +188,7 @@
             {#each filteredList as item}
                 {#if selectMode === "multiple"}
                     <div class="listview-item" style="display: flex; flex-direction: row; align-items: center; gap: 8px">
-                        <CheckBox style="flex: 0 0 auto" {readonly} value={selectedList.indexOf(item) > -1}
+                        <CheckBox style="flex: 0 0 auto; margin-left: 8px" {readonly} value={selectedList.indexOf(item) > -1}
                                   onChange={handleSelectionChanged(item)}/>
                         <div style="flex: 1 1 auto; cursor: pointer" aria-hidden="true" on:click={handleSelectionChanged(item)}>
                             <svelte:component this={itemRender} {readonly} {item} {...item$props}/>

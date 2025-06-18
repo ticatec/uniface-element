@@ -1,0 +1,29 @@
+.uniface-transfer-container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-auto-columns: 1fr 60px 1fr;
+  column-gap: 16px;
+
+  .header-container {
+    margin: 10px auto 10px 10px;
+  }
+
+  .list-container {
+    height: 100%;
+    flex: 1 1 auto;
+    overflow: hidden;
+    border: 1px solid var(--uniface-inside-border-color);
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+
+  .icon-button-container {
+    display: flex;
+    row-gap: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+}

@@ -2,8 +2,8 @@
 
     import Dialog from "./Dialog.svelte";
     import type {ButtonAction, ButtonActions} from "$lib/action-bar";
-    import type {DialogCloseConfirm, MouseClickHandler} from "$lib";
     import i18n from "@ticatec/i18n";
+    import type {DialogCloseConfirm} from "$lib/dialog/DialogCloseConfirm";
 
     export let title: string;
     export let closeConfirm: DialogCloseConfirm | null = null;
@@ -29,7 +29,7 @@
     let actions: ButtonActions = [confirmAction];
 
     $: {
-        confirmAction.disabled = confirmHandler==null && !enableConfirm;
+        confirmAction.disabled = confirmHandler==null || !enableConfirm;
         actions = [...actions];
     }
 

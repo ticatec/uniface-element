@@ -1,6 +1,6 @@
 {
   "name": "@ticatec/uniface-element",
-  "version": "0.1.51",
+  "version": "0.1.54",
   "description": "uniface web elements",
   "scripts": {
     "dev": "vite dev",
@@ -319,6 +319,10 @@
     "./TimeEditor": {
       "types": "./dist/time-editor/index.d.ts",
       "import": "./dist/time-editor/index.js"
+    },
+    "./Transfer": {
+      "types": "./dist/transfer/index.d.ts",
+      "import": "./dist/transfer/index.js"
     },
     "./UnitNumberEditor": {
       "types": "./dist/unit-number-editor/index.d.ts",

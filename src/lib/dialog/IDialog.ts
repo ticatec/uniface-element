@@ -1,5 +1,3 @@
-
-
 export default interface IDialog {
     showModal: (dialog: any, params: any) => void;
 }

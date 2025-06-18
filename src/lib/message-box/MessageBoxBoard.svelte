@@ -43,7 +43,7 @@
                 });
             }
             buttons = _buttons;
-            iconType = _type == null ? 'uniface-icon-alert-circle' : _type == 'info' ? 'uniface-icon-help-circle' : 'uniface-icon-alert-triangle';
+            iconType = _type == null ? 'icon_google_warning' : _type == 'info' ? 'icon_google_info' : 'icon_google_help';
             type = _type ?? "info";
             visible = true;
             return new Promise<any>(r => {
@@ -120,7 +120,7 @@
                     <div class="box-content" style="min-height: 40px">
                         {#if iconType != null}
                             <div class="box-icon {type}">
-                                <i style="font-size: 40px" class={iconType}></i>
+                                <i style="font-size: 56px" class={iconType}></i>
                             </div>
                         {/if}
                         <div style="flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center">

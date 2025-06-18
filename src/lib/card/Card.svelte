@@ -8,8 +8,8 @@
     export let title: string = null as unknown as string;
     export let actions: Array<CardAction> = [];
     export let variant: 'plain' | '3d' = 'plain';
-
     export let iconColor: string | null = null;
+    export let data: any;
 
 </script>
 
@@ -28,7 +28,7 @@
             <slot/>
         </div>
         {#if actions && actions.length > 0}
-            <CommonCardActionBar color={iconColor} {actions}/>
+            <CommonCardActionBar color={iconColor} {actions} {data}/>
         {:else }
             {#if $$slots['action-bar']}
                 <div class="card-action-bar">

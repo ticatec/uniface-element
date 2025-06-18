@@ -33,6 +33,9 @@ const langRes = {
             rowNo: "Row#",
             actions: "Actions",
             emptyDataSet: 'Empty dataset'
+        },
+        transfer: {
+            selectIndicator: "Selected: {{selected}}/{{total}}"
         }
     }
 }

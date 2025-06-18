@@ -12,24 +12,28 @@
         {
             icon: 'icon_google_remove_red_eye',
             disabled: true,
+            hint: "提示打折",
             callback: () => {
                 window.Toast.show('打折好消息', "success")
             }
         },
         {
             icon: 'icon_google_disabled_by_default',
+            hint: "删除",
             callback: () => {
                 window.MessageBox.showConfirm('确定要删除当前角色吗？', '删除确认')
             }
         },
         {
             icon: 'icon_google_account_circle',
+            hint: "启动",
             callback: () => {
                 window.MessageBox.showInfo('干的漂亮', '信息提示')
             }
         },
         {
             icon: 'icon_google_build_circle',
+            hint: "测试",
             disabled: Math.random() < 0.3,
             callback: () => {
             }

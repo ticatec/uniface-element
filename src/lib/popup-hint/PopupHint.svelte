@@ -1,32 +1,37 @@
 <script lang="ts">
     import Portal from "svelte-portal";
-    import type {ShowHint} from "$lib/common/ShowHint";
     import utils from "$lib/common/utils";
+    import {onMount} from "svelte";
+    import {initialize, type ShowHint} from "$lib/popup-hint/IHint";
 
     let message = ''; // 提示信息ø
     let targetElement: Element | null = null;
     let hintVisible = false;
     let hintStyle = '';
 
+    onMount(async () => {
+        initialize(show);
+    })
+
     // 显示提示框函数
-    export const show: ShowHint = async (element: Element, text: string, x: number, y: number) => {
+    const show: ShowHint = async (element: Element, text: string, x: number, y: number) => {
         if (targetElement != null) {
-            targetElement.removeEventListener('mouseout', hideHint);
+            targetElement.addEventListener('mouseout', hideHint);
         }
-        targetElement = element;
         message = text;
-        await utils.sleep(1);
-        targetElement.addEventListener('mouseout', hideHint);
         calculatePosition(x, y);
-        hintVisible = true;
+        setTimeout(()=> {
+            if (targetElement == element) {
+                targetElement.addEventListener('mouseout', hideHint);
+                hintVisible = true;
+            }
+        }, 500);
+        targetElement = element;
     };
 
     // 计算提示框的位置
     const calculatePosition = (x: number, y: number) => {
-        if (targetElement) {
-            const rect = targetElement.getBoundingClientRect();
-            hintStyle = `max-width: ${rect.width + 20}px; left: ${x + 10}px; top: ${y}px`;
-        }
+        hintStyle = `max-width: 50%; left: ${x + 6}px; top: ${y + 6}px`;
     }
 
     // 隐藏提示框
