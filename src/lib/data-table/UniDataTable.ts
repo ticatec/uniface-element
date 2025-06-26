@@ -42,7 +42,7 @@ export default class UniDataTable {
         this._frozenColumns = [];
         this._columns = [];
         (columns ?? []).forEach(col => {
-            if (col.visible) {
+            if (col.visible!=false) {
                 if (col.frozen) {
                     this._frozenColumns.push(col);
                 } else {
