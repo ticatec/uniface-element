@@ -9,7 +9,7 @@
 <div style="width: 100%; padding: 12px">
     <div class="demo-blocks">
         <DemoBlock style="grid-column: 1/7" title="普通页面">
-            <Page style="height: 300px" title="页面标题" comment="简单描述">
+            <Page goBack={()=>{console.log('go back')}} style="height: 300px" title="页面标题" comment="简单描述">
 
                 <div style="padding: 12px">
                     页面内容
@@ -18,7 +18,7 @@
         </DemoBlock>
 
         <DemoBlock style="grid-column: 1/7" title="圆角页面">
-            <Page style="height: 300px" round title="页面标题" comment="简单描述">
+            <Page reload={()=>{console.log('reload')}} style="height: 300px" round title="页面标题" comment="简单描述">
 
                 <div style="padding: 12px">
                     页面内容

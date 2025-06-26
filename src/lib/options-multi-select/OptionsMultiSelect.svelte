@@ -6,6 +6,7 @@
     import utils from "$lib/common/utils";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import Tag from "$lib/tag";
+    import {tick} from "svelte";
 
     export let style: string = "";
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
@@ -27,6 +28,11 @@
     export let tagColor: string = '';
     export let tagVariant: 'borderless' | 'border' | 'round' = 'border';
 
+    export const setFocus = () => {
+        setTimeout(()=> {
+            editor && editor.focus();
+        }, 50);
+    }
 
     let selectedList: Array<string> = [];
 

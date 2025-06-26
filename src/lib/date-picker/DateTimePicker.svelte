@@ -1,10 +1,10 @@
 <script lang="ts">
 
-    import {onMount} from "svelte";
+    import {onMount, tick} from "svelte";
     import dayjs from "dayjs";
     import {DisplayMode} from "../common/DisplayMode";
     import dateUtils, {type UniDate} from "../base-calendar/dateUtils";
-    import Calendar, {DateContext} from "../base-calendar";
+    import Calendar from "../base-calendar";
     import TimePanel from "./TimePanel.svelte";
     import {TextButton} from "../button";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
@@ -24,11 +24,17 @@
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let mandatory: boolean = false;
     export let onChange: OnChangeHandler<Date> = null as unknown as OnChangeHandler<Date>;
+    export const setFocus = () => {
+        setTimeout(()=> {
+            editor && editor.focus();
+        }, 50);
+    }
+
 
     let confirmText = i18nContext.getText('uniface.calendar.confirmText');
     let textValue: string;
     let editor: any;
-    let oldValue: Date = dateUtils.toDayjs(value)?.toDate();
+
     let currentValue: dayjs.Dayjs;
 
     const dateFmts = {

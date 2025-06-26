@@ -1,5 +1,6 @@
 import type {ButtonActions} from "$lib/action-bar";
 import type ButtonAction from "$lib/action-bar/ButtonAction";
+import {ModalResult} from "$lib/message-box";
 
 export default interface DialogActions {
     /**
@@ -16,4 +17,5 @@ export default interface DialogActions {
      * 关闭问询
      */
     closeConfirm: ()=>Promise<boolean>;
+
 }

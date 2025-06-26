@@ -75,12 +75,7 @@ const formatNumber = (n: number | null, precision: number | null | undefined): s
         return '';
     } else {
         if (precision != null) {
-            if (precision > 0) {
-                let base = Math.pow(10, precision);
-                return (Math.floor(n * base) / base).toFixed(precision);
-            } else {
-                return Math.floor(n).toString();
-            }
+            return n.toFixed(precision);
         } else {
             return n.toString();
         }

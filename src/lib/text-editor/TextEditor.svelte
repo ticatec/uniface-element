@@ -3,6 +3,7 @@
     import {DisplayMode} from "../common/DisplayMode";
     import prefixFilter from "../utils/prefixFilter";
     import CommonEditor from "../common-editor/CommonEditor.svelte";
+    import {tick} from "svelte";
 
     const excludeAttrs = ['type', 'readonly', 'disabled', 'required', "form", "wrap"]
 
@@ -19,7 +20,12 @@
     export let displayMode: DisplayMode = DisplayMode.Edit;
     export let onChange: ((value: string) => void) | undefined = undefined;
 
-    export let autoFocus: boolean = false;
+    export const setFocus = () => {
+        setTimeout(()=> {
+            editor && editor.focus();
+        }, 50);
+    }
+
 
     let className: string = '';
     let input$: any;
@@ -41,9 +47,6 @@
         oldValue = value;
     }
 
-    $: if (editor && autoFocus) {
-        editor.focus();
-    }
 
 </script>
 <CommonEditor {displayMode} {style} {value} {suffix} {prefix} {readonly} {disabled} {variant} {compact}
@@ -55,7 +58,7 @@
             <slot name="leading-icon"/>
         {/if}
     </svelte:fragment>
-    <input bind:this={editor} type="text" style="flex: 1 1 auto" bind:value={value} {...input$}
+    <input bind:this={editor} {...input$} type="text" style="flex: 1 1 auto" bind:value={value}
            on:blur on:focus on:keydown on:keyup on:keypress on:input on:compositionstart
            on:compositionend on:compositionupdate/>
     <svelte:fragment slot="trailing-icon">

@@ -26,7 +26,7 @@ export default class UniDataTable {
 
     constructor(id: string, indicatorWidth?: number) {
         this.id = id;
-        this.indicatorWidth = indicatorWidth??0;
+        this.indicatorWidth = indicatorWidth ?? 0;
         this.tableRows = new TableRows();
     }
 
@@ -42,10 +42,12 @@ export default class UniDataTable {
         this._frozenColumns = [];
         this._columns = [];
         (columns ?? []).forEach(col => {
-            if (col.frozen) {
-                this._frozenColumns.push(col);
-            } else {
-                this._columns.push(col);
+            if (col.visible) {
+                if (col.frozen) {
+                    this._frozenColumns.push(col);
+                } else {
+                    this._columns.push(col);
+                }
             }
         });
     }
@@ -87,11 +89,11 @@ export default class UniDataTable {
         return [...this.tableRows.rows];
     }
 
-    get columns():Array<DataColumn> {
+    get columns(): Array<DataColumn> {
         return this._columns;
     }
 
-    get frozenColumns():Array<DataColumn> {
+    get frozenColumns(): Array<DataColumn> {
         return this._frozenColumns;
     }
 }

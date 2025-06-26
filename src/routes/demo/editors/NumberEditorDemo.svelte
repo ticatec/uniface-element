@@ -3,8 +3,10 @@
     import {DisplayMode} from "$lib";
     import FormField from "$lib/form-field";
     import NumberEditor from "$lib/number-editor";
+    import Button from "$lib/button";
 
     let data: any = {}
+    let readonly: boolean = false;
 
 </script>
 
@@ -16,13 +18,16 @@
             <div>
                 <span>Input: {JSON.stringify(data)}</span>
             </div>
+            <div>
+                <Button label="readonly" onClick="{()=>{readonly=!readonly}}"/>
+            </div>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px">
             <FormField label="NumberEditor - integer">
                 <NumberEditor variant="outlined" bind:value={data.age} precision={0}/>
             </FormField>
             <FormField label="TextEditor - precision=2, allow negative">
-                <NumberEditor variant="filled" bind:value={data.balance} allowNegative precision={2} prefix="US$"/>
+                <NumberEditor {readonly} variant="filled" bind:value={data.balance} allowNegative precision={2} prefix="US$"/>
             </FormField>
             <FormField label="TextEditor - min[1] / max[6]">
                 <NumberEditor variant="filled" bind:value={data.weight} suffix="KG" max={6} min={1} precision={3}/>

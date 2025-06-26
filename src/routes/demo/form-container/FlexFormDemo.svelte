@@ -25,7 +25,7 @@
 <div style="width: 800px; margin: 0 auto; padding: 30px 0">
     <FlexRowForm style="width: 100%; border: 1px solid #e1e1e1">
         <CellField span="{4}" label="Name" required error={errors.name}>
-            <TextEditor bind:value={data.name} input$maxLength="10" variant="filled"/>
+            <TextEditor disabled bind:value={data.name} input$maxLength="10" variant="filled"/>
         </CellField>
         <CellField span="{4}" label="Dob" required error={errors.dob}>
             <DatePicker bind:value={data.dob} variant="filled" mandatory max={new Date()}/>

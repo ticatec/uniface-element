@@ -4,6 +4,8 @@
     import CommonEditor from "../common-editor/CommonEditor.svelte";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import NumberInput from "$lib/common-editor/NumberInput.svelte";
+    import {tick} from "svelte";
+    import utils from "$lib/common/utils";
 
 
 
@@ -24,6 +26,11 @@
     export let min: number | null = null;
     export let removable: boolean = true;
     export let onChange: OnChangeHandler<number | null> = null as unknown as OnChangeHandler<number | null>;
+    export const setFocus = () => {
+        setTimeout(()=> {
+            editor && editor.focus();
+        }, 50);
+    }
 
     let className: string = '';
     let editor: NumberInput;
@@ -33,9 +40,12 @@
         editor.setFocus();
     }
 
+    let textValue: string = utils.formatNumber(value, precision);
+
 
 </script>
-<CommonEditor {displayMode} {style} {value} {suffix} {prefix} {readonly} {variant} {compact} class={className}
+<CommonEditor {displayMode} {style} value={textValue} {suffix} {prefix} {readonly} {variant} {compact} class={className}
+              input$class="number-editor"
               hasLeadingIcon={$$slots['leading-icon']!=null} hasTrailingIcon={$$slots['trailing-icon']!=null}
               showActionIcon={removable && !readonly && !disabled && value != null} {clean}>
     <svelte:fragment slot="leading-icon">
@@ -45,7 +55,8 @@
             </div>
         {/if}
     </svelte:fragment>
-    <NumberInput bind:this={editor} style="flex: 1 1 auto" {disabled} {placeholder} bind:value {precision} {allowNegative} {max} {min} {readonly} {onChange}/>
+    <NumberInput bind:this={editor} bind:textValue style="flex: 1 1 auto" {disabled} {placeholder} bind:value {precision} {allowNegative} {max} {min}
+                 {readonly} {onChange}/>
     <svelte:fragment slot="trailing-icon">
         {#if $$slots['trailing-icon']}
             <div class="editor-embed-icon">

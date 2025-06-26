@@ -113,6 +113,14 @@
     padding: 0;
     color: var(--uniface-editor-text-color, #374151);
 
+    &.number-editor {
+      text-align: right; /* 默认右对齐 */
+      padding-right: 16px;
+
+      &:focus {
+        //text-align: left; /* 聚焦时左对齐 */
+      }
+    }
 
     &:focus {
       outline: none;
@@ -121,6 +129,8 @@
     &:disabled {
       color: var(--uniface-editor-outlined-disabled-text-color, #B3BCCA);
     }
+
+
   }
 
   input[type=number] {
@@ -131,6 +141,7 @@
     -webkit-appearance: none;
     margin: 0;
   }
+
 
   &.compact {
     height: 30px;
@@ -163,6 +174,10 @@
     .editor-action-icon {
       visibility: visible;
     }
+
+    &:has(input:disabled) {
+      border-bottom-color: var(--uniface-editor-border-color, #F1F5F9);
+    }
   }
 
   &:hover {
@@ -181,6 +196,10 @@
 
     &:focus-within {
       border-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
+
+      &:has(input:disabled) {
+        border-color: var(--uniface-editor-border-color, #F1F5F9);
+      }
     }
 
     &:has(input:disabled) {
@@ -196,10 +215,7 @@
 
   &.plain {
     border: none;
-
-    &:focus-within {
-      border-bottom-color: transparent;
-    }
+    padding: 0 4px;
   }
 
   .editor-prefix, .editor-suffix {

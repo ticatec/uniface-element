@@ -12,11 +12,19 @@
     export let compact: boolean = false;
     export let onClick: ((event: MouseEvent) => void) | null = null;
     export let onChange: OnChangeHandler<boolean> = null as unknown as OnChangeHandler<boolean>;
+    export let autoFocus: boolean = false;
+
+    export const setFocus = () => {
+        setTimeout(()=> {
+            checkbox && checkbox.focus();
+        }, 50);
+    }
 
     let oldValue = value;
 
     let checkbox: any;
     let checked: boolean;
+
 
     const handleClickEvent = (e: MouseEvent) => {
         if (readonly || disabled) {
@@ -45,6 +53,9 @@
         oldValue = value;
     }
 
+    $: if (checkbox && autoFocus) {
+        checkbox.focus();
+    }
 
 </script>
 <div class="uniface-checkbox" class:disabled class:compact {style}>

@@ -14,6 +14,7 @@
     export let value: any = null;
     export let suffix: string = '';
     export let prefix: string = '';
+    export let input$class: string = null as unknown as string;
     export let displayMode: DisplayMode = DisplayMode.Edit;
     export let showActionIcon: boolean = false;
     export let clean: () => void;
@@ -53,7 +54,7 @@
             </div>
         {/if}
         {#if disabled || readonly}
-            <input style="flex: 1 1 auto" {value} {disabled} {readonly} {placeholder}>
+            <input class={input$class} type="text" style="flex: 1 1 auto" {value} {disabled} {readonly} {placeholder}>
         {:else}
             <div style="position: relative; flex: 1 1 auto">
                 <slot/>

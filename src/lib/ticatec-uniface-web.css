@@ -598,6 +598,12 @@
   padding: 0;
   color: var(--uniface-editor-text-color, #374151);
 }
+.uniface-common-editor input.number-editor {
+  text-align: right; /* 默认右对齐 */
+}
+.uniface-common-editor input.number-editor:focus {
+  text-align: left; /* 聚焦时左对齐 */
+}
 .uniface-common-editor input:focus {
   outline: none;
 }
@@ -636,6 +642,9 @@
 .uniface-common-editor:focus-within .editor-action-icon {
   visibility: visible;
 }
+.uniface-common-editor:focus-within:has(input:disabled) {
+  border-bottom-color: var(--uniface-editor-border-color, #F1F5F9);
+}
 .uniface-common-editor:hover .uniface-editor-clean-icon {
   display: block;
 }
@@ -649,6 +658,9 @@
 .uniface-common-editor.outlined:focus-within {
   border-color: var(--uniface-editor-outlined-active-border-color, #298DFF);
 }
+.uniface-common-editor.outlined:focus-within:has(input:disabled) {
+  border-color: var(--uniface-editor-border-color, #F1F5F9);
+}
 .uniface-common-editor.outlined:has(input:disabled) {
   background-color: var(--uniface-editor-outlined-disabled-backgournd-color, #F1F5F9);
 }
@@ -659,9 +671,7 @@
 }
 .uniface-common-editor.plain {
   border: none;
-}
-.uniface-common-editor.plain:focus-within {
-  border-bottom-color: transparent;
+  padding: 0 4px;
 }
 .uniface-common-editor .editor-prefix, .uniface-common-editor .editor-suffix {
   color: #6B7280;
@@ -1636,10 +1646,12 @@
 }
 .uniface-message-board .uniface-message-box .box-icon {
   flex: 0 0 auto;
-  width: 64px;
   box-sizing: border-box;
   padding: 8px 12px;
   margin-right: 24px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
 }
 .uniface-message-board .uniface-message-box .box-icon.warning {
   color: orange;
@@ -3471,12 +3483,10 @@ root {
   cursor: default;
   box-sizing: border-box;
   text-align: center;
+  padding: 4px;
 }
 .uniface-icon.clickable {
   cursor: pointer;
-}
-.uniface-icon.clickable:hover {
-  color: var(--uniface-plain-hover-color, #42A5F5);
 }
 .uniface-icon.clickable:active {
   position: relative;
@@ -3989,6 +3999,7 @@ root {
 .uniface-popup-hint {
   position: absolute;
   padding: 8px 16px;
+  width: auto;
   box-sizing: border-box;
   background-color: var(--uniface-popup-hint-bg, #FFFFE1);
   color: var(--uniface-popup-hint-color, #374151);

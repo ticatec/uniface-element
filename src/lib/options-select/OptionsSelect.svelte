@@ -3,6 +3,7 @@
     import {DisplayMode} from "../common/DisplayMode";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import CommonPicker from "$lib/common/CommonPicker.svelte";
+    import {tick} from "svelte";
 
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let disabled: boolean = false;
@@ -23,6 +24,11 @@
     export let emptyText: string = null as unknown as string;
     export let onChange: OnChangeHandler<any> = null as unknown as OnChangeHandler<any>;
 
+    export const setFocus = () => {
+        setTimeout(()=> {
+            editor && editor.focus();
+        }, 50);
+    }
 
     let textValue: string;
     let editor: any;

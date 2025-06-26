@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import {onMount} from "svelte";
+    import {onMount, tick} from "svelte";
     import {DisplayMode} from "../common/DisplayMode";
     import Popover from "../common/Popover.svelte";
     import dayjs from "dayjs";
@@ -21,6 +21,12 @@
     export let min: UniDate = null;
     export let max: UniDate = null;
     export let onChange: OnChangeHandler<Date> = null as unknown as OnChangeHandler<Date>;
+    export const setFocus = () => {
+        setTimeout(()=> {
+            editor && editor.focus();
+        }, 50);
+    }
+
 
     let textValue: string;
     let editor: any;

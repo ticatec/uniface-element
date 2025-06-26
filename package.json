@@ -1,6 +1,6 @@
 {
   "name": "@ticatec/uniface-element",
-  "version": "0.1.54",
+  "version": "0.1.64",
   "description": "uniface web elements",
   "scripts": {
     "dev": "vite dev",
@@ -192,6 +192,10 @@
       "types": "./dist/icon/index.d.ts",
       "import": "./dist/icon/index.js"
     },
+    "./InlineCellEditor": {
+      "types": "./dist/inline-cell-editor/index.d.ts",
+      "import": "./dist/inline-cell-editor/index.js"
+    },
     "./ImageFiles": {
       "types": "./dist/image-files/index.d.ts",
       "import": "./dist/image-files/index.js"
@@ -259,6 +263,10 @@
     "./PaginationPanel": {
       "types": "./dist/pagination-panel/index.d.ts",
       "import": "./dist/pagination-panel/index.js"
+    },
+    "./PopupHint": {
+      "types": "./dist/popup-hint/index.d.ts",
+      "import": "./dist/popup-hint/index.js"
     },
     "./ProgressBar": {
       "types": "./dist/progress-bar/index.d.ts",

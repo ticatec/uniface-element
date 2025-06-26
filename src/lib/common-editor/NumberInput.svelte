@@ -14,8 +14,8 @@
     export let max: number | null = null;
     export let min: number | null = null;
     export let onChange: OnChangeHandler<number | null> = null as unknown as OnChangeHandler<number | null>;
-
-    export const setFocus = () => {
+    export let textValue: string;
+    export const focus = () => {
         editor.focus();
     }
 
@@ -60,9 +60,6 @@
 
     const handleKeyDown = async (event: KeyboardEvent) => {
         let accept = (ctrlKeys.indexOf(event.key) > -1 && !composing) || checkNewInputText(event.key);
-        // if (!accept) {
-        //     accept = checkNewInputText(event.key)
-        // }
         if (!accept) {
             event.stopPropagation();
             event.preventDefault();
@@ -93,12 +90,12 @@
     };
 
 
-    let textValue: string = utils.formatNumber(value, precision);
+    //
 
     $: textValue = value == null ? '' : utils.formatNumber(value, precision);
     $: regex = new RegExp(utils.getNumberRegex(precision, allowNegative));
 
 </script>
-<input bind:this={editor} type="text" {readonly} {style} {disabled} placeholder={readonly || disabled ? '' : placeholder} bind:value={textValue}
+<input class="number-editor" bind:this={editor} type="text" {readonly} {style} {disabled} placeholder={readonly || disabled ? '' : placeholder} bind:value={textValue}
        on:keydown={handleKeyDown} on:focus on:blur={handleBlurEvent} on:compositionstart={handleCompositionStart}
        on:compositionend={handleCompositionEnd} on:paste={handlePaste}/>

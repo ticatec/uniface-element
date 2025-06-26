@@ -3,6 +3,7 @@
   cursor: default;
   box-sizing: border-box;
   text-align: center;
+  padding: 4px;
 
   i {
 
@@ -10,10 +11,6 @@
 
   &.clickable {
     cursor: pointer;
-
-    &:hover {
-      color: var(--uniface-plain-hover-color, #42A5F5)
-    }
 
     &:active {
       position: relative;

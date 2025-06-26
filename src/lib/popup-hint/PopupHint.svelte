@@ -15,14 +15,11 @@
 
     // 显示提示框函数
     const show: ShowHint = async (element: Element, text: string, x: number, y: number) => {
-        if (targetElement != null) {
-            targetElement.addEventListener('mouseout', hideHint);
-        }
+        element.addEventListener('mouseleave', hideHint);
         message = text;
         calculatePosition(x, y);
         setTimeout(()=> {
             if (targetElement == element) {
-                targetElement.addEventListener('mouseout', hideHint);
                 hintVisible = true;
             }
         }, 500);
@@ -38,7 +35,7 @@
     const hideHint = () => {
         hintVisible = false;
         if (targetElement) {
-            targetElement.removeEventListener('mouseout', hideHint);
+            targetElement.removeEventListener('mouseleave', hideHint);
         }
         targetElement = null;
     };
