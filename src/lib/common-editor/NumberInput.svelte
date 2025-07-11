@@ -19,13 +19,12 @@
         editor.focus();
     }
 
-    const ctrlKeys: Array<string> = ['Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
-
     let regex: RegExp;
 
     let editor: any;
 
     const handleBlurEvent = (e: FocusEvent) => {
+        isFocused = false;
         if (!readonly) {
             value = parseFloat(textValue);
             if (isNaN(value)) {
@@ -58,24 +57,56 @@
         }
     }
 
-    const handleKeyDown = async (event: KeyboardEvent) => {
-        let accept = (ctrlKeys.indexOf(event.key) > -1 && !composing) || checkNewInputText(event.key);
-        if (!accept) {
-            event.stopPropagation();
-            event.preventDefault();
-        } else {
-            await tick();
-        }
-    }
 
     let composing: boolean = false;
     let currentText: string;
+    let isFocused = false;
 
     const handlePaste = (event: ClipboardEvent) => {
         const pasteData = event.clipboardData?.getData('text') || '';
         if (!checkNewInputText(pasteData)) {
             event.preventDefault();
         }
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+        // 检查是否是全角字符或中文等（非 ASCII）
+        if (/[^\x00-\x7F]/.test(event.key)) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+        }
+
+        // 保留 ctrl 等特殊键
+        const allowKeys = ['Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
+        if (allowKeys.includes(event.key)) return;
+
+        // 如果是数字或小数点、负号等，可允许（你可根据 precision 精度自定义更严格规则）
+        if (/[\d\.\-]/.test(event.key)) return;
+
+        // 拦截其他非法字符
+        event.preventDefault();
+        event.stopPropagation();
+    };
+    const handleInput = () => {
+        if (composing) return; // 正在输入拼音等，忽略
+
+        // 校验是否为合法数字字符串
+        const raw = editor.value;
+        if (/[^\x00-\x7F]/.test(raw)) {
+            // 包含中文、日文、韩文、全角字符、表情等
+            editor.value = textValue; // 恢复输入前状态
+            return;
+        }
+        if (regex.test(raw)) {
+            const parsed = parseFloat(raw);
+            if (!isNaN(parsed) && utils.isValidNumber(parsed, precision, allowNegative, max, min)) {
+                value = parsed;
+            }
+        }
+
+        // 不合法时可以不更新 value，只更新 textValue（允许用户继续输）
+        textValue = raw;
     }
 
 
@@ -86,16 +117,27 @@
 
     const handleCompositionEnd = (event: CompositionEvent) => {
         composing = false;
-        editor.value = currentText;
+        if (/[^\x00-\x7F]/.test(editor.value)) {
+            editor.value = currentText; // 恢复输入前内容
+            textValue = currentText;
+        } else {
+            handleInput(); // 正常输入
+        }
     };
 
 
-    //
+    $: if (!isFocused) {
+        textValue = value == null ? '' : utils.formatNumber(value, precision);
+    }
 
-    $: textValue = value == null ? '' : utils.formatNumber(value, precision);
     $: regex = new RegExp(utils.getNumberRegex(precision, allowNegative));
 
 </script>
-<input class="number-editor" bind:this={editor} type="text" {readonly} {style} {disabled} placeholder={readonly || disabled ? '' : placeholder} bind:value={textValue}
-       on:keydown={handleKeyDown} on:focus on:blur={handleBlurEvent} on:compositionstart={handleCompositionStart}
+<input class="number-editor" bind:this={editor} type="text" {readonly} {style} {disabled} placeholder={readonly || disabled ? '' : placeholder}
+       bind:value={textValue}
+       on:focus={() => isFocused = true}
+       on:blur={handleBlurEvent}
+       on:compositionstart={handleCompositionStart}
+       on:input={handleInput}
+       on:keydown={handleKeyDown}
        on:compositionend={handleCompositionEnd} on:paste={handlePaste}/>

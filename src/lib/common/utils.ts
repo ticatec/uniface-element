@@ -70,8 +70,9 @@ const isValidNumber = (n: number, precision: number | null | undefined, allowNeg
     return valid;
 }
 
-const formatNumber = (n: number | null, precision: number | null | undefined): string => {
-    if (n == null) {
+const formatNumber = (n: number | string | null, precision: number | null | undefined): string => {
+    n = typeof n == "string" ? parseFloat(n) : n;
+    if (n==null || isNaN(n)) {
         return '';
     } else {
         if (precision != null) {

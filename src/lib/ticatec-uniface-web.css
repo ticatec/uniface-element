@@ -451,7 +451,7 @@
 .options-popover .option-item {
   width: 100%;
   box-sizing: border-box;
-  padding: 4px 6px;
+  padding: 12px 6px;
   cursor: pointer;
   font-size: 1.1em;
   line-height: 1.5em;
@@ -600,9 +600,7 @@
 }
 .uniface-common-editor input.number-editor {
   text-align: right; /* 默认右对齐 */
-}
-.uniface-common-editor input.number-editor:focus {
-  text-align: left; /* 聚焦时左对齐 */
+  padding-right: 16px;
 }
 .uniface-common-editor input:focus {
   outline: none;
@@ -3740,7 +3738,7 @@ root {
   --uniface-data-table-header-bg: #F8FAFC;
   --uniface-data-table-shadow-gap: 2px;
   --uniface-data-table-header-divid-color: #B3BCCA;
-  --uniface-data-table-cell-padding: 3px 4px;
+  --uniface-data-table-cell-padding: 3px 6px;
   --uniface-data-table-inline-row-panel-border: 1px solid #F8FAFC;
   --uniface-data-table-inline-row-panel-bg: #F1F5F9;
   --uniface-scroll-color: #e1e1e180;

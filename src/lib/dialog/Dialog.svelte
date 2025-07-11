@@ -7,11 +7,16 @@
     import {onMount} from "svelte";
 
     export let title: string;
+
+    export let width: string = 'unset';
+    export let height: string = 'unset';
     export let actions: ButtonActions | null = null;
     export let closeConfirm: DialogCloseConfirm | null = null;
     export let content$style: string = '';
     export let closeHandler: () => void;
     export let closeAction: ButtonAction | null = null;
+
+    export let dialog$style: string = "";
 
     export const close = async () => {
         let confirm = closeConfirm ? await closeConfirm() : true;
@@ -52,12 +57,13 @@
 
     $:  dialogActions = actions ? [...actions, closeAction] : [closeAction];
 
+
 </script>
 
 <div class="uniface-dialog" style="{startMove ? 'cursor: move' : ''}" transition:fade={{duration: 500}} aria-hidden="true"
      on:mouseleave={handleMouseUp} on:mousemove={handleMouseMove}>
     <div>
-        <div class="uniface-dialog-box" style="top: {top}px; left: {left}px">
+        <div class="uniface-dialog-box" style="{dialog$style}; top: {top}px; left: {left}px; width: {width}; height: {height}; ">
             <div class="title-bar" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} aria-hidden="true">
                 <div style="flex: 1 1 auto"><span>{title ?? 'New window'}</span></div>
                 <div style="flex: 0 0 auto; padding-left: 12px">

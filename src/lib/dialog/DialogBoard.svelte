@@ -7,7 +7,7 @@
     import {dialogs} from "$lib/dialog/Dialogs";
 
     export const open = (component: any, params: any) => {
-        let dialog = {id: (new Date().getTime()).toString(36) ,component, params};
+        let dialog = {id: (new Date().getTime()).toString(36), component, params};
         params.closeHandler = () => {
             dialogs.removeDialog(dialog.id);
         }
@@ -32,7 +32,9 @@
 </script>
 
 <div bind:this={board} class="uniface-dialog-board" style="display: {$dialogs.length > 0 ? 'block' : 'none'}">
-    {#each $dialogs as dialog}
-        <svelte:component this={dialog.component} {...dialog.params}></svelte:component>
-    {/each}
+    <div style="width: 100%; height: 100%; position: relative">
+        {#each $dialogs as dialog}
+            <svelte:component this={dialog.component} {...dialog.params}></svelte:component>
+        {/each}
+    </div>
 </div>

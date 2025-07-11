@@ -60,7 +60,7 @@ export default class UniDataTable {
         this._frozenColumns.forEach((col, idx) => {
             if (col.visible != false) {
                 this._frozenWidth += col.width;
-                colStyle += `#tab-${this.id} .fz_col-${idx - inv} {width: ${col.width}px; ext-align: ${col.align ?? 'left'}}\n`;
+                colStyle += `#tab-${this.id} .fz_col-${idx - inv} {width: ${col.width}px; text-align: ${col.align ?? 'left'}}\n`;
             } else {
                 inv++;
             }

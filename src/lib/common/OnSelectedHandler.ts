@@ -1,0 +1,1 @@
+export type OnSelectedHandler = (item: any) => void;

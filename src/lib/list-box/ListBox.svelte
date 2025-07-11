@@ -11,6 +11,7 @@
 
     type OnSelectChange = (item: any) => void;
     type OnItemDblClick = (item: any) => void;
+    type OnItemClick = (item: any) => void;
 
     export let readonly: boolean = false;
     export let style: string | null = null;
@@ -26,6 +27,7 @@
     export let item$props: any = null;
     export let onSelectChange: OnSelectChange = null as unknown as OnSelectChange;
     export let onItemDblClick: OnItemDblClick = null as unknown as OnItemDblClick;
+    export let onItemClick: OnItemClick = null as unknown as OnItemDblClick;
 
     export let title: string = null as unknown as string;
     export let round: boolean = false;
@@ -39,10 +41,14 @@
     let filteredList: Array<any>;
 
     const handleItemClick = (item: any) => (e: MouseEvent) => {
-        if (selectMode == 'single' && readonly == false) {
-            if (selectedItem != item) {
-                selectedItem = item;
-                onSelectChange?.(item);
+        if (readonly == false) {
+            if (selectMode == 'single') {
+                if (selectedItem != item) {
+                    selectedItem = item;
+                    onSelectChange?.(item);
+                }
+            } else {
+                onItemClick?.(item);
             }
         }
     }

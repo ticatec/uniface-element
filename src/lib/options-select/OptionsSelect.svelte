@@ -4,6 +4,7 @@
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import CommonPicker from "$lib/common/CommonPicker.svelte";
     import {tick} from "svelte";
+    import type {OnSelectedHandler} from "$lib/common/OnSelectedHandler";
 
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let disabled: boolean = false;
@@ -23,6 +24,8 @@
     export let itemRender: any = null;
     export let emptyText: string = null as unknown as string;
     export let onChange: OnChangeHandler<any> = null as unknown as OnChangeHandler<any>;
+    export let onSelected: OnSelectedHandler = null as unknown as OnSelectedHandler;
+
 
     export const setFocus = () => {
         setTimeout(()=> {
@@ -47,6 +50,7 @@
 
     const handleItemClick = (data: any) => () => {
         if (disableOptions.indexOf(data[keyField]) < 0) {
+            onSelected?.(data);
             value = data[keyField];
             editor.focus();
             showPopup = false;

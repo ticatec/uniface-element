@@ -60,7 +60,7 @@
                 <span>Simple example for options select</span>
             </div>
             <FormField label="Currency">
-                <OptionsSelect variant="outlined" bind:value={data.currency} options={currencyUnits}/>
+                <OptionsSelect variant="outlined" bind:value={data.currency} options={currencyUnits} onSelected={(d)=>{console.log(d)}}/>
             </FormField>
         </DemoBlock>
         <DemoBlock title="Mandatory" displayText={data.currency1}>

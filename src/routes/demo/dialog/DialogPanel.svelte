@@ -34,7 +34,7 @@
     };
     export let actions: ButtonActions;
 
-    const closeAction = {
+    const closeAction : ButtonAction = {
         label: '关闭', type: "secondary"
     }
 
@@ -85,8 +85,8 @@
 </script>
 
 
-<Dialog {title} {actions} {closeConfirm} {closeHandler} {closeAction}>
-    <FormContainer style="width: 800px; height: 600px; padding: 12px; ">
+<Dialog {title} {actions} {closeConfirm} {closeHandler} {closeAction} width="80%">
+    <FormContainer style="width: auto; height: 600px; padding: 12px; ">
         <Row>
             <CellField span={4} label="姓名" required={true}>
                 <TextEditor variant="filled" bind:value={data.name}/>

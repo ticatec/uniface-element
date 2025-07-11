@@ -6,6 +6,9 @@
     import type {DialogCloseConfirm} from "$lib/dialog/DialogCloseConfirm";
 
     export let title: string;
+    export let width: string = 'unset';
+    export let height: string = 'unset';
+
     export let closeConfirm: DialogCloseConfirm | null = null;
     export let content$style: string = '';
     export let closeHandler: () => void;
@@ -35,6 +38,6 @@
 
 </script>
 
-<Dialog {title} {content$style} {closeHandler} {actions} {closeConfirm}>
+<Dialog {title} {content$style} {width} {height} {closeHandler} {actions} {closeConfirm}>
     <slot></slot>
 </Dialog>

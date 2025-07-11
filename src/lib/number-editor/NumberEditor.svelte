@@ -1,4 +1,4 @@
-<script lang="ts">
+ <script lang="ts">
 
     import {DisplayMode} from "../common/DisplayMode";
     import CommonEditor from "../common-editor/CommonEditor.svelte";

@@ -44,6 +44,7 @@
     import GridFormDemo from "./form-container/GridFormDemo.svelte";
     import SimpleListBoxDemo from "./data-display/list-box/SimpleListBoxDemo.svelte";
     import TransferDemo from "./containers/transfer/TransferDemo.svelte";
+    import DialogDemo from "./dialog/DialogDemo.svelte";
 
     export let onItemClick: OnMenuClick;
 
@@ -202,6 +203,12 @@
                     item: {
                         text: "Tabs",
                         data: TabsDemo
+                    }
+                },
+                {
+                    item: {
+                        text: "Dialog",
+                        data: DialogDemo
                     }
                 },
                 {

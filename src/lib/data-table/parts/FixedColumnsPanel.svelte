@@ -63,16 +63,37 @@
         selectionMode = selectedRows.length == rows.length ? SelectionMode.All : selectedRows.length == 0 ? SelectionMode.None : SelectionMode.Partial;
     }
 
+    let viewPanel: any;
 
-    $: console.log('选中行', selectionMode)
+    const handleWheelEvent = (e: WheelEvent) => {
+        let maxSh = viewPanel.scrollHeight - viewPanel.clientHeight;
+        if (maxSh > 0) {
+            if (e.deltaY != 0) {
+                scrollTop = scrollTop + e.deltaY;
+                if (scrollTop < 0) {
+                    scrollTop = 0;
+                }
+                if (scrollTop > maxSh) {
+                    scrollTop = maxSh;
+                }
+                setTimeout(() => {
+                    scrollTop = viewPanel.scrollTop;
+                }, 200);
+            }
+        }
+    }
+
+    $: if (viewPanel && scrollTop > -1) {
+        viewPanel.scrollTop = scrollTop;
+    }
 
 </script>
 
 <div class="left-fixed-panel" style="width: {width}px">
     <FixedHeaderPanel {selectionMode} {orderColumn} {orderDirection} {handleCellClick} {handleWidthChange} columns={fixedCols} {indicatorColumn}
                       {handleToggleSelectAll} {rowHeight}/>
-    <div class="rows-container">
-        <div style="top: {-scrollTop}px">
+    <div class="rows-container" bind:this={viewPanel} on:wheel|passive={handleWheelEvent}>
+        <div>
             {#each rows ?? [] as row, idx}
                 <FixedRow rowNo={idx+1} {row} selected={selectedRows.indexOf(row.data) > -1} alternative={idx % 2 == 1} {selectable}
                           cols={fixedCols} {expandRow} {rowHeight} {expandable} {handleRowExpand} {handleRowSelectChange} {indicatorColumn}/>
