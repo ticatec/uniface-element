@@ -61,6 +61,9 @@ export default class UniDataTable {
             if (col.visible != false) {
                 this._frozenWidth += col.width;
                 colStyle += `#tab-${this.id} .fz_col-${idx - inv} {width: ${col.width}px; text-align: ${col.align ?? 'left'}}\n`;
+                if (col.warp) {
+                    colStyle += `#tab-${this.id} .fz_col-${idx - inv}>div {white-space: wrap}\n`;
+                }
             } else {
                 inv++;
             }
@@ -70,6 +73,9 @@ export default class UniDataTable {
             if (col.visible != false) {
                 this._width += col.width;
                 colStyle += `#tab-${this.id} .col-${idx - inv} { width: ${col.width}px ; text-align: ${col.align ?? 'left'} }\n`;
+                if (col.warp) {
+                    colStyle += `#tab-${this.id} .col-${idx - inv}>div {white-space: wrap}\n`;
+                }
             } else {
                 inv++;
             }

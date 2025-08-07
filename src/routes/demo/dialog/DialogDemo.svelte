@@ -4,11 +4,13 @@
     import DialogPanel from "./DialogPanel.svelte";
 
     let saveAction = async (data: any, isNew: boolean) => {
-        console.log('回调保存')
+        console.log('回调保存');
+        return false;
     }
 
     let submitAction =  async (data: any, isNew: boolean) => {
-        console.log('回调提交')
+        console.log('回调提交');
+        return true;
     }
     const handleButtonClick = () => {
         let data = {}

@@ -32,6 +32,11 @@ export default interface DataColumn {
     minWidth?: number;
 
     /**
+     * 是否可以换行，默认为false
+     */
+    warp?: boolean;
+
+    /**
      * 单元格转换函数
      */
     formatter?: FormatCell;

@@ -1,27 +1,31 @@
 <script lang="ts">
-
     import {fade} from "svelte/transition";
     import type {DialogCloseConfirm} from "$lib/dialog/DialogCloseConfirm";
     import ActionBar, {type ButtonAction, type ButtonActions} from "$lib/action-bar";
     import i18n from "@ticatec/i18n";
-    import {onMount} from "svelte";
+    import {getContext, onMount} from "svelte";
+    import {ModalResult, type OnClose} from "./ModalResult";
 
     export let title: string;
-
     export let width: string = 'unset';
     export let height: string = 'unset';
     export let actions: ButtonActions | null = null;
     export let closeConfirm: DialogCloseConfirm | null = null;
     export let content$style: string = '';
-    export let closeHandler: () => void;
+
     export let closeAction: ButtonAction | null = null;
+    export let onClose: OnClose | null = null;
 
     export let dialog$style: string = "";
 
-    export const close = async () => {
-        let confirm = closeConfirm ? await closeConfirm() : true;
+    const closeDialog = getContext<() => void>('closeDialog');
+
+    export const close = async (result: ModalResult) => {
+        let confirm = closeConfirm && result == ModalResult.Cancel ? await closeConfirm() : true;
         if (confirm) {
-            closeHandler?.();
+            console.log('关闭窗口')
+            closeDialog();
+            onClose?.(result);
         }
     }
 
@@ -52,10 +56,32 @@
             label: i18n.getText('uniface.btnClose', 'Close'),
             type: 'secondary'
         };
-        closeAction.handler = close;
+        closeAction.handler = () => close(ModalResult.Cancel);
     })
 
-    $:  dialogActions = actions ? [...actions, closeAction] : [closeAction];
+    const wrapActions = () => {
+        let wa: ButtonActions = [];
+        if (actions) {
+            actions.forEach(action => {
+                if (action == null) {
+                    wa.push(null)
+                } else {
+                    wa.push({
+                        ...action, handler: async (event: MouseEvent) => {
+                            let result = await action.handler?.(event);
+                            if (result) {
+                                await close(ModalResult.Ok)
+                            }
+                        }
+                    })
+                }
+            })
+        }
+        wa.push(closeAction);
+        return wa;
+    }
+
+    $:  dialogActions = actions ? wrapActions() : [closeAction];
 
 
 </script>
@@ -67,7 +93,7 @@
             <div class="title-bar" on:mousedown={handleMouseDown} on:mouseup={handleMouseUp} aria-hidden="true">
                 <div style="flex: 1 1 auto"><span>{title ?? 'New window'}</span></div>
                 <div style="flex: 0 0 auto; padding-left: 12px">
-                    <i class="icon_google_clear dialog-action-button" aria-hidden="true" on:click={close}></i>
+                    <i class="icon_google_clear dialog-action-button" aria-hidden="true" on:click={()=>close(ModalResult.Cancel)}></i>
                 </div>
             </div>
             <div class="dialog-content" style={content$style}>

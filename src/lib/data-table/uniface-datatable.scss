@@ -108,6 +108,7 @@
     border-right: 1px solid transparent;
     padding: var(--uniface-data-table-cell-padding, 3px 4px);
     position: relative;
+    overflow: hidden;
 
     .sortable {
       cursor: pointer;
@@ -144,6 +145,15 @@
 
     &.alternative {
       background-color: var(--uniface-data-table-alter-row-bg, #f7f7f7);
+    }
+
+    .data-cell {
+      &>div {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
     }
   }
 

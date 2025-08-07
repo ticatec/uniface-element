@@ -602,6 +602,15 @@
   text-align: right; /* 默认右对齐 */
   padding-right: 16px;
 }
+.uniface-common-editor input.number-editor:focus {
+  text-align: left; /* 聚焦时左对齐 */
+}
+.uniface-common-editor input.number-editor[readonly] {
+  text-align: right; /* readonly 时保持右对齐 */
+}
+.uniface-common-editor input.number-editor[readonly]:focus {
+  text-align: right; /* readonly 且聚焦时保持右对齐 */
+}
 .uniface-common-editor input:focus {
   outline: none;
 }
@@ -3819,6 +3828,7 @@ root {
   border-right: 1px solid transparent;
   padding: var(--uniface-data-table-cell-padding, 3px 4px);
   position: relative;
+  overflow: hidden;
 }
 .uniface-data-table .data-cell .sortable {
   cursor: pointer;
@@ -3840,6 +3850,12 @@ root {
 }
 .uniface-data-table .data-row.alternative {
   background-color: var(--uniface-data-table-alter-row-bg, #f7f7f7);
+}
+.uniface-data-table .data-row .data-cell > div {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .uniface-data-table.row-border .header-row, .uniface-data-table.row-border .data-row {
   border-bottom: 1px solid var(--uniface-data-table-inline-border-color, #CBD5E1);

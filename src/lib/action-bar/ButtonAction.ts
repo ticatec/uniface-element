@@ -1,5 +1,6 @@
 import type {ButtonType} from "$lib/button/ButtonType";
-import type {MouseClickHandler} from "$lib";
+import type {MouseClickHandler} from "$lib/common/MouseClickHandler";
+
 
 export default interface ButtonAction {
 

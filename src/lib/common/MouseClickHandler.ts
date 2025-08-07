@@ -1,1 +1,1 @@
-export type MouseClickHandler = (event: MouseEvent) => void;
+export type MouseClickHandler = (event: MouseEvent) => Promise<void>;

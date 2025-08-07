@@ -24,19 +24,16 @@
 
     let btnSave: ButtonAction = {
         label: '保存', type: 'primary', disabled: true, handler: async () => {
-            await saveData()
+            return await saveData()
         }
     };
     let btnSubmit: ButtonAction = {
         label: '提交', type: 'primary', disabled: true, handler: async () => {
-            await submitData()
+            return await submitData()
         }
     };
     export let actions: ButtonActions;
 
-    const closeAction : ButtonAction = {
-        label: '关闭', type: "secondary"
-    }
 
     export const closeConfirm = async (): Promise<boolean> => {
         if (JSON.stringify(data) != oldData) {
@@ -59,12 +56,12 @@
         btnSubmit.disabled = false;
         oldData = JSON.stringify(data);
         actions = [btnSave, btnSubmit]
-
+        return false;
     }
 
     const submitData = async () => {
         submitAction?.(data);
-        dialog?.close();
+        return true;
     }
 
     $: if (oldData && data) {
@@ -76,7 +73,7 @@
         console.log('选中的单位：', value);
         data.deptName = value?.name;
         data.dept = value?.code;
-        //data = {...data}
+        return true;
     }
 
     const showDeptDialog = () => {
@@ -85,7 +82,7 @@
 </script>
 
 
-<Dialog {title} {actions} {closeConfirm} {closeHandler} {closeAction} width="80%">
+<Dialog {title} {actions} {closeConfirm} width="80%">
     <FormContainer style="width: auto; height: 600px; padding: 12px; ">
         <Row>
             <CellField span={4} label="姓名" required={true}>
