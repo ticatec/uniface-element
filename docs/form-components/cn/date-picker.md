@@ -10,31 +10,24 @@
 | `disabled` | `boolean` | `false` | 是否禁用 |
 | `readonly` | `boolean` | `false` | 是否只读 |
 | `compact` | `boolean` | `false` | 是否紧凑模式 |
-| `value` | `Date \| string \| null` | `null` | 日期值 |
-| `format` | `string` | `'YYYY-MM-DD'` | 日期格式 |
+| `mandatory` | `boolean` | `false` | 是否必填 |
+| `value` | `any` | `null` | 日期值 |
+| `style` | `string` | `''` | 自定义样式 |
 | `placeholder` | `string` | `''` | 占位符文本 |
 | `displayMode` | `DisplayMode` | `DisplayMode.Edit` | 显示模式 |
-| `minDate` | `Date \| string \| null` | `null` | 最小日期 |
-| `maxDate` | `Date \| string \| null` | `null` | 最大日期 |
-| `disabledDates` | `Array<Date \| string>` | `[]` | 禁用的日期 |
-| `locale` | `string` | `'zh-CN'` | 语言区域 |
-| `style` | `string` | `''` | 自定义样式 |
+| `min` | `UniDate` | `null` | 最小日期 |
+| `max` | `UniDate` | `null` | 最大日期 |
 | `onChange` | `OnChangeHandler<Date>` | - | 值变化回调 |
 
 ## 使用示例
 
 ```svelte
 <script lang="ts">
-  import { DatePicker } from '@ticatec/uniface-element';
+  import DatePicker from '@ticatec/uniface-element/DatePicker';
   
-  let birthDate: Date | null = null;
-  let startDate: Date = new Date();
-  let endDate: Date | null = null;
-  
-  // 计算最小和最大日期
-  const today: Date = new Date();
-  const minBirthDate: Date = new Date(1900, 0, 1);
-  const maxBirthDate: Date = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+  let birthDate: any = null;
+  let startDate: any = new Date();
+  let endDate: any = null;
   
   const handleBirthDateChange = (date: Date): void => {
     birthDate = date;
@@ -43,38 +36,34 @@
   
   const handleStartDateChange = (date: Date): void => {
     startDate = date;
-    // 自动设置结束日期的最小值
-    if (endDate && date > endDate) {
-      endDate = date;
-    }
+    console.log('开始日期：', date);
   };
   
   const handleEndDateChange = (date: Date): void => {
     endDate = date;
+    console.log('结束日期：', date);
   };
 </script>
 
-<!-- 出生日期选择 -->
+<!-- 基本日期选择器 -->
 <DatePicker 
-  placeholder="请选择出生日期"
-  minDate={minBirthDate}
-  maxDate={maxBirthDate}
+  placeholder="选择日期"
   bind:value={birthDate}
   onChange={handleBirthDateChange}
 />
 
-<!-- 开始日期 -->
+<!-- 带最小日期限制的开始日期 -->
 <DatePicker 
-  placeholder="请选择开始日期"
-  minDate={today}
+  placeholder="选择开始日期"
+  min={new Date()}
   bind:value={startDate}
   onChange={handleStartDateChange}
 />
 
-<!-- 结束日期 -->
+<!-- 带日期范围的结束日期 -->
 <DatePicker 
-  placeholder="请选择结束日期"
-  minDate={startDate}
+  placeholder="选择结束日期"
+  min={startDate}
   bind:value={endDate}
   onChange={handleEndDateChange}
 />
@@ -82,43 +71,39 @@
 
 ## 高级用法
 
-### 工作日选择
+### 日期范围选择
 ```svelte
 <script lang="ts">
-  let workDate: Date | null = null;
+  let startDate: any = null;
+  let endDate: any = null;
   
-  // 判断是否为工作日（周一到周五）
-  const isWorkday = (date: Date): boolean => {
-    const day = date.getDay();
-    return day >= 1 && day <= 5;
-  };
-  
-  // 生成禁用日期列表（周末）
-  const generateDisabledWeekends = (startDate: Date, endDate: Date): Date[] => {
-    const disabled: Date[] = [];
-    const current = new Date(startDate);
-    
-    while (current <= endDate) {
-      if (!isWorkday(current)) {
-        disabled.push(new Date(current));
-      }
-      current.setDate(current.getDate() + 1);
+  const handleStartChange = (date: Date) => {
+    startDate = date;
+    // 如果结束日期早于开始日期，重置结束日期
+    if (endDate && new Date(endDate) < new Date(date)) {
+      endDate = null;
     }
-    
-    return disabled;
   };
   
-  const nextMonth: Date = new Date();
-  nextMonth.setMonth(nextMonth.getMonth() + 1);
-  
-  $: disabledWeekends = generateDisabledWeekends(new Date(), nextMonth);
+  const handleEndChange = (date: Date) => {
+    endDate = date;
+  };
 </script>
 
-<DatePicker 
-  placeholder="请选择工作日"
-  disabledDates={disabledWeekends}
-  bind:value={workDate}
-/>
+<div class="date-range">
+  <DatePicker 
+    placeholder="开始日期"
+    bind:value={startDate}
+    onChange={handleStartChange}
+  />
+  
+  <DatePicker 
+    placeholder="结束日期"
+    min={startDate}
+    bind:value={endDate}
+    onChange={handleEndChange}
+  />
+</div>
 ```
 
 ## 最佳实践
@@ -126,30 +111,28 @@
 ### 1. 合理设置日期范围
 ```svelte
 <script lang="ts">
-  // 预订日期：只能选择未来日期
-  const bookingMinDate: Date = new Date();
-  bookingMinDate.setDate(bookingMinDate.getDate() + 1);
-  
-  // 生日：不超过当前日期
-  const birthdayMaxDate: Date = new Date();
+  const today = new Date();
+  const futureDate = new Date();
+  futureDate.setDate(futureDate.getDate() + 1);
 </script>
 
+<!-- 只允许未来日期 -->
 <DatePicker 
   placeholder="预订日期"
-  minDate={bookingMinDate}
+  min={futureDate}
 />
 
+<!-- 允许过去日期 -->
 <DatePicker 
   placeholder="出生日期"
-  maxDate={birthdayMaxDate}
+  max={today}
 />
 ```
 
-### 2. 本地化设置
+### 2. 使用 mandatory 标记必填字段
 ```svelte
 <DatePicker 
-  locale="zh-CN"
-  format="YYYY年MM月DD日"
-  placeholder="请选择日期"
+  mandatory={true}
+  placeholder="必填日期字段"
 />
 ```

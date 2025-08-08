@@ -27,7 +27,7 @@ Single-selection dropdown component for selecting one value from predefined opti
 
 ```svelte
 <script lang="ts">
-  import { OptionsSelect } from '@ticatec/uniface-element';
+  import OptionsSelect from '@ticatec/uniface-element/OptionsSelect';
   
   // Country options
   const countries = [

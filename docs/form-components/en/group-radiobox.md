@@ -24,7 +24,7 @@ Radio button group component that organizes multiple radio button options togeth
 
 ```svelte
 <script lang="ts">
-  import { GroupRadioBox } from '@ticatec/uniface-element';
+  import GroupRadioBox from '@ticatec/uniface-element/GroupRadioBox';
   
   // Gender options
   const genderOptions = [

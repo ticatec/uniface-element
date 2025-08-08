@@ -12,67 +12,70 @@ Specialized component for numeric input, supporting integers and floating-point 
 | `compact` | `boolean` | `false` | Whether compact mode |
 | `value` | `number \| null` | `null` | Numeric value |
 | `placeholder` | `string` | `''` | Placeholder text |
-| `displayMode` | `DisplayMode` | `DisplayMode.Edit` | Display mode |
-| `min` | `number \| null` | `null` | Minimum value |
-| `max` | `number \| null` | `null` | Maximum value |
-| `step` | `number` | `1` | Step size |
 | `precision` | `number \| null` | `null` | Number of decimal places |
+| `suffix` | `string` | `''` | Text suffix |
+| `prefix` | `string` | `''` | Text prefix |
+| `allowNegative` | `boolean` | `false` | Allow negative numbers |
+| `displayMode` | `DisplayMode` | `DisplayMode.Edit` | Display mode |
+| `max` | `number \| null` | `null` | Maximum value |
+| `min` | `number \| null` | `null` | Minimum value |
+| `removable` | `boolean` | `true` | Show clear button |
 | `style` | `string` | `''` | Custom styles |
-| `onChange` | `OnChangeHandler<number>` | - | Value change callback |
+| `onChange` | `OnChangeHandler<number \| null>` | - | Value change callback |
 
 ## Usage Examples
 
 ```svelte
 <script lang="ts">
-  import { NumberEditor } from '@ticatec/uniface-element';
+  import NumberEditor from '@ticatec/uniface-element/NumberEditor';
   
-  let price = 0;
-  let quantity = 1;
+  let price: number | null = null;
+  let quantity: number | null = 1;
   let rating: number | null = null;
   
-  const handlePriceChange = (value: number) => {
+  const handlePriceChange = (value: number | null) => {
     price = value;
     console.log('Price:', value);
   };
   
-  const handleQuantityChange = (value: number) => {
+  const handleQuantityChange = (value: number | null) => {
     quantity = value;
     console.log('Quantity:', value);
   };
   
-  const handleRatingChange = (value: number) => {
+  const handleRatingChange = (value: number | null) => {
     rating = value;
     console.log('Rating:', value);
   };
 </script>
 
-<!-- Price input (supports decimals) -->
+<!-- Price input with prefix -->
 <NumberEditor 
   placeholder="Enter price"
   min={0}
   precision={2}
-  step={0.01}
+  prefix="$"
   onChange={handlePriceChange}
   bind:value={price}
 />
 
-<!-- Quantity input (integers) -->
+<!-- Quantity input with limits -->
 <NumberEditor 
   placeholder="Enter quantity"
   min={1}
   max={999}
-  step={1}
+  precision={0}
   onChange={handleQuantityChange}
   bind:value={quantity}
 />
 
-<!-- Rating input (0.5 step) -->
+<!-- Rating input with suffix -->
 <NumberEditor 
   placeholder="Enter rating"
   min={0}
   max={5}
-  step={0.5}
   precision={1}
+  suffix="/5"
   onChange={handleRatingChange}
   bind:value={rating}
 />
@@ -84,19 +87,10 @@ Specialized component for numeric input, supporting integers and floating-point 
 ```svelte
 <script lang="ts">
   let amount: number | null = null;
-  let formattedAmount = '';
   
-  const formatCurrency = (value: number | null): string => {
-    if (value === null || value === undefined) return '';
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    }).format(value);
-  };
-  
-  const handleAmountChange = (value: number) => {
+  const handleAmountChange = (value: number | null) => {
     amount = value;
-    formattedAmount = formatCurrency(value);
+    console.log('Amount:', value);
   };
 </script>
 
@@ -105,13 +99,10 @@ Specialized component for numeric input, supporting integers and floating-point 
     placeholder="Enter amount"
     min={0}
     precision={2}
-    step={0.01}
+    prefix="$"
     bind:value={amount}
     onChange={handleAmountChange}
   />
-  {#if formattedAmount}
-    <div class="currency-display">{formattedAmount}</div>
-  {/if}
 </div>
 ```
 
@@ -135,12 +126,11 @@ Specialized component for numeric input, supporting integers and floating-point 
     placeholder="Enter percentage"
     min={0}
     max={100}
-    step={0.1}
     precision={1}
+    suffix="%"
     bind:value={percentage}
     onChange={handlePercentageChange}
   />
-  <span class="suffix">%</span>
 </div>
 ```
 
@@ -225,31 +215,35 @@ Specialized component for numeric input, supporting integers and floating-point 
 ### 1. Set Appropriate Precision
 ```svelte
 <!-- Currency: 2 decimal places -->
-<NumberEditor precision={2} step={0.01} />
+<NumberEditor precision={2} prefix="$" />
 
 <!-- Percentage: 1 decimal place -->
-<NumberEditor precision={1} step={0.1} max={100} />
+<NumberEditor precision={1} suffix="%" max={100} />
 
 <!-- Integer: no precision setting -->
-<NumberEditor step={1} />
+<NumberEditor precision={0} />
 ```
 
-### 2. Reasonable Range Limits
+### 2. Use Prefixes and Suffixes
+```svelte
+<!-- Currency -->
+<NumberEditor prefix="$" precision={2} />
+
+<!-- Percentage -->
+<NumberEditor suffix="%" precision={1} />
+
+<!-- Units -->
+<NumberEditor suffix="kg" precision={2} />
+```
+
+### 3. Set Reasonable Range Limits
 ```svelte
 <!-- Age -->
-<NumberEditor min={0} max={150} />
+<NumberEditor min={0} max={150} precision={0} />
 
 <!-- Rating -->
-<NumberEditor min={0} max={5} step={0.1} />
+<NumberEditor min={0} max={5} precision={1} />
 
 <!-- Price -->
-<NumberEditor min={0} step={0.01} />
-```
-
-### 3. Appropriate Step Settings
-```svelte
-<!-- Precise control -->
-<NumberEditor step={0.01} /> <!-- Currency -->
-<NumberEditor step={0.5} />  <!-- Rating -->
-<NumberEditor step={5} />    <!-- Age groups -->
+<NumberEditor min={0} precision={2} allowNegative={false} />
 ```

@@ -24,7 +24,7 @@ Text input component with auto-complete suggestions.
 
 ```svelte
 <script lang="ts">
-  import { PromptsTextEditor } from '@ticatec/uniface-element';
+  import PromptsTextEditor from '@ticatec/uniface-element/PromptsTextEditor';
   
   // Email domain suggestions
   const emailDomains: string[] = [

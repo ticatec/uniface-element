@@ -6,21 +6,22 @@ Checkbox component for boolean value input.
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `variant` | `'' \| 'plain' \| 'outlined' \| 'filled'` | `''` | Appearance variant |
-| `disabled` | `boolean` | `false` | Whether disabled |
+| `label` | `string \| null` | `null` | Label text |
 | `readonly` | `boolean` | `false` | Whether read-only |
+| `disabled` | `boolean` | `false` | Whether disabled |
 | `value` | `boolean` | `false` | Checked state |
-| `label` | `string` | `''` | Label text |
 | `indeterminate` | `boolean` | `false` | Whether in indeterminate state |
-| `displayMode` | `DisplayMode` | `DisplayMode.Edit` | Display mode |
 | `style` | `string` | `''` | Custom styles |
+| `compact` | `boolean` | `false` | Compact layout |
+| `onClick` | `(event: MouseEvent) => void \| null` | `null` | Click event handler |
 | `onChange` | `OnChangeHandler<boolean>` | - | Value change callback |
+| `autoFocus` | `boolean` | `false` | Auto focus on mount |
 
 ## Usage Examples
 
 ```svelte
 <script lang="ts">
-  import { CheckBox } from '@ticatec/uniface-element';
+  import CheckBox from '@ticatec/uniface-element/Checkbox';
   
   let agreeTerms = false;
   let enableNotifications = true;

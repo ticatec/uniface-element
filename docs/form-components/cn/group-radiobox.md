@@ -24,8 +24,8 @@
 
 ```svelte
 <script lang="ts">
-  import type { OptionItem } from '@ticatec/uniface-element';
-  import { GroupRadioBox } from '@ticatec/uniface-element';
+  import type { OptionItem } from '@ticatec/uniface-element/types';
+  import GroupRadioBox from '@ticatec/uniface-element/GroupRadioBox';
   
   // 性别选项
   const genderOptions: OptionItem[] = [
@@ -132,7 +132,7 @@
 ### 动态选项和条件禁用
 ```svelte
 <script lang="ts">
-  import type { OptionItem } from '@ticatec/uniface-element';
+  import type { OptionItem } from '@ticatec/uniface-element/types';
   import { onMount } from 'svelte';
   
   interface PaymentMethod extends OptionItem {
@@ -205,7 +205,7 @@
 ### 带描述信息的选项
 ```svelte
 <script lang="ts">
-  import type { OptionItem } from '@ticatec/uniface-element';
+  import type { OptionItem } from '@ticatec/uniface-element/types';
   
   interface SubscriptionPlan extends OptionItem {
     description: string;
@@ -272,7 +272,7 @@
 ### 分组单选框
 ```svelte
 <script lang="ts">
-  import type { OptionItem } from '@ticatec/uniface-element';
+  import type { OptionItem } from '@ticatec/uniface-element/types';
   
   interface ThemeOptions {
     light: OptionItem[];
@@ -335,7 +335,7 @@
 ### 表单验证
 ```svelte
 <script lang="ts">
-  import type { OptionItem } from '@ticatec/uniface-element';
+  import type { OptionItem } from '@ticatec/uniface-element/types';
   
   const satisfactionLevels: OptionItem[] = [
     { code: 'very_unsatisfied', text: '非常不满意' },

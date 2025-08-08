@@ -16,7 +16,7 @@ MemoEditor 组件提供多行文本输入，具有字符计数、调整大小选
 ## 导入
 
 ```typescript
-import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
+import MemoEditor from '@ticatec/uniface-element/MemoEditor';
 ```
 
 ## 基本用法
@@ -25,7 +25,7 @@ import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
 
 ```svelte
 <script>
-  import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
+  import MemoEditor from '@ticatec/uniface-element/MemoEditor';
   
   let content = '';
 </script>
@@ -41,7 +41,7 @@ import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
 
 ```svelte
 <script>
-  import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
+  import MemoEditor from '@ticatec/uniface-element/MemoEditor';
   
   let message = '';
 </script>
@@ -59,7 +59,7 @@ import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
 
 ```svelte
 <script>
-  import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
+  import MemoEditor from '@ticatec/uniface-element/MemoEditor';
   
   let notes = '';
 </script>
@@ -106,7 +106,7 @@ enum DisplayMode {
 
 ```svelte
 <script>
-  import { MemoEditor, DisplayMode } from '@ticatec/uniface-element/MemoEditor';
+  import MemoEditor, { DisplayMode } from '@ticatec/uniface-element/MemoEditor';
   
   let comment = '';
   let isEditing = true;
@@ -168,7 +168,7 @@ enum DisplayMode {
 
 ```svelte
 <script>
-  import { MemoEditor, DisplayMode } from '@ticatec/uniface-element/MemoEditor';
+  import MemoEditor, { DisplayMode } from '@ticatec/uniface-element/MemoEditor';
   
   let notes = {};
   let currentNoteId = null;
@@ -262,7 +262,7 @@ enum DisplayMode {
 
 ```svelte
 <script>
-  import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
+  import MemoEditor from '@ticatec/uniface-element/MemoEditor';
   
   let formData = {
     description: '',

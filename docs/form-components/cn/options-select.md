@@ -27,7 +27,7 @@
 
 ```svelte
 <script lang="ts">
-  import { OptionsSelect } from '@ticatec/uniface-element';
+  import OptionsSelect from '@ticatec/uniface-element/OptionsSelect';
   
   // 国家选项
   const countries = [

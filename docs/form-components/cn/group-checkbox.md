@@ -27,8 +27,8 @@
 
 ```svelte
 <script lang="ts">
-  import type { OptionItem } from '@ticatec/uniface-element';
-  import { GroupCheckBox } from '@ticatec/uniface-element';
+  import type { OptionItem } from '@ticatec/uniface-element/types';
+  import GroupCheckBox from '@ticatec/uniface-element/GroupCheckBox';
   
   // 权限选项
   const permissions: OptionItem[] = [
@@ -172,7 +172,7 @@ const parsePermissions = (permissions: number): string[] => {
 ### 动态选项加载
 ```svelte
 <script lang="ts">
-  import type { OptionItem } from '@ticatec/uniface-element';
+  import type { OptionItem } from '@ticatec/uniface-element/types';
   import { onMount } from 'svelte';
   
   let options: OptionItem[] = [];
@@ -217,7 +217,7 @@ const parsePermissions = (permissions: number): string[] => {
 ### 条件禁用和隐藏
 ```svelte
 <script lang="ts">
-  import type { OptionItem } from '@ticatec/uniface-element';
+  import type { OptionItem } from '@ticatec/uniface-element/types';
   
   type UserLevel = 'basic' | 'premium' | 'enterprise';
   
@@ -274,7 +274,7 @@ const parsePermissions = (permissions: number): string[] => {
 ### 全选/全不选功能
 ```svelte
 <script lang="ts">
-  import type { OptionItem } from '@ticatec/uniface-element';
+  import type { OptionItem } from '@ticatec/uniface-element/types';
   
   const allOptions: OptionItem[] = [
     { code: 'option1', text: '选项1' },

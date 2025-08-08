@@ -158,36 +158,41 @@ await window.MessageBox.showInfo("操作完成", "提示");
 
 ## 使用示例
 
-### 带内联编辑的数据表格
+### 带行选择的数据表格
 
 ```svelte
 <script lang="ts">
-  import { DataTable, InlineCellEditor } from '@ticatec/uniface-element';
+  import { DataTable } from '@ticatec/uniface-element';
   import type { DataColumn } from '@ticatec/uniface-element';
   
   let columns: DataColumn[] = [
     {
       field: 'name',
       title: '姓名',
-      width: 200,
-      editable: true,
-      editor: 'text'
+      width: 200
+    },
+    {
+      field: 'email',
+      title: '邮箱',
+      width: 250
     },
     {
       field: 'status',
       title: '状态',
-      width: 120,
-      editable: true,
-      editor: 'select',
-      options: [
-        { value: 'active', label: '活跃' },
-        { value: 'inactive', label: '非活跃' }
-      ]
+      width: 120
     }
   ];
+  
+  let data = [
+    { id: 1, name: '张三', email: 'zhangsan@example.com', status: '活跃' },
+    { id: 2, name: '李四', email: 'lisi@example.com', status: '非活跃' },
+    { id: 3, name: '王五', email: 'wangwu@example.com', status: '活跃' }
+  ];
+  
+  let selectedRows = [];
 </script>
 
-<DataTable {columns} {list} bind:selectedRows />
+<DataTable {columns} list={data} bind:selectedRows />
 ```
 
 ### 表单对话框
@@ -220,20 +225,36 @@ await window.MessageBox.showInfo("操作完成", "提示");
 
 ## 布局组件详细介绍
 
-### 左右两栏布局 `SidebarLayout`
+## 文档
 
-实现左右两栏布局，通常左边为导航栏，右边为内容区。右边可以实现上下分割，上面为状态栏，下面为内容区。  
-具体使用方法参考 [左右两栏布局详细](./doc/SidebarLayout_CN.md)
+`/docs` 目录中提供了全面的组件文档：
 
-### T型布局 `HeaderLayout`
+### 布局组件
+- [SidebarLayout](./docs/layout/cn/sidebarlayout.md) | [English](./docs/layout/en/sidebarlayout.md) - 左侧边栏与可调整大小的主内容区域
+- [HeaderLayout](./docs/layout/cn/headerlayout.md) | [English](./docs/layout/en/headerlayout.md) - 顶部头部与内容区域及可选侧边栏
+- [ClassicLayout](./docs/layout/cn/classiclayout.md) | [English](./docs/layout/en/classiclayout.md) - 全屏布局，包含头部、底部、侧边栏和内容区域
 
-实现上下布局，通常顶部为页眉栏，下面为内容区。内容区可以根据需要在左边建立导航栏。  
-具体使用方法参考 [T型布局](./doc/HeaderLayout_CN.md)
+### 按钮组件
+- [按钮系统](./docs/buttons/cn/README.md) | [English](./docs/buttons/en/README.md) - 完整的按钮组件，包括 Button、TextButton、IconButton 和 ActionBar
 
-### 经典布局 `ClassicLayout`
+### 对话框组件
+- [对话框系统](./docs/dialog/cn/README.md) | [English](./docs/dialog/en/README.md) - 模态对话框系统，包含 DialogBoard、Dialog 和 CommonDialog 组件
 
-全屏布局，包括顶部页眉栏、底部状态栏和中间内容区。内容区可以包含左边导航栏和右边注解栏。  
-具体方法参考 [经典布局](./doc/ClassicLayout_CN.md)
+### 表单组件
+- [表单控件](./docs/form/cn/README.md) | [English](./docs/form/en/README.md) - 全面的表单输入组件，包括 TextEditor、NumberEditor、CheckBox、OptionsSelect 等
+
+### 全局组件
+- [全局组件](./docs/global/cn/README.md) | [English](./docs/global/en/README.md) - 应用程序级组件，包括 ToastBoard、DialogBoard、IndicatorBoard 和 MessageBoxBoard
+
+### 杂项组件
+- [实用组件](./docs/misc/cn/README.md) | [English](./docs/misc/en/README.md) - 其他组件，包括 Split、Drawer、Tag 和 Card
+
+每个组件文档都包括：
+- 包含所有属性和方法的 API 参考
+- 高级用法示例和模式
+- 最佳实践和样式指南
+- 无障碍访问注意事项
+- 集成提示
 
 ## 主题定制
 
@@ -266,9 +287,12 @@ i18n.setLanguage('zh-CN'); // 或 'en'
 ### 模块化导入
 ```typescript
 // 单个组件导入
-import Button from '@ticatec/uniface-element/Button';
+import { Button } from '@ticatec/uniface-element/Button';
 import { DataTable } from '@ticatec/uniface-element/DataTable';
 import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
+import { AttachmentFilesField } from '@ticatec/uniface-element/AttachmentFiles';
+import { ImageFilesField } from '@ticatec/uniface-element/ImageFiles';
+import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
 
 // 工具导入
 import { utils } from '@ticatec/uniface-element/utils';
@@ -277,7 +301,7 @@ import type { DataColumn } from '@ticatec/uniface-element/types';
 
 ### 批量导入
 ```typescript
-// 导入多个组件
+// 从主入口点导入多个组件
 import { Button, DataTable, Dialog, Card } from '@ticatec/uniface-element';
 ```
 

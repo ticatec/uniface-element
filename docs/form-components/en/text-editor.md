@@ -11,13 +11,12 @@ Basic text input component supporting single-line and multi-line text input.
 | `readonly` | `boolean` | `false` | Whether read-only |
 | `compact` | `boolean` | `false` | Whether compact mode |
 | `value` | `string` | `''` | Input value |
-| `placeholder` | `string` | `''` | Placeholder text |
+| `suffix` | `string` | `''` | Text suffix |
+| `prefix` | `string` | `''` | Text prefix |
+| `removable` | `boolean` | `true` | Show clear button |
 | `displayMode` | `DisplayMode` | `DisplayMode.Edit` | Display mode |
-| `multiline` | `boolean` | `false` | Whether multiline input |
-| `rows` | `number` | `3` | Number of rows in multiline mode |
-| `maxLength` | `number \| null` | `null` | Maximum character length |
 | `style` | `string` | `''` | Custom styles |
-| `onChange` | `OnChangeHandler<string>` | - | Value change callback |
+| `onChange` | `(value: string) => void` | - | Value change callback |
 
 ## Events
 
@@ -27,7 +26,7 @@ Basic text input component supporting single-line and multi-line text input.
 
 ```svelte
 <script lang="ts">
-  import { TextEditor } from '@ticatec/uniface-element';
+  import TextEditor from '@ticatec/uniface-element/TextEditor';
   
   let inputValue = '';
   
@@ -37,27 +36,27 @@ Basic text input component supporting single-line and multi-line text input.
   };
 </script>
 
-<!-- Basic single-line input -->
+<!-- Basic input -->
 <TextEditor 
   placeholder="Enter text"
-  {onChange}
+  onChange={handleChange}
   bind:value={inputValue}
 />
 
-<!-- Multi-line text input -->
+<!-- Input with prefix and suffix -->
 <TextEditor 
-  multiline={true}
-  rows={5}
-  placeholder="Enter multi-line text"
-  {onChange}
+  prefix="$"
+  suffix=".00"
+  placeholder="Enter amount"
+  onChange={handleChange}
   bind:value={inputValue}
 />
 
-<!-- Input with character limit -->
+<!-- Compact input with clear button -->
 <TextEditor 
-  maxLength={100}
-  placeholder="Maximum 100 characters"
-  {onChange}
+  compact={true}
+  removable={true}
+  placeholder="Search..."
   bind:value={inputValue}
 />
 ```
@@ -96,20 +95,19 @@ Basic text input component supporting single-line and multi-line text input.
 {/if}
 ```
 
-### Multi-line Text Editor
+### Text Input with Styling
 ```svelte
 <script lang="ts">
   let description = '';
 </script>
 
 <TextEditor 
-  multiline={true}
-  rows={6}
+  variant="outlined"
   placeholder="Enter description..."
   bind:value={description}
-  maxLength={500}
+  style="min-width: 300px;"
 />
-<div class="char-count">{description.length}/500</div>
+<div class="char-count">{description.length} characters</div>
 ```
 
 ## Style Customization

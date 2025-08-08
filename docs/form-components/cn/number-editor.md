@@ -12,67 +12,70 @@
 | `compact` | `boolean` | `false` | 是否紧凑模式 |
 | `value` | `number \| null` | `null` | 数值 |
 | `placeholder` | `string` | `''` | 占位符文本 |
-| `displayMode` | `DisplayMode` | `DisplayMode.Edit` | 显示模式 |
-| `min` | `number \| null` | `null` | 最小值 |
-| `max` | `number \| null` | `null` | 最大值 |
-| `step` | `number` | `1` | 步长 |
 | `precision` | `number \| null` | `null` | 小数位数 |
+| `suffix` | `string` | `''` | 文本后缀 |
+| `prefix` | `string` | `''` | 文本前缀 |
+| `allowNegative` | `boolean` | `false` | 允许负数 |
+| `displayMode` | `DisplayMode` | `DisplayMode.Edit` | 显示模式 |
+| `max` | `number \| null` | `null` | 最大值 |
+| `min` | `number \| null` | `null` | 最小值 |
+| `removable` | `boolean` | `true` | 显示清除按钮 |
 | `style` | `string` | `''` | 自定义样式 |
-| `onChange` | `OnChangeHandler<number>` | - | 值变化回调 |
+| `onChange` | `OnChangeHandler<number \| null>` | - | 值变化回调 |
 
 ## 使用示例
 
 ```svelte
 <script lang="ts">
-  import { NumberEditor } from '@ticatec/uniface-element';
+  import NumberEditor from '@ticatec/uniface-element/NumberEditor';
   
-  let price = 0;
-  let quantity = 1;
-  let rating = null;
+  let price: number | null = null;
+  let quantity: number | null = 1;
+  let rating: number | null = null;
   
-  const handlePriceChange = (value) => {
+  const handlePriceChange = (value: number | null) => {
     price = value;
     console.log('价格：', value);
   };
   
-  const handleQuantityChange = (value) => {
+  const handleQuantityChange = (value: number | null) => {
     quantity = value;
     console.log('数量：', value);
   };
   
-  const handleRatingChange = (value) => {
+  const handleRatingChange = (value: number | null) => {
     rating = value;
     console.log('评分：', value);
   };
 </script>
 
-<!-- 价格输入（支持小数） -->
+<!-- 带前缀的价格输入 -->
 <NumberEditor 
   placeholder="请输入价格"
   min={0}
   precision={2}
-  step={0.01}
+  prefix="¥"
   onChange={handlePriceChange}
   bind:value={price}
 />
 
-<!-- 数量输入（整数） -->
+<!-- 带限制的数量输入 -->
 <NumberEditor 
   placeholder="请输入数量"
   min={1}
   max={999}
-  step={1}
+  precision={0}
   onChange={handleQuantityChange}
   bind:value={quantity}
 />
 
-<!-- 评分输入（0.5步长） -->
+<!-- 带后缀的评分输入 -->
 <NumberEditor 
   placeholder="请输入评分"
   min={0}
   max={5}
-  step={0.5}
   precision={1}
+  suffix="/5"
   onChange={handleRatingChange}
   bind:value={rating}
 />
@@ -105,7 +108,7 @@
     placeholder="请输入金额"
     min={0}
     precision={2}
-    step={0.01}
+    prefix="¥"
     bind:value={amount}
     onChange={handleAmountChange}
   />
@@ -135,12 +138,11 @@
     placeholder="请输入百分比"
     min={0}
     max={100}
-    step={0.1}
     precision={1}
+    suffix="%"
     bind:value={percentage}
     onChange={handlePercentageChange}
   />
-  <span class="suffix">%</span>
 </div>
 ```
 
@@ -225,31 +227,35 @@
 ### 1. 设置合适的精度
 ```svelte
 <!-- 货币：2位小数 -->
-<NumberEditor precision={2} step={0.01} />
+<NumberEditor precision={2} prefix="¥" />
 
 <!-- 百分比：1位小数 -->
-<NumberEditor precision={1} step={0.1} max={100} />
+<NumberEditor precision={1} suffix="%" max={100} />
 
 <!-- 整数：不设置precision -->
-<NumberEditor step={1} />
+<NumberEditor precision={0} />
 ```
 
 ### 2. 合理的范围限制
 ```svelte
 <!-- 年龄 -->
-<NumberEditor min={0} max={150} />
+<NumberEditor min={0} max={150} precision={0} />
 
 <!-- 评分 -->
-<NumberEditor min={0} max={5} step={0.1} />
+<NumberEditor min={0} max={5} precision={1} suffix="/5" />
 
 <!-- 价格 -->
-<NumberEditor min={0} step={0.01} />
+<NumberEditor min={0} precision={2} prefix="¥" />
 ```
 
-### 3. 适当的步长设置
+### 3. 合适的前后缀使用
 ```svelte
-<!-- 精确控制 -->
-<NumberEditor step={0.01} /> <!-- 货币 -->
-<NumberEditor step={0.5} />  <!-- 评分 -->
-<NumberEditor step={5} />    <!-- 年龄段 -->
+<!-- 货币前缀 -->
+<NumberEditor prefix="¥" precision={2} />
+
+<!-- 百分比后缀 -->
+<NumberEditor suffix="%" precision={1} max={100} />
+
+<!-- 单位后缀 -->
+<NumberEditor suffix="kg" precision={1} min={0} />
 ```

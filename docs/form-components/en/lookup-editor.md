@@ -29,7 +29,7 @@ type OnActionHandler = () => void;
 
 ```svelte
 <script lang="ts">
-  import { LookupEditor } from '@ticatec/uniface-element';
+  import LookupEditor from '@ticatec/uniface-element/LookupEditor';
   import CustomerLookupModal from './CustomerLookupModal.svelte';
   import ProductLookupModal from './ProductLookupModal.svelte';
   

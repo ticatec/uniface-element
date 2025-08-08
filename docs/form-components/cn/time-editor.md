@@ -22,7 +22,7 @@
 
 ```svelte
 <script lang="ts">
-  import { TimeEditor } from '@ticatec/uniface-element';
+  import TimeEditor from '@ticatec/uniface-element/TimeEditor';
   
   let startTime: string = '09:00';
   let endTime: string = '17:30';

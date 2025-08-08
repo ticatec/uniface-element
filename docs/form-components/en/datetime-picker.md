@@ -25,7 +25,7 @@ Date and time picker component.
 
 ```svelte
 <script lang="ts">
-  import { DateTimePicker } from '@ticatec/uniface-element';
+  import DateTimePicker from '@ticatec/uniface-element/DateTimePicker';
   
   let appointmentTime: Date | null = null;
   let eventStartTime: Date = new Date();

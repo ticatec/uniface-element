@@ -17,7 +17,7 @@ The AttachmentFilesField component provides a comprehensive file upload and mana
 ## Import
 
 ```typescript
-import { AttachmentFilesField } from '@ticatec/uniface-element/AttachmentFilesField';
+import AttachmentFilesField from '@ticatec/uniface-element/AttachmentFilesField';
 import type { AttachmentFile, FileUpload } from '@ticatec/uniface-element/AttachmentFilesField';
 ```
 
@@ -27,7 +27,7 @@ import type { AttachmentFile, FileUpload } from '@ticatec/uniface-element/Attach
 
 ```svelte
 <script>
-  import { AttachmentFilesField } from '@ticatec/uniface-element/AttachmentFilesField';
+  import AttachmentFilesField from '@ticatec/uniface-element/AttachmentFilesField';
   import type { AttachmentFile, FileUpload } from '@ticatec/uniface-element/AttachmentFilesField';
   
   let attachments: AttachmentFile[] = [];
@@ -68,7 +68,7 @@ import type { AttachmentFile, FileUpload } from '@ticatec/uniface-element/Attach
 
 ```svelte
 <script>
-  import { AttachmentFilesField } from '@ticatec/uniface-element/AttachmentFilesField';
+  import AttachmentFilesField from '@ticatec/uniface-element/AttachmentFilesField';
   import type { AttachmentFile, FileUpload } from '@ticatec/uniface-element/AttachmentFilesField';
   
   let documents: AttachmentFile[] = [];
@@ -192,7 +192,7 @@ type RemoveConfirm = (file: AttachmentFile) => Promise<boolean>;
 
 ```svelte
 <script>
-  import { AttachmentFilesField, DisplayMode } from '@ticatec/uniface-element/AttachmentFilesField';
+  import AttachmentFilesField, { DisplayMode } from '@ticatec/uniface-element/AttachmentFilesField';
   import type { AttachmentFile, FileUpload } from '@ticatec/uniface-element/AttachmentFilesField';
   
   let projectFiles: AttachmentFile[] = [
@@ -328,7 +328,7 @@ type RemoveConfirm = (file: AttachmentFile) => Promise<boolean>;
 
 ```svelte
 <script>
-  import { AttachmentFilesField } from '@ticatec/uniface-element/AttachmentFilesField';
+  import AttachmentFilesField from '@ticatec/uniface-element/AttachmentFilesField';
   import type { AttachmentFile, FileUpload } from '@ticatec/uniface-element/AttachmentFilesField';
   
   let formData = {
@@ -541,7 +541,7 @@ type RemoveConfirm = (file: AttachmentFile) => Promise<boolean>;
 
 ```svelte
 <script>
-  import { AttachmentFilesField, DisplayMode } from '@ticatec/uniface-element/AttachmentFilesField';
+  import AttachmentFilesField, { DisplayMode } from '@ticatec/uniface-element/AttachmentFilesField';
   import type { AttachmentFile, FileUpload } from '@ticatec/uniface-element/AttachmentFilesField';
   
   let fileCategories = {

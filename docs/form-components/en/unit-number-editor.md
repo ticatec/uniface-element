@@ -33,7 +33,7 @@ interface UnitOption {
 
 ```svelte
 <script lang="ts">
-  import { UnitNumberEditor, type UnitOption } from '@ticatec/uniface-element';
+  import UnitNumberEditor, { type UnitOption } from '@ticatec/uniface-element/UnitNumberEditor';
   
   // Weight unit options
   const weightUnits: UnitOption[] = [

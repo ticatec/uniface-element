@@ -30,7 +30,7 @@
 
 ```svelte
 <script lang="ts">
-  import { OptionsMultiSelect } from '@ticatec/uniface-element';
+  import OptionsMultiSelect from '@ticatec/uniface-element/OptionsMultiSelect';
   
   interface Option {
     code: string;

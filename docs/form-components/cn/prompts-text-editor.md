@@ -24,7 +24,7 @@
 
 ```svelte
 <script lang="ts">
-  import { PromptsTextEditor } from '@ticatec/uniface-element';
+  import PromptsTextEditor from '@ticatec/uniface-element/PromptsTextEditor';
   
   // 邮箱域名提示
   const emailDomains: string[] = [

@@ -20,7 +20,7 @@
 
 ```svelte
 <script lang="ts">
-  import { CheckBox } from '@ticatec/uniface-element';
+  import CheckBox from '@ticatec/uniface-element/Checkbox';
   
   let agreeTerms: boolean = false;
   let enableNotifications: boolean = true;

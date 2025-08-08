@@ -27,7 +27,7 @@ Checkbox group component that organizes multiple checkbox options together, supp
 
 ```svelte
 <script lang="ts">
-  import { GroupCheckBox } from '@ticatec/uniface-element';
+  import GroupCheckBox from '@ticatec/uniface-element/GroupCheckBox';
   
   // Permission options
   const permissions = [
@@ -264,7 +264,7 @@ const parsePermissions = (permissions: number): string[] => {
 ### Select All/None Functionality
 ```svelte
 <script lang="ts">
-  import { CheckBox } from '@ticatec/uniface-element';
+  import CheckBox from '@ticatec/uniface-element/Checkbox';
   
   const allOptions = [
     { code: 'option1', text: 'Option 1' },

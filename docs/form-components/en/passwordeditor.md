@@ -15,7 +15,7 @@ The PasswordEditor component provides a secure password input field with built-i
 ## Import
 
 ```typescript
-import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
+import PasswordEditor from '@ticatec/uniface-element/PasswordEditor';
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
 
 ```svelte
 <script>
-  import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
+  import PasswordEditor from '@ticatec/uniface-element/PasswordEditor';
   
   let password = '';
 </script>
@@ -39,7 +39,7 @@ import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
 
 ```svelte
 <script>
-  import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
+  import PasswordEditor from '@ticatec/uniface-element/PasswordEditor';
   
   let userPassword = '';
 </script>
@@ -56,7 +56,7 @@ import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
 
 ```svelte
 <script>
-  import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
+  import PasswordEditor from '@ticatec/uniface-element/PasswordEditor';
   
   let pin = '';
 </script>
@@ -93,7 +93,7 @@ import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
 
 ```svelte
 <script>
-  import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
+  import PasswordEditor from '@ticatec/uniface-element/PasswordEditor';
   
   let credentials = {
     username: '',
@@ -185,7 +185,7 @@ import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
 
 ```svelte
 <script>
-  import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
+  import PasswordEditor from '@ticatec/uniface-element/PasswordEditor';
   
   let passwordForm = {
     currentPassword: '',
@@ -341,7 +341,7 @@ import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
 
 ```svelte
 <script>
-  import { PasswordEditor } from '@ticatec/uniface-element/PasswordEditor';
+  import PasswordEditor from '@ticatec/uniface-element/PasswordEditor';
   
   let registrationForm = {
     email: '',

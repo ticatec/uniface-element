@@ -309,7 +309,9 @@ enum DisplayMode {
 
 ```svelte
 <script lang="ts">
-  import { TextEditor, NumberEditor, CheckBox } from '@ticatec/uniface-element';
+  import TextEditor from '@ticatec/uniface-element/TextEditor';
+  import NumberEditor from '@ticatec/uniface-element/NumberEditor';
+  import CheckBox from '@ticatec/uniface-element/Checkbox';
   
   interface FormData {
     name: string;

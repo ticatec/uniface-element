@@ -294,7 +294,9 @@ All components use the `@ticatec/uniface-google-material-icons` icon library, wh
 
 ```svelte
 <script lang="ts">
-  import { TextEditor, NumberEditor, CheckBox } from '@ticatec/uniface-element';
+  import TextEditor from '@ticatec/uniface-element/TextEditor';
+  import NumberEditor from '@ticatec/uniface-element/NumberEditor';
+  import CheckBox from '@ticatec/uniface-element/Checkbox';
   
   let formData = {
     name: '',

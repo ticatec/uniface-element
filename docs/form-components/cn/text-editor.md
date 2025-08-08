@@ -11,13 +11,12 @@
 | `readonly` | `boolean` | `false` | 是否只读 |
 | `compact` | `boolean` | `false` | 是否紧凑模式 |
 | `value` | `string` | `''` | 输入值 |
-| `placeholder` | `string` | `''` | 占位符文本 |
+| `suffix` | `string` | `''` | 文本后缀 |
+| `prefix` | `string` | `''` | 文本前缀 |
+| `removable` | `boolean` | `true` | 显示清除按钮 |
 | `displayMode` | `DisplayMode` | `DisplayMode.Edit` | 显示模式 |
-| `multiline` | `boolean` | `false` | 是否多行输入 |
-| `rows` | `number` | `3` | 多行模式下的行数 |
-| `maxLength` | `number \| null` | `null` | 最大字符长度 |
 | `style` | `string` | `''` | 自定义样式 |
-| `onChange` | `OnChangeHandler<string>` | - | 值变化回调 |
+| `onChange` | `(value: string) => void` | - | 值变化回调 |
 
 ## 事件
 
@@ -27,37 +26,37 @@
 
 ```svelte
 <script lang="ts">
-  import { TextEditor } from '@ticatec/uniface-element';
+  import TextEditor from '@ticatec/uniface-element/TextEditor';
   
   let inputValue = '';
   
-  const handleChange = (value) => {
+  const handleChange = (value: string) => {
     console.log('输入值：', value);
     inputValue = value;
   };
 </script>
 
-<!-- 基础单行输入 -->
+<!-- 基础输入 -->
 <TextEditor 
   placeholder="请输入文本"
-  {onChange}
+  onChange={handleChange}
   bind:value={inputValue}
 />
 
-<!-- 多行文本输入 -->
+<!-- 带前缀和后缀的输入 -->
 <TextEditor 
-  multiline={true}
-  rows={5}
-  placeholder="请输入多行文本"
-  {onChange}
+  prefix="¥"
+  suffix=".00"
+  placeholder="请输入金额"
+  onChange={handleChange}
   bind:value={inputValue}
 />
 
-<!-- 带字符限制的输入 -->
+<!-- 紧凑模式带清除按钮 -->
 <TextEditor 
-  maxLength={100}
-  placeholder="最多100个字符"
-  {onChange}
+  compact={true}
+  removable={true}
+  placeholder="搜索..."
   bind:value={inputValue}
 />
 ```
@@ -96,20 +95,19 @@
 {/if}
 ```
 
-### 多行文本编辑
+### 带样式的文本输入
 ```svelte
 <script lang="ts">
   let description = '';
 </script>
 
 <TextEditor 
-  multiline={true}
-  rows={6}
+  variant="outlined"
   placeholder="请输入描述信息..."
   bind:value={description}
-  maxLength={500}
+  style="min-width: 300px;"
 />
-<div class="char-count">{description.length}/500</div>
+<div class="char-count">{description.length} 个字符</div>
 ```
 
 ## 样式定制

@@ -20,7 +20,7 @@
 
 ```svelte
 <script lang="ts">
-  import { Switch } from '@ticatec/uniface-element';
+  import Switch from '@ticatec/uniface-element/Switch';
   
   let darkMode: boolean = false;
   let notifications: boolean = true;

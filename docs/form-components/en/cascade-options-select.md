@@ -39,7 +39,7 @@ type IsLeafDetermine = (item: any) => boolean;
 
 ```svelte
 <script lang="ts">
-  import { CascadeOptionsSelect, type OnSelectOption, type IsLeafDetermine } from '@ticatec/uniface-element';
+  import CascadeOptionsSelect, { type OnSelectOption, type IsLeafDetermine } from '@ticatec/uniface-element/CascadeOptionsSelect';
   
   interface CascadeNode {
     code: string;

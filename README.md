@@ -91,36 +91,41 @@ import '@ticatec/uniface-element/ticatec-uniface-web.css';
 
 ## Usage Examples
 
-### Data Table with Inline Editing
+### Data Table with Selection
 
 ```svelte
 <script lang="ts">
-  import { DataTable, InlineCellEditor } from '@ticatec/uniface-element';
+  import { DataTable } from '@ticatec/uniface-element';
   import type { DataColumn } from '@ticatec/uniface-element';
   
   let columns: DataColumn[] = [
     {
       field: 'name',
       title: 'Name',
-      width: 200,
-      editable: true,
-      editor: 'text'
+      width: 200
+    },
+    {
+      field: 'email',
+      title: 'Email',
+      width: 250
     },
     {
       field: 'status',
       title: 'Status',
-      width: 120,
-      editable: true,
-      editor: 'select',
-      options: [
-        { value: 'active', label: 'Active' },
-        { value: 'inactive', label: 'Inactive' }
-      ]
+      width: 120
     }
   ];
+  
+  let data = [
+    { id: 1, name: 'John Doe', email: 'john@example.com', status: 'Active' },
+    { id: 2, name: 'Jane Smith', email: 'jane@example.com', status: 'Inactive' },
+    { id: 3, name: 'Bob Johnson', email: 'bob@example.com', status: 'Active' }
+  ];
+  
+  let selectedRows = [];
 </script>
 
-<DataTable {columns} {list} bind:selectedRows />
+<DataTable {columns} list={data} bind:selectedRows />
 ```
 
 ### Dialog with Form
@@ -182,9 +187,12 @@ i18n.setLanguage('en'); // or 'zh-CN'
 ### Modular Imports
 ```typescript
 // Individual component imports
-import Button from '@ticatec/uniface-element/Button';
+import { Button } from '@ticatec/uniface-element/Button';
 import { DataTable } from '@ticatec/uniface-element/DataTable';
 import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
+import { AttachmentFilesField } from '@ticatec/uniface-element/AttachmentFiles';
+import { ImageFilesField } from '@ticatec/uniface-element/ImageFiles';
+import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
 
 // Utility imports
 import { utils } from '@ticatec/uniface-element/utils';
@@ -193,7 +201,7 @@ import type { DataColumn } from '@ticatec/uniface-element/types';
 
 ### Barrel Imports
 ```typescript
-// Import multiple components
+// Import multiple components from main entry point
 import { Button, DataTable, Dialog, Card } from '@ticatec/uniface-element';
 ```
 
@@ -236,21 +244,25 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 
 Comprehensive component documentation is available in the `/docs` directory:
 
+### Layout Components
+- [SidebarLayout](./docs/layout/en/sidebarlayout.md) | [中文](./docs/layout/cn/sidebarlayout.md) - Left sidebar with resizable main content area
+- [HeaderLayout](./docs/layout/en/headerlayout.md) | [中文](./docs/layout/cn/headerlayout.md) - Top header with content area and optional sidebar
+- [ClassicLayout](./docs/layout/en/classiclayout.md) | [中文](./docs/layout/cn/classiclayout.md) - Full-screen layout with header, footer, sidebar, and content areas
+
+### Button Components
+- [Button System](./docs/buttons/en/README.md) | [中文](./docs/buttons/cn/README.md) - Complete button components including Button, TextButton, IconButton, and ActionBar
+
+### Dialog Components
+- [Dialog System](./docs/dialog/en/README.md) | [中文](./docs/dialog/cn/README.md) - Modal dialog system with DialogBoard, Dialog, and CommonDialog components
+
 ### Form Components
-- [MemoEditor](./docs/form-components/en/memoeditor.md) | [中文](./docs/form-components/cn/memoeditor.md) - Multi-line text editor with character counting and resize options
-- [PasswordEditor](./docs/form-components/en/passwordeditor.md) | [中文](./docs/form-components/cn/passwordeditor.md) - Secure password input with visibility toggle
+- [Form Controls](./docs/form/en/README.md) | [中文](./docs/form/cn/README.md) - Comprehensive form input components including TextEditor, NumberEditor, CheckBox, OptionsSelect, and more
 
-### Navigation Components
-- [ProgressBar](./docs/navigation/en/progressbar.md) | [中文](./docs/navigation/cn/progressbar.md) - Circular and linear progress indicators
-- [ProgressStepBar](./docs/navigation/en/progressstepbar.md) | [中文](./docs/navigation/cn/progressstepbar.md) - Multi-step process visualization
-- [Navigator](./docs/navigation/en/navigator.md) | [中文](./docs/navigation/cn/navigator.md) - Interactive navigation lists
-- [Breadcrumb](./docs/navigation/en/breadcrumb.md) | [中文](./docs/navigation/cn/breadcrumb.md) - Hierarchical navigation
-- [NavigatorMenu](./docs/navigation/en/navigatormenu.md) | [中文](./docs/navigation/cn/navigatormenu.md) - Tree-like hierarchical menu
+### Global Components
+- [Global Components](./docs/global/en/README.md) | [中文](./docs/global/cn/README.md) - Application-wide components including ToastBoard, DialogBoard, IndicatorBoard, and MessageBoxBoard
 
-### Search and Filter Components
-- [SearchBox](./docs/search-filters/en/searchbox.md) | [中文](./docs/search-filters/cn/searchbox.md) - Quick search input
-- [NumberRange](./docs/search-filters/en/numberrange.md) | [中文](./docs/search-filters/cn/numberrange.md) - Numeric range filter
-- [DateRange](./docs/search-filters/en/daterange.md) | [中文](./docs/search-filters/cn/daterange.md) - Date range picker
+### Miscellaneous Components
+- [Utility Components](./docs/misc/en/README.md) | [中文](./docs/misc/cn/README.md) - Additional components including Split, Drawer, Tag, and Card
 
 Each component documentation includes:
 - API reference with all props and methods

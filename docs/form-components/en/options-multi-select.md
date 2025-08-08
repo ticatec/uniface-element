@@ -30,7 +30,7 @@ Multi-selection dropdown component that allows selecting multiple values from op
 
 ```svelte
 <script lang="ts">
-  import { OptionsMultiSelect } from '@ticatec/uniface-element';
+  import OptionsMultiSelect from '@ticatec/uniface-element/OptionsMultiSelect';
   
   interface Option {
     code: string;

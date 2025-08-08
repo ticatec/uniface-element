@@ -37,7 +37,7 @@ type LazyLoader<T = any> = (keyword: string, pageNo: number) => Promise<LoaderRe
 
 ```svelte
 <script lang="ts">
-  import { InputOptionsSelect, type LazyLoader } from '@ticatec/uniface-element';
+  import InputOptionsSelect, { type LazyLoader } from '@ticatec/uniface-element/InputOptionsSelect';
   
   interface User {
     id: string;

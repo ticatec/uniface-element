@@ -20,7 +20,7 @@ Radio button component for selecting one option from multiple choices.
 
 ```svelte
 <script lang="ts">
-  import { RadioButton } from '@ticatec/uniface-element';
+  import RadioButton from '@ticatec/uniface-element/RadioButton';
   
   let selectedPayment: string = 'credit';
   let selectedSize: string = 'M';
