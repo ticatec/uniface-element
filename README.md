@@ -68,13 +68,14 @@ import '@ticatec/uniface-element/ticatec-uniface-web.css';
 ### Data Display
 - **Tables**: `DataTable`, `ConciseDataTable`
 - **Lists**: `ListBox`, `TreeView`
-- **Navigation**: `Breadcrumbs`, `Tabs`, `NavigatorMenu`
+- **Navigation**: `Breadcrumbs`, `Tabs`, `NavigatorMenu` | [Navigation Components Docs](./docs/navigation/)
 - **Indicators**: `ProgressBar`, `ProgressStepBar`, `Tag`
 
 ### Form Controls
-- **Input**: `TextEditor`, `NumberEditor`, `MemoEditor`, `PasswordEditor`
+- **Input**: `TextEditor`, `NumberEditor`, [`MemoEditor`](./docs/form-components/en/memoeditor.md), [`PasswordEditor`](./docs/form-components/en/passwordeditor.md)
 - **Selection**: `OptionsSelect`, `OptionsMultiSelect`, `CascadeOptionsSelect`
 - **Date/Time**: `DatePicker`, `DateTimePicker`, `TimeEditor`
+- **Search/Filter**: [`SearchBox`, `NumberRange`, `DateRange`](./docs/search-filters/) - Advanced search and filtering components
 - **Others**: `CheckBox`, `RadioButton`, `Switch`, `ColorPicker`
 
 ### Feedback Components
@@ -230,6 +231,33 @@ MIT License - see [LICENSE](./LICENSE) file for details.
 ## Author
 
 **Henry Feng** - [Ticatec](https://github.com/ticatec-auckland)
+
+## Documentation
+
+Comprehensive component documentation is available in the `/docs` directory:
+
+### Form Components
+- [MemoEditor](./docs/form-components/en/memoeditor.md) | [中文](./docs/form-components/cn/memoeditor.md) - Multi-line text editor with character counting and resize options
+- [PasswordEditor](./docs/form-components/en/passwordeditor.md) | [中文](./docs/form-components/cn/passwordeditor.md) - Secure password input with visibility toggle
+
+### Navigation Components
+- [ProgressBar](./docs/navigation/en/progressbar.md) | [中文](./docs/navigation/cn/progressbar.md) - Circular and linear progress indicators
+- [ProgressStepBar](./docs/navigation/en/progressstepbar.md) | [中文](./docs/navigation/cn/progressstepbar.md) - Multi-step process visualization
+- [Navigator](./docs/navigation/en/navigator.md) | [中文](./docs/navigation/cn/navigator.md) - Interactive navigation lists
+- [Breadcrumb](./docs/navigation/en/breadcrumb.md) | [中文](./docs/navigation/cn/breadcrumb.md) - Hierarchical navigation
+- [NavigatorMenu](./docs/navigation/en/navigatormenu.md) | [中文](./docs/navigation/cn/navigatormenu.md) - Tree-like hierarchical menu
+
+### Search and Filter Components
+- [SearchBox](./docs/search-filters/en/searchbox.md) | [中文](./docs/search-filters/cn/searchbox.md) - Quick search input
+- [NumberRange](./docs/search-filters/en/numberrange.md) | [中文](./docs/search-filters/cn/numberrange.md) - Numeric range filter
+- [DateRange](./docs/search-filters/en/daterange.md) | [中文](./docs/search-filters/cn/daterange.md) - Date range picker
+
+Each component documentation includes:
+- API reference with all props and methods
+- Advanced usage examples and patterns
+- Best practices and styling guides
+- Accessibility considerations
+- Integration tips
 
 ---
 
