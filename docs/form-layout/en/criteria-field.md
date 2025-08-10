@@ -19,7 +19,7 @@ Conditional filtering field component providing a labeled filtering field contai
 
 ```svelte
 <script lang="ts">
-  import { CriteriaField, TextEditor } from '@ticatec/uniface-element';
+  import CriteriaField, TextEditor from '@ticatec/uniface-element/CriteriaField, TextEditor';
   
   let searchCriteria = {
     name: '',
@@ -57,7 +57,7 @@ Conditional filtering field component providing a labeled filtering field contai
 
 ```svelte
 <script lang="ts">
-  import { CriteriaField, TextEditor, NumberRange, DateRange } from '@ticatec/uniface-element';
+  import CriteriaField, TextEditor, NumberRange, DateRange from '@ticatec/uniface-element/CriteriaField, TextEditor, NumberRange, DateRange';
   
   interface SearchCriteria {
     name: string;
@@ -154,7 +154,7 @@ Conditional filtering field component providing a labeled filtering field contai
 
 ```svelte
 <script lang="ts">
-  import { CriteriaField, TextEditor, OptionsSelect } from '@ticatec/uniface-element';
+  import CriteriaField, TextEditor, OptionsSelect from '@ticatec/uniface-element/CriteriaField, TextEditor, OptionsSelect';
   
   let searchData = {
     keyword: '',
@@ -246,7 +246,7 @@ Conditional filtering field component providing a labeled filtering field contai
 
 ```svelte
 <script lang="ts">
-  import { CriteriaField, TextEditor, DateRange } from '@ticatec/uniface-element';
+  import CriteriaField, TextEditor, DateRange from '@ticatec/uniface-element/CriteriaField, TextEditor, DateRange';
   
   let advancedCriteria = {
     employeeIdOrName: '',
@@ -317,7 +317,7 @@ Conditional filtering field component providing a labeled filtering field contai
 
 ```svelte
 <script lang="ts">
-  import { CriteriaField, TextEditor, NumberRange, OptionsSelect, CheckBox, DatePicker } from '@ticatec/uniface-element';
+  import CriteriaField, TextEditor, NumberRange, OptionsSelect, CheckBox, DatePicker from '@ticatec/uniface-element/CriteriaField, TextEditor, NumberRange, OptionsSelect, CheckBox, DatePicker';
   
   interface ProductSearchCriteria {
     name: string;

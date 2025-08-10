@@ -4,6 +4,7 @@
     import DataRow from "$lib/concise-data-table/DataRow.svelte";
     import {type RowClickHandler, type TableOptions} from "$lib/concise-data-table/TableOptions";
     import utils from "./utils";
+    import type Column from "$lib/concise-data-table/Column";
 
     // list array to display
     export let list: Array<any>;
@@ -120,6 +121,10 @@
 
     $: tableStyle = utils.generateTableStyle(id, columns, tabOptions, viewWidth);
 
+    const handleRowClick = (row: any) => (event: MouseEvent) => {
+        rowClickHandler?.(row)
+    }
+
 
 </script>
 
@@ -141,11 +146,11 @@
         <div class="table-body-container" bind:this={viewPanel} class:auto-scroll={autoScroll}>
             <div class="table-body" style="transition: transform {autoScroll ? '2s' : '0s'} ease;">
                 {#each list as row, rowIndex}
-                    <DataRow data={row} {columns} showAlternative={rowIndex % 2 == 1} on:click={rowClickHandler?.(row)}/>
+                    <DataRow data={row} {columns} showAlternative={rowIndex % 2 == 1} on:click={handleRowClick(row)}/>
                 {/each}
                 {#if autoScroll && list.length > visibleRowCount}
                     {#each list.slice(0, visibleRowCount) as row, rowIndex}
-                        <DataRow data={row} {columns} showAlternative={rowIndex % 2 == 1} on:click={rowClickHandler?.(row)}/>
+                        <DataRow data={row} {columns} showAlternative={rowIndex % 2 == 1} on:click={handleRowClick(row)}/>
                     {/each}
                 {/if}
             </div>

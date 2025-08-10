@@ -21,7 +21,7 @@
 
 ```svelte
 <script lang="ts">
-  import { FormField, TextEditor, NumberEditor, DatePicker } from '@ticatec/uniface-element';
+  import FormField, TextEditor, NumberEditor, DatePicker from '@ticatec/uniface-element/FormField, TextEditor, NumberEditor, DatePicker';
   
   interface UserForm {
     name: string;
@@ -77,7 +77,7 @@
 
 ```svelte
 <script lang="ts">
-  import { FormField, TextEditor, OptionsSelect } from '@ticatec/uniface-element';
+  import FormField, TextEditor, OptionsSelect from '@ticatec/uniface-element/FormField, TextEditor, OptionsSelect';
   
   interface RegistrationForm {
     username: string;
@@ -224,7 +224,7 @@
 
 ```svelte
 <script lang="ts">
-  import { FormField, TextEditor, MemoEditor } from '@ticatec/uniface-element';
+  import FormField, TextEditor, MemoEditor from '@ticatec/uniface-element/FormField, TextEditor, MemoEditor';
   
   let contactData = {
     name: '',
@@ -312,7 +312,7 @@
 
 ```svelte
 <script lang="ts">
-  import { FormField, TextEditor, CheckBox } from '@ticatec/uniface-element';
+  import FormField, TextEditor, CheckBox from '@ticatec/uniface-element/FormField, TextEditor, CheckBox';
   
   let advancedSettings = {
     serverEndpoint: '',
@@ -390,7 +390,7 @@
 
 ```svelte
 <script lang="ts">
-  import { FormField, TextEditor, NumberEditor, DatePicker, OptionsSelect, CheckBox } from '@ticatec/uniface-element';
+  import FormField, TextEditor, NumberEditor, DatePicker, OptionsSelect, CheckBox from '@ticatec/uniface-element/FormField, TextEditor, NumberEditor, DatePicker, OptionsSelect, CheckBox';
   
   interface EmployeeForm {
     personalInfo: {

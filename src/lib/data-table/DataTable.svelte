@@ -106,7 +106,7 @@
     {#if table && dataColumns && fixedCols}
         {#if indicatorColumn || fixedCols.length > 0}
             <FixedColumnsPanel {handleRowExpand} bind:selectedRows {orderDirection} {orderColumn} {handleCellClick} {indicatorColumn}
-                               bind:expandRow {table}
+                               bind:expandRow
                                {rowHeight} {fixedCols} {inlineRowHeight} {rows} {handleWidthChange} width={frozenWidth}
                                bind:scrollTop/>
         {/if}

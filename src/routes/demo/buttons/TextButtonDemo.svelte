@@ -5,7 +5,7 @@
 
     let n: number = 0;
 
-    const handleButtonClick = () => {
+    const handleButtonClick = async () => {
         n = n + 1;
     }
 </script>

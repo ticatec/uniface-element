@@ -6,6 +6,7 @@
     export let props: any;
     export let active: boolean;
 
+    console.warn("Invalid type", readonly, props, active);
 
 </script>
 <div>

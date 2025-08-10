@@ -14,7 +14,7 @@
     export let max: number | null = null;
     export let min: number | null = null;
     export let onChange: OnChangeHandler<number | null> = null as unknown as OnChangeHandler<number | null>;
-    export let textValue: string;
+    export let textValue: string = '';
     export const focus = () => {
         editor.focus();
     }

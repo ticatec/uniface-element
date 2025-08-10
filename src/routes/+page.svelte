@@ -9,7 +9,6 @@
     import i18n from "@ticatec/i18n";
 
 
-    i18n.languages = ['cn', 'en'];
     i18n.language = 'cn';
     i18n.setResource(cn_resource);
     console.log(i18n)

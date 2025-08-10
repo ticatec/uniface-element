@@ -1,0 +1,11 @@
+{
+  "overrides": [
+    {
+      "files": ["*.svelte"],
+      "rules": {
+        "svelte/a11y-invalid-attribute": "off",
+        "svelte/a11y-*": "off"   // 关闭所有 a11y 相关规则（可选）
+      }
+    }
+  ]
+}

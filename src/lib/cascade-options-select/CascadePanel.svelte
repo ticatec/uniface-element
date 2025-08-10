@@ -43,7 +43,7 @@
     <div style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: #e1e1e110;">
         <div style="position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center">
             <div style="width: 100px; margin: 0 auto; text-align: center; background-color: #f0f0f0; border-radius: 4px; padding: 8px 12px; box-sizing: border-box;">
-                <img src={iconLoading} width="32" height="32"/>
+                <img src={iconLoading} alt="loading" width="32" height="32"/>
             </div>
         </div>
     </div>

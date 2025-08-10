@@ -1,0 +1,1 @@
+export type OnIconClick = (item: any) => () => void;

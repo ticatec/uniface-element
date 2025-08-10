@@ -2,19 +2,20 @@
 
     export let rowSpan: number = 1;
     export let colSpan: number = 1;
-    export let row: number = null;
-    export let col: number = null;
+    export let row: number;
+    export let col: number;
 
     let style: string;
 
     $: {
-        style = rowSpan > 1 ? `grid-row-end: span ${rowSpan};` : '';
-        style += colSpan > 1 ? `grid-column-end: span ${colSpan};` : '';
-        style += row != null ? `grid-row-start: span ${row};` : '';
-        style += col != null ? `grid-column-start: span ${col};` : '';
+        style = '';
+        if (row != null) style += `grid-row-start: ${row};`;
+        if (col != null) style += `grid-column-start: ${col};`;
+        if (rowSpan > 1) style += `grid-row-end: span ${rowSpan};`;
+        if (colSpan > 1) style += `grid-column-end: span ${colSpan};`;
     }
 
 
 </script>
-<div class="cell-field" {style}>
+<div class="cell-field"  {style}>
 </div>

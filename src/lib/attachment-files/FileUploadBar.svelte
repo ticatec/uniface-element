@@ -23,11 +23,11 @@
         }
     }
 
-    const retryUpload = () => {
+    const retryUpload = async () => {
         file.restart();
     }
 
-    const removeUploadFile = () => {
+    const removeUploadFile = async () => {
         removeFile?.(file);
     }
 

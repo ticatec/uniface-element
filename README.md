@@ -36,7 +36,7 @@ import '@ticatec/uniface-element/ticatec-uniface-web.css';
 
 ```svelte
 <script lang="ts">
-  import { Button, DataTable, Dialog } from '@ticatec/uniface-element';
+  import Button, DataTable, Dialog from '@ticatec/uniface-element/Button, DataTable, Dialog';
   import type { DataColumn } from '@ticatec/uniface-element';
   
   let columns: DataColumn[] = [
@@ -95,7 +95,7 @@ import '@ticatec/uniface-element/ticatec-uniface-web.css';
 
 ```svelte
 <script lang="ts">
-  import { DataTable } from '@ticatec/uniface-element';
+  import DataTable from '@ticatec/uniface-element/DataTable';
   import type { DataColumn } from '@ticatec/uniface-element';
   
   let columns: DataColumn[] = [
@@ -132,7 +132,7 @@ import '@ticatec/uniface-element/ticatec-uniface-web.css';
 
 ```svelte
 <script lang="ts">
-  import { Dialog, Button, TextEditor, FormField } from '@ticatec/uniface-element';
+  import Dialog, Button, TextEditor, FormField from '@ticatec/uniface-element/Dialog, Button, TextEditor, FormField';
   
   let showDialog = false;
   let formData = { name: '', email: '' };
@@ -202,7 +202,7 @@ import type { DataColumn } from '@ticatec/uniface-element/types';
 ### Barrel Imports
 ```typescript
 // Import multiple components from main entry point
-import { Button, DataTable, Dialog, Card } from '@ticatec/uniface-element';
+import Button, DataTable, Dialog, Card from '@ticatec/uniface-element/Button, DataTable, Dialog, Card';
 ```
 
 ## Development

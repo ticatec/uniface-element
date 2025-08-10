@@ -30,16 +30,16 @@
         <DemoBlock style="grid-column: 1/7" title="Common App Header Bar">
             <AppTopBar title="Header">
                 <div slot="home">
-                    <i class="icon_google_menu" on:click={()=>{drawVisible = !drawVisible}}></i>
+                    <i class="icon_google_menu" aria-hidden="true" on:click={()=>{drawVisible = !drawVisible}}></i>
                 </div>
                 <svelte:fragment slot="right">
                     <div style="font-size: 15px; margin-top: 12px">
                         <span>{time}</span>
                     </div>
                     <div class="avatar">
-                        <img src={userAvatar} aria-hidden="true" on:click={()=>{showPopup=true}}/>
+                        <img src={userAvatar} alt="none" aria-hidden="true" on:click={()=>{showPopup=true}}/>
                         {#if showPopup}
-                            <div use:clickOutside={()=>{showPopup=false}} class="popover-panel" on:click|stopPropagation></div>
+                            <div use:clickOutside={()=>{showPopup=false}} aria-hidden="true" class="popover-panel" on:click|stopPropagation></div>
                         {/if}
                     </div>
                 </svelte:fragment>

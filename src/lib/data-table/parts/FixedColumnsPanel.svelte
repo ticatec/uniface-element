@@ -15,7 +15,6 @@
     export let width: number;
     export let scrollTop: number = 0;
     export let rows: Array<TableRow>;
-    export let table: UniDataTable;
     export let handleWidthChange: TableEventHandler;
     export let handleRowExpand: RowEventHandler;
 

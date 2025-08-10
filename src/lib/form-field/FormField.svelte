@@ -11,6 +11,7 @@
     export let labelSuffix: string = ':';
     export let label$alignment: 'center' | 'top' = 'center';
 
+    export let height: string = null as unknown as string;
 
     let className: string = '';
 
@@ -23,7 +24,7 @@
             {/if}
             <span>{label}{labelSuffix}</span>
         </div>
-        <div class="field" style="">
+        <div class="field" style="height: {height??'auto'}">
             <slot/>
         </div>
         {#if !utils.isEmpty(error)}

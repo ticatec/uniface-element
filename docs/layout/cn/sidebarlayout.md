@@ -13,7 +13,7 @@ SidebarLayout组件提供了一个灵活的布局，包含侧边栏、头部和�
 ## 导入
 
 ```typescript
-import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
+import SidebarLayout from '@ticatec/uniface-element/app-layout/SidebarLayout';
 ```
 
 ## 属性
@@ -36,7 +36,7 @@ import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout
 
 ```svelte
 <script lang="ts">
-  import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
+  import SidebarLayout from '@ticatec/uniface-element/app-layout/SidebarLayout';
 </script>
 
 <SidebarLayout 
@@ -66,9 +66,9 @@ import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout
 
 ```svelte
 <script lang="ts">
-  import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
-  import { NavigatorMenu } from '@ticatec/uniface-element/NavigatorMenu';
-  import { Button } from '@ticatec/uniface-element/Button';
+  import SidebarLayout from '@ticatec/uniface-element/app-layout/SidebarLayout';
+  import NavigatorMenu from '@ticatec/uniface-element/NavigatorMenu';
+  import Button from '@ticatec/uniface-element/Button';
   
   let menuItems = [
     { id: 1, text: '仪表板', icon: 'dashboard' },
@@ -139,8 +139,8 @@ import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout
 
 ```svelte
 <script lang="ts">
-  import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
-  import { IconButton } from '@ticatec/uniface-element/IconButton';
+  import SidebarLayout from '@ticatec/uniface-element/app-layout/SidebarLayout';
+  import IconButton from '@ticatec/uniface-element/IconButton';
   
   let sidebarCollapsed = false;
   let sidebarWidth = sidebarCollapsed ? '60px' : '250px';

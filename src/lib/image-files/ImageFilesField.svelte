@@ -62,7 +62,7 @@
     <div class="uniface-display-field images-field">
         {#each files as file}
             <div>
-                <img width="40" height="40" src={file.thumbnail??file.uri}/>
+                <img width="40" height="40" alt="file" src={file.thumbnail??file.uri}>
                 <div class="img-file-name">
                     <span>{file.name}</span>
                 </div>

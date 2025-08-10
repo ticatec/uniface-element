@@ -1,362 +1,113 @@
-# Button Components & ActionBar
+# Button Component System
 
 The Uniface Element Button system provides a comprehensive set of interactive button components for Svelte applications. It includes standard buttons, text buttons, icon buttons, and a flexible action bar component for organizing multiple actions.
 
-## Table of Contents
+## Component Overview
 
-- [Architecture Overview](#architecture-overview)
-- [Button Component](#button-component)
-- [TextButton Component](#textbutton-component)
-- [IconButton Component](#iconbutton-component)
-- [ActionBar Component](#actionbar-component)
-- [Button Types & Styling](#button-types--styling)
-- [API Reference](#api-reference)
-- [Usage Examples](#usage-examples)
-- [Best Practices](#best-practices)
-- [Accessibility](#accessibility)
+The button system consists of four main components, each with specific purposes and design goals:
 
-## Architecture Overview
+### [Button Component](./Button.md)
+Full-featured button component with icon and label support, suitable for most interaction scenarios.
 
-The button system consists of several interconnected components:
+**Features:**
+- Supports icon + text labels
+- Multiple size and style variants
+- Complete theme support
+- Async operation handling
 
-- **Button**: Full-featured button component with icon and label support
-- **TextButton**: Simplified text-only button component
-- **IconButton**: Icon-only button component for compact interfaces
-- **ActionBar**: Container component for organizing multiple buttons
-- **ButtonAction**: Interface defining button configuration for ActionBar
-- **ButtonType**: Type definition for button styling variants
+**Use Cases:** Primary actions, form submissions, dialog confirmations
+
+### [TextButton Component](./TextButton.md)
+Lightweight component optimized for text-only buttons with minimal styling.
+
+**Features:**
+- Text-only display
+- Minimal visual styling
+- Fast loading and rendering
+- Support for custom content slots
+
+**Use Cases:** Navigation links, inline actions, dialog cancel buttons
+
+### [IconButton Component](./IconButton.md)
+Icon-only button component designed for compact interfaces.
+
+**Features:**
+- Icon-only display
+- Compact space usage
+- Multiple icon library support
+- Adaptive sizing
+
+**Use Cases:** Toolbars, data table actions, card actions
+
+### [ActionBar Component](./ActionBar.md)
+Container component for organizing and managing multiple button actions.
+
+**Features:**
+- Unified button layout management
+- Automatic spacing and alignment
+- Separator support
+- Responsive layout
+
+**Use Cases:** Form action bars, dialog footers, toolbar layouts
+
+## Architecture Diagram
 
 ```mermaid
 graph TD
-    A[ActionBar] --> B[Button Components]
-    B --> C[Button.svelte]
-    B --> D[TextButton.svelte]
-    B --> E[IconButton.svelte]
-    F[ButtonAction] --> A
-    G[ButtonType] --> B
-    H[MouseClickHandler] --> B
+    A[ActionBar Container] --> B[Button Components]
+    B --> C[Button Standard]
+    B --> D[TextButton Text-only]
+    B --> E[IconButton Icon-only]
+    F[ButtonAction Config] --> A
+    G[ButtonType Styling] --> B
+    H[MouseClickHandler Events] --> B
 ```
 
-## Button Component
+## Quick Start
 
-The primary `Button` component provides comprehensive button functionality with icon and label support.
+### Installation and Import
 
-### Basic Usage
+```typescript
+// Import required components
+import Button from '@ticatec/uniface-element/Button';
+import TextButton from '@ticatec/uniface-element/TextButton';
+import IconButton from '@ticatec/uniface-element/IconButton';
+import ActionBar from '@ticatec/uniface-element/ActionBar';
+import type { ButtonActions } from '@ticatec/uniface-element';
+```
+
+### Basic Examples
 
 ```svelte
 <script lang="ts">
-  import { Button } from '@ticatec/uniface-element';
-  
-  const handleClick = async (event: MouseEvent) => {
-    console.log('Button clicked!');
-    // Perform async operation
-  };
-</script>
-
-<Button 
-  label="Save Changes"
-  type="primary"
-  icon="fas fa-save"
-  onClick={handleClick}
-/>
-```
-
-### Advanced Configuration
-
-```svelte
-<script lang="ts">
-  import { Button } from '@ticatec/uniface-element';
-  import type { ButtonType } from '@ticatec/uniface-element';
-  
-  let isSubmitting = false;
-  
-  const handleSubmit = async (event: MouseEvent) => {
-    isSubmitting = true;
-    try {
-      await submitForm();
-    } finally {
-      isSubmitting = false;
-    }
-  };
-</script>
-
-<Button 
-  label={isSubmitting ? "Submitting..." : "Submit Form"}
-  type="primary"
-  size="big"
-  variant="round"
-  icon="fas fa-paper-plane"
-  disabled={isSubmitting}
-  style="margin: 16px;"
-  onClick={handleSubmit}
-/>
-```
-
-### Button Properties
-
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `label` | `string` | `''` | Button text label |
-| `type` | `ButtonType` | `'default'` | Visual style variant |
-| `size` | `'big' \| 'medium' \| 'mini'` | `'medium'` | Button size |
-| `variant` | `'plain' \| 'round' \| ''` | `''` | Additional style variant |
-| `icon` | `string \| null` | `null` | Icon class (e.g., Font Awesome) |
-| `disabled` | `boolean` | `false` | Disable button interaction |
-| `style` | `string` | `''` | Custom CSS styles |
-| `onClick` | `(event: MouseEvent) => void` | - | Click event handler |
-
-### Button with Slot Content
-
-```svelte
-<Button type="secondary" onClick={handleAction}>
-  <i class="fas fa-star"></i>
-  <span>Custom Content</span>
-  <span class="badge">3</span>
-</Button>
-```
-
-## TextButton Component
-
-The `TextButton` component is optimized for text-only buttons with minimal styling.
-
-### Basic Usage
-
-```svelte
-<script lang="ts">
-  import { TextButton } from '@ticatec/uniface-element';
-  
-  const handleCancel = async (event: MouseEvent) => {
-    // Handle cancel action
-  };
-</script>
-
-<TextButton 
-  label="Cancel"
-  type="secondary"
-  onClick={handleCancel}
-/>
-```
-
-### Text Button Examples
-
-```svelte
-<script lang="ts">
-  import { TextButton } from '@ticatec/uniface-element';
-  
-  const actions = {
-    save: async () => { /* save logic */ },
-    delete: async () => { /* delete logic */ },
-    cancel: async () => { /* cancel logic */ }
-  };
-</script>
-
-<!-- Different button types -->
-<TextButton label="Primary Action" type="primary" onClick={actions.save} />
-<TextButton label="Secondary" type="secondary" onClick={actions.cancel} />
-<TextButton label="Danger Action" type="third" onClick={actions.delete} />
-
-<!-- Different sizes -->
-<TextButton label="Large" size="big" onClick={actions.save} />
-<TextButton label="Normal" size="medium" onClick={actions.save} />
-<TextButton label="Small" size="mini" onClick={actions.save} />
-
-<!-- With custom content -->
-<TextButton type="primary" onClick={actions.save}>
-  <i class="fas fa-check"></i> Confirm Changes
-</TextButton>
-```
-
-### TextButton Properties
-
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `label` | `string` | `''` | Button text label |
-| `type` | `ButtonType` | `'default'` | Visual style variant |
-| `size` | `'big' \| 'medium' \| 'mini'` | `'medium'` | Button size |
-| `disabled` | `boolean` | `false` | Disable button interaction |
-| `style` | `string` | `''` | Custom CSS styles |
-| `onClick` | `MouseClickHandler` | - | Async click event handler |
-
-## IconButton Component
-
-The `IconButton` component is designed for icon-only buttons in compact interfaces.
-
-### Basic Usage
-
-```svelte
-<script lang="ts">
-  import { IconButton } from '@ticatec/uniface-element';
-  
-  const handleEdit = async (event: MouseEvent) => {
-    // Handle edit action
-  };
-</script>
-
-<IconButton 
-  icon="fas fa-edit"
-  type="primary"
-  onClick={handleEdit}
-/>
-```
-
-### Icon Button Examples
-
-```svelte
-<script lang="ts">
-  import { IconButton } from '@ticatec/uniface-element';
-  
-  const toolbarActions = {
-    edit: async () => { /* edit logic */ },
-    delete: async () => { /* delete logic */ },
-    share: async () => { /* share logic */ },
-    favorite: async () => { /* favorite logic */ }
-  };
-</script>
-
-<!-- Toolbar with icon buttons -->
-<div class="toolbar">
-  <IconButton icon="fas fa-edit" type="default" onClick={toolbarActions.edit} />
-  <IconButton icon="fas fa-trash" type="third" onClick={toolbarActions.delete} />
-  <IconButton icon="fas fa-share" type="secondary" onClick={toolbarActions.share} />
-  <IconButton icon="fas fa-heart" type="primary" onClick={toolbarActions.favorite} />
-</div>
-
-<!-- Different sizes -->
-<IconButton icon="fas fa-cog" size="big" onClick={toolbarActions.edit} />
-<IconButton icon="fas fa-cog" size="medium" onClick={toolbarActions.edit} />
-<IconButton icon="fas fa-cog" size="mini" onClick={toolbarActions.edit} />
-
-<!-- With custom slot content -->
-<IconButton type="primary" onClick={toolbarActions.edit}>
-  <i class="fas fa-edit"></i>
-</IconButton>
-
-<style>
-  .toolbar {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-</style>
-```
-
-### IconButton Properties
-
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `icon` | `string` | `''` | Icon class (e.g., Font Awesome) |
-| `type` | `ButtonType` | `'default'` | Visual style variant |
-| `size` | `'big' \| 'medium' \| 'mini'` | `'medium'` | Button size |
-| `disabled` | `boolean` | `false` | Disable button interaction |
-| `style` | `string` | `''` | Custom CSS styles |
-| `onClick` | `(event: MouseEvent) => void` | - | Click event handler |
-
-## ActionBar Component
-
-The `ActionBar` component provides a container for organizing multiple button actions with consistent spacing and layout.
-
-### Basic Usage
-
-```svelte
-<script lang="ts">
-  import { ActionBar } from '@ticatec/uniface-element';
+  import Button from '@ticatec/uniface-element/Button';
+  import TextButton from '@ticatec/uniface-element/TextButton';
+  import IconButton from '@ticatec/uniface-element/IconButton';
+  import ActionBar from '@ticatec/uniface-element/ActionBar';
   import type { ButtonActions } from '@ticatec/uniface-element';
+  
+  const handleSave = async () => {
+    // Save operation
+  };
   
   const actions: ButtonActions = [
-    {
-      label: "Save",
-      type: "primary",
-      icon: "icon_google_save",
-      handler: async () => {
-        await saveChanges();
-      }
-    },
-    {
-      label: "Cancel",
-      type: "secondary",
-      handler: async () => {
-        closeDialog();
-      }
-    }
+    { label: "Cancel", type: "secondary", handler: async () => {} },
+    { label: "Save", type: "primary", handler: handleSave }
   ];
 </script>
 
+<!-- Standard button -->
+<Button label="Save" type="primary" icon="icon_google_save" onClick={handleSave} />
+
+<!-- Text button -->
+<TextButton label="Cancel" type="secondary" onClick={async () => {}} />
+
+<!-- Icon button -->
+<IconButton icon="icon_google_edit" type="primary" onClick={async () => {}} />
+
+<!-- Action bar -->
 <ActionBar buttons={actions} />
 ```
-
-### Advanced ActionBar Usage
-
-```svelte
-<script lang="ts">
-  import { ActionBar } from '@ticatec/uniface-element';
-  import type { ButtonActions } from '@ticatec/uniface-element';
-  
-  let isProcessing = false;
-  
-  const formActions: ButtonActions = [
-    {
-      label: "Reset",
-      type: "default",
-      icon: "icon_google_undo",
-      handler: async () => {
-        resetForm();
-      }
-    },
-    null, // Separator
-    {
-      label: "Preview",
-      type: "secondary",
-      icon: "icon_google_visibility",
-      handler: async () => {
-        showPreview();
-      }
-    },
-    {
-      label: isProcessing ? "Processing..." : "Submit",
-      type: "primary",
-      icon: "icon_google_send",
-      disabled: isProcessing,
-      handler: async () => {
-        isProcessing = true;
-        try {
-          await submitForm();
-        } finally {
-          isProcessing = false;
-        }
-      }
-    }
-  ];
-</script>
-
-<ActionBar 
-  buttons={formActions} 
-  gap={12}
-  style="padding: 16px; justify-content: flex-end;"
-/>
-```
-
-### ActionBar with Custom Content
-
-```svelte
-<script lang="ts">
-  import { ActionBar, Button } from '@ticatec/uniface-element';
-</script>
-
-<!-- When no buttons prop is provided, slot content is used -->
-<ActionBar gap={16} style="padding: 20px;">
-  <Button label="Custom Action 1" type="primary" onClick={action1} />
-  <Button label="Custom Action 2" type="secondary" onClick={action2} />
-  <Button label="Custom Action 3" type="default" onClick={action3} />
-</ActionBar>
-```
-
-### ActionBar Properties
-
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `buttons` | `ButtonActions` | `[]` | Array of button configurations |
-| `style` | `string` | `''` | Custom CSS styles |
-| `gap` | `number` | `8` | Space between buttons in pixels |
 
 ## Button Types & Styling
 
@@ -369,10 +120,10 @@ type ButtonType = 'default' | 'primary' | 'secondary' | 'third' | 'forth';
 ### Visual Appearance
 
 - **default**: Standard neutral button appearance
-- **primary**: Emphasized button for main actions (usually blue)
-- **secondary**: Secondary action button (usually gray)
-- **third**: Alternative styling (often used for warnings/cautions)
-- **forth**: Additional styling variant
+- **primary**: Emphasizes primary actions (typically blue)
+- **secondary**: Secondary actions button (typically gray)
+- **third**: Alternative style (typically for warnings/caution)
+- **forth**: Additional style variant
 
 ### Size Variants
 
@@ -382,9 +133,9 @@ type ButtonType = 'default' | 'primary' | 'secondary' | 'third' | 'forth';
 
 ### Style Variants (Button only)
 
-- **plain**: Minimal styling variant
-- **round**: Rounded corners variant
-- **'' (empty)**: Standard styling
+- **plain**: Minimalist style variant
+- **round**: Rounded corner variant
+- **'' (empty string)**: Standard styling
 
 ## API Reference
 
@@ -395,7 +146,7 @@ interface ButtonAction {
   /** Button label text */
   label: string;
   
-  /** Whether the button is disabled */
+  /** Whether button is disabled */
   disabled?: boolean;
   
   /** Icon class (e.g., Google Material Icons) */
@@ -423,7 +174,7 @@ All button components implement automatic click throttling with a 500ms cooldown
 
 ### Icon Usage
 
-The components use `@ticatec/uniface-google-material-icons` for icons. Simply pass the icon class name:
+Components use `@ticatec/uniface-google-material-icons` as the icon library. Simply pass the icon class name:
 
 ```svelte
 <!-- Common Material Icons -->
@@ -445,7 +196,7 @@ The components use `@ticatec/uniface-google-material-icons` for icons. Simply pa
 
 ```svelte
 <script lang="ts">
-  import { ActionBar } from '@ticatec/uniface-element';
+  import ActionBar from '@ticatec/uniface-element/ActionBar';
   import type { ButtonActions } from '@ticatec/uniface-element';
   
   export let onSave: () => Promise<void>;
@@ -479,7 +230,7 @@ The components use `@ticatec/uniface-google-material-icons` for icons. Simply pa
 
 ```svelte
 <script lang="ts">
-  import { IconButton } from '@ticatec/uniface-element';
+  import IconButton from '@ticatec/uniface-element/IconButton';
   
   export let item: any;
   export let onEdit: (item: any) => Promise<void>;
@@ -517,7 +268,8 @@ The components use `@ticatec/uniface-google-material-icons` for icons. Simply pa
 
 ```svelte
 <script lang="ts">
-  import { Button, TextButton } from '@ticatec/uniface-element';
+  import Button from '@ticatec/uniface-element/Button';
+  import TextButton from '@ticatec/uniface-element/TextButton';
   
   let formData = {};
   let isSubmitting = false;
@@ -588,7 +340,7 @@ The components use `@ticatec/uniface-google-material-icons` for icons. Simply pa
 
 ```svelte
 <script lang="ts">
-  import { ActionBar } from '@ticatec/uniface-element';
+  import ActionBar from '@ticatec/uniface-element/ActionBar';
   import type { ButtonActions } from '@ticatec/uniface-element';
   
   let selectedItems = [];
@@ -653,7 +405,7 @@ The components use `@ticatec/uniface-google-material-icons` for icons. Simply pa
 
 ### 1. Use Appropriate Button Types
 
-Choose the right button type based on action importance:
+Choose the correct button type based on action importance:
 
 ```svelte
 <!-- Primary actions -->
@@ -664,7 +416,7 @@ Choose the right button type based on action importance:
 <Button label="Cancel" type="secondary" />
 <Button label="Preview" type="secondary" />
 
-<!-- Destructive actions -->
+<!-- Dangerous actions -->
 <Button label="Delete" type="third" />
 <Button label="Remove" type="third" />
 ```
@@ -704,7 +456,7 @@ Always handle loading states and errors:
 {/if}
 ```
 
-### 3. Use ActionBar for Related Actions
+### 3. Use ActionBar to Group Related Actions
 
 Group related actions together:
 
@@ -718,7 +470,7 @@ Group related actions together:
   const editActions = [
     { label: "Undo", icon: "icon_google_undo", handler: undo },
     { label: "Redo", icon: "icon_google_redo", handler: redo },
-    null, // separator
+    null, // Separator
     { label: "Save", type: "primary", handler: save }
   ];
 </script>
@@ -729,13 +481,13 @@ Group related actions together:
 Use icons and appropriate styling:
 
 ```svelte
-<!-- Success action -->
+<!-- Success actions -->
 <Button label="Save" icon="icon_google_save" type="primary" />
 
-<!-- Destructive action -->
+<!-- Dangerous actions -->
 <Button label="Delete" icon="icon_google_delete" type="third" />
 
-<!-- Navigation action -->
+<!-- Navigation actions -->
 <Button label="Back" icon="icon_google_arrow_back" type="secondary" />
 ```
 
@@ -745,7 +497,7 @@ Use appropriate sizes for different screen sizes:
 
 ```svelte
 <div class="responsive-buttons">
-  <!-- Desktop: normal size, Mobile: bigger for touch -->
+  <!-- Desktop: normal size, Mobile: larger for touch -->
   <Button label="Action" size="big" class="mobile-friendly" />
 </div>
 
@@ -756,7 +508,7 @@ Use appropriate sizes for different screen sizes:
   
   @media (max-width: 768px) {
     .responsive-buttons .mobile-friendly {
-      min-height: 44px; /* iOS recommended touch target */
+      min-height: 44px; /* iOS recommended touch target size */
     }
   }
 </style>
@@ -766,19 +518,19 @@ Use appropriate sizes for different screen sizes:
 
 ### Current Limitations
 
-**⚠️ Important Notice**: The current button components have several accessibility limitations:
+**⚠️ Important Note**: The current button components have the following accessibility limitations:
 
 - **Non-semantic elements**: All buttons use `<div>` elements instead of `<button>`
 - **Hidden from screen readers**: All buttons have `aria-hidden="true"` by default
 - **No keyboard navigation**: Components don't support Tab navigation or Enter/Space activation
-- **No focus management**: Components don't expose focus methods or support `bind:this`
-- **No ARIA attribute support**: Custom aria-* attributes are not passed through
+- **No focus management**: Components don't provide focus method or support `bind:this`
+- **No ARIA attribute support**: Custom aria-* attributes cannot be passed
 
-### Recommendations for Better Accessibility
+### Better Accessibility Suggestions
 
 For production applications requiring full accessibility compliance, consider:
 
-1. **Wrapping components in proper button elements**:
+1. **Wrap components in proper button elements**:
 ```svelte
 <button 
   class="custom-button-wrapper"
@@ -788,12 +540,12 @@ For production applications requiring full accessibility compliance, consider:
 >
   <IconButton 
     icon="icon_google_edit"
-    onClick={() => {}} // Handle via outer button
+    onClick={() => {}} // Handle through external button
   />
 </button>
 ```
 
-2. **Adding keyboard event handlers**:
+2. **Add keyboard event handlers**:
 ```svelte
 <script>
   const handleKeydown = (e) => {
@@ -816,7 +568,7 @@ For production applications requiring full accessibility compliance, consider:
 </div>
 ```
 
-3. **Managing focus programmatically**:
+3. **Programmatically manage focus**:
 ```svelte
 <script>
   let buttonElement;
@@ -839,7 +591,7 @@ For production applications requiring full accessibility compliance, consider:
 
 ### Future Improvements Needed
 
-To make these components fully accessible, the following changes would be recommended:
+To make these components fully accessible, the following changes are recommended:
 
 - Replace `<div>` with `<button>` elements
 - Remove `aria-hidden="true"` and allow ARIA attribute customization

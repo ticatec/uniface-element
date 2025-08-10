@@ -57,10 +57,11 @@
     })
 
     const handleDataTableScroll = (e: Event) => {
+        const target = e.target as HTMLElement;
         if (showVerticalScroll) {
-            scrollTop = e.target?.scrollTop;
+            scrollTop = target.scrollTop;
         }
-        scrollLeft = e.target?.scrollLeft;
+        scrollLeft = target.scrollLeft;
     }
 
 

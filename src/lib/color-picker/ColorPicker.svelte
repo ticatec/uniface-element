@@ -5,10 +5,10 @@
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import CommonPicker from "$lib/common/CommonPicker.svelte";
 
-    type OnActionHandler = () => void;
+    //type OnActionHandler = () => void;
 
-    export let showHex = true;
-    export let showRgb = false;
+    //export let showHex = true;
+    //export let showRgb = false;
 
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let disabled: boolean = false;
@@ -28,17 +28,17 @@
     let editor: any;
 
     const clean = () => {
-
+        onChange(null)
     }
 
-    const handleActionIconClick = () => {
+    const handleActionIconClick = async () => {
         editor.click();
     }
 
-    function handleColorChange(event) {
-        selectedColor = event.target.value;
-        rgbValues = hexToRgb(selectedColor);
-        console.log(selectedColor, rgbValues);
+    function handleColorChange(event: Event) {
+        // selectedColor = (event.target as HTMLElement).value;
+        // rgbValues = hexToRgb(selectedColor);
+        // console.log(selectedColor, rgbValues);
         // dispatch('change', {
         //     hex: selectedColor,
         //     rgb: rgbValues

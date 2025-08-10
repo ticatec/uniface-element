@@ -28,24 +28,24 @@
     const isDisabled = (y: number) => (maxYear!=null && y > maxYear) || (minYear!=null && y < minYear);
 
 </script>
-<div class="uniface-year-pickup-panel" on:click={onClick}>
+<div class="uniface-year-pickup-panel" aria-hidden="true" on:click={onClick}>
     <div>
         <div>
             <div style="text-align: center">
                 <div style="display: inline-block; width: 30px; height: 10px; padding: 6px 0">
-                    <i class="icon_google_keyboard_arrow_up" on:click={showYears(-years)}></i>
+                    <i class="icon_google_keyboard_arrow_up" aria-hidden="true" on:click={showYears(-years)}></i>
                 </div>
             </div>
             <div style="display: grid; grid-template-columns: auto auto auto auto; width: 100%; overflow: hidden">
                 {#each Array(years) as _, i}
-                    <div class="year-block" on:click={handleYearClick(i)} class:disabled={isDisabled(year-offset+i)} class:selected={year===year-offset+i}>
+                    <div class="year-block" on:click={handleYearClick(i)} aria-hidden="true" class:disabled={isDisabled(year-offset+i)} class:selected={year===year-offset+i}>
                         <span>{year-offset+i}</span>
                     </div>
                 {/each}
             </div>
             <div style="text-align: center">
                 <div style="display: inline-block; width: 30px; height: 10px; padding: 6px 0">
-                    <i class="icon_google_keyboard_arrow_down" on:click={showYears(years)}></i>
+                    <i class="icon_google_keyboard_arrow_down" aria-hidden="true" on:click={showYears(years)}></i>
                 </div>
             </div>
         </div>

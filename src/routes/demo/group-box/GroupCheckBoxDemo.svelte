@@ -18,10 +18,10 @@
 
     let disabledItems:any = [];
 
-    const handleSelectionChange = (value: string) => {
+    const handleSelectionChange = (value: string | number) => {
         if (value == '') {
             disabledItems = [];
-        } else {
+        } else if (typeof value == 'string') {
             let items = value.split(';');
             console.log(value, items);
             if (items[items.length - 1] == "N/A") {

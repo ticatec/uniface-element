@@ -32,7 +32,7 @@
         onChange?.(value)
     }
 
-    const handleActionIconClick = () => {
+    const handleActionIconClick = async (event: MouseEvent) => {
         onAction?.();
     }
 

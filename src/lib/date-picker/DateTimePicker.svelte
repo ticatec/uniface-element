@@ -76,7 +76,7 @@
         }
     }
 
-    const confirm = () => {
+    const confirm = async () => {
         if (dateUtils.toDayjs(value)?.toDate() != currentValue.toDate()) {
             value = currentValue;
             onChange?.(currentValue.toDate());

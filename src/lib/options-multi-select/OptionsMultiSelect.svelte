@@ -79,7 +79,7 @@
         return s.length == 0 ? '' : s.join(delimiter);
     }
 
-    const removeOption = (code: string) => (e: MouseEvent) => {
+    const removeOption = (code: string) => async (e: MouseEvent) => {
         removeSelectCode(code);
         e.stopPropagation();
         e.preventDefault();

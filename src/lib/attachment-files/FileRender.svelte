@@ -48,7 +48,7 @@
 
 <div style="width: 80px; height: 100%; box-sizing: border-box; padding: 6px 8px;">
     <div class="file-icon">
-        <img src={icon} width="64px" height="64px"/>
+        <img src={icon} alt="icon" width="64px" height="64px"/>
         <div class="action-icon" style="top: 15px;">
             <i class="icon_google_file_download" ></i>
         </div>

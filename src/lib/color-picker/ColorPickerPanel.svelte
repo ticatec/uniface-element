@@ -8,14 +8,14 @@
     export let initialColor = "#ffffff";
     export let showHex = true;
     export let showRgb = false;
-    export let swatches = [];
+    export let swatches: Array<any> = [];
 
     let selectedColor = initialColor;
     let rgbValues = hexToRgb(initialColor);
 
 
     // Convert hex to RGB
-    function hexToRgb(hex) {
+    function hexToRgb(hex: string) {
         const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
         return result ? {
             r: parseInt(result[1], 16),
@@ -25,17 +25,17 @@
     }
 
     // Emit change event when color changes
-    function handleColorChange(event) {
-        selectedColor = event.target.value;
+    function handleColorChange(event: Event) {
+        selectedColor = "0x000000"; //event.target?.value;
         rgbValues = hexToRgb(selectedColor);
-        dispatch('change', {
-            hex: selectedColor,
-            rgb: rgbValues
-        });
+        // dispatch('change', {
+        //     hex: selectedColor,
+        //     rgb: rgbValues
+        // });
     }
 
     // Select a swatch
-    function selectSwatch(color) {
+    function selectSwatch(color: any) {
         selectedColor = color;
         rgbValues = hexToRgb(selectedColor);
         // dispatch('change', {
@@ -47,8 +47,7 @@
 
 <div class="color-picker">
     <label for="color-input">
-        {i18n.getText('uniface.pickupColor', langRes.uniface.colorPicker)
-            }
+        {i18n.getText('uniface.pickupColor', langRes.uniface.colorPicker)}
     </label>
 
     <div class="color-input-group">
@@ -116,7 +115,6 @@
     }
 
     input[type="color"] {
-        -webkit-appearance: none;
         width: 40px;
         height: 40px;
         border: none;

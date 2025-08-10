@@ -23,7 +23,7 @@
 </script>
 <div class="uniface-drawer" aria-hidden="true" style="display: {hidden ? 'none' : 'block'}" on:click={()=>{visible=false;}}>
     {#if visible}
-        <div class={position} style="width: {width}px" transition:fly={{ x: xPos, duration: 1000, opacity: 0.5 }} aria-hidden="false"
+        <div class={position} style="width: {width}px" transition:fly={{ x: xPos, duration: 1000, opacity: 0.5 }} aria-hidden="true"
              on:outroend={()=>{hidden = !visible}} on:click|stopPropagation>
             <div>
             <slot></slot>

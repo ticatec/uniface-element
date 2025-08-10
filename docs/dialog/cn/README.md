@@ -94,7 +94,7 @@ declare global {
 
 ```svelte
 <script lang="ts">
-  import { Dialog } from '@ticatec/uniface-element';
+  import Dialog from '@ticatec/uniface-element/Dialog';
   import type { ButtonActions } from '@ticatec/uniface-element';
   
   let modalResult = null;
@@ -148,7 +148,7 @@ declare global {
 
 ```svelte
 <script lang="ts">
-  import { CommonDialog, ModalResult } from '@ticatec/uniface-element';
+  import CommonDialog, ModalResult from '@ticatec/uniface-element/CommonDialog, ModalResult';
   
   export let user: any;
   export let onSave: (user: any) => void;
@@ -239,7 +239,7 @@ declare global {
 <!-- UserEditDialog.svelte -->
 <script lang="ts">
   import { getContext } from 'svelte';
-  import { CommonDialog, ModalResult } from '@ticatec/uniface-element';
+  import CommonDialog, ModalResult from '@ticatec/uniface-element/CommonDialog, ModalResult';
   
   export let user: any;
   export let onSave: (user: any) => Promise<void>;
@@ -337,7 +337,7 @@ declare global {
 <!-- ConfirmationDialog.svelte -->
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import { Button } from '@ticatec/uniface-element';
+  import Button from '@ticatec/uniface-element/Button';
   
   export let title = "确认操作";
   export let message = "您确定要继续吗？";
@@ -447,7 +447,7 @@ declare global {
 
 ```svelte
 <script lang="ts">
-  import { CommonDialog } from '@ticatec/uniface-element';
+  import CommonDialog from '@ticatec/uniface-element/CommonDialog';
   
   export let product: any;
   export let onSave: (product: any) => Promise<void>;

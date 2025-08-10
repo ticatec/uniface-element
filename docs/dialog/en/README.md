@@ -94,7 +94,7 @@ The base `Dialog` component provides standard dialog functionality:
 
 ```svelte
 <script lang="ts">
-  import { Dialog } from '@ticatec/uniface-element';
+  import Dialog from '@ticatec/uniface-element/Dialog';
   import type { ButtonActions } from '@ticatec/uniface-element';
   
   let modalResult = null;
@@ -148,7 +148,7 @@ The `CommonDialog` is a pre-configured dialog for typical use cases:
 
 ```svelte
 <script lang="ts">
-  import { CommonDialog, ModalResult } from '@ticatec/uniface-element';
+  import CommonDialog, ModalResult from '@ticatec/uniface-element/CommonDialog, ModalResult';
   
   export let user: any;
   export let onSave: (user: any) => void;
@@ -239,7 +239,7 @@ The `CommonDialog` is a pre-configured dialog for typical use cases:
 <!-- UserEditDialog.svelte -->
 <script lang="ts">
   import { getContext } from 'svelte';
-  import { CommonDialog, ModalResult } from '@ticatec/uniface-element';
+  import CommonDialog, ModalResult from '@ticatec/uniface-element/CommonDialog, ModalResult';
   
   export let user: any;
   export let onSave: (user: any) => Promise<void>;
@@ -337,7 +337,7 @@ The `CommonDialog` is a pre-configured dialog for typical use cases:
 <!-- ConfirmationDialog.svelte -->
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import { Button } from '@ticatec/uniface-element';
+  import Button from '@ticatec/uniface-element/Button';
   
   export let title = "Confirm Action";
   export let message = "Are you sure you want to continue?";
@@ -447,7 +447,7 @@ The `CommonDialog` is a pre-configured dialog for typical use cases:
 
 ```svelte
 <script lang="ts">
-  import { CommonDialog } from '@ticatec/uniface-element';
+  import CommonDialog from '@ticatec/uniface-element/CommonDialog';
   
   export let product: any;
   export let onSave: (product: any) => Promise<void>;

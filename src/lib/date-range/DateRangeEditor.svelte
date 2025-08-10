@@ -71,7 +71,7 @@
     </CommonRangeEditor>
 
     {#if showPopup}
-        <Popover target={rootElement} on:close={()=>{showPopup=false}} style="width: 452px" autoFit={false}>
+        <Popover target={rootElement} onClose={()=>{showPopup=false}} style="width: 452px" autoFit={false}>
             <div style="white-space: nowrap">
                 <Calendar style="border-right: 1px solid #f0f0f0" value={fromValue} onSelect={handleFormCalendarSelect} {min} max={maxFrom}/>
                 <Calendar value={toValue} onSelect={handleToCalendarSelect} min={minTo} {max}/>

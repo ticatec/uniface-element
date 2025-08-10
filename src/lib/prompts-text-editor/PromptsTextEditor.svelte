@@ -18,7 +18,7 @@
     export let suffix: string = '';
     export let displayMode: DisplayMode = DisplayMode.Edit;
     export let removable: boolean = true;
-    export let onChange: OnChangeHandler<number | null> = null as unknown as OnChangeHandler<number | null>;
+    export let onChange: OnChangeHandler<string | null> = null as unknown as OnChangeHandler<string | null>;
     export let words: Array<string>;
     export let menu$height: number = 0;
     export let placeholder: string = '';
@@ -80,7 +80,7 @@
     </CommonEditor>
 
     {#if showPopup}
-        <Popover target={divPanel} autoFit align="right" on:close={()=>{showPopup=false}}>
+        <Popover target={divPanel} autoFit align="right" onClose={()=>{showPopup=false}}>
             <div class="options-popover" style={mh}>
                 {#each words as word}
                     <div class="option-item" style="padding-left: 12px; padding-right: 12px" on:click={handleHintClick(word)}

@@ -37,7 +37,7 @@ Uniface Element 表单组件为 Svelte 应用程序提供了一套全面的输�
 
 ```svelte
 <script lang="ts">
-  import { TextEditor, FormField } from '@ticatec/uniface-element';
+  import TextEditor, FormField from '@ticatec/uniface-element/TextEditor, FormField';
   
   let userEmail = '';
   let emailError = '';
@@ -80,7 +80,7 @@ npm install @ticatec/web-bean-validator
 
 ```svelte
 <script lang="ts">
-  import { TextEditor, NumberEditor, FormField } from '@ticatec/uniface-element';
+  import TextEditor, NumberEditor, FormField from '@ticatec/uniface-element/TextEditor, NumberEditor, FormField';
   import beanValidator from '@ticatec/web-bean-validator';
   import { StringValidator, NumberValidator } from '@ticatec/entity-validator';
   
@@ -164,7 +164,7 @@ npm install @ticatec/web-bean-validator
 
 ```svelte
 <script lang="ts">
-  import { DatePicker, FormField } from '@ticatec/uniface-element';
+  import DatePicker, FormField from '@ticatec/uniface-element/DatePicker, FormField';
   import beanValidator from '@ticatec/web-bean-validator';
   import { DateValidator } from '@ticatec/entity-validator';
   
@@ -269,7 +269,7 @@ graph TD
 
 ```svelte
 <script lang="ts">
-  import { TextEditor } from '@ticatec/uniface-element';
+  import TextEditor from '@ticatec/uniface-element/TextEditor';
   
   let userInput = '';
   
@@ -289,7 +289,7 @@ graph TD
 
 ```svelte
 <script lang="ts">
-  import { TextEditor } from '@ticatec/uniface-element';
+  import TextEditor from '@ticatec/uniface-element/TextEditor';
   
   let email = '';
   let searchTerm = '';
@@ -348,7 +348,7 @@ graph TD
 
 ```svelte
 <script lang="ts">
-  import { NumberEditor } from '@ticatec/uniface-element';
+  import NumberEditor from '@ticatec/uniface-element/NumberEditor';
   
   let amount = null;
   let quantity = 1;
@@ -436,7 +436,7 @@ graph TD
 
 ```svelte
 <script lang="ts">
-  import { CheckBox } from '@ticatec/uniface-element';
+  import CheckBox from '@ticatec/uniface-element/CheckBox';
   
   let agreedToTerms = false;
   let enableNotifications = true;
@@ -526,7 +526,7 @@ graph TD
 
 ```svelte
 <script lang="ts">
-  import { OptionsSelect } from '@ticatec/uniface-element';
+  import OptionsSelect from '@ticatec/uniface-element/OptionsSelect';
   
   let selectedCountry = null;
   let selectedCategory = 'electronics';
@@ -636,7 +636,7 @@ enum DisplayMode {
 
 ```svelte
 <script lang="ts">
-  import { DisplayMode } from '@ticatec/uniface-element';
+  import DisplayMode from '@ticatec/uniface-element/DisplayMode';
   
   let currentMode = DisplayMode.Edit;
   let userInput = '示例文本';

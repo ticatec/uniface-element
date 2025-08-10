@@ -51,6 +51,9 @@
         }
     ]
 
+    const onIconClick = (item: any) => () => {
+
+    }
 
 </script>
 <div style="width: 100%; padding: 12px">
@@ -102,7 +105,7 @@
             </div>
             <FormField label="Country">
                 <OptionsSelect variant="outlined" mandatory textField="name" keyField="id" bind:value={data.country} options={country}
-                               itemRender={{component: CountryRender, props: {onIconClick: (item) => ()=> {console.log(item)}}}}/>
+                               itemRender={{component: CountryRender, props: {onIconClick}}}/>
             </FormField>
         </DemoBlock>
     </div>

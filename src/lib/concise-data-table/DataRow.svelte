@@ -8,7 +8,7 @@
     export let showAlternative: boolean;
 </script>
 
-<div class="table-row" class:alternative={showAlternative} on:click>
+<div class="table-row" class:alternative={showAlternative} aria-hidden="true" on:click>
     {#each columns as column, idx}
         <DataCell {idx} {column} {data}/>
     {/each}

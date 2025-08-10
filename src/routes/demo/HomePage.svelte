@@ -28,16 +28,16 @@
 <div style="width: 100%; height: 100%; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column">
     <AppTopBar style="flex:0 0 auto;" title="My Business dashboard">
         <div slot="home">
-            <i class="icon_google_menu" on:click={()=>{drawVisible = !drawVisible}}></i>
+            <i class="icon_google_menu" aria-hidden="true" on:click={()=>{drawVisible = !drawVisible}}></i>
         </div>
         <svelte:fragment slot="right">
             <div style="font-size: 15px; margin-top: 12px">
                 <span>{time}</span>
             </div>
             <div class="avatar">
-                <img src={userAvatar} aria-hidden="true" on:click={()=>{showPopup=true}}/>
+                <img src={userAvatar} aria-hidden="true" alt="none" on:click={()=>{showPopup=true}}/>
                 {#if showPopup}
-                    <div use:clickOutside={()=>{showPopup=false}} class="popover-panel" on:click|stopPropagation></div>
+                    <div use:clickOutside={()=>{showPopup=false}} style="z-index: 1000; background-color: #FFFFFF" class="popover-panel" aria-hidden="true" on:click|stopPropagation></div>
                 {/if}
             </div>
         </svelte:fragment>

@@ -15,7 +15,7 @@
 
 ```svelte
 <script lang="ts">
-  import { FlexForm, FormField, TextEditor, NumberEditor } from '@ticatec/uniface-element';
+  import FlexForm, FormField, TextEditor, NumberEditor from '@ticatec/uniface-element/FlexForm, FormField, TextEditor, NumberEditor';
   
   let formData = {
     name: '',
@@ -64,7 +64,7 @@
 
 ```svelte
 <script lang="ts">
-  import { FlexForm, FormField, TextEditor, OptionsSelect, DatePicker } from '@ticatec/uniface-element';
+  import FlexForm, FormField, TextEditor, OptionsSelect, DatePicker from '@ticatec/uniface-element/FlexForm, FormField, TextEditor, OptionsSelect, DatePicker';
   
   interface UserProfile {
     firstName: string;
@@ -115,7 +115,7 @@
 
 ```svelte
 <script lang="ts">
-  import { FlexForm, FormField, TextEditor, NumberEditor, Switch, CheckBox } from '@ticatec/uniface-element';
+  import FlexForm, FormField, TextEditor, NumberEditor, Switch, CheckBox from '@ticatec/uniface-element/FlexForm, FormField, TextEditor, NumberEditor, Switch, CheckBox';
   
   interface ContactForm {
     personalInfo: {

@@ -13,7 +13,7 @@ The SidebarLayout component provides a flexible layout with a sidebar, header, a
 ## Import
 
 ```typescript
-import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
+import SidebarLayout from '@ticatec/uniface-element/app-layout/SidebarLayout';
 ```
 
 ## Properties
@@ -36,7 +36,7 @@ import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout
 
 ```svelte
 <script lang="ts">
-  import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
+  import SidebarLayout from '@ticatec/uniface-element/app-layout/SidebarLayout';
 </script>
 
 <SidebarLayout 
@@ -65,9 +65,9 @@ import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout
 
 ```svelte
 <script lang="ts">
-  import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
-  import { NavigatorMenu } from '@ticatec/uniface-element/NavigatorMenu';
-  import { Button } from '@ticatec/uniface-element/Button';
+  import SidebarLayout from '@ticatec/uniface-element/app-layout/SidebarLayout';
+  import NavigatorMenu from '@ticatec/uniface-element/NavigatorMenu';
+  import Button from '@ticatec/uniface-element/Button';
   
   let menuItems = [
     { id: 1, text: 'Dashboard', icon: 'dashboard' },
@@ -138,8 +138,8 @@ import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout
 
 ```svelte
 <script lang="ts">
-  import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
-  import { IconButton } from '@ticatec/uniface-element/IconButton';
+  import SidebarLayout from '@ticatec/uniface-element/app-layout/SidebarLayout';
+  import IconButton from '@ticatec/uniface-element/IconButton';
   
   let sidebarCollapsed = false;
   let sidebarWidth = sidebarCollapsed ? '60px' : '250px';

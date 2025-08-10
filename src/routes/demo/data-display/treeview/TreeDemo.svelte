@@ -1,11 +1,11 @@
 <script lang="ts">
 
-    import TreeView, {type CheckIsDirectory, type CheckIsRoot, type CompareFun, type GetText, type TreeNode} from "$lib/tree-view";
+    import TreeView from "$lib/tree-view";
     import utils from "$lib/common/utils";
     import ContextMenu from "$lib/context-menu";
     import type {OnContextMenu} from "$lib/context-menu";
     import Box from "$lib/box";
-    import TreeNodes from "$lib/lib/TreeNodes";
+    import TreeNodes, {type TreeNode} from "$lib/lib/TreeNodes";
     import type {LazyLoader} from "$lib/tree-view";
 
     let list = [

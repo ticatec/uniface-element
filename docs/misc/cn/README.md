@@ -26,7 +26,7 @@ Split 组件提供可调整大小的分隔符，用于创建具有可拖动分�
 
 ```svelte
 <script lang="ts">
-  import { Split } from '@ticatec/uniface-element';
+  import Split from '@ticatec/uniface-element/Split';
   
   let leftPanel;
   let topPanel;
@@ -114,7 +114,7 @@ Split 组件提供可调整大小的分隔符，用于创建具有可拖动分�
 
 ```svelte
 <script lang="ts">
-  import { Split } from '@ticatec/uniface-element';
+  import Split from '@ticatec/uniface-element/Split';
   
   let sidebar;
   let contentLeft;
@@ -253,7 +253,7 @@ Drawer 组件提供一个滑出面板，可以位于屏幕的左侧或右侧。
 
 ```svelte
 <script lang="ts">
-  import { Drawer } from '@ticatec/uniface-element';
+  import Drawer from '@ticatec/uniface-element/Drawer';
   
   let leftDrawerVisible = false;
   let rightDrawerVisible = false;
@@ -390,7 +390,7 @@ Drawer 组件提供一个滑出面板，可以位于屏幕的左侧或右侧。
 
 ```svelte
 <script lang="ts">
-  import { Drawer } from '@ticatec/uniface-element';
+  import Drawer from '@ticatec/uniface-element/Drawer';
   
   let menuVisible = false;
   
@@ -548,7 +548,7 @@ Tag 组件显示带有可选删除功能的标记信息。
 
 ```svelte
 <script lang="ts">
-  import { Tag } from '@ticatec/uniface-element';
+  import Tag from '@ticatec/uniface-element/Tag';
   
   let tags = [
     { id: 1, text: 'JavaScript', color: 'blue' },
@@ -620,7 +620,7 @@ Tag 组件显示带有可选删除功能的标记信息。
 
 ```svelte
 <script lang="ts">
-  import { Tag } from '@ticatec/uniface-element';
+  import Tag from '@ticatec/uniface-element/Tag';
   
   let newTagText = '';
   let tags = [
@@ -789,7 +789,7 @@ Card 组件提供一个带有可选头部、内容和操作区域的容器。
 
 ```svelte
 <script lang="ts">
-  import { Card } from '@ticatec/uniface-element';
+  import Card from '@ticatec/uniface-element/Card';
   import type { CardAction } from '@ticatec/uniface-element';
   
   const user = {
@@ -956,7 +956,7 @@ Card 组件提供一个带有可选头部、内容和操作区域的容器。
 
 ```svelte
 <script lang="ts">
-  import { Card } from '@ticatec/uniface-element';
+  import Card from '@ticatec/uniface-element/Card';
   
   const projects = [
     {

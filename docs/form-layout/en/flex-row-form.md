@@ -22,7 +22,7 @@ The FlexRowForm component consists of the following sub-components:
 
 ```svelte
 <script lang="ts">
-  import { FormContainer, Row, Cell, FormField, TextEditor, NumberEditor } from '@ticatec/uniface-element';
+  import FormContainer, Row, Cell, FormField, TextEditor, NumberEditor from '@ticatec/uniface-element/FormContainer, Row, Cell, FormField, TextEditor, NumberEditor';
   
   interface UserInfo {
     firstName: string;
@@ -102,7 +102,7 @@ The FlexRowForm component consists of the following sub-components:
 
 ```svelte
 <script lang="ts">
-  import { FormContainer, Row, Cell, FormField, TextEditor, OptionsSelect, DatePicker, CheckBox } from '@ticatec/uniface-element';
+  import FormContainer, Row, Cell, FormField, TextEditor, OptionsSelect, DatePicker, CheckBox from '@ticatec/uniface-element/FormContainer, Row, Cell, FormField, TextEditor, OptionsSelect, DatePicker, CheckBox';
   
   interface EmployeeForm {
     personalInfo: {

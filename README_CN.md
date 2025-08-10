@@ -36,8 +36,10 @@ import '@ticatec/uniface-element/ticatec-uniface-web.css';
 
 ```svelte
 <script lang="ts">
-  import { Button, DataTable, Dialog } from '@ticatec/uniface-element';
-  import type { DataColumn } from '@ticatec/uniface-element';
+  import Button from '@ticatec/uniface-element/Button';
+  import DataTable, Dialog from '@ticatec/uniface-element/DataTable';
+  import Dialog from '@ticatec/uniface-element/Dialog';
+  import type { DataColumn } from '@ticatec/uniface-element/DataTable';
   
   let columns: DataColumn[] = [
     { field: 'name', title: '姓名', width: 150 },
@@ -94,10 +96,10 @@ import '@ticatec/uniface-element/ticatec-uniface-web.css';
 
 ```svelte
 <script lang="ts">
-  import { ToastBoard } from "@ticatec/uniface-element/ToastBoard";
+  import ToastBoard from "@ticatec/uniface-element/ToastBoard";
   import { DialogBoard } from "@ticatec/uniface-element/DialogBoard";
-  import { IndicatorBoard } from "@ticatec/uniface-element/IndicatorBoard";
-  import { MessageBoxBoard } from "@ticatec/uniface-element/MessageBoxBoard";
+  import IndicatorBoard from "@ticatec/uniface-element/IndicatorBoard";
+  import MessageBoxBoard from "@ticatec/uniface-element/MessageBoxBoard";
 </script>
 
 <div>
@@ -143,7 +145,7 @@ window.Toast.show("这是一条信息", "info");
 用于确认操作和信息提示：
 
 ```typescript
-import { ModalResult } from '@ticatec/uniface-element';
+import ModalResult from '@ticatec/uniface-element/ModalResult';
 
 const deleteConfirm = async (user: any) => {
   const result = await window.MessageBox.showConfirm(`确定要删除用户[${user.name}]吗？`);
@@ -162,7 +164,7 @@ await window.MessageBox.showInfo("操作完成", "提示");
 
 ```svelte
 <script lang="ts">
-  import { DataTable } from '@ticatec/uniface-element';
+  import DataTable from '@ticatec/uniface-element/DataTable';
   import type { DataColumn } from '@ticatec/uniface-element';
   
   let columns: DataColumn[] = [
@@ -199,7 +201,7 @@ await window.MessageBox.showInfo("操作完成", "提示");
 
 ```svelte
 <script lang="ts">
-  import { Dialog, Button, TextEditor, FormField } from '@ticatec/uniface-element';
+  import Dialog, Button, TextEditor, FormField from '@ticatec/uniface-element/Dialog, Button, TextEditor, FormField';
   
   let showDialog = false;
   let formData = { name: '', email: '' };
@@ -287,22 +289,16 @@ i18n.setLanguage('zh-CN'); // 或 'en'
 ### 模块化导入
 ```typescript
 // 单个组件导入
-import { Button } from '@ticatec/uniface-element/Button';
-import { DataTable } from '@ticatec/uniface-element/DataTable';
-import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
-import { AttachmentFilesField } from '@ticatec/uniface-element/AttachmentFiles';
-import { ImageFilesField } from '@ticatec/uniface-element/ImageFiles';
-import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
+import Button from '@ticatec/uniface-element/Button';
+import DataTable from '@ticatec/uniface-element/DataTable';
+import SidebarLayout from '@ticatec/uniface-element/app-layout/SidebarLayout';
+import AttachmentFilesField from '@ticatec/uniface-element/AttachmentFiles';
+import ImageFilesField from '@ticatec/uniface-element/ImageFiles';
+import MemoEditor from '@ticatec/uniface-element/MemoEditor';
 
 // 工具导入
 import { utils } from '@ticatec/uniface-element/utils';
 import type { DataColumn } from '@ticatec/uniface-element/types';
-```
-
-### 批量导入
-```typescript
-// 从主入口点导入多个组件
-import { Button, DataTable, Dialog, Card } from '@ticatec/uniface-element';
 ```
 
 ## 开发

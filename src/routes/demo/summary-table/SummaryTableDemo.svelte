@@ -60,17 +60,17 @@
         // alternativeColor: "#ffffff"
     }
 
-    const rowClickHandler = (row: any) => {
+    const rowClickHandler = (row: any) => (event: MouseEvent) => {
         console.log(row);
     }
 
 </script>
 <div style="padding: 12px">
     <Box style="width: 1200px; height: 400px; margin: 0 auto">
-        <SummaryTable list={arr} {columns} height="400" autoScroll {options} {rowClickHandler}/>
+        <SummaryTable list={arr} {columns}  autoScroll {options} {rowClickHandler}/>
     </Box>
 
     <Box style="width: 1200px; height: 400px; margin: 20px auto">
-        <SummaryTable list={arr} {columns} height="400" {options} {rowClickHandler}/>
+        <SummaryTable list={arr} {columns}  {options} {rowClickHandler}/>
     </Box>
 </div>

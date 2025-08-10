@@ -38,7 +38,7 @@
     {/if}
     <div slot="trailing-icon" class="editor-embed-icon">
         {#if (!readonly && !disabled)}
-            <i class={type == "password" ? "icon_google_remove_red_eye" : "icon_google_visibility_off"} on:click={toggleType}></i>
+            <i class={type == "password" ? "icon_google_remove_red_eye" : "icon_google_visibility_off"} aria-hidden="true" on:click={toggleType}></i>
         {/if}
     </div>
 </CommonEditor>

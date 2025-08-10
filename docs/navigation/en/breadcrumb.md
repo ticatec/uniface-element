@@ -22,7 +22,7 @@ import { Breadcrumbs, Breadcrumb } from '@ticatec/uniface-element/Breadcrumbs';
 
 ```svelte
 <script>
-  import { Breadcrumbs } from '@ticatec/uniface-element/Breadcrumbs';
+  import Breadcrumbs from '@ticatec/uniface-element/Breadcrumbs';
   
   const breadcrumbItems = [
     { label: "Home", data: { route: "/" } },
@@ -47,7 +47,7 @@ import { Breadcrumbs, Breadcrumb } from '@ticatec/uniface-element/Breadcrumbs';
 
 ```svelte
 <script>
-  import { Breadcrumbs } from '@ticatec/uniface-element/Breadcrumbs';
+  import Breadcrumbs from '@ticatec/uniface-element/Breadcrumbs';
   
   const pathItems = [
     { label: "Dashboard", data: { id: 1 } },
@@ -94,7 +94,7 @@ interface Breadcrumb {
 
 ```svelte
 <script>
-  import { Breadcrumbs } from '@ticatec/uniface-element/Breadcrumbs';
+  import Breadcrumbs from '@ticatec/uniface-element/Breadcrumbs';
   
   let currentPath = [
     { label: "Documents", data: { path: "/documents", type: "folder" } },
@@ -140,7 +140,7 @@ interface Breadcrumb {
 
 ```svelte
 <script>
-  import { Breadcrumbs } from '@ticatec/uniface-element/Breadcrumbs';
+  import Breadcrumbs from '@ticatec/uniface-element/Breadcrumbs';
   
   let categoryPath = [
     { label: "All Categories", data: { categoryId: null, slug: "" } }
@@ -203,7 +203,7 @@ interface Breadcrumb {
 
 ```svelte
 <script>
-  import { Breadcrumbs } from '@ticatec/uniface-element/Breadcrumbs';
+  import Breadcrumbs from '@ticatec/uniface-element/Breadcrumbs';
   
   const formSteps = [
     { id: 1, name: "Account Info", completed: true },

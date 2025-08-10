@@ -121,7 +121,7 @@
         </DemoBlock>
 
         <DemoBlock style="grid-column: 5/7" title="Card with customize header">
-            <Card style="width: 280px; margin: 0 auto">
+            <Card style="width: 280px; margin: 0 auto" data={{}}>
                 <div slot="header-bar" style="position: relative; height: 36px; font-size: 18px; padding: 0 6px; text-align: center; ">
                     <span style="position: relative; display: inline-block;  top: 50%; transform: translateY(-50%);">Revenue</span>
                     <i class="icon_google_insert_chart_outlined" style="position: absolute; top: 10px; right: 8px; cursor: pointer"></i>
@@ -147,8 +147,8 @@
                 </div>
                 <div slot="action-bar" style="position: relative; height: 36px; padding: 0 6px; text-align: center; width: 100%">
                     <ActionBar style="margin: 0 auto">
-                        <TextButton type="primary" label="详情列表"/>
-                        <TextButton type="primary" label="年分解"/>
+                        <TextButton type="primary" label="详情列表" onClick={async ()=>{}}/>
+                        <TextButton type="primary" label="年分解" onClick={async ()=>{}}/>
                     </ActionBar>
                 </div>
             </Card>

@@ -17,4 +17,4 @@ export interface TableOptions {
     rowHeight?: number;
 }
 
-export type RowClickHandler = (row:any) => (event: MouseEvent) => void;
+export type RowClickHandler = (row:any) => void;

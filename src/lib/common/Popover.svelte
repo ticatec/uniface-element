@@ -1,10 +1,33 @@
 
 <script lang="ts">
-    import {createEventDispatcher, onMount} from 'svelte';
-    import {clickOutside} from './uniface-utils';
+    import { onDestroy, onMount} from 'svelte';
     import Portal from "svelte-portal";
 
-    const dispatch = createEventDispatcher();
+    export let onClose: (()=>void) | null = null;
+
+    export function outerClick(node: HTMLElement, callback: () => void) {
+        const handleClick = (event: MouseEvent) => {
+            // 如果点击目标不在node内，则触发回调
+            if (!node.contains(event.target as Node)) {
+                callback();
+            }
+        };
+
+        // 监听全局点击事件（useCapture=true，避免事件冒泡造成的问题）
+        document.addEventListener('click', handleClick, true);
+
+        // 清理事件监听器
+        onDestroy(() => {
+            document.removeEventListener('click', handleClick, true);
+        });
+
+        // action 必须返回一个对象，可以选实现 update 和 destroy
+        return {
+            destroy() {
+                document.removeEventListener('click', handleClick, true);
+            }
+        };
+    }
 
     export let style: string = '';
     export let target: any;
@@ -89,7 +112,7 @@
     });
 
     const close = () => {
-        dispatch('close');
+        onClose?.();
     };
 
     let contentPanel: any;
@@ -103,8 +126,7 @@
 <svelte:window bind:innerWidth={w} bind:innerHeight={h}/>
 <Portal target="body">
     <div class="uniface-popover-wrapper" class:hidden style="{vertPos}; height: auto; left: {position.left-margin}px; width: {position.width}px; ">
-        <div class="uniface-popover"  use:clickOutside
-             on:outerClick={close}>
+        <div class="uniface-popover"  use:outerClick={close}>
             <div bind:this={contentPanel} style="{horzPos}">
                 <div class="contents" style="{style}">
                     <div class="contents-inner">

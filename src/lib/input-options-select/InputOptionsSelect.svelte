@@ -23,7 +23,7 @@
     export let displayMode: DisplayMode = DisplayMode.Edit;
     export let itemRender: any = null;
     export let onChange: OnChangeHandler<any> = null as unknown as OnChangeHandler<any>;
-    export let lazyLoader: LazyLoader;
+    export let lazyLoader: LazyLoader = null as unknown as LazyLoader;
 
     let editor: any;
     let inputText: string;
@@ -131,7 +131,7 @@
 
     const loadMore = async () => {
         editor.focus();
-        if (lazyLoader && !isBusy && hasMore) {
+        if (lazyLoader != null && !isBusy && hasMore) {
             pageNo++;
             await lazyLoad(false);
         }
@@ -154,7 +154,7 @@
     {#if isBusy}
         <div style="position: absolute; top: 0px; bottom: 0px; right: 8px">
             <div style="position: relative; top: 50%; transform: translateY(-50%)">
-                <img src={loading} width="16" height="16"/>
+                <img src={loading} alt="loading" width="16" height="16"/>
             </div>
         </div>
     {/if}
@@ -171,7 +171,7 @@
             </div>
         {/each}
         {#if hasMore}
-            <div class="more-indicator-footer" on:click={loadMore}>
+            <div class="more-indicator-footer" aria-hidden="true" on:click={loadMore}>
                 {i18n.getText('uniface.loadMore', 'Load more')}
             </div>
         {/if}

@@ -12,6 +12,6 @@
     let className:string = '';
 
 </script>
-<div class:flex class="flex-block {flex ? direction : ''}" class:fixed class:grow class:shrink class:auto_fit={autoFit} {style}>
+<div class:flex class="flex-block {className} {flex ? direction : ''}" class:fixed class:grow class:shrink class:auto_fit={autoFit} {style}>
     <slot/>
 </div>

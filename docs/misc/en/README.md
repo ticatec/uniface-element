@@ -26,7 +26,7 @@ The Split component provides resizable dividers for creating split-pane layouts 
 
 ```svelte
 <script lang="ts">
-  import { Split } from '@ticatec/uniface-element';
+  import Split from '@ticatec/uniface-element/Split';
   
   let leftPanel;
   let topPanel;
@@ -114,7 +114,7 @@ The Split component provides resizable dividers for creating split-pane layouts 
 
 ```svelte
 <script lang="ts">
-  import { Split } from '@ticatec/uniface-element';
+  import Split from '@ticatec/uniface-element/Split';
   
   let sidebar;
   let contentLeft;
@@ -253,7 +253,7 @@ The Drawer component provides a slide-out panel that can be positioned on the le
 
 ```svelte
 <script lang="ts">
-  import { Drawer } from '@ticatec/uniface-element';
+  import Drawer from '@ticatec/uniface-element/Drawer';
   
   let leftDrawerVisible = false;
   let rightDrawerVisible = false;
@@ -390,7 +390,7 @@ The Drawer component provides a slide-out panel that can be positioned on the le
 
 ```svelte
 <script lang="ts">
-  import { Drawer } from '@ticatec/uniface-element';
+  import Drawer from '@ticatec/uniface-element/Drawer';
   
   let menuVisible = false;
   
@@ -548,7 +548,7 @@ The Tag component displays labeled information with optional remove functionalit
 
 ```svelte
 <script lang="ts">
-  import { Tag } from '@ticatec/uniface-element';
+  import Tag from '@ticatec/uniface-element/Tag';
   
   let tags = [
     { id: 1, text: 'JavaScript', color: 'blue' },
@@ -620,7 +620,7 @@ The Tag component displays labeled information with optional remove functionalit
 
 ```svelte
 <script lang="ts">
-  import { Tag } from '@ticatec/uniface-element';
+  import Tag from '@ticatec/uniface-element/Tag';
   
   let newTagText = '';
   let tags = [
@@ -789,7 +789,7 @@ The Card component provides a container with optional header, content, and actio
 
 ```svelte
 <script lang="ts">
-  import { Card } from '@ticatec/uniface-element';
+  import Card from '@ticatec/uniface-element/Card';
   import type { CardAction } from '@ticatec/uniface-element';
   
   const user = {
@@ -956,7 +956,7 @@ The Card component provides a container with optional header, content, and actio
 
 ```svelte
 <script lang="ts">
-  import { Card } from '@ticatec/uniface-element';
+  import Card from '@ticatec/uniface-element/Card';
   
   const projects = [
     {

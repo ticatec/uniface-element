@@ -17,8 +17,9 @@
 
     $:console.log(activeTab);
 
-    const removeTab = (tab: any) => {
+    const removeTab = async (tab: any): Promise<boolean> => {
         console.log(tab);
+        return false;
     }
 
     const refreshTab = (tab: any) => {
@@ -53,7 +54,7 @@
         </DemoBlock>
 
         <DemoBlock style="grid-column: 1/7" title="Tab can be reload">
-            <Tabs {tabs} bind:activeTab refreshable style="width: 100%; height: 200px; overflow: hidden" refreshHandle={refreshTab}>
+            <Tabs {tabs} bind:activeTab style="width: 100%; height: 200px; overflow: hidden" reloadHandler={refreshTab}>
                 <div style="width: 100%; padding: 8px; box-sizing: border-box">
                     <span>{activeTab?.text}</span>
                 </div>

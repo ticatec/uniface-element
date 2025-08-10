@@ -24,6 +24,30 @@
         }
     }
 
+    export function outerClick(node: HTMLElement, callback: () => void) {
+        const handleClick = (event: MouseEvent) => {
+            // 如果点击目标不在node内，则触发回调
+            if (!node.contains(event.target as Node)) {
+                callback();
+            }
+        };
+
+        // 监听全局点击事件（useCapture=true，避免事件冒泡造成的问题）
+        document.addEventListener('click', handleClick, true);
+
+        // 清理事件监听器
+        onDestroy(() => {
+            document.removeEventListener('click', handleClick, true);
+        });
+
+        // action 必须返回一个对象，可以选实现 update 和 destroy
+        return {
+            destroy() {
+                document.removeEventListener('click', handleClick, true);
+            }
+        };
+    }
+
     onMount(async () => {
         resizeObserver = new ResizeObserver(() => {
             checkPosition();
@@ -38,8 +62,7 @@
 
 </script>
 
-
 <div bind:this={panel} style="position: absolute; right: 8px; {style}; background-color: #FFFFFF; border: 1px solid #e1e1e1; z-index: 5"
-     use:clickOutside on:outerClick={close}>
+     use:clickOutside use:outerClick={close}>
     <slot></slot>
 </div>

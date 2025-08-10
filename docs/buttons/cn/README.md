@@ -1,362 +1,113 @@
-# 按钮组件 & 操作栏
+# 按钮组件系统
 
 Uniface Element 按钮系统为 Svelte 应用程序提供了全面的交互式按钮组件集。它包括标准按钮、文本按钮、图标按钮和用于组织多个操作的灵活操作栏组件。
 
-## 目录
+## 组件概览
 
-- [架构概述](#架构概述)
-- [Button 组件](#button-组件)
-- [TextButton 组件](#textbutton-组件)
-- [IconButton 组件](#iconbutton-组件)
-- [ActionBar 组件](#actionbar-组件)
-- [按钮类型 & 样式](#按钮类型--样式)
-- [API 参考](#api-参考)
-- [使用示例](#使用示例)
-- [最佳实践](#最佳实践)
-- [无障碍性](#无障碍性)
+按钮系统由四个主要组件组成，每个组件都有特定的用途和设计目标：
 
-## 架构概述
+### [Button 组件](./Button.md)
+支持图标和标签的全功能按钮组件，适用于大多数交互场景。
 
-按钮系统由几个相互关联的组件组成：
+**特性:**
+- 支持图标 + 文本标签
+- 多种大小和样式变体
+- 完整的主题支持
+- 异步操作处理
 
-- **Button**: 支持图标和标签的全功能按钮组件
-- **TextButton**: 简化的纯文本按钮组件
-- **IconButton**: 用于紧凑界面的纯图标按钮组件
-- **ActionBar**: 用于组织多个按钮的容器组件
-- **ButtonAction**: 定义 ActionBar 按钮配置的接口
-- **ButtonType**: 按钮样式变体的类型定义
+**适用场景:** 主要操作、表单提交、对话框确认
+
+### [TextButton 组件](./TextButton.md)
+针对纯文本按钮优化的轻量级组件，采用最小化样式。
+
+**特性:**
+- 纯文本显示
+- 最小化视觉样式
+- 快速加载和渲染
+- 支持自定义内容插槽
+
+**适用场景:** 导航链接、内联操作、对话框取消按钮
+
+### [IconButton 组件](./IconButton.md)
+专为紧凑界面设计的纯图标按钮组件。
+
+**特性:**
+- 纯图标显示
+- 紧凑的空间占用
+- 多种图标库支持
+- 适应性大小调整
+
+**适用场景:** 工具栏、数据表格操作、卡片操作
+
+### [ActionBar 组件](./ActionBar.md)
+用于组织和管理多个按钮操作的容器组件。
+
+**特性:**
+- 统一的按钮布局管理
+- 自动间距和对齐
+- 支持分隔符
+- 响应式布局
+
+**适用场景:** 表单操作栏、对话框底部、工具栏布局
+
+## 架构图
 
 ```mermaid
 graph TD
-    A[ActionBar] --> B[Button Components]
-    B --> C[Button.svelte]
-    B --> D[TextButton.svelte]
-    B --> E[IconButton.svelte]
-    F[ButtonAction] --> A
-    G[ButtonType] --> B
-    H[MouseClickHandler] --> B
+    A[ActionBar 操作栏] --> B[Button Components 按钮组件]
+    B --> C[Button 标准按钮]
+    B --> D[TextButton 文本按钮]
+    B --> E[IconButton 图标按钮]
+    F[ButtonAction 按钮配置] --> A
+    G[ButtonType 按钮类型] --> B
+    H[MouseClickHandler 点击处理] --> B
 ```
 
-## Button 组件
+## 快速开始
 
-主要的 `Button` 组件提供了支持图标和标签的全面按钮功能。
+### 安装和导入
 
-### 基础用法
+```typescript
+// 导入所需的组件
+import Button from '@ticatec/uniface-element/Button';
+import TextButton from '@ticatec/uniface-element/TextButton';
+import IconButton from '@ticatec/uniface-element/IconButton';
+import ActionBar from '@ticatec/uniface-element/ActionBar';
+import type { ButtonActions } from '@ticatec/uniface-element';
+```
+
+### 基本示例
 
 ```svelte
 <script lang="ts">
-  import { Button } from '@ticatec/uniface-element';
-  
-  const handleClick = async (event: MouseEvent) => {
-    console.log('按钮被点击!');
-    // 执行异步操作
-  };
-</script>
-
-<Button 
-  label="保存更改"
-  type="primary"
-  icon="icon_google_save"
-  onClick={handleClick}
-/>
-```
-
-### 高级配置
-
-```svelte
-<script lang="ts">
-  import { Button } from '@ticatec/uniface-element';
-  import type { ButtonType } from '@ticatec/uniface-element';
-  
-  let isSubmitting = false;
-  
-  const handleSubmit = async (event: MouseEvent) => {
-    isSubmitting = true;
-    try {
-      await submitForm();
-    } finally {
-      isSubmitting = false;
-    }
-  };
-</script>
-
-<Button 
-  label={isSubmitting ? "提交中..." : "提交表单"}
-  type="primary"
-  size="big"
-  variant="round"
-  icon="icon_google_send"
-  disabled={isSubmitting}
-  style="margin: 16px;"
-  onClick={handleSubmit}
-/>
-```
-
-### Button 属性
-
-| 属性 | 类型 | 默认值 | 描述 |
-|------|------|--------|------|
-| `label` | `string` | `''` | 按钮文本标签 |
-| `type` | `ButtonType` | `'default'` | 视觉样式变体 |
-| `size` | `'big' \| 'medium' \| 'mini'` | `'medium'` | 按钮大小 |
-| `variant` | `'plain' \| 'round' \| ''` | `''` | 附加样式变体 |
-| `icon` | `string \| null` | `null` | 图标类（如 Google Material Icons） |
-| `disabled` | `boolean` | `false` | 禁用按钮交互 |
-| `style` | `string` | `''` | 自定义 CSS 样式 |
-| `onClick` | `(event: MouseEvent) => void` | - | 点击事件处理器 |
-
-### 带插槽内容的按钮
-
-```svelte
-<Button type="secondary" onClick={handleAction}>
-  <i class="icon_google_star"></i>
-  <span>自定义内容</span>
-  <span class="badge">3</span>
-</Button>
-```
-
-## TextButton 组件
-
-`TextButton` 组件针对纯文本按钮进行了优化，采用最小化样式。
-
-### 基础用法
-
-```svelte
-<script lang="ts">
-  import { TextButton } from '@ticatec/uniface-element';
-  
-  const handleCancel = async (event: MouseEvent) => {
-    // 处理取消操作
-  };
-</script>
-
-<TextButton 
-  label="取消"
-  type="secondary"
-  onClick={handleCancel}
-/>
-```
-
-### 文本按钮示例
-
-```svelte
-<script lang="ts">
-  import { TextButton } from '@ticatec/uniface-element';
-  
-  const actions = {
-    save: async () => { /* 保存逻辑 */ },
-    delete: async () => { /* 删除逻辑 */ },
-    cancel: async () => { /* 取消逻辑 */ }
-  };
-</script>
-
-<!-- 不同按钮类型 -->
-<TextButton label="主要操作" type="primary" onClick={actions.save} />
-<TextButton label="次要操作" type="secondary" onClick={actions.cancel} />
-<TextButton label="危险操作" type="third" onClick={actions.delete} />
-
-<!-- 不同大小 -->
-<TextButton label="大号" size="big" onClick={actions.save} />
-<TextButton label="普通" size="medium" onClick={actions.save} />
-<TextButton label="小号" size="mini" onClick={actions.save} />
-
-<!-- 带自定义内容 -->
-<TextButton type="primary" onClick={actions.save}>
-  <i class="icon_google_check"></i> 确认更改
-</TextButton>
-```
-
-### TextButton 属性
-
-| 属性 | 类型 | 默认值 | 描述 |
-|------|------|--------|------|
-| `label` | `string` | `''` | 按钮文本标签 |
-| `type` | `ButtonType` | `'default'` | 视觉样式变体 |
-| `size` | `'big' \| 'medium' \| 'mini'` | `'medium'` | 按钮大小 |
-| `disabled` | `boolean` | `false` | 禁用按钮交互 |
-| `style` | `string` | `''` | 自定义 CSS 样式 |
-| `onClick` | `MouseClickHandler` | - | 异步点击事件处理器 |
-
-## IconButton 组件
-
-`IconButton` 组件专为紧凑界面中的纯图标按钮而设计。
-
-### 基础用法
-
-```svelte
-<script lang="ts">
-  import { IconButton } from '@ticatec/uniface-element';
-  
-  const handleEdit = async (event: MouseEvent) => {
-    // 处理编辑操作
-  };
-</script>
-
-<IconButton 
-  icon="icon_google_edit"
-  type="primary"
-  onClick={handleEdit}
-/>
-```
-
-### 图标按钮示例
-
-```svelte
-<script lang="ts">
-  import { IconButton } from '@ticatec/uniface-element';
-  
-  const toolbarActions = {
-    edit: async () => { /* 编辑逻辑 */ },
-    delete: async () => { /* 删除逻辑 */ },
-    share: async () => { /* 分享逻辑 */ },
-    favorite: async () => { /* 收藏逻辑 */ }
-  };
-</script>
-
-<!-- 工具栏图标按钮 -->
-<div class="toolbar">
-  <IconButton icon="icon_google_edit" type="default" onClick={toolbarActions.edit} />
-  <IconButton icon="icon_google_delete" type="third" onClick={toolbarActions.delete} />
-  <IconButton icon="icon_google_share" type="secondary" onClick={toolbarActions.share} />
-  <IconButton icon="icon_google_favorite" type="primary" onClick={toolbarActions.favorite} />
-</div>
-
-<!-- 不同大小 -->
-<IconButton icon="icon_google_settings" size="big" onClick={toolbarActions.edit} />
-<IconButton icon="icon_google_settings" size="medium" onClick={toolbarActions.edit} />
-<IconButton icon="icon_google_settings" size="mini" onClick={toolbarActions.edit} />
-
-<!-- 带自定义插槽内容 -->
-<IconButton type="primary" onClick={toolbarActions.edit}>
-  <i class="icon_google_edit"></i>
-</IconButton>
-
-<style>
-  .toolbar {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-</style>
-```
-
-### IconButton 属性
-
-| 属性 | 类型 | 默认值 | 描述 |
-|------|------|--------|------|
-| `icon` | `string` | `''` | 图标类（如 Google Material Icons） |
-| `type` | `ButtonType` | `'default'` | 视觉样式变体 |
-| `size` | `'big' \| 'medium' \| 'mini'` | `'medium'` | 按钮大小 |
-| `disabled` | `boolean` | `false` | 禁用按钮交互 |
-| `style` | `string` | `''` | 自定义 CSS 样式 |
-| `onClick` | `(event: MouseEvent) => void` | - | 点击事件处理器 |
-
-## ActionBar 组件
-
-`ActionBar` 组件提供了一个容器，用于组织多个按钮操作，确保一致的间距和布局。
-
-### 基础用法
-
-```svelte
-<script lang="ts">
-  import { ActionBar } from '@ticatec/uniface-element';
+  import Button from '@ticatec/uniface-element/Button';
+  import TextButton from '@ticatec/uniface-element/TextButton';
+  import IconButton from '@ticatec/uniface-element/IconButton';
+  import ActionBar from '@ticatec/uniface-element/ActionBar';
   import type { ButtonActions } from '@ticatec/uniface-element';
+  
+  const handleSave = async () => {
+    // 保存操作
+  };
   
   const actions: ButtonActions = [
-    {
-      label: "保存",
-      type: "primary",
-      icon: "icon_google_save",
-      handler: async () => {
-        await saveChanges();
-      }
-    },
-    {
-      label: "取消",
-      type: "secondary",
-      handler: async () => {
-        closeDialog();
-      }
-    }
+    { label: "取消", type: "secondary", handler: async () => {} },
+    { label: "保存", type: "primary", handler: handleSave }
   ];
 </script>
 
+<!-- 标准按钮 -->
+<Button label="保存" type="primary" icon="icon_google_save" onClick={handleSave} />
+
+<!-- 文本按钮 -->
+<TextButton label="取消" type="secondary" onClick={async () => {}} />
+
+<!-- 图标按钮 -->
+<IconButton icon="icon_google_edit" type="primary" onClick={async () => {}} />
+
+<!-- 操作栏 -->
 <ActionBar buttons={actions} />
 ```
-
-### 高级 ActionBar 用法
-
-```svelte
-<script lang="ts">
-  import { ActionBar } from '@ticatec/uniface-element';
-  import type { ButtonActions } from '@ticatec/uniface-element';
-  
-  let isProcessing = false;
-  
-  const formActions: ButtonActions = [
-    {
-      label: "重置",
-      type: "default",
-      icon: "icon_google_undo",
-      handler: async () => {
-        resetForm();
-      }
-    },
-    null, // 分隔符
-    {
-      label: "预览",
-      type: "secondary",
-      icon: "icon_google_visibility",
-      handler: async () => {
-        showPreview();
-      }
-    },
-    {
-      label: isProcessing ? "处理中..." : "提交",
-      type: "primary",
-      icon: "icon_google_send",
-      disabled: isProcessing,
-      handler: async () => {
-        isProcessing = true;
-        try {
-          await submitForm();
-        } finally {
-          isProcessing = false;
-        }
-      }
-    }
-  ];
-</script>
-
-<ActionBar 
-  buttons={formActions} 
-  gap={12}
-  style="padding: 16px; justify-content: flex-end;"
-/>
-```
-
-### 带自定义内容的 ActionBar
-
-```svelte
-<script lang="ts">
-  import { ActionBar, Button } from '@ticatec/uniface-element';
-</script>
-
-<!-- 当没有提供 buttons 属性时，使用插槽内容 -->
-<ActionBar gap={16} style="padding: 20px;">
-  <Button label="自定义操作 1" type="primary" onClick={action1} />
-  <Button label="自定义操作 2" type="secondary" onClick={action2} />
-  <Button label="自定义操作 3" type="default" onClick={action3} />
-</ActionBar>
-```
-
-### ActionBar 属性
-
-| 属性 | 类型 | 默认值 | 描述 |
-|------|------|--------|------|
-| `buttons` | `ButtonActions` | `[]` | 按钮配置数组 |
-| `style` | `string` | `''` | 自定义 CSS 样式 |
-| `gap` | `number` | `8` | 按钮间距，单位像素 |
 
 ## 按钮类型 & 样式
 
@@ -445,7 +196,7 @@ type MouseClickHandler = (event: MouseEvent) => Promise<void>;
 
 ```svelte
 <script lang="ts">
-  import { ActionBar } from '@ticatec/uniface-element';
+  import ActionBar from '@ticatec/uniface-element/ActionBar';
   import type { ButtonActions } from '@ticatec/uniface-element';
   
   export let onSave: () => Promise<void>;
@@ -479,7 +230,7 @@ type MouseClickHandler = (event: MouseEvent) => Promise<void>;
 
 ```svelte
 <script lang="ts">
-  import { IconButton } from '@ticatec/uniface-element';
+  import IconButton from '@ticatec/uniface-element/IconButton';
   
   export let item: any;
   export let onEdit: (item: any) => Promise<void>;
@@ -517,7 +268,8 @@ type MouseClickHandler = (event: MouseEvent) => Promise<void>;
 
 ```svelte
 <script lang="ts">
-  import { Button, TextButton } from '@ticatec/uniface-element';
+  import Button from '@ticatec/uniface-element/Button';
+  import TextButton from '@ticatec/uniface-element/TextButton';
   
   let formData = {};
   let isSubmitting = false;
@@ -588,7 +340,7 @@ type MouseClickHandler = (event: MouseEvent) => Promise<void>;
 
 ```svelte
 <script lang="ts">
-  import { ActionBar } from '@ticatec/uniface-element';
+  import ActionBar from '@ticatec/uniface-element/ActionBar';
   import type { ButtonActions } from '@ticatec/uniface-element';
   
   let selectedItems = [];

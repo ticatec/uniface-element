@@ -2,7 +2,6 @@
 
     import {onMount, tick} from "svelte";
     import {DisplayMode} from "../common/DisplayMode";
-    import Popover from "../common/Popover.svelte";
     import dayjs from "dayjs";
     import Calendar from "../base-calendar";
     import type {OnChangeHandler} from "../common/OnChangeHandler";

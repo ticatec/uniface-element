@@ -12,11 +12,8 @@
     import FormContainer, {Row} from "$lib/form-panel/flex-row-form";
     import {CellField} from "$lib/form-panel/flex-form";
 
-    export let closeHandler: any;
     export let saveAction: any;
     export let submitAction: any;
-
-    export let dialog;
 
     export let data: any;
 
@@ -24,12 +21,12 @@
 
     let btnSave: ButtonAction = {
         label: '保存', type: 'primary', disabled: true, handler: async () => {
-            return await saveData()
+            await saveData()
         }
     };
     let btnSubmit: ButtonAction = {
         label: '提交', type: 'primary', disabled: true, handler: async () => {
-            return await submitData()
+            await submitData()
         }
     };
     export let actions: ButtonActions;

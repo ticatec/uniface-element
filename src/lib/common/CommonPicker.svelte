@@ -15,7 +15,7 @@
     export let autoFit: boolean = true;
     export let canClean: boolean;
     export let textValue: string;
-    export let dropDownIcon: string | null = null;
+    export let dropDownIcon: string = null as unknown as string;
     export let clean: () => void;
     export let iconClickHandler: MouseClickHandler = null as unknown as MouseClickHandler;
     export let showPopup: boolean = false;
@@ -58,7 +58,7 @@
         {/if}
     </div>
     {#if showPopup}
-        <Popover target={editorElement} on:close={()=>{showPopup=false}} {autoFit}>
+        <Popover target={editorElement} onClose={()=>{showPopup=false}} {autoFit}>
             <slot name="popup-panel"></slot>
         </Popover>
     {/if}

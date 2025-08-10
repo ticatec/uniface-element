@@ -9,7 +9,7 @@
     export let actions: Array<CardAction> = [];
     export let variant: 'plain' | '3d' = 'plain';
     export let iconColor: string | null = null;
-    export let data: any;
+    export let data: any = null;
 
 </script>
 

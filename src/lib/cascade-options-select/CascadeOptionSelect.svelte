@@ -134,6 +134,5 @@
                 </div>
             {/if}
         </div>
+    </div>
 </CommonPicker>
-
-<!--{/if}-->

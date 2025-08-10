@@ -16,7 +16,7 @@
 
 ```svelte
 <script lang="ts">
-  import { GridForm, FormField, TextEditor, NumberEditor, OptionsSelect } from '@ticatec/uniface-element';
+  import GridForm, FormField, TextEditor, NumberEditor, OptionsSelect from '@ticatec/uniface-element/GridForm, FormField, TextEditor, NumberEditor, OptionsSelect';
   
   interface UserProfile {
     firstName: string;
@@ -128,7 +128,7 @@
 
 ```svelte
 <script lang="ts">
-  import { GridForm, FormField, TextEditor, NumberEditor, DatePicker, OptionsSelect, CheckBox } from '@ticatec/uniface-element';
+  import GridForm, FormField, TextEditor, NumberEditor, DatePicker, OptionsSelect, CheckBox from '@ticatec/uniface-element/GridForm, FormField, TextEditor, NumberEditor, DatePicker, OptionsSelect, CheckBox';
   
   interface ProductForm {
     basicInfo: {

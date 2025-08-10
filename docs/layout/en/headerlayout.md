@@ -69,7 +69,7 @@ import { HeaderLayout } from '@ticatec/uniface-element/app-layout/HeaderLayout';
   import { HeaderLayout } from '@ticatec/uniface-element/app-layout/HeaderLayout';
   import { NavigatorMenu } from '@ticatec/uniface-element/NavigatorMenu';
   import { Button } from '@ticatec/uniface-element/Button';
-  import { Breadcrumbs } from '@ticatec/uniface-element/Breadcrumbs';
+  import Breadcrumbs from '@ticatec/uniface-element/Breadcrumbs';
   
   let menuItems = [
     { id: 1, text: 'Dashboard', icon: 'dashboard' },

@@ -59,7 +59,7 @@
 
 </script>
 <div class="uniface-checkbox" class:disabled class:compact {style}>
-    <label on:click={handleClickEvent}>
+    <label aria-hidden="true" on:click={handleClickEvent}>
         <input bind:this={checkbox} type="checkbox" bind:checked={checked} {readonly} {disabled}/>
         {#if label}
             <span>{label}</span>

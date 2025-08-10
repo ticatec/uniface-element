@@ -1,11 +1,8 @@
 <script lang="ts">
 
     import Pagination from "$lib/pagination";
-    import type {OnPageChange} from "$lib/pagination/OnPageChange";
     import PaginationPanel from "$lib/pagination-panel";
 
-
-    export let onPageChange: OnPageChange;
 
     let pageCount = 10;
     let pageNo = 4;

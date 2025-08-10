@@ -4,7 +4,8 @@
     import type {RowEventHandler, RowSelectEventHandler} from "$lib/data-table/UniDataTable";
     import DataCell from "$lib/data-table/parts/DataCell.svelte";
     import type DataColumn from "$lib/data-table/lib/DataColumn";
-    import type {IndicatorColumn} from "$lib";
+    import type {IndicatorColumn} from "$lib/data-table";
+
 
     export let selectable: boolean = false;
     export let rowNo: number;

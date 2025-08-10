@@ -34,9 +34,6 @@
     import MenuDemo from "./misc/menu/MenuDemo.svelte";
     import AppTopBarDemo from "./misc/app-top-bar/AppTopBarDemo.svelte";
     import ColorPickerDemo from "./pick-up/ColorPickerDemo.svelte";
-    import ProtoBoard from "./ui-designer/ProtoBoard.svelte";
-    import ResizeDemo from "./ui-designer/ResizeDemo.svelte";
-    import DottedGridPanelDemo from "./ui-designer/DottedGridPanelDemo.svelte";
     import DataTableDemo from "./data-table/DataTableDemo.svelte";
     import GroupRadioBoxDemo from "./group-box/GroupRadioBoxDemo.svelte";
     import FlexRowFormDemo from "./form-container/FlexRowFormDemo.svelte";
@@ -332,24 +329,6 @@
                     item: {
                         text: "AppTopBar",
                         data: AppTopBarDemo
-                    }
-                },
-                {
-                    item: {
-                        text: "UI Designer",
-                        data: ProtoBoard
-                    }
-                },
-                {
-                    item: {
-                        text: "Resize Demo",
-                        data: ResizeDemo
-                    }
-                },
-                {
-                    item: {
-                        text: "Dotted Grid Panel",
-                        data: DottedGridPanelDemo
                     }
                 }
             ]

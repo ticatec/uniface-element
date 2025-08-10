@@ -17,7 +17,8 @@
     export let rowHeight: number;
 
     const handleActionPanelScroll = (e: Event) => {
-        scrollTop = e.target?.scrollTop;
+        const target = e.target as HTMLDivElement;
+        scrollTop = target.scrollTop;
     }
 
     let scrollPanel: any;

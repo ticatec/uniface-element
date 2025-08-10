@@ -96,7 +96,7 @@
                             onClick={()=>action.callback(row.data)}/>
             {:else}
                 <TextButton style="flex-shrink: 0; top: 0" size="mini" type="{action.type ?? 'primary'}" label={action.label}
-                            onClick={()=>action.callback(row.data)}/>
+                            onClick={async ()=>action.callback(row.data)}/>
             {/if}
         {/each}
         {#if popupList.length > 0}
@@ -111,10 +111,10 @@
                     <div class="action-popover" style="padding: 4px 6px; text-align: center">
                         {#if action.icon}
                             <IconButton style="flex-shrink: 0; top: 0" size="mini" type="{action.type ?? 'primary'}" icon={action.icon}
-                                        onClick={()=>{action.callback(row.data); showPopup=false}}/>
+                                        onClick={async ()=>{action.callback(row.data); showPopup=false}}/>
                         {:else}
                             <TextButton style="flex-shrink: 0; top: 0" size="mini" type="{action.type ?? 'primary'}" label={action.label}
-                                        onClick={()=>{action.callback(row.data); showPopup=false}}/>
+                                        onClick={async ()=>{action.callback(row.data); showPopup=false}}/>
                         {/if}
                     </div>
                 {/each}

@@ -26,6 +26,6 @@
 
 
 </script>
-<FormField class="form-cell" {label$style} {labelSuffix} {style} {label} {required} {error} {arrangement} {height}>
+<FormField class="form-cell {arrangement}" {label$style} {labelSuffix} {style} {label} {required} {error} {height}>
     <slot/>
 </FormField>

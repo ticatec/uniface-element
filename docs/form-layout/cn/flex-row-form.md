@@ -22,7 +22,7 @@ FlexRowForm 组件由以下子组件组成：
 
 ```svelte
 <script lang="ts">
-  import { FormContainer, Row, Cell, FormField, TextEditor, NumberEditor } from '@ticatec/uniface-element';
+  import FormContainer, Row, Cell, FormField, TextEditor, NumberEditor from '@ticatec/uniface-element/FormContainer, Row, Cell, FormField, TextEditor, NumberEditor';
   
   interface UserInfo {
     firstName: string;
@@ -102,7 +102,7 @@ FlexRowForm 组件由以下子组件组成：
 
 ```svelte
 <script lang="ts">
-  import { FormContainer, Row, Cell, FormField, TextEditor, OptionsSelect, DatePicker, CheckBox } from '@ticatec/uniface-element';
+  import FormContainer, Row, Cell, FormField, TextEditor, OptionsSelect, DatePicker, CheckBox from '@ticatec/uniface-element/FormContainer, Row, Cell, FormField, TextEditor, OptionsSelect, DatePicker, CheckBox';
   
   interface EmployeeForm {
     personalInfo: {

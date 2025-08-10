@@ -17,7 +17,7 @@
     export let input$class: string = null as unknown as string;
     export let displayMode: DisplayMode = DisplayMode.Edit;
     export let showActionIcon: boolean = false;
-    export let clean: () => void;
+    export let clean: (() => void) | null = null;
 
     export let hasLeadingIcon: boolean = true;
     export let hasTrailingIcon: boolean = true;

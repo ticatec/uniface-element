@@ -38,7 +38,7 @@
 
 <div bind:this={board} class="uniface-indicator-board" style="display: {visible ? 'flex' : 'none'}">
     <div style="display: flex; flex-direction: row; justify-items: center">
-        <img src={iconLoading} width="32px" height="32px"/>
+        <img src={iconLoading} alt="loading" width="32px" height="32px"/>
         <span style="padding-left: 12px">{indicator}</span>
     </div>
 </div>

@@ -4,14 +4,14 @@
     import InlineComponent from "./InlineComponent.svelte";
     import DataTable from "$lib/data-table";
     import Box from "$lib/box";
-    import type {IndicatorColumn, RowAction} from "$lib";
+    import type {IndicatorColumn, RowAction} from "$lib/data-table";
     import {onMount} from "svelte";
 
     let actionsColumn: ActionsColumn = {
         width: 110,
         align: 'left',
         getActions: (item: any) => {
-            let actions:Array<RowAction> = [
+            let actions: Array<RowAction> = [
                 {
                     label: '查看',
                     icon: 'icon_google_list_alt',
@@ -58,7 +58,7 @@
             return actions;
         }
     }
-    let list:Array<any> = [];
+    let list: Array<any> = [];
     let list2 = [
         {
             name: "张三",
@@ -113,16 +113,22 @@
     //colBorder {actionsColumn}
     $:console.log(selectedRows)
 
-    onMount(()=> {
-        setTimeout(()=>{list=list2}, 5000);
+    onMount(() => {
+        setTimeout(() => {
+            list = list2
+        }, 5000);
     })
 </script>
 
 
 <div style="padding: 20px; box-sizing: border-box; height: 100%; background-color: #FFFFFF">
-    <Box style="width: 100%; height: 100%; border-radius: 8px; " content$style="width: 100%;  height: 100%;  padding: 12px" title="患者数据列表">
-        <DataTable style="width: 100%; height: 100%" {indicatorColumn} bind:selectedRows {columns} emptyIndicator="当前没有复合条件的数据，请更改查询参数"
-                   {list} {actionsColumn}/>
+    <Box style="width: 100%; height: 100%; border-radius: 8px; " content$style="width: 100%;  height: 100%;  padding: 12px"
+         title="患者数据列表">
+        <Box style="width: 100%; height: 100%" >
+            <DataTable style="width: 100%; height: 100%" {indicatorColumn} bind:selectedRows {columns}
+                       emptyIndicator="当前没有复合条件的数据，请更改查询参数"
+                       {list} {actionsColumn}/>
+        </Box>
         <div slot="footer" style="height: 48px;">
             <div style="position: relative; top: 50%; transform: translateY(-50%)">
                 <span>分页</span>

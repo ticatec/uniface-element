@@ -18,7 +18,7 @@
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; gap: 8px">
             <FormField label="TextEditor placeholder">
-                <TimeEditor variant="filled" input$placeholder="Please enter your name" bind:value={data.shiftStartTime}/>
+                <TimeEditor variant="filled" bind:value={data.shiftStartTime}/>
             </FormField>
             <FormField label="TextEditor max length">
                 <TimeEditor variant="filled"  bind:value={data.shiftEndTime} />

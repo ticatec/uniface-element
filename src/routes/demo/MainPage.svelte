@@ -54,16 +54,6 @@
 <IndicatorBoard/>
 
 <style>
-    .section {
-        width: 100%;
-        color: #374151;
-        padding: 6px 0;
-        font-size: 12px;
-    }
 
-    .section:hover {
-        cursor: pointer;
-        color: #298DEF;
-    }
 
 </style>

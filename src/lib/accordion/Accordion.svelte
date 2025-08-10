@@ -22,7 +22,7 @@
         }
     })
 
-    const handleAccordionClick = (accordion: AccordionItem) => (event: MouseEvent) => {
+    const handleAccordionClick = (accordion: AccordionItem) => async (event: MouseEvent) => {
         if (exclusive) {
             if (activeItem != accordion) {
                 activeItem = accordion;

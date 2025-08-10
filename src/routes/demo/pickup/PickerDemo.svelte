@@ -12,9 +12,10 @@
     import InputOptionSelect from "$lib/input-options-select";
     import LookupEditor from "$lib/lookup-editor";
     import DateRange from "$lib/date-range";
-    import UnitNumberEditor from "$lib/unit-number-editor";
-    import type {UnitOption} from "$lib";
+    import UnitNumberEditor, {type UnitOption} from "$lib/unit-number-editor";
+
     import NumberRange from "$lib/number-range";
+    import type {LoadResult} from "$lib/list-box";
 
     let airlines = [
         {code: "C", text: "南方航空"},
@@ -74,7 +75,7 @@
     let minValue: number;
     let maxValue: number;
 
-    const loadOptions = () => {
+    const loadOptions = (): Promise<LoadResult> => {
         return new Promise(resolve => {
             setTimeout(()=>{
                 resolve({
