@@ -5,7 +5,7 @@
     import {type SelectionEventHandler, SelectionMode, type TableEventHandler} from "$lib/data-table/UniDataTable";
     import utils from "$lib/common/utils";
     import {OrderDirection} from "$lib/data-table/lib/OrderDirection";
-    import i18n from "@ticatec/i18n";
+    import i18nRes from "$lib/i18nRes";
 
     export let columns: Array<DataColumn>;
     export let indicatorColumn: IndicatorColumn | null;
@@ -84,7 +84,7 @@
             {:else }
                 <div style="text-align: center" class="vertical-center">
                     {#if indicatorColumn.displayNo}
-                        <span>{i18n.getText('uniface.dataTable.rowNo', '#No')}</span>
+                        <span>{i18nRes.dataTable.rowNo}</span>
                     {/if}
                 </div>
             {/if}

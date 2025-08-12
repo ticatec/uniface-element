@@ -175,11 +175,63 @@ The library uses CSS custom properties for theming. You can customize the appear
 
 The library includes built-in internationalization support:
 
-```typescript
-import { i18n } from '@ticatec/uniface-element/i18n_resources';
+default language is english. to load other languages:
 
-// Set language
-i18n.setLanguage('en'); // or 'zh-CN'
+create a language resource json file in the static web directory, example: `/assets/uniface_zh-CN.json`
+```json
+{
+  "uniface": {
+    "common": {
+      "btnClose": "关闭",
+      "btnCancel": "取消",
+      "btnConfirm": "确定",
+      "textMore": "加载更多"
+    },
+    "colorPicker": "选择颜色",
+    "calendar": {
+      "months": [
+        "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"
+      ],
+      "monthsAbbr": [
+        "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"
+      ],
+      "weekTitle": [
+        "周日", "周一", "周二", "周三", "周四", "周五", "周六"
+      ],
+      "weekTitleAbbr": [
+        "日", "一", "二", "三", "四", "五", "六"
+      ],
+      "confirmText": "确定"
+    },
+    "upload": {
+      "btnRetry": "重试",
+      "btnRemove": "删除",
+      "btnPickup": "选择文件"
+    },
+    "propertyEditor": {
+      "colName": "属性",
+      "colValue": "值"
+    },
+    "dataTable": {
+      "rowNo": "#",
+      "actions": "操作",
+      "emptyDataSet": "暂无数据"
+    },
+    "transfer": {
+      "selectIndicator": "已选择: {{selected}}/{{total}}"
+    }
+  }
+}
+```
+
+You can load the resource file in the `+page.svelte` or other startup page.
+
+```typescript
+import i18n, {i18nUtils} from "@ticatec/i18n";
+
+// 设置语言
+i18n.setLanguage('zh-CN'); // 或 'en'
+i18nUtils.loadResources('/assets/uniface.json'); //the language code will insert before .json
 ```
 
 ## Available Imports
@@ -187,23 +239,18 @@ i18n.setLanguage('en'); // or 'zh-CN'
 ### Modular Imports
 ```typescript
 // Individual component imports
-import { Button } from '@ticatec/uniface-element/Button';
-import { DataTable } from '@ticatec/uniface-element/DataTable';
-import { SidebarLayout } from '@ticatec/uniface-element/app-layout/SidebarLayout';
-import { AttachmentFilesField } from '@ticatec/uniface-element/AttachmentFiles';
-import { ImageFilesField } from '@ticatec/uniface-element/ImageFiles';
-import { MemoEditor } from '@ticatec/uniface-element/MemoEditor';
+import  Button from '@ticatec/uniface-element/Button';
+import DataTable from '@ticatec/uniface-element/DataTable';
+import SidebarLayout from '@ticatec/uniface-element/app-layout/SidebarLayout';
+import AttachmentFilesField from '@ticatec/uniface-element/AttachmentFiles';
+import ImageFilesField from '@ticatec/uniface-element/ImageFiles';
+import MemoEditor from '@ticatec/uniface-element/MemoEditor';
 
 // Utility imports
 import { utils } from '@ticatec/uniface-element/utils';
-import type { DataColumn } from '@ticatec/uniface-element/types';
+import type { DataColumn } from '@ticatec/uniface-element/DataTable';
 ```
 
-### Barrel Imports
-```typescript
-// Import multiple components from main entry point
-import Button, DataTable, Dialog, Card from '@ticatec/uniface-element/Button, DataTable, Dialog, Card';
-```
 
 ## Development
 

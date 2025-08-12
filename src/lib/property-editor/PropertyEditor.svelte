@@ -7,7 +7,7 @@
     import PropertyDatePickup from "$lib/property-editor/component/PropertyDatePickup.svelte";
     import PropertyNumberEditor from "$lib/property-editor/component/PropertyNumberEditor.svelte";
     import PropertyOptionsSelector from "$lib/property-editor/component/PropertyOptionsSelector.svelte";
-    import i18n from "@ticatec/i18n";
+    import i18nRes from "$lib/i18nRes";
     import PropertyTextWordsEditor from "$lib/property-editor/component/PropertyPromptsTextEditor.svelte";
 
     export let fields: Array<PropertyField>;
@@ -21,8 +21,8 @@
 
     export let data: any;
 
-    let nameLabel: string = i18n.getText('uniface.propertyEditor.colName', 'Name');
-    let valueLabel: string = i18n.getText('uniface.propertyEditor.colValue', 'Value');
+    let nameLabel: string = i18nRes.propertyEditor.colName;
+    let valueLabel: string = i18nRes.propertyEditor.colValue;
 
     const getEditor = (property: PropertyField) => {
         switch (property.type) {

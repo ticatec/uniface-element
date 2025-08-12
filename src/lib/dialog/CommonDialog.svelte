@@ -2,9 +2,9 @@
 
     import Dialog from "./Dialog.svelte";
     import type {ButtonAction, ButtonActions} from "$lib/action-bar";
-    import i18n from "@ticatec/i18n";
     import type {DialogCloseConfirm} from "$lib/dialog/DialogCloseConfirm";
     import {ModalResult, type OnClose} from "./ModalResult";
+    import i18nRes from "$lib/i18nRes";
 
     export let title: string;
     export let width: string = 'unset';
@@ -20,7 +20,7 @@
     let dialog: any;
 
     let confirmAction: ButtonAction = {
-        label: confirmText??i18n.getText('uniface.btnConfirm', 'OK'),
+        label: confirmText??i18nRes.common.btnConfirm,
         type: "primary",
         disabled: enableConfirm,
         handler: async ()=> {

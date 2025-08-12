@@ -2,9 +2,9 @@
     import {fade} from "svelte/transition";
     import type {DialogCloseConfirm} from "$lib/dialog/DialogCloseConfirm";
     import ActionBar, {type ButtonAction, type ButtonActions} from "$lib/action-bar";
-    import i18n from "@ticatec/i18n";
     import {getContext, onMount} from "svelte";
     import {ModalResult, type OnClose} from "./ModalResult";
+    import i18nRes from "$lib/i18nRes";
 
     export let title: string;
     export let width: string = 'unset';
@@ -23,7 +23,6 @@
     export const close = async (result: ModalResult) => {
         let confirm = closeConfirm && result == ModalResult.Cancel ? await closeConfirm() : true;
         if (confirm) {
-            console.log('关闭窗口')
             closeDialog();
             onClose?.(result);
         }
@@ -53,7 +52,7 @@
 
     onMount(async () => {
         closeAction = closeAction ?? {
-            label: i18n.getText('uniface.btnClose', 'Close'),
+            label: i18nRes.common.btnClose,
             type: 'secondary'
         };
         closeAction.handler = () => close(ModalResult.Cancel);

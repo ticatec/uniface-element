@@ -5,7 +5,8 @@
     import {ProgressStatus} from "$lib/progress-bar/ProgressStatus";
     import {onMount} from "svelte";
     import type UploadFile from "$lib/attachment-files/UploadFile";
-    import i18n from "@ticatec/i18n";
+    import i18nRes from "$lib/i18nRes";
+
 
     export let file: UploadFile;
     export let removeFile: (file: any) => void;
@@ -13,9 +14,9 @@
     let status: ProgressStatus;
     let progress: number = 0;
 
-    let cancelLabel: string = i18n.getText('uniface.upload.btnCancel', 'Cancel');
-    let retryLabel: string = i18n.getText('uniface.upload.btnRetry', 'Retry');
-    let removeLabel: string = i18n.getText('uniface.upload.btnRemove', 'Delete');
+    let cancelLabel: string = i18nRes.common.btnCancel;
+    let retryLabel: string = i18nRes.upload.btnRetry;
+    let removeLabel: string = i18nRes.upload.btnRemove;
 
     const cancelUpload = async () => {
         if (await file.cancel()) {

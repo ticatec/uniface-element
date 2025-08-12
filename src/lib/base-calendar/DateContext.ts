@@ -1,5 +1,5 @@
+import i18nRes from "$lib/i18nRes";
 import i18n from "@ticatec/i18n";
-
 
 export default class DateContext {
 
@@ -21,19 +21,19 @@ export default class DateContext {
 
 
     get months():Array<string> {
-        return i18n.get("uniface.calendar.months");
+        return i18nRes.calendar.months;
     }
 
     get monthsAbbr():Array<string> {
-        return i18n.get("uniface.calendar.monthsAbbr");
+        return i18nRes.calendar.monthsAbbr;
     }
 
     get weekTitle():Array<string> {
-        return i18n.get("uniface.calendar.weekTitle");
+        return i18nRes.calendar.weekTitle;
     }
 
     get weekTitleAbbr():Array<string> {
-        return i18n.get("uniface.calendar.weekTitleAbbr");
+        return i18nRes.calendar.weekTitleAbbr;
     }
 
     set weekBegin(value: number) {

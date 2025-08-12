@@ -1,9 +1,8 @@
-import i18n from "@ticatec/i18n";
-import langRes from "$lib/i18n_resources/uniface_en_resource";
+
+import i18nRes from "$lib/i18nRes";
 
 type ShowFun = (message: string, title?: string, escapeHTML?: boolean) => Promise<void>;
 type ShowConfirmFun = (message: string, title?: string | null, escapeHTML?: boolean, type?: 'info' | 'warning') => Promise<any>;
-;
 
 export default interface IMessageBox {
     showInfo: ShowFun;
@@ -17,11 +16,11 @@ enum ModalResult {
 }
 
 const InfoButtons = [
-    {text: langRes.uniface.btnClose, key: 'uniface.btnClose', type: 'primary', result: ModalResult.MR_OK}
+    {text: i18nRes.common.btnClose, type: 'primary', result: ModalResult.MR_OK}
 ];
 const ConfirmButtons = [
-    {text: langRes.uniface.btnConfirm, key: 'uniface.btnConfirm', type: 'primary', result: ModalResult.MR_OK},
-    {text: langRes.uniface.btnCancel, key: 'uniface.btnCancel', type: 'secondary', result: ModalResult.MR_CANCEL}
+    {text: i18nRes.common.btnConfirm, type: 'primary', result: ModalResult.MR_OK},
+    {text: i18nRes.common.btnCancel, type: 'secondary', result: ModalResult.MR_CANCEL}
 ];
 
 

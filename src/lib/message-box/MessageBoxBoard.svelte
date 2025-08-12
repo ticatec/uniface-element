@@ -5,7 +5,6 @@
     import Button from "../button";
     import {fade} from "svelte/transition";
     import utils from "$lib/common/utils";
-    import i18n from "@ticatec/i18n";
 
     export let appTitle: string = null as unknown as string;
 
@@ -38,8 +37,7 @@
             escapeHTML = _escapeHTML != false;
             if (_buttons) {
                 _buttons.forEach(button => {
-                    console.log(button.key, i18n.getText(button.key, button.text));
-                    button.label = i18n.getText(button.key, button.text)
+                    button.label = button.text
                 });
             }
             buttons = _buttons;

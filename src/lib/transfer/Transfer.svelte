@@ -5,6 +5,7 @@
     import type {FunFilter} from "$lib/list-box";
     import type {TransferData} from "./types";
     import i18n, {i18nUtils} from "@ticatec/i18n";
+    import i18nRes from "$lib/i18nRes";
 
 
     export let style: string = '';
@@ -43,7 +44,7 @@
     <ListBox class="list-container" title={sourceTitle} {filter} style="{style}; grid-column: 1/2" list={sourceList} selectMode="multiple"
              bind:selectedList={sourceSelectedList} {itemRender}>
         <div slot="footer" style={footer$style}>
-            <span>{i18nUtils.formatText(i18n.getText('uniface.transfer.selectIndicator'), {
+            <span>{i18nUtils.formatText(i18nRes.transfer.selectIndicator, {
                 selected: sourceSelectedList.length,
                 total: sourceList.length
             })}</span>

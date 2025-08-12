@@ -1,9 +1,7 @@
 <script lang="ts">
 
 
-    // Define props with default values
-    import i18n from "@ticatec/i18n";
-    import langRes from "$lib/i18n_resources/uniface_en_resource";
+    import i18nRes from "$lib/i18nRes";
 
     export let initialColor = "#ffffff";
     export let showHex = true;
@@ -47,7 +45,7 @@
 
 <div class="color-picker">
     <label for="color-input">
-        {i18n.getText('uniface.pickupColor', langRes.uniface.colorPicker)}
+        {i18nRes.pickupColor}
     </label>
 
     <div class="color-input-group">

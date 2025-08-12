@@ -9,7 +9,7 @@
     import {TextButton} from "../button";
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import CommonPicker from "$lib/common/CommonPicker.svelte";
-    import i18nContext from "@ticatec/i18n";
+    import i18nRes from "$lib/i18nRes";
 
     export let disabled: boolean = false;
     export let readonly: boolean = false;
@@ -31,7 +31,7 @@
     }
 
 
-    let confirmText = i18nContext.getText('uniface.calendar.confirmText');
+    let confirmText = i18nRes.calendar.confirmText;
     let textValue: string;
     let editor: any;
 

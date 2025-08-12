@@ -2,7 +2,7 @@
 
 
     import {onMount} from "svelte";
-    import i18n from "@ticatec/i18n";
+    import i18n, {i18nUtils} from "@ticatec/i18n";
 
     import IndicatorBoard from "$lib/indicator";
     import {DialogBoard} from "$lib/dialog";
@@ -12,15 +12,14 @@
     import HomePage from "./HomePage.svelte";
     import MainMenu from "./MainMenu.svelte";
     import type MenuItem from "../../lib/nav-menu/MenuItem";
-    import {en_resource} from "$lib/i18n_resources";
     import PopupHint from "$lib/popup-hint/PopupHint.svelte";
 
     let initialized: boolean = false;
 
     onMount(() => {
-        i18n.setResource(en_resource);
         initialized = true;
-
+        i18n.language = 'zh-CN';
+        i18nUtils.loadResources('/assets/uniface.json');
     });
 
     let demoComponent: any;

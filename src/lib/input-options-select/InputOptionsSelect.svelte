@@ -4,10 +4,10 @@
     import type {OnChangeHandler} from "$lib/common/OnChangeHandler";
     import {tick} from "svelte";
     import type {LazyLoader} from "../list-box/types"
+    import i18nRes from "$lib/i18nRes";
 
     import loading from "../assets/loading.gif"
     import CommonPicker from "$lib/common/CommonPicker.svelte";
-    import i18n from "@ticatec/i18n";
 
     export let variant: '' | 'plain' | 'outlined' | 'filled' = '';
     export let disabled: boolean = false;
@@ -172,7 +172,7 @@
         {/each}
         {#if hasMore}
             <div class="more-indicator-footer" aria-hidden="true" on:click={loadMore}>
-                {i18n.getText('uniface.loadMore', 'Load more')}
+                {i18nRes.common.textMore}
             </div>
         {/if}
         {#if isBusy}

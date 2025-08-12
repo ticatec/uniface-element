@@ -277,12 +277,63 @@ await window.MessageBox.showInfo("操作完成", "提示");
 
 组件库内置国际化支持：
 
+中文资源文件：  
+可以将文件放置在静态网站的目录下，比如`/assets/uniface_zh-CN.json`
+```json
+{
+  "uniface": {
+    "common": {
+      "btnClose": "关闭",
+      "btnCancel": "取消",
+      "btnConfirm": "确定",
+      "textMore": "加载更多"
+    },
+    "colorPicker": "选择颜色",
+    "calendar": {
+      "months": [
+        "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"
+      ],
+      "monthsAbbr": [
+        "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"
+      ],
+      "weekTitle": [
+        "周日", "周一", "周二", "周三", "周四", "周五", "周六"
+      ],
+      "weekTitleAbbr": [
+        "日", "一", "二", "三", "四", "五", "六"
+      ],
+      "confirmText": "确定"
+    },
+    "upload": {
+      "btnRetry": "重试",
+      "btnRemove": "删除",
+      "btnPickup": "选择文件"
+    },
+    "propertyEditor": {
+      "colName": "属性",
+      "colValue": "值"
+    },
+    "dataTable": {
+      "rowNo": "#",
+      "actions": "操作",
+      "emptyDataSet": "暂无数据"
+    },
+    "transfer": {
+      "selectIndicator": "已选择: {{selected}}/{{total}}"
+    }
+  }
+}
+```
+
 ```typescript
-import { i18n } from '@ticatec/uniface-element/i18n_resources';
+import i18n, {i18nUtils} from "@ticatec/i18n";
 
 // 设置语言
 i18n.setLanguage('zh-CN'); // 或 'en'
+i18nUtils.loadResources('/assets/uniface.json');
 ```
+
+
 
 ## 可用导入
 

@@ -1,0 +1,43 @@
+{
+  "uniface": {
+    "common": {
+      "btnClose": "关闭",
+      "btnCancel": "取消",
+      "btnConfirm": "确定",
+      "textMore": "加载更多"
+    },
+    "colorPicker": "选择颜色",
+    "calendar": {
+      "months": [
+        "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"
+      ],
+      "monthsAbbr": [
+        "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"
+      ],
+      "weekTitle": [
+        "周日", "周一", "周二", "周三", "周四", "周五", "周六"
+      ],
+      "weekTitleAbbr": [
+        "日", "一", "二", "三", "四", "五", "六"
+      ],
+      "confirmText": "确定"
+    },
+    "upload": {
+      "btnRetry": "重试",
+      "btnRemove": "删除",
+      "btnPickup": "选择文件"
+    },
+    "propertyEditor": {
+      "colName": "属性",
+      "colValue": "值"
+    },
+    "dataTable": {
+      "rowNo": "#",
+      "actions": "操作",
+      "emptyDataSet": "暂无数据"
+    },
+    "transfer": {
+      "selectIndicator": "已选择: {{selected}}/{{total}}"
+    }
+  }
+}

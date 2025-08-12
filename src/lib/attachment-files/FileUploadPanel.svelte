@@ -8,7 +8,7 @@
     import type {FileUpload} from "$lib/attachment-files/FileUpload";
     import utils from "$lib/common/utils";
     import ModalPopover from "$lib/common/ModalPopover.svelte";
-    import i18n from "@ticatec/i18n";
+    import i18nRes from "$lib/i18nRes";
 
     export let accept: string = "*/*";
     export let maxSize: number = 1024 * 1024 * 10;
@@ -19,7 +19,7 @@
     export let canClose: boolean = false;
     export let visible: boolean = false;
 
-    let btnPickup: string = i18n.getText('uniface.upload.btnPickup', "Pickup files");
+    let btnPickup: string = i18nRes.upload.btnPickup;
 
     let files: Array<UploadFile> = [];
     let dropZone: any;
